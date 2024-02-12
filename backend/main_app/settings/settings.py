@@ -181,9 +181,9 @@ STATIC_URL = 'static/'
 
 # Define Path of Static files
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'frontend/build/static'
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
 
 
 # Define path of Uploaded uploaded files

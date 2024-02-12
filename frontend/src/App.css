@@ -1,17 +1,93 @@
-.App {
-  text-align: center;
+/* Roboto Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* Poppins Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* CSS Font Size Variables */
+:root {
+
+  /* For Display Text  */
+  --display: 4rem;
+  /* 64px */
+  --display-height: 44px;
+
+  /* For Heading Text  */
+  --heading: 2.813rem;
+  /* 45px */
+  --heading-height: 36px;
+
+  /* For Title Text  */
+  --title: 1.25rem;
+  /* 20px */
+  --title-height: 24px;
+  --title-spacing: 0.15px;
+
+  /* For Label Text  */
+  --label: 1.125rem;
+  /* 18px */
+  --label-height: 16px;
+  --label-spacing: 0.5px;
+
+  /* For body Text  */
+  --body-m: 0.875rem;
+  /* 14px */
+  --body-m-height: 20px;
+  --body-m-spacing: 0.25px;
+
+  /* Define Color variables */
 }
+
+
+input,
+button {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+
+/* body  */
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Main Container Styles */
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+
+/* Default react page styles */
+
+.App {
+  width: 100%;
+}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -24,14 +100,17 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

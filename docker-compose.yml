@@ -22,7 +22,7 @@ services:
     volumes:
       - ./frontend:/frontend  # Mount the React.js project directory as a volume
     environment:
-      - REACT_APP_API_URL=http://django:8000/api  # Set the API URL to communicate with Django backend
+      - REACT_APP_API_URL=http://django_backend:8000/api  # Set the API URL to communicate with Django backend
     depends_on:
       - django_backend  # Depend on the Django service
   
