@@ -70,16 +70,14 @@ REST_FRAMEWORK = {
 
 ROOT_URLCONF = 'main_project.urls'
 
+
 # Allowing Origins CORS Request
 
+# CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://loaclhost:8000",
-#     "http://loaclhost:3000",
-# ]
+~ = [
+    "http://loaclhost:8000"
+]
 
 
 # Allowing Origins CORS Request Methods
