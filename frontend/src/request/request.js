@@ -5,12 +5,10 @@ import axios from 'axios';
 
 export default async function axiosRequest(APIUrl, method = 'GET', data = null, headers = {}) {
 
-    const absoluteUrl = `http://localhost:8000/${APIUrl}`
-
     try {
         const config = {
             method,
-            absoluteUrl,
+            APIUrl,
             data,
             headers,
             // You can customize other options like timeout, etc. here
@@ -34,10 +32,8 @@ export default async function axiosRequest(APIUrl, method = 'GET', data = null, 
 
 export async function fetchRequest(APIUrl, method = 'GET', data = null, headers = {}) {
 
-    const absoluteUrl = `http://localhost:8000/${APIUrl}`
-
     try {
-        const response = await fetch(absoluteUrl, {
+        const response = await fetch(APIUrl, {
             method: method,
             headers: headers,
             body: data ? JSON.stringify(data) : null,
