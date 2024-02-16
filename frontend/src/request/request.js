@@ -18,12 +18,7 @@ export default async function axiosRequest(APIUrl, method = 'GET', data = null, 
 
         const response = await axios(config);
 
-        // Check if the request was successful (status code in the range 200-299).
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        // Return the response JSON.
+        // Return the response.
         return response;
 
     } catch (error) {
