@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 
 
 // Importing User Define Components/Utils.
-import Layout from './Components/Layout/Layout';
+import Layout from './components/layout/Layout';
 
 
 // Default React Home Page.

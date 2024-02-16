@@ -1,3 +1,8 @@
+html {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 /* || RESET */
 
 *,
@@ -6,4 +11,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
 }
