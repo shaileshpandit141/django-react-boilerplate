@@ -75,7 +75,7 @@ ROOT_URLCONF = 'main_project.urls'
 
 # CORS_ALLOW_ALL_ORIGINS = True
 
-~ = [
+CORS_ALLOWED_ORIGINS = [
     "http://loaclhost:8000"
 ]
 
