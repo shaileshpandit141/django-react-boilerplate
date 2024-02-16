@@ -3,9 +3,9 @@ import axios from 'axios';
 
 // Makeing API request using axios.
 
-export default async function axiosRequest(relativeUrl, method, data = null, headers = {}) {
+export default async function axiosRequest(APIUrl, method = 'GET', data = null, headers = {}) {
 
-    const absoluteUrl = `http://localhost:8000/${relativeUrl}`
+    const absoluteUrl = `http://localhost:8000/${APIUrl}`
 
     try {
         const config = {
@@ -37,9 +37,9 @@ export default async function axiosRequest(relativeUrl, method, data = null, hea
 
 // Makeing API request using fetch.
 
-export async function fetchRequest(relativeUrl, method = 'GET', data = null, headers = {}) {
+export async function fetchRequest(APIUrl, method = 'GET', data = null, headers = {}) {
 
-    const absoluteUrl = `http://localhost:8000/${relativeUrl}`
+    const absoluteUrl = `http://localhost:8000/${APIUrl}`
 
     try {
         const response = await fetch(absoluteUrl, {
