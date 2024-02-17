@@ -9,75 +9,91 @@
 /* CSS Font Size Variables */
 :root {
 
-  /* For Display Text  */
-  --display: 4rem;
-  /* 64px */
-  --display-height: 44px;
+    /* For Display Text  */
+    --display: 4rem;
+    --display-height: 44px;
 
-  /* For Heading Text  */
-  --heading: 2.813rem;
-  /* 45px */
-  --heading-height: 36px;
+    /* For Heading Text  */
+    --heading: 2.813rem;
+    --heading-height: 36px;
 
-  /* For Title Text  */
-  --title: 1.25rem;
-  /* 20px */
-  --title-height: 24px;
-  --title-spacing: 0.15px;
+    /* For Title Text  */
+    --title: 1.5rem;
+    --title-height: 24px;
+    --title-spacing: 0.15px;
 
-  /* For Label Text  */
-  --label: 1.125rem;
-  /* 18px */
-  --label-height: 16px;
-  --label-spacing: 0.5px;
+    /* For Label Text  */
+    --label: 1.125rem;
+    --label-height: 16px;
+    --label-spacing: 0.5px;
 
-  /* For body Text  */
-  --body-m: 0.875rem;
-  /* 14px */
-  --body-m-height: 20px;
-  --body-m-spacing: 0.25px;
+    /* For body Text  */
+    --body-m: 0.875rem;
+    --body-m-height: 20px;
+    --body-m-spacing: 0.25px;
 
-  /* Define Color variables */
-  --bg: #282c34;
-  --text-color: #fff;
-  --header-bg: #394250;
-  --footer-bg: #394250;
-  --logo-text-color: #009141;
-  --small-sidebar-bg: #394250;
+    /* Define Color variables dark mode */
+    --background-color: #282c34;
+    --text-color: #fff;
+    --header-background: #394250;
+    --footer-background: #394250;
+    --sidebar-background: #394250;
+    --hover-color: #009141;
+
+    /* Define Color variables light mode */
+    --background-color: #ffffff;
+    --text-color: #000000;
+
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #282c34;
+        --text-color: #fff;
+    }
 }
 
 
 input,
 button {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 
 /* body  */
 body {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 
 /* Main Container Styles */
 #root {
-  position: relative;
-  width: 100%;
-  background-color: var(--bg);
-  overflow: hidden;
-  overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    background-color: var(--background-color);
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 
 /* Protect Link OverFlow during Click.  */
 .protect--overflow {
-  display: flex;
-  overflow: hidden;
-  width: fit-content;
+    display: flex;
+    overflow: hidden;
+    width: fit-content;
 }
 
 
@@ -88,47 +104,48 @@ body {
 /* Default react page styles */
 
 .App {
-  width: 100%;
-  grid-column: 2/3;
+    user-select: none;
+    width: 100%;
+    grid-column: 2/3;
 }
 
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 
 .App-header {
-  /* background-color: #282c34; */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    /* background-color: #282c34; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
 
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }

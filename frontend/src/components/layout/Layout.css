@@ -49,11 +49,11 @@
 
 /* Header Container Styles  */
 .header--container {
-    background-color: var(--header-bg);
+    background-color: var(--header-background);
 }
 
 
 /* Footer Container Styles  */
 .footer--container {
-    background-color: var(--footer-bg);
+    background-color: var(--footer-background);
 }
