@@ -26,10 +26,12 @@ SECRET_KEY = 'django-insecure-@@asrns2!xx5hinsao-_anihzf%8a1i-9189j)hmw=elpy96wd
 DEBUG = True
 
 
+# Hosts Or Ip Allowed Configuration.
+
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Installed Apps Configuration.
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+
+# Third-Party and User Created Installed Apps Configuration.
+
+INSTALLED_APPS += [
     'rest_framework',
     'corsheaders',
 ]
@@ -76,7 +84,8 @@ ROOT_URLCONF = 'main_project.urls'
 # CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "http://loaclhost:8000"
+    "http://loaclhost:8000",
+    "http://loaclhost:3000"
 ]
 
 
