@@ -181,16 +181,15 @@
     position: absolute;
     background-color: var(--sidebar-background);
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 16px;
     padding-top: 4.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    transition: transform 0.3s ease-in-out;
     transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
 }
 
 
@@ -207,6 +206,15 @@
 }
 
 
+.small--menu--container .small--menu--wrapper {
+    width: 100%;
+    padding-top: 2rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 100;
+}
+
+
 .small--menu--container .links--container {
     width: 100%;
     display: flex;
@@ -214,7 +222,6 @@
     align-items: flex-end;
     justify-content: flex-start;
     row-gap: 16px;
-    margin-top: 2rem;
 }
 
 

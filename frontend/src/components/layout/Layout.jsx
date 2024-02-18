@@ -13,7 +13,7 @@ export default function MainLayout() {
             </section>
 
             {/* Main Content Section.  */}
-            <section className='grid--element--center'>
+            <section className='grid--element--center main--content--container'>
                 <Outlet />
             </section>
 

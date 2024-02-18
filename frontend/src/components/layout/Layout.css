@@ -50,6 +50,18 @@
 /* Header Container Styles  */
 .header--container {
     background-color: var(--header-background);
+    position: fixed;
+    /* top: 0;
+    right: 0;
+    left: 0;
+    bottom: unset; */
+    overflow: visible;
+}
+
+
+/* Main Content section styles  */
+.main--content--container {
+    margin-top: 4.5rem;
 }
 
 

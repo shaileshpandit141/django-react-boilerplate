@@ -1,4 +1,4 @@
-import logo from './assets/images/logo.svg';
+import React from 'react';
 import './App.css';
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
@@ -7,25 +7,13 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 import Layout from './components/layout/Layout';
 
 
-// Default React Home Page.
+// Default Custom React Home Page.
 function DefaultReactHome() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <h2>Hello Reactjs</h2>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <h2>
+                Welcome! to Django React Boilerplate.
+            </h2>
         </div>
     )
 }

@@ -60,7 +60,9 @@ export default function Header() {
             </header>
             <div className={`small--menu--container ${sideBarState && 'active--small--menu'}`}>
                 {/* Also insert nav Elements here  */}
-                <NavElements />
+                <div className="small--menu--wrapper">
+                    <NavElements />
+                </div>
             </div>
         </>
     )
