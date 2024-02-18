@@ -4,17 +4,17 @@ import { NavLink } from 'react-router-dom'
 import notesImg from '../../assets/images/logo.svg'
 
 
-function NavElements() {
+function NavElements(param) {
     return (
         <nav className="links--container">
             <div className="protect--overflow">
-                <NavLink to="#">Link 1</NavLink>
+                <NavLink to="#" onClick={param.handelSideBar}>Link 1</NavLink>
             </div>
             <div className="protect--overflow">
-                <NavLink to="#">Link 2</NavLink>
+                <NavLink to="#" onClick={param.handelSideBar}>Link 2</NavLink>
             </div>
             <div className="protect--overflow">
-                <NavLink to="#">Login</NavLink>
+                <NavLink to="#" onClick={param.handelSideBar}>Login</NavLink>
             </div>
         </nav>
     )
@@ -29,7 +29,6 @@ export default function Header() {
     function handelSideBar() {
         setSideBarState(prevState => !prevState)
     }
-
 
     return (
         <>
@@ -60,9 +59,7 @@ export default function Header() {
             </header>
             <div className={`small--menu--container ${sideBarState && 'active--small--menu'}`}>
                 {/* Also insert nav Elements here  */}
-                <div className="small--menu--wrapper">
-                    <NavElements />
-                </div>
+                <NavElements handelSideBar={handelSideBar} />
             </div>
         </>
     )
