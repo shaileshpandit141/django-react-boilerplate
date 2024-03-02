@@ -33,11 +33,11 @@
     --body-m-spacing: 0.25px;
 
     /* Define Color variables dark mode */
-    --background-color: #282c34;
+    --background-color: #09090b;
     --text-color: #fff;
-    --header-background: #394250;
-    --footer-background: #394250;
-    --sidebar-background: #394250;
+    --header-background: #32343a;
+    --sidebar-background: #32343a;
+    --footer-background: #32343a;
     --hover-color: #009141;
 
     /* Define Color variables light mode */
@@ -57,7 +57,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-color: #282c34;
+        --background-color: #09090b;
         --text-color: #fff;
     }
 }
