@@ -35,9 +35,9 @@
     /* Define Color variables dark mode */
     --background-color: #09090b;
     --text-color: #fff;
-    --header-background: #32343a;
-    --sidebar-background: #32343a;
-    --footer-background: #32343a;
+    --header-background: #f0f0f0;
+    --sidebar-background: #21252b;
+    --footer-background: #f0f0f0;
     --hover-color: #009141;
 
     /* Define Color variables light mode */
@@ -55,12 +55,15 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #09090b;
         --text-color: #fff;
+        --header-background: #3333338d;
+        --sidebar-background: #32343a;
+        --footer-background: #3333336d;
     }
-}
+} */
 
 
 input,
@@ -108,7 +111,7 @@ body {
     grid-column: 2/3;
     width: 100%;
     height: fit-content;
-    min-height: calc(100vh - 4.5rem);
+    min-height: calc(100vh - 4rem);
 
     display: flex;
     flex-direction: column;

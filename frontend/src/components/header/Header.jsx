@@ -1,20 +1,20 @@
 import React from 'react'
 import './Header.css'
 import { NavLink } from 'react-router-dom'
-import notesImg from '../../assets/images/logo.svg'
+import notesImg from '../../assets/images/logo.png'
 
 
-function NavElements(param) {
+function NavElements(props) {
     return (
         <nav className="links--container">
             <div className="protect--overflow">
-                <NavLink to="#" onClick={param.handelSideBar}>Link 1</NavLink>
+                <NavLink to="#" onClick={props.handelSideBar}>Link 1</NavLink>
             </div>
             <div className="protect--overflow">
-                <NavLink to="#" onClick={param.handelSideBar}>Link 2</NavLink>
+                <NavLink to="#" onClick={props.handelSideBar}>Link 2</NavLink>
             </div>
             <div className="protect--overflow">
-                <NavLink to="#" onClick={param.handelSideBar}>Login</NavLink>
+                <NavLink to="#" onClick={props.handelSideBar}>Login</NavLink>
             </div>
         </nav>
     )
@@ -40,7 +40,7 @@ export default function Header() {
                         </NavLink>
                     </figure>
                     <h3 className='logo--title'>
-                        <span>Logo</span>
+                        {/* <span>Logo</span> */}
                         <span>Title</span>
                     </h3>
                 </section>
