@@ -6,19 +6,19 @@ import Footer from '../footer/Footer'
 
 export default function MainLayout() {
     return (
-        <main className='grid--wrapper'>
+        <main className='grid-wrapper'>
             {/* Header Section. */}
-            <section className="grid--wrapper grid--element--full header--container">
+            <section className="grid-wrapper grid-element-full header-container">
                 <Header />
             </section>
 
             {/* Main Content Section.  */}
-            <section className='grid--element--center main--content--container'>
+            <section className='grid-element-center main-content-container'>
                 <Outlet />
             </section>
 
             {/* Footer Section. */}
-            <section className="grid--wrapper grid--element--full footer--container">
+            <section className="grid-wrapper grid-element-full footer-container">
                 <Footer />
             </section>
         </main>

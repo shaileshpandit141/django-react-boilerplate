@@ -1,4 +1,4 @@
-.grid--wrapper {
+.grid-wrapper {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -8,19 +8,19 @@
 
 
 @media (width <=769px) {
-    .grid--wrapper {
+    .grid-wrapper {
         grid-template-columns: 18px 1fr 18px;
     }
 }
 
 
-.grid--element--full {
+.grid-element-full {
     grid-column: 1/-1;
     width: 100%;
 }
 
 
-.grid--element--center {
+.grid-element-center {
     grid-column: 2/-2;
     width: 100%;
     transition: all 0.3s ease-in-out;
@@ -28,19 +28,19 @@
 
 
 /* Header Container Styles  */
-.header--container {
+.header-container {
     background-color: var(--header-background);
     box-shadow: 0 0.5px 2px #0000003d;
 }
 
 
 /* Main Content section styles  */
-.main--content--container {
+.main-content-container {
     background-color: transparent;
 }
 
 
 /* Footer Container Styles  */
-.footer--container {
+.footer-container {
     background-color: var(--footer-background);
 }
