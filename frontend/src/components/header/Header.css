@@ -15,7 +15,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
 }
 
 
@@ -25,14 +24,6 @@
     justify-content: center;
     column-gap: 4px;
     text-decoration: none;
-}
-
-
-.logo-link .logo-dot {
-    aspect-ratio: 1/1;
-    height: 24px;
-    background-color: var(--hover-color);
-    border-radius: 999rem;
 }
 
 
@@ -48,7 +39,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 16px;
 }
 
 
@@ -104,7 +94,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
     /* background-color: blue; */
 }
 
@@ -153,10 +142,12 @@
     background-color: transparent;
 }
 
+
 .menu .active-1::before {
     transform: rotate(-45deg);
     background-color: var(--hover-color);
 }
+
 
 .menu .active-2::after {
     transform: rotate(45deg);
@@ -166,22 +157,25 @@
 
 /* Small menu styls  */
 .small-menu-container {
-    position: absolute;
+    position: fixed;
     background-color: var(--sidebar-background);
-    /* width: 100%;
-    height: 100vh; */
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
-    padding: 16px;
-    padding-top: 4.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    left: auto;
+    width: 100%;
+    max-width: 240px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+}
+
+
+.small-menu-container .menu-container {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 24px;
 }
 
 
@@ -199,18 +193,18 @@
 
 
 .small-menu-container .links-container {
+    padding-block: 8px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    row-gap: 16px;
-    padding-block: 16px;
     border-top: 1.5px solid #0000003d;
 }
 
 
 .small-menu-container .links-container a {
+    padding: 8px 16px;
+    display: inline-block;
+    width: 100%;
     color: #fff;
     text-decoration: none;
     text-transform: capitalize;
@@ -221,5 +215,18 @@
 
 
 .small-menu-container .links-container a:hover {
-    color: var(--hover-color);
+    background-color: var(--hover-color);
+}
+
+
+.bg-sidebar {
+    position: fixed;
+    background-color: #000000dc;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 0.3s ease-in-out;
 }

@@ -3,8 +3,8 @@ import './App.css';
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 
-// Importing User Define Components/Utils.
-import Layout from './components/layout/Layout';
+// Importing User Define Components and Utils.
+import { Home as HomeLayoyt } from './components/ui/ui';
 
 
 // Default Custom React Home Page.
@@ -21,7 +21,7 @@ function DefaultReactHome() {
 
 // Creating All Router and Define All Route.
 const router = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
+    <Route path='/' element={<HomeLayoyt />}>
         <Route index element={<DefaultReactHome />} />
     </Route>
 ))

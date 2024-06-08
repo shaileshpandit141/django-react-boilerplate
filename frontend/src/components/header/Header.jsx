@@ -1,20 +1,19 @@
 import React from 'react'
 import './Header.css'
 import { NavLink } from 'react-router-dom'
-import notesImg from '../../assets/images/logo.png'
 
 
 function NavElements(props) {
     return (
         <nav className="links-container">
             <div className="protect-overflow">
-                <NavLink to="#" onClick={props.handelSideBar}>Link 1</NavLink>
+                <NavLink to="#" >Link 1</NavLink>
             </div>
             <div className="protect-overflow">
-                <NavLink to="#" onClick={props.handelSideBar}>Link 2</NavLink>
+                <NavLink to="#" >Link 2</NavLink>
             </div>
             <div className="protect-overflow">
-                <NavLink to="#" onClick={props.handelSideBar}>Login</NavLink>
+                <NavLink to="#" >Login</NavLink>
             </div>
         </nav>
     )
@@ -23,19 +22,21 @@ function NavElements(props) {
 
 export default function Header() {
 
-
-    const [sideBarState, setSideBarState] = React.useState(false)
+    const [closeSidebarState, setCloseSidebarState] = React.useState(false)
 
     function handelSideBar() {
-        setSideBarState(prevState => !prevState)
+        setCloseSidebarState(true)
+    }
+
+    function closeSidebar() {
+        setCloseSidebarState(false)
     }
 
     return (
         <>
-            <header className='grid-element-center header'>
+            <header className='grid-column-2-2 header'>
                 <section className='left-container'>
                     <NavLink to="#" className="logo-link">
-                        <div className="logo-dot"></div>
                         <h3 className='logo-text'>Logo</h3>
                     </NavLink>
                 </section>
@@ -47,14 +48,20 @@ export default function Header() {
                     <NavElements />
                     <div className="menu-container">
                         <div onClick={handelSideBar} className='menu'>
-                            <div className={`menu-line ${sideBarState && 'active-0 active-1 active-2'}`}></div>
+                            <div className="menu-line"></div>
                         </div>
                     </div>
                 </section>
             </header>
-            <div className={`small-menu-container ${sideBarState && 'active-small-menu'}`}>
+            <div onClick={closeSidebar} className={`${closeSidebarState && 'bg-sidebar'}`}></div>
+            <div className={`small-menu-container ${closeSidebarState && 'active-small-menu'}`}>
                 {/* Also insert nav Elements here  */}
-                <NavElements handelSideBar={handelSideBar} />
+                <div className="menu-container">
+                    <div onClick={closeSidebar} className='menu'>
+                        <div className="menu-line active-0 active-1 active-2"></div>
+                    </div>
+                </div>
+                <NavElements />
             </div>
         </>
     )
