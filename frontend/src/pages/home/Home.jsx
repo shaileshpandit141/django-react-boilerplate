@@ -24,11 +24,13 @@ export default function Home() {
     }, [])
 
     return (
-        <div>
-            <NavLink to='/login'>Login</NavLink>
-            <button onClick={() => dispatch(logout())}>Logout</button>
-            <h2>Home</h2>
-            <h4>Message: {data?.message}</h4>
+        <div className='grid-12'>
+            <section className='grid-2-2'>
+                <NavLink to='/login'>Login</NavLink>
+                <a href='' onClick={() => dispatch(logout())}>Logout</a>
+                <h2>Home</h2>
+                <h4>Message: {data?.message}</h4>
+            </section>
         </div>
     )
 }
