@@ -15,6 +15,12 @@ export const refreshToken = createAsyncThunk('auth/refreshToken', async () => {
     return response.data;
 });
 
+// Define async thunk for register
+export const register = createAsyncThunk('auth/register', async (credentials) => {
+    const response = await axios.post('http://localhost:8000/auth/api/register/', credentials)
+    return response.data
+})
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
@@ -42,22 +48,62 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(login.pending, (state) => {
+                state.status = 'loading';
+            })
             .addCase(login.fulfilled, (state, action) => {
-                state.email = action.payload.email;
-                state.first_name = action.payload.first_name
-                state.last_name = action.payload.last_name
-                state.access = action.payload.access;
-                state.refresh = action.payload.refresh;
-                localStorage.setItem("email", action.payload.email);
-                localStorage.setItem("first_name", action.payload.first_name);
-                localStorage.setItem("last_name", action.payload.last_name);
-                localStorage.setItem('access', action.payload.access);
-                localStorage.setItem('refresh', action.payload.refresh);
+                const { email, first_name, last_name, access, refresh } = action.payload
+                state.status = 'successeded'
+                state.email = email;
+                state.first_name = first_name
+                state.last_name = last_name
+                state.access = access;
+                state.refresh = refresh;
+                localStorage.setItem('email', email);
+                localStorage.setItem('first_name', first_name);
+                localStorage.setItem('last_name', last_name);
+                localStorage.setItem('access', access);
+                localStorage.setItem('refresh', refresh);
+            })
+            .addCase(login.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message
+            })
+            .addCase(refreshToken.pending, (state) => {
+                state.status = 'loading'
             })
             .addCase(refreshToken.fulfilled, (state, action) => {
-                state.access = action.payload.access;
-                localStorage.setItem('access', action.payload.access);
-            });
+                const { access } = action.payload
+                state.status = 'successeded'
+                state.access = access;
+                localStorage.setItem('access', access);
+            })
+            .addCase(refreshToken.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message
+            })
+            .addCase(register.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(register.fulfilled, (state, action) => {
+                const { email, first_name, last_name, access, refresh } = action.payload
+                state.status = 'successeded'
+                state.email = email;
+                state.first_name = first_name
+                state.last_name = last_name
+                state.access = access;
+                state.refresh = refresh;
+                localStorage.setItem('email', email);
+                localStorage.setItem('first_name', first_name);
+                localStorage.setItem('last_name', last_name);
+                localStorage.setItem('access', access);
+                localStorage.setItem('refresh', refresh);
+            })
+            .addCase(register.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message
+            })
+
     },
 });
 

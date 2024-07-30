@@ -1,0 +1,10 @@
+@import '../../../sass';
+
+.header {
+    @include grid-12;
+    background-color: #b2f6ff75;
+
+    &-wrapper {
+        @include grid-2-2
+    }
+}

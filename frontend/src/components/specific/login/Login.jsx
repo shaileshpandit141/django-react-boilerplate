@@ -1,29 +1,48 @@
 import React, { useState } from 'react';
 import './login.scss'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import { login } from '../../../features/auth/authSlice';
-import { useSelector } from 'react-redux';
 
 
 const Login = () => {
-    const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(login({ email, password }));
+    const dispatch = useDispatch();
+    const accessToken = useSelector((state) => state.auth.access)
+    const status = useSelector((state) => state.auth.status)
+    const error = useSelector((state) => state.auth.error)
+
+    const initialFormData = {
+        email: '',
+        password: '',
     };
 
-    const accessToken = useSelector((state) => state.auth.access);
+    const [formData, setFormData] = useState(initialFormData);
 
-    // if (accessToken) {
-    //     return <Navigate to='/' />
-    // }
+    function handleFormDataChange(event) {
+        const { name, type, chacked, value } = event.target
+        setFormData((prevFormData) => {
+            return {
+                ...prevFormData,
+                [name]: type === 'checkbox' ? chacked : value
+            }
+        })
+    }
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        if (status === 'idle') {
+            dispatch(login(formData));
+            setFormData(initialFormData)
+        }
+    };
+
+    if (accessToken) {
+        return <Navigate to='/' />
+    }
 
     return (
-        <form onSubmit={handleSubmit} className='grid-12 login-form'>
+        <form onSubmit={handleFormSubmit} className='grid-12 login-form'>
             <div className='grid-2-2 login-element'>
                 <div className='action-elements'>
                     <h2 className='title'>get started now</h2>
@@ -32,8 +51,10 @@ const Login = () => {
                         <input
                             type="text"
                             required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name='email'
+                            value={formData.email}
+                            onChange={handleFormDataChange}
+                            style={error ? {'border-color': 'red'}: {}}
                         />
                         <label>email</label>
                     </div>
@@ -41,13 +62,18 @@ const Login = () => {
                         <input
                             type="text"
                             required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name='password'
+                            value={formData.password}
+                            onChange={handleFormDataChange}
                         />
                         <label>password</label>
                     </div>
-                    <a href="#" className='forgot-password'>forgot password</a>
-                    <button className='login-btn' type="submit">Login</button>
+                    <Link to="#" className='forgot-password'>forgot password</Link>
+                    {
+                        status === 'loading'
+                            ? <button className='login-btn' type="submit">loading...</button>
+                            : <button className='login-btn' type="submit">login</button>
+                    }
 
                     <p className='register-text'>
                         You don't have an account?, <Link to="/register">create</Link> an account now
