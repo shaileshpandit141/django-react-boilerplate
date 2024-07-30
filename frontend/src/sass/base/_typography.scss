@@ -1,0 +1,26 @@
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(rem(28), rem(16) + 2vw, rem(40));
+}
+
+h2 {
+    font-size: clamp(rem(22), rem(14) + 1.5vw, rem(36));
+}
+
+p {
+    margin-top: 0;
+    font-size: rem(16);
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+}

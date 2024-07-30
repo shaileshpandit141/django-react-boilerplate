@@ -1,0 +1,18 @@
+@mixin button {
+    font-size: rem(16);
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid get-light-color(border-color);
+    cursor: pointer;
+    background-color: get-light-color(border-color);
+    color: get-light-color(text-color);
+    width: 100%;
+    text-transform: capitalize;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
+
+    &:hover {
+        background-color: get-light-color(hover-color);
+    }
+}

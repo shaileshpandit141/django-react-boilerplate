@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css'
+import './App.scss'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layouts/MainLayout';
-import Login from './components/specific/Login/Login';
+import Login from './components/specific/login/Login';
+import Register from './components/specific/register/Register';
 import Home from './pages/home/Home';
 import PrivateRoute from './PrivateRoute';
 
@@ -11,7 +12,8 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path='/' element={<MainLayout />}>
-                    <Route path="/login" element={<Login />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
                     <Route path="/" element={
                         <PrivateRoute>
                             <Home />

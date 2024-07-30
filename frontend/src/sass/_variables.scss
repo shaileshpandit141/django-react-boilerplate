@@ -1,0 +1,15 @@
+// Define a app color map
+$light-colors: (
+    active-color: #184b00d2,
+    background-color: #fff,
+    border-color: #dddddd90,
+    hover-color: #dddddd,
+    text-color: #2c3e50
+);
+
+// Function to get color from the map
+@function get-light-color($color-name) {
+    @return map-get($light-colors, $color-name);
+}
+
+$opacity: 1;
