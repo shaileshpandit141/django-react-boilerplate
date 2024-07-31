@@ -3,6 +3,7 @@ import './login.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import { login } from '../../../features/auth/authSlice';
+import Input from '../../common/input/Input';
 
 
 const Login = () => {
@@ -47,27 +48,25 @@ const Login = () => {
                 <div className='action-elements'>
                     <h2 className='title'>get started now</h2>
                     <p className='description'>enter your credentials to access your account</p>
-                    <div className="email-element">
-                        <input
-                            type="text"
-                            required
-                            name='email'
-                            value={formData.email}
-                            onChange={handleFormDataChange}
-                            style={error ? {'border-color': 'red'}: {}}
-                        />
-                        <label>email</label>
-                    </div>
-                    <div className="password-element">
-                        <input
-                            type="text"
-                            required
-                            name='password'
-                            value={formData.password}
-                            onChange={handleFormDataChange}
-                        />
-                        <label>password</label>
-                    </div>
+
+                    <Input
+                        type='text'
+                        label='email'
+                        name='email'
+                        onChange={handleFormDataChange}
+                        style={error ? { 'border-color': 'red' } : {}}
+                        value={formData.email}
+                    />
+
+                    <Input
+                        type='text'
+                        label='password'
+                        name='password'
+                        onChange={handleFormDataChange}
+                        style={error ? { 'border-color': 'red' } : {}}
+                        value={formData.password}
+                    />
+
                     <Link to="#" className='forgot-password'>forgot password</Link>
                     {
                         status === 'loading'

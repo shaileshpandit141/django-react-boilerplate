@@ -18,15 +18,12 @@ export const refreshToken = createAsyncThunk('auth/refreshToken', async () => {
 // Define async thunk for register
 export const register = createAsyncThunk('auth/register', async (credentials) => {
     const response = await axios.post('http://localhost:8000/auth/api/register/', credentials)
-    return response.data
+    return response.data;
 })
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        email: localStorage.getItem("email") || null,
-        first_name: localStorage.getItem("first_name") || null,
-        last_name: localStorage.getItem("last_name") || null,
         access: localStorage.getItem('access') || null,
         refresh: localStorage.getItem('refresh') || null,
         status: 'idle',
@@ -34,14 +31,8 @@ const authSlice = createSlice({
     },
     reducers: {
         logout: (state) => {
-            state.email = null;
-            state.first_name = null;
-            state.last_name = null
             state.access = null;
             state.refresh = null;
-            localStorage.removeItem("email");
-            localStorage.removeItem("first_name");
-            localStorage.removeItem("last_name");
             localStorage.removeItem('access');
             localStorage.removeItem('refresh');
         },
@@ -52,16 +43,10 @@ const authSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(login.fulfilled, (state, action) => {
-                const { email, first_name, last_name, access, refresh } = action.payload
+                const { access, refresh } = action.payload
                 state.status = 'successeded'
-                state.email = email;
-                state.first_name = first_name
-                state.last_name = last_name
                 state.access = access;
                 state.refresh = refresh;
-                localStorage.setItem('email', email);
-                localStorage.setItem('first_name', first_name);
-                localStorage.setItem('last_name', last_name);
                 localStorage.setItem('access', access);
                 localStorage.setItem('refresh', refresh);
             })
@@ -86,16 +71,10 @@ const authSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(register.fulfilled, (state, action) => {
-                const { email, first_name, last_name, access, refresh } = action.payload
+                const { access, refresh } = action.payload
                 state.status = 'successeded'
-                state.email = email;
-                state.first_name = first_name
-                state.last_name = last_name
                 state.access = access;
                 state.refresh = refresh;
-                localStorage.setItem('email', email);
-                localStorage.setItem('first_name', first_name);
-                localStorage.setItem('last_name', last_name);
                 localStorage.setItem('access', access);
                 localStorage.setItem('refresh', refresh);
             })

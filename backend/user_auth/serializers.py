@@ -34,12 +34,18 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         return data
 
 
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ["first_name", "last_name" , "email"]
+
+
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:
         model = CustomUser
-        fields = ("email", "password", "first_name", "last_name")
+        fields = ["first_name", "last_name", "email", "password"]
 
     def create(self, validated_data):
         user = CustomUser.objects.create_user(

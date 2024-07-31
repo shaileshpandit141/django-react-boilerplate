@@ -3,6 +3,7 @@ import './register.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../features/auth/authSlice';
+import Input from '../../common/input/Input';
 
 export default function Register() {
 
@@ -26,7 +27,7 @@ export default function Register() {
         setFormData((prevFormData) => {
             return {
                 ...prevFormData,
-                [name]:type === 'checkbox' ? checked : value
+                [name]: type === 'checkbox' ? checked : value
             }
         })
     }
@@ -46,60 +47,45 @@ export default function Register() {
                     <h2 className='title'>get started now</h2>
                     <p className='description'>enter your credentials to create your account</p>
 
-                    <div className="first-name-element">
-                        <input
-                            type="text"
-                            required
-                            name='first_name'
-                            onChange={handleFormDataChange}
-                            value={formData.first_name}
-                        />
-                        <label>first name</label>
-                    </div>
+                    <Input
+                        type='text'
+                        label='first name'
+                        name='first_name'
+                        onChange={handleFormDataChange}
+                        value={formData.first_name}
+                    />
 
-                    <div className="last-name-element">
-                        <input
-                            type="text"
-                            required
-                            name='last_name'
-                            onChange={handleFormDataChange}
-                            value={formData.last_name}
-                        />
-                        <label>last name</label>
-                    </div>
+                    <Input
+                        type='text'
+                        label='last name'
+                        name='last_name'
+                        onChange={handleFormDataChange}
+                        value={formData.last_name}
+                    />
 
-                    <div className="email-element">
-                        <input
-                            type="text"
-                            required
-                            name='email'
-                            onChange={handleFormDataChange}
-                            value={formData.email}
-                        />
-                        <label>email</label>
-                    </div>
+                    <Input
+                        type='text'
+                        label='email'
+                        name='email'
+                        onChange={handleFormDataChange}
+                        value={formData.email}
+                    />
 
-                    <div className="password-element">
-                        <input
-                            type="text"
-                            required
-                            name='password'
-                            onChange={handleFormDataChange}
-                            value={formData.password}
-                        />
-                        <label>password</label>
-                    </div>
+                    <Input
+                        type='text'
+                        label='password'
+                        name='password'
+                        onChange={handleFormDataChange}
+                        value={formData.password}
+                    />
 
-                    <div className="re-password-element">
-                        <input
-                            type="text"
-                            required
-                            name='re_password'
-                            onChange={handleFormDataChange}
-                            value={formData.re_password}
-                        />
-                        <label>re-password</label>
-                    </div>
+                    <Input
+                        type='text'
+                        label='re password'
+                        name='re_password'
+                        onChange={handleFormDataChange}
+                        value={formData.re_password}
+                    />
 
                     {
                         status === 'loading'

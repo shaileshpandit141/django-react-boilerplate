@@ -1,32 +1,24 @@
 import React from 'react'
-import axiosInstance from "../../axiosInstance"
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCurrentUser } from '../../features/currentUser/currentUserSlice'
 
 export default function Home() {
-    const [data, setData] = React.useState(null)
+
+    const dispatch = useDispatch()
+    const { user, status, error } = useSelector((state) => state.currentUser)
 
     React.useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axiosInstance.get('auth/message/');
-                console.log(response.data);
-                setData(response.data)
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        // Call the function
-        fetchData();
-    }, [])
-
-    const username = localStorage.getItem('first_name') || 'Unknow'
+        dispatch(fetchCurrentUser())
+    }, [dispatch])
 
     return (
         <div className='grid-12'>
             <section className='grid-2-2'>
-                <span>welcome, </span> <span>{username}</span>
+                <h2>Welcome to Django React Full Stack Web App</h2>
                 <br />
-                <h4>Message: {data?.message}</h4>
+                {status === 'loading' && <h2>Loading...</h2>}
+                {status === 'successeded' && <h3>{user.first_name} {user.last_name} {user.email}</h3>}
+                {error && <h2>{error}</h2>}
             </section>
         </div>
     )

@@ -40,57 +40,6 @@
                 }
             }
 
-            .input-field {
-                position: relative;
-                width: 100%;
-
-                :is(input, label) {
-                    @include input-and-label;
-                    color: get-light-color(text-color);
-                }
-
-                input {
-                    @include input;
-                }
-
-                label {
-                    @include input-label;
-                }
-
-                :is(input:focus, input:valid) {
-                    border-color: get-light-color(active-color);
-                }
-
-                :is(input:focus, input:valid)~label {
-                    @include input-focus-and-valid-to-label;
-                }
-            }
-
-            // First Name element styles
-            .first-name-element {
-                @extend .input-field;
-            }
-
-            // Last Name element styles
-            .last-name-element {
-                @extend .input-field;
-            }
-
-            // Email element styles
-            .email-element {
-                @extend .input-field;
-            }
-
-            // Password element styles 
-            .password-element {
-                @extend .input-field;
-            }
-
-            // Re Password element styles 
-            .re-password-element {
-                @extend .input-field;
-            }
-
             .forgot-password {
                 &::first-letter {
                     text-transform: capitalize;
