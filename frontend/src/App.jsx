@@ -2,8 +2,8 @@ import React from 'react';
 import './App.scss'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layouts/MainLayout';
-import Login from './components/specific/login/Login';
-import Register from './components/specific/register/Register';
+import Login from './features/auth/components/specific/login/Login';
+import Register from './features/auth/components/specific/register/Register';
 import Home from './pages/home/Home';
 import PrivateRoute from './PrivateRoute';
 

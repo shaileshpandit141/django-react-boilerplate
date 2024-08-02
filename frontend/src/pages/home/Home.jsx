@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCurrentUser } from '../../features/currentUser/currentUserSlice'
+import { fetchCurrentUser } from '../../features/currentUser/currentUserAPI'
 
 export default function Home() {
 
@@ -16,9 +16,9 @@ export default function Home() {
             <section className='grid-2-2'>
                 <h2>Welcome to Django React Full Stack Web App</h2>
                 <br />
-                {status === 'loading' && <h2>Loading...</h2>}
+                {status === 'loading' && <h3>Loading...</h3>}
                 {status === 'successeded' && <h3>{user.first_name} {user.last_name} {user.email}</h3>}
-                {error && <h2>{error}</h2>}
+                {error && <h3>{error}</h3>}
             </section>
         </div>
     )

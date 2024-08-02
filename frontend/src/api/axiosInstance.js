@@ -1,5 +1,5 @@
 import axios from 'axios';
-import refreshToken from '../features/auth/authSlice'
+import { refreshToken } from '../features/auth/refreshTokenAPI'
 
 const axiosInstance = axios.create({
     // Use environment variable

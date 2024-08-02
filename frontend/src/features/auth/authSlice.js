@@ -1,25 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-// Define async thunk for login
-export const login = createAsyncThunk('auth/login', async (credentials) => {
-    const response = await axios.post('http://localhost:8000/auth/api/token/', credentials);
-    return response.data;
-});
-
-// Define async thunk for token refresh
-export const refreshToken = createAsyncThunk('auth/refreshToken', async () => {
-    const response = await axios.post('http://localhost:8000/auth/api/token/refresh/', {
-        refresh: localStorage.getItem('refresh'),
-    });
-    return response.data;
-});
-
-// Define async thunk for register
-export const register = createAsyncThunk('auth/register', async (credentials) => {
-    const response = await axios.post('http://localhost:8000/auth/api/register/', credentials)
-    return response.data;
-})
+import { createSlice } from '@reduxjs/toolkit';
+import { login } from './loginAPI'
+import { refreshToken } from './refreshTokenAPI'
+import { register } from './registerAPI'
 
 const authSlice = createSlice({
     name: 'auth',

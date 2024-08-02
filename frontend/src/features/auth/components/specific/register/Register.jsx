@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './register.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../../features/auth/authSlice';
+import { register } from '../../../../../features/auth/registerAPI';
 import Input from '../../common/input/Input';
 
 export default function Register() {

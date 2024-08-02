@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './login.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
-import { login } from '../../../features/auth/authSlice';
+import { login } from '../../../../../features/auth/loginAPI';
 import Input from '../../common/input/Input';
 
 

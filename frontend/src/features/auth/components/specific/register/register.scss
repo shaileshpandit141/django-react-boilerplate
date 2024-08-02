@@ -1,9 +1,9 @@
-@import '../../../sass';
+@import '../../../../../sass';
 
-.login-form {
+.register-form {
     @include grid-12;
 
-    .login-element {
+    .register-element {
         @include grid-2-2;
         @include flex-centre(column);
         width: 100%;
@@ -17,7 +17,7 @@
             background-color: get-light-color(background-color);
             z-index: 1;
             width: 100%;
-            min-width: 0;
+            min-width: 0px;
             max-width: 300px;
             row-gap: 16px;
 
@@ -41,18 +41,16 @@
             }
 
             .forgot-password {
+                &::first-letter {
+                    text-transform: capitalize;
+                }
+
                 font-size: 14px;
                 letter-spacing: 0.05em;
                 text-decoration: none;
                 text-align: end;
                 width: 100%;
                 opacity: $opacity;
-                color: get-light-color(text-color);
-                transition: opacity 0.3s ease-in-out;
-
-                &::first-letter {
-                    text-transform: capitalize;
-                }
 
                 &:hover {
                     opacity: 1;
@@ -60,10 +58,10 @@
             }
 
             .login-btn {
-                @include button
+                @include button()
             }
 
-            .register-text {
+            .login-text {
                 font-size: 14px;
                 letter-spacing: 0.05em;
                 text-align: center;
@@ -84,6 +82,7 @@
                     }
                 }
             }
+
         }
     }
 }

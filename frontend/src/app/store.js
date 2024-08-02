@@ -10,4 +10,4 @@ const store = configureStore({
 // Set up Axios interceptors after the store is configured
 setupInterceptors(store);
 
-export {store};
+export { store };
