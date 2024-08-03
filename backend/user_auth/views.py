@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -31,44 +32,41 @@ class RegisterView(generics.CreateAPIView):
         confirm_password = data.get("confirm_password")
 
         if email is None:
-            return Response(
+            raise ValidationError(
                 {
                     "email": {
-                        "error_message": "email field is not provide in request data.",
-                        "help_text": ["Please enter a valid email address."],
+                        "error": "email field is not provide in request data.",
+                        "details": ["Please enter a valid email address."],
                     }
-                },
-                status=status.HTTP_400_BAD_REQUEST,
+                }
             )
         else:
             if not validate_email(email):
-                return Response(
+                raise ValidationError(
                     {
                         "email": {
-                            "error_message": "Invalid email address.",
-                            "help_text": ["Please enter a valid email address."],
+                            "error": "Invalid email address.",
+                            "details": ["Please enter a valid email address."],
                         }
-                    },
-                    status=status.HTTP_400_BAD_REQUEST,
+                    }
                 )
 
         if password is None:
-            return Response(
+            raise ValidationError(
                 {
                     "password": {
-                        "error_message": "password field is not provide in request data.",
-                        "help_text": ["Password must not be blank."],
+                        "error": "password field is not provide in request data.",
+                        "details": ["Password must not be blank."],
                     }
-                },
-                status=status.HTTP_400_BAD_REQUEST,
+                }
             )
         else:
             if not validate_password(password):
-                return Response(
+                raise ValidationError(
                     {
                         "password": {
-                            "error_message": "Invalid password.",
-                            "help_text": [
+                            "error": "Invalid password.",
+                            "details": [
                                 "Is at least 8 characters long.",
                                 "Contains at least one uppercase letter.",
                                 "Contains at least one lowercase letter.",
@@ -76,27 +74,25 @@ class RegisterView(generics.CreateAPIView):
                                 "Contains at least one special character.",
                             ],
                         }
-                    },
-                    status=status.HTTP_400_BAD_REQUEST,
+                    }
                 )
 
         if confirm_password is None:
-            return Response(
+            raise ValidationError(
                 {
                     "confirm_password": {
-                        "error_message": "confirm_password field is not provide in request data.",
-                        "help_text": ["Confirm Password must not be blank."],
+                        "error": "confirm_password field is not provide in request data.",
+                        "details": ["Confirm Password must not be blank."],
                     }
-                },
-                status=status.HTTP_400_BAD_REQUEST,
+                }
             )
         else:
             if not validate_password(confirm_password):
-                return Response(
+                raise ValidationError(
                     {
                         "confirm_password": {
-                            "error_message": "Invalid confirm password.",
-                            "help_text": [
+                            "error": "Invalid confirm password.",
+                            "details": [
                                 "Is at least 8 characters long.",
                                 "Contains at least one uppercase letter.",
                                 "Contains at least one lowercase letter.",
@@ -104,33 +100,32 @@ class RegisterView(generics.CreateAPIView):
                                 "Contains at least one special character.",
                             ],
                         }
-                    },
-                    status=status.HTTP_400_BAD_REQUEST,
+                    }
                 )
 
         if password != confirm_password:
-            return Response(
+            raise ValidationError(
                 {
                     "confirm_password": {
-                        "error_message": "Password is not equal to confirm password.",
-                        "help_text": ["Please enter a confirmation password like Password."],
+                        "error": "Password is not equal to confirm password.",
+                        "details": [
+                            "Please enter a confirmation password like Password."
+                        ],
                     }
-                },
-                status=status.HTTP_400_BAD_REQUEST,
+                }
             )
         else:
             user_exists = CustomUser.objects.filter(email=email).exists()
             if user_exists:
-                return Response(
+                raise ValidationError(
                     {
                         "email": {
-                            "error_message": "Enter email already exists, try with another email.",
-                            "help_text": [
+                            "error": "Enter email already exists, try with another email.",
+                            "details": [
                                 "Please enter a new email address which is not registered."
                             ],
                         }
-                    },
-                    status=status.HTTP_400_BAD_REQUEST,
+                    }
                 )
             else:
                 serializer = self.get_serializer(data=request.data)
