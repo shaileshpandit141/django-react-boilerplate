@@ -149,10 +149,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-# Define path of Uploaded uploaded files
-MEDIA_ROOT = BASE_DIR / "uploads/"
-
 STATIC_ROOT = "static/"
+
+# Define path of Uploaded files
+MEDIA_ROOT = BASE_DIR / "uploads/"
 
 # URL used to access the media
 MEDIA_URL = "media/"
