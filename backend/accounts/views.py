@@ -5,13 +5,48 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.tokens import AccessToken
+from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from allauth.account.utils import send_email_confirmation
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 
-
 User = get_user_model()
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+
+        try:
+            serializer.is_valid(raise_exception=True)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = serializer.user
+
+        if not user.is_active:
+            return Response(
+                {"detail": _("Account is not active.")},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        if not user.emailaddress_set.filter(verified=True).exists():
+            return Response(
+                {"detail": _("Email is not verified.")},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        refresh = RefreshToken.for_user(user)
+
+        return Response(
+            {
+                "refresh": str(refresh),
+                "access": str(refresh.access_token),
+            },
+            status=status.HTTP_200_OK,
+        )
 
 
 class ResendVerificationEmailView(APIView):
