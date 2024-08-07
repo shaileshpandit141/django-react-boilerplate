@@ -125,7 +125,7 @@ This project is a boilerplate for setting up a web application using Django for 
 ### API's Usages using .rest file
 
 - **Register a new user:**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/registration/
     Content-Type: application/json
 
@@ -138,7 +138,7 @@ This project is a boilerplate for setting up a web application using Django for 
     ```
 
 - **Login to get JWT tokens**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/token/
     Content-Type: application/json
 
@@ -152,7 +152,7 @@ This project is a boilerplate for setting up a web application using Django for 
     - email is optional
 
     Expected response:
-    ```json
+    ```
     {
     "access": "jwt_access_token",
     "refresh": "jwt_refresh_token"
@@ -160,7 +160,7 @@ This project is a boilerplate for setting up a web application using Django for 
     ```
 
 - **Logout (Blacklist the refresh token)**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/logout/
     Content-Type: application/json
     Authorization: Bearer jwt_access_token
@@ -171,7 +171,7 @@ This project is a boilerplate for setting up a web application using Django for 
     ```
 
 - **Request password reset**
-    ```json
+    ```
     POST ttp://localhost:8000/api/auth/password/reset/
     Content-Type: application/json
 
@@ -180,14 +180,14 @@ This project is a boilerplate for setting up a web application using Django for 
     }
     ```
     Expected response:
-    ```json
+    ```
     {
     "detail": "Password reset e-mail has been sent."
     }
     ```
 
 - **Confirm password reset**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/password/reset/confirm/
     Content-Type: application/json
 
@@ -199,14 +199,14 @@ This project is a boilerplate for setting up a web application using Django for 
     }
     ```
     Expected response:
-    ```json
+    ```
     {
     "detail": "Password has been reset with the new password."
     }
     ```
 
 - **Verify email**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/registration/verify-email/
     Content-Type: application/json
 
@@ -215,26 +215,26 @@ This project is a boilerplate for setting up a web application using Django for 
     }
     ```
     Expected response:
-    ```json
+    ```
     {
     "detail": "ok"
     }
     ```    
 
 - **Resend Verification Email**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/resend-verification/
     Authorization: Bearer <your_jwt_token>
     ```
     Expected response:
-    ```json
+    ```
     {
     "detail": "Verification e-mail sent"
     }
     ``` 
 
 - **Refresh JWT tokens**
-    ```json
+    ```
     POST http://localhost:8000/api/auth/token/refresh/
     Content-Type: application/json
 
@@ -243,18 +243,18 @@ This project is a boilerplate for setting up a web application using Django for 
     }
     ```
     Expected response:
-    ```json
+    ```
     {
     "access": "new_jwt_access_token"
     }
 
 - **Access a protected endpoint**
-    ```json
+    ```
     GET http://localhost:8000/api/auth/protected/
     Authorization: Bearer jwt_access_token
     ```
     Expected response:
-    ```json
+    ```
     {
     "message": "This is a protected view"
     }
@@ -264,5 +264,10 @@ This project is a boilerplate for setting up a web application using Django for 
 
     The React frontend should handle authentication by storing the JWT tokens in localStorage or a similar mechanism and including the access token in the Authorization header for protected requests.
 
-### Directory Structure
+### Contributing
 
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
