@@ -1,0 +1,111 @@
+### Register a new user
+POST http://localhost:8000/api/auth/registration/
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "email": "user1@example.com",
+  "password1": "User12345@1",
+  "password2": "User12345@1"
+}
+
+
+### Login to get JWT tokens
+POST http://localhost:8000/api/auth/token/
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "email": "user1@gmail.com",
+  "password": "User12345@1"
+}
+
+# Expected response:
+# {
+#   "access": "jwt_access_token",
+#   "refresh": "jwt_refresh_token"
+# }
+
+
+### Logout (Blacklist the refresh token)
+POST http://localhost:8000/api/auth/logout/
+Content-Type: application/json
+Authorization: Bearer jwt_access_token
+
+{
+  "refresh_token": "jwt_refresh_token"
+}
+
+
+### Request password reset
+POST http://localhost:8000/api/auth/password/reset/
+Content-Type: application/json
+
+{
+  "email": "user@example.com"
+}
+
+# Expected response:
+# {
+#   "detail": "Password reset e-mail has been sent."
+# }
+
+
+### Confirm password reset
+POST http://localhost:8000/api/auth/password/reset/confirm/
+Content-Type: application/json
+
+{
+  "uid": "uid_from_email",
+  "token": "token_from_email",
+  "new_password1": "new_strong_password123",
+  "new_password2": "new_strong_password123"
+}
+
+# Expected response:
+# {
+#   "detail": "Password has been reset with the new password."
+# }
+
+
+### Verify email
+POST http://localhost:8000/api/auth/registration/verify-email/
+Content-Type: application/json
+
+{
+  "key": "verification_key_from_email"
+}
+
+# Expected response:
+# {
+#   "detail": "ok"
+# }
+
+
+### Resend Verification Email
+POST http://localhost:8000/api/auth/resend-verification/
+Authorization: Bearer <your_jwt_token>
+
+
+### Refresh JWT tokens
+POST http://localhost:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "jwt_refresh_token"
+}
+
+# Expected response:
+# {
+#   "access": "new_jwt_access_token"
+# }
+
+
+### Access a protected endpoint
+GET http://localhost:8000/api/auth/protected/
+Authorization: Bearer jwt_access_token
+
+# Expected response:
+# {
+#   "message": "This is a protected view"
+# }

@@ -6,11 +6,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from user_auth import urls as user_auth
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from accounts import urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/auth/", include(user_auth)),
+    path("api/auth/", include(urls)),
 ]
 
 # Allows the application to know what folder to access on the server side when receiving a request from the MEDIA_URL.
