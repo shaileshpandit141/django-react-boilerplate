@@ -1,6 +1,5 @@
 // axiosInstance.js
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
 import { refreshTokenAPI } from '../features/auth/refreshTokenAPI';
 import { logout } from '../features/auth/authSlice';
 import { isTokenExpired } from '../utils/isTokenExpired';

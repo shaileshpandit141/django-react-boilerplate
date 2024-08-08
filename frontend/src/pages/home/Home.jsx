@@ -8,10 +8,10 @@ export default function Home() {
     const { userInfo, status, error } = useSelector((state) => state.user)
 
     React.useEffect(() => {
-        if (status == "idle") {
+        if (status === "idle") {
             dispatch(userAPI())
         }
-    }, [])
+    }, [dispatch, status])
 
     return (
         <div className='grid-12'>
