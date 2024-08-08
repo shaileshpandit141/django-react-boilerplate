@@ -1,5 +1,5 @@
 ### Register a new user
-POST http://localhost:8000/api/auth/registration/
+POST http://localhost:8000/api/auth/signup/
 Content-Type: application/json
 
 {
@@ -84,7 +84,11 @@ Content-Type: application/json
 
 ### Resend Verification Email
 POST http://localhost:8000/api/auth/resend-verification/
-Authorization: Bearer <your_jwt_token>
+Content-Type: application/json
+
+{
+  "username": "shailesh"
+}
 
 
 ### Refresh JWT tokens
@@ -102,6 +106,20 @@ Content-Type: application/json
 
 
 ### Access a protected endpoint
+GET http://localhost:8000/api/auth/user/
+Authorization: Bearer jwt_access_token
+
+# Expected response:
+# {
+#   "id": 1,
+#   "username": "username",
+#   "email": "email@example.com",
+#   "first_name": "first_name",
+#   "last_name": "last_name"
+# }
+
+
+### Access a protected endpoint
 GET http://localhost:8000/api/auth/protected/
 Authorization: Bearer jwt_access_token
 
@@ -109,3 +127,4 @@ Authorization: Bearer jwt_access_token
 # {
 #   "message": "This is a protected view"
 # }
+

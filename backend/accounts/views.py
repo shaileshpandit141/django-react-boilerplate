@@ -4,13 +4,14 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from allauth.account.utils import send_email_confirmation
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
+from .serializers import UserSerializer
 
 User = get_user_model()
 
@@ -50,27 +51,23 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
 
 class ResendVerificationEmailView(APIView):
-
-    # Ensure the user is authenticated
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, request):
-        token = request.headers.get("Authorization", None)
+        username = request.data.get("username", None)
 
-        if not token or not token.startswith("Bearer "):
+        if not username:
             return Response(
-                {"detail": "Authorization header missing or malformed"},
-                status=status.HTTP_401_UNAUTHORIZED,
+                {"detail": "Username is required"},
+                status=status.HTTP_400_BAD_REQUEST,
             )
 
-        # Extract the token from the Bearer header
-        token = token.split(" ")[1]
-
-        user = self.get_user_from_token(token)
-        if not user:
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
             return Response(
-                {"detail": "Invalid or expired token"},
-                status=status.HTTP_401_UNAUTHORIZED,
+                {"detail": "User with this username does not exist"},
+                status=status.HTTP_404_NOT_FOUND,
             )
 
         # Check if email is already verified
@@ -85,17 +82,14 @@ class ResendVerificationEmailView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-    def get_user_from_token(self, token):
-        """
-        Decode the JWT token and return the user.
-        """
-        try:
-            access_token = AccessToken(token)
-            user_id = access_token["user_id"]
-            user = User.objects.get(id=user_id)
-            return user
-        except Exception:
-            return None
+
+class UserInfoView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ProtectedView(APIView):
