@@ -113,13 +113,16 @@ This project is a boilerplate for setting up a web application using Django for 
 - Send a POST request to `http://localhost:8000/api/auth/registration/verify-email/` with the verification key received in the email.
   
 **Re Email Verification**:
-- Send a POST request to `http://localhost:8000/api/auth/resend-verification/` with the verification key received in the email.
+- Send a POST request to `http://localhost:8000/api/auth/resend-verification/` with username to get key received in the email.
 
 **Token Refresh**:
 - Send a POST request to `http://localhost:8000/api/auth/token/refresh/` with the refresh token to get a new access token.
 
+**Access the user**:
+- Send a POST request to `http://localhost:8000/api/auth/user/` with the access token to get a userInfo.
+  
 **Access a protected endpoint for test**:
-- Send a POST request to `http://localhost:8000/api/auth/protected/` with the refresh token to get a new access token.
+- Send a POST request to `http://localhost:8000/api/auth/protected/` with the access token to get a protected route data.
 
 
 ### API's Usages using .rest file
@@ -130,22 +133,22 @@ This project is a boilerplate for setting up a web application using Django for 
     Content-Type: application/json
 
     {
-    "username": "username",
-    "email": "email@example.com",
-    "password1": "Email#12345@",
-    "password2": "Email#12345@"
+        "username": "username",
+        "email": "email@example.com",
+        "password1": "Email#12345@",
+        "password2": "Email#12345@"
     }
     ```
 
-- **Login to get JWT tokens**
+- **Login to get JWT tokens:**
     ```
     POST http://localhost:8000/api/auth/token/
     Content-Type: application/json
 
     {
-    "username": "username",
-    "email": "email@example.com",
-    "password": "Email#12345@"
+        "username": "username",
+        "email": "email@example.com",
+        "password": "Email#12345@"
     }
     ```
     Note:
@@ -154,74 +157,74 @@ This project is a boilerplate for setting up a web application using Django for 
     Expected response:
     ```
     {
-    "access": "jwt_access_token",
-    "refresh": "jwt_refresh_token"
+        "access": "jwt_access_token",
+        "refresh": "jwt_refresh_token"
     }
     ```
 
-- **Logout (Blacklist the refresh token)**
+- **Logout (Blacklist the refresh token):**
     ```
     POST http://localhost:8000/api/auth/logout/
     Content-Type: application/json
     Authorization: Bearer jwt_access_token
 
     {
-    "refresh_token": "jwt_refresh_token"
+        "refresh_token": "jwt_refresh_token"
     }
     ```
 
-- **Request password reset**
+- **Request password reset:**
     ```
     POST ttp://localhost:8000/api/auth/password/reset/
     Content-Type: application/json
 
     {
-    "email": "user@example.com"
+        "email": "user@example.com"
     }
     ```
     Expected response:
     ```
     {
-    "detail": "Password reset e-mail has been sent."
+        "detail": "Password reset e-mail has been sent."
     }
     ```
 
-- **Confirm password reset**
+- **Confirm password reset:**
     ```
     POST http://localhost:8000/api/auth/password/reset/confirm/
     Content-Type: application/json
 
     {
-    "uid": "uid_from_email",
-    "token": "token_from_email",
-    "new_password1": "new_strong_password123",
-    "new_password2": "new_strong_password123"
+        "uid": "uid_from_email",
+        "token": "token_from_email",
+        "new_password1": "new_strong_password123",
+        "new_password2": "new_strong_password123"
     }
     ```
     Expected response:
     ```
     {
-    "detail": "Password has been reset with the new password."
+        "detail": "Password has been reset with the new password."
     }
     ```
 
-- **Verify email**
+- **Verify email:**
     ```
     POST http://localhost:8000/api/auth/registration/verify-email/
     Content-Type: application/json
 
     {
-    "key": "verification_key_from_email"
+        "key": "verification_key_from_email"
     }
     ```
     Expected response:
     ```
     {
-    "detail": "ok"
+        "detail": "ok"
     }
     ```    
 
-- **Resend Verification Email**
+- **Resend Verification Email:**
     ```
     POST http://localhost:8000/api/auth/resend-verification/
     Authorization: Bearer <your_jwt_token>
@@ -229,26 +232,42 @@ This project is a boilerplate for setting up a web application using Django for 
     Expected response:
     ```
     {
-    "detail": "Verification e-mail sent"
+        "detail": "Verification e-mail sent"
     }
     ``` 
 
-- **Refresh JWT tokens**
+- **Refresh JWT tokens:**
     ```
     POST http://localhost:8000/api/auth/token/refresh/
     Content-Type: application/json
 
     {
-    "refresh": "jwt_refresh_token"
+        "refresh": "jwt_refresh_token"
     }
     ```
     Expected response:
     ```
     {
-    "access": "new_jwt_access_token"
+        "access": "new_jwt_access_token"
     }
 
-- **Access a protected endpoint**
+- **Access the current user:**
+    ```
+    GET http://localhost:8000/api/auth/user/
+    Authorization: Bearer jwt_access_token
+    ```
+    Expected response:
+    ```
+    {
+        "id": 1,
+        "username": "username",
+        "email": "email@example.com",
+        "first_name": "first_name",
+        "last_name": "last_name"
+    }
+    ```
+
+- **Access a protected endpoint:**
     ```
     GET http://localhost:8000/api/auth/protected/
     Authorization: Bearer jwt_access_token
@@ -256,7 +275,7 @@ This project is a boilerplate for setting up a web application using Django for 
     Expected response:
     ```
     {
-    "message": "This is a protected view"
+        "message": "This is a protected view"
     }
     ```
 
@@ -271,3 +290,8 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ### License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+### Author
+If you have any questions or need assistance with this project, please contact `Shailesh` at `shaileshpandit141@gmail.com`.
+
+Thank you
