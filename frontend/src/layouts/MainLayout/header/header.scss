@@ -1,10 +1,32 @@
-@import '../../../sass';
+@import '../../../sass/index.scss';
+
+
+.scroll-down {
+    header {
+        // transform: translate3d(0, -100%, 0);
+        transform: translateY(-100%);
+    }
+}
+
+.scroll-up {
+    header {
+        filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
+    }
+}
 
 .header {
     @include grid-12;
-    background-color: get-light-color(header-background-color);
-    padding-block: 16px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: 0;
+    width: 100%;
+    background-color: $header-background-color;
+    padding-block: 8px;
     user-select: none;
+    z-index: 9999;
+    transition: all 0.3s ease-in-out;
 
     &-wrapper {
         @include grid-2-2;
@@ -31,15 +53,19 @@
             align-items: center;
             column-gap: 16px;
 
+            .link-wrapper {
+                @include link-wrapper;
+            }
+
             .theme-button {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 aspect-ratio: 1/1;
-                height: 24px;
-                width: 24px;
-                background-color: get-light-color(button-background-color);
-                border: 2px solid get-light-color(border-color);
+                height: 36px;
+                width: 36px;
+                background-color: $button-background-color;
+                border: 2px solid $border-color;
                 border-radius: 999rem;
             }
         }

@@ -14,17 +14,31 @@
     letter-spacing: 0.05em;
     padding: 8px 16px;
     border-radius: 8px;
-    border: 2px solid get-light-color(border-color);
+    border: 2px solid $border-color;
     cursor: pointer;
-    background-color: get-light-color(button-background-color);
-    color: get-light-color(text-color);
+    background-color: $button-background-color;
+    color: $text-color;
     width: 100%;
     text-transform: capitalize;
     overflow: hidden;
     transition: background-color 0.5s ease-in-out;
 
     &:hover {
-        background-color: get-light-color(button-hover-color);
+        background-color: $button-hover-color;
+    }
+}
+
+@mixin link-wrapper {
+    @include flex-centre;
+    overflow: hidden;
+
+    a {
+        padding: em(8) 0;
+        transition: color 0.3s ease-in-out;
+    }
+
+    &:hover a {
+        color: $active-color;
     }
 }
 
@@ -32,14 +46,14 @@
     font-size: rem(14);
     letter-spacing: 0.05em;
     background-color: transparent;
-    color: get-light-color(text-color);
+    color: $text-color;
 }
 
 @mixin input {
     width: 100%;
     padding: 8px 16px;
     outline: none;
-    border: 2px solid get-light-color(border-color);
+    border: 2px solid $border-color;
     border-radius: 8px;
     z-index: 1;
     transition: all 0.3s ease-in-out;
@@ -63,9 +77,9 @@
 
 @mixin input-focus-and-valid-to-label {
     font-size: rem(14);
-    color: get-light-color(active-color);
+    color: $active-color;
     top: -8px;
-    background-color: get-light-color(background-color);
+    background-color: $background-color;
     opacity: 1;
     z-index: inherit;
 }

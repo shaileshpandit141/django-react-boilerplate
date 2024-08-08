@@ -36,6 +36,7 @@ const authSlice = createSlice({
             .addCase(login.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message
+                alert(action.error.message)
             })
             .addCase(refreshTokenAPI.pending, (state) => {
                 state.status = 'loading'
@@ -63,7 +64,9 @@ const authSlice = createSlice({
             })
             .addCase(signupAPI.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.payload
+                state.error = action.error.message
+                alert(action.error.message)
+                console.log(action.error);
             })
 
     },

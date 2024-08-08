@@ -8,7 +8,7 @@ h6 {
     line-height: 1.1;
     margin-block: 0;
     letter-spacing: 0.03em;
-    color: get-light-color(text-color);
+    color: $text-color;
 }
 
 h1 {
@@ -25,15 +25,17 @@ details {
     margin-block: 0;
     font-size: rem(14);
     letter-spacing: 0.03em;
-    color: get-light-color(text-color);
+    color: $text-color;
 }
 
 a,
 a:visited,
 a:active {
+    font-size: rem(14);
     text-decoration: none;
     letter-spacing: 0.03em;
-    color: get-light-color(text-color);
+    color: $text-color;
+    font-weight: 600;
 }
 
 a::first-letter {

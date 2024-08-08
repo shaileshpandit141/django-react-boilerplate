@@ -6,7 +6,6 @@
 
     :is(input, label) {
         @include input-and-label;
-        color: get-light-color(text-color);
     }
 
     input {
@@ -18,7 +17,7 @@
     }
 
     :is(input:focus, input:valid) {
-        border-color: get-light-color(active-color);
+        border-color: $active-color;
     }
 
     :is(input:focus, input:valid)~label {

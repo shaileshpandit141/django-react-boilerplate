@@ -40,10 +40,6 @@ export default function Signup() {
         return <Navigate to='/login' />
     }
 
-    if (error) {
-        alert(error)
-    }
-
     return (
         <form onSubmit={handleFormSubmit} className='register-form'>
             <div className='register-element'>

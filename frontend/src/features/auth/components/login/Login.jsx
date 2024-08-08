@@ -39,10 +39,6 @@ const Login = () => {
         return <Navigate to='/' />
     }
 
-    if (error) {
-        alert(error)
-    }
-
     return (
         <form onSubmit={handleFormSubmit} className='grid-12 login-form'>
             <div className='grid-2-2 login-element'>
