@@ -1,0 +1,90 @@
+@import '../../../../sass';
+
+.login-form {
+    @include grid-12;
+
+    .login-element {
+        @include grid-2-2;
+        @include flex-centre(column);
+        width: 100%;
+        height: fit-content;
+        min-height: calc(100vh - 56px);
+        user-select: none;
+
+        .action-elements {
+            @include flex-centre(column);
+            padding: 16px;
+            border-radius: 8px;
+            background-color: get-light-color(background-color);
+            z-index: 1;
+            width: 100%;
+            min-width: 0;
+            max-width: 300px;
+            row-gap: 16px;
+
+            .title {
+                text-transform: capitalize;
+                text-align: center;
+                letter-spacing: 0.05em;
+                color: get-light-color(text-color);
+            }
+
+            .description {
+                font-size: 14px;
+                text-align: center;
+                letter-spacing: 0.05em;
+                opacity: $opacity;
+                color: get-light-color(text-color);
+
+                &::first-letter {
+                    text-transform: capitalize;
+                }
+            }
+
+            .forgot-password {
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-decoration: none;
+                text-align: end;
+                width: 100%;
+                opacity: $opacity;
+                color: get-light-color(text-color);
+                transition: opacity 0.3s ease-in-out;
+
+                &::first-letter {
+                    text-transform: capitalize;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .login-btn {
+                @include button
+            }
+
+            .register-text {
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-align: center;
+                opacity: $opacity;
+                color: get-light-color(text-color);
+
+                &::first-letter {
+                    text-transform: capitalize;
+                }
+
+                a {
+                    text-decoration: none;
+                    opacity: $opacity;
+                    transition: opacity 0.3s ease-in-out;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

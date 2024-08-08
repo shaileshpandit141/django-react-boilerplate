@@ -1,0 +1,47 @@
+@import '../../../sass';
+
+.header {
+    @include grid-12;
+    background-color: get-light-color(header-background-color);
+    padding-block: 16px;
+    user-select: none;
+
+    &-wrapper {
+        @include grid-2-2;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 16px;
+
+        .left-container {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+        }
+
+        .center-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 16px;
+        }
+
+        .right-container {
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+
+            .theme-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                aspect-ratio: 1/1;
+                height: 24px;
+                width: 24px;
+                background-color: get-light-color(button-background-color);
+                border: 2px solid get-light-color(border-color);
+                border-radius: 999rem;
+            }
+        }
+    }
+}

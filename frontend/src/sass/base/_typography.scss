@@ -1,0 +1,41 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-block: 0;
+    letter-spacing: 0.03em;
+    color: get-light-color(text-color);
+}
+
+h1 {
+    font-size: clamp(rem(28), rem(16) + 2vw, rem(40));
+}
+
+h2 {
+    font-size: clamp(rem(22), rem(14) + 1.5vw, rem(36));
+}
+
+
+p,
+details {
+    margin-block: 0;
+    font-size: rem(14);
+    letter-spacing: 0.03em;
+    color: get-light-color(text-color);
+}
+
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    color: get-light-color(text-color);
+}
+
+a::first-letter {
+    text-transform: capitalize;
+}
