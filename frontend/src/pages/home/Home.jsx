@@ -1,6 +1,8 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userAPI } from '../../features/user/userAPI'
+import isAuthenticated from '../../utils/isAuthenticated'
 
 export default function Home() {
 
@@ -11,7 +13,11 @@ export default function Home() {
         if (status === "idle") {
             dispatch(userAPI())
         }
-    }, [dispatch, status])
+    }, [dispatch])
+
+    // if (!isAuthenticated()) {
+    //     return <Navigate to='/login' />
+    // }
 
     return (
         <div className='grid-12'>

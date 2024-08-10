@@ -1,27 +1,7 @@
 @import '../../../sass/index.scss';
 
-
-.scroll-down {
-    header {
-        // transform: translate3d(0, -100%, 0);
-        transform: translateY(-100%);
-    }
-}
-
-.scroll-up {
-    header {
-        filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
-    }
-}
-
 .header {
     @include grid-12;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: unset;
-    left: 0;
-    width: 100%;
     background-color: $header-background-color;
     padding-block: 8px;
     user-select: none;

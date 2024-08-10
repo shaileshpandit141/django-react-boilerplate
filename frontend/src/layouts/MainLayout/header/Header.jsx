@@ -1,43 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './header.scss'
-import { NavLink } from 'react-router-dom'
-import { logout } from '../../../features/auth/authSlice'
+import { NavLink, redirect } from 'react-router-dom'
+import Loout from '../../../features/auth/components/logout/Logout'
 import { useDispatch, useSelector } from 'react-redux'
 
 
 export default function Header() {
 
     const dispatch = useDispatch()
-    const accessToken = useSelector((state) => state.auth.access)
-    const [lastScroll, setLastScroll] = useState(0)
-    const [currentScroll, setCurrentScroll] = useState(0)
+    const accessToken = useSelector((state) => state.auth.accessToken)
 
-    useEffect(() => {
-        let body = document.body;
-
-        window.addEventListener("scroll", () => {
-            setCurrentScroll(window.scrollY);
-            if (currentScroll <= 0) {
-                body.classList.remove("scroll-up");
-                return;
-            }
-
-            if (currentScroll > lastScroll &&
-                !body.classList.contains("scroll-down")
-            ) {
-                body.classList.remove("scroll-up");
-                body.classList.add("scroll-down");
-            } else if (
-                currentScroll < lastScroll &&
-                body.classList.contains("scroll-down")
-            ) {
-                body.classList.remove("scroll-down");
-                body.classList.add("scroll-up");
-            }
-            setLastScroll(currentScroll);
-        });
-
-    })
 
     return (
         <header className='header'>
@@ -48,8 +20,8 @@ export default function Header() {
                     {
                         accessToken
                             ? (
-                                <div className='link-wrapper'>
-                                    <a href='/login' onClick={() => dispatch(logout())}>Logout</a>
+                                <div className='button-wrapper'>
+                                   <Loout />
                                 </div>
                             )
                             : (

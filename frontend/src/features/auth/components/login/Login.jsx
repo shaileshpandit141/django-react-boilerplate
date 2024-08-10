@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
-import { login } from '../../loginAPI';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginAPI } from '../../loginAPI';
 import Input from '../input/Input';
 import Loader from '../../../../components/common/Loader';
 
 
-const Login = () => {
-
+export default function Login() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const status = useSelector((state) => state.auth.status)
     const error = useSelector((state) => state.auth.error)
 
@@ -32,12 +33,8 @@ const Login = () => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        dispatch(login(formData));
+        dispatch(loginAPI(formData));
     };
-
-    if (status === 'succeeded') {
-        return <Navigate to='/' />
-    }
 
     return (
         <form onSubmit={handleFormSubmit} className='grid-12 login-form'>
@@ -83,4 +80,3 @@ const Login = () => {
     );
 };
 
-export default Login;

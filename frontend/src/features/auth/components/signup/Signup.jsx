@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './signup.scss'
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { signupAPI } from '../../signupAPI';
 import Input from '../input/Input';
@@ -34,10 +34,6 @@ export default function Signup() {
     function handleFormSubmit(event) {
         event.preventDefault()
         dispatch(signupAPI(formData))
-    }
-
-    if (status === 'succeeded') {
-        return <Navigate to='/login' />
     }
 
     return (
