@@ -43,3 +43,13 @@ a:active {
 a::first-letter {
     text-transform: capitalize;
 }
+
+button,
+button:visited,
+button:active {
+    border: none;
+}
+
+button::first-letter {
+    text-transform: capitalize;
+}

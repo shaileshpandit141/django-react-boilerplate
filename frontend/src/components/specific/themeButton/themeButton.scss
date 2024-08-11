@@ -1,0 +1,40 @@
+@import '../../../sass';
+
+.theme-button-wrapper {
+    @include flex-centre;
+    background-color: $text-color;
+    overflow: hidden;
+    border-radius: 999rem;
+    aspect-ratio: 1/1;
+    height: em(36);
+    width: em(36);
+    cursor: pointer;
+
+    .theme-button {
+        @include flex-centre;
+        background-color: inherit;
+        padding: em(4);
+        cursor: inherit;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+body  {
+    .dark-icon {
+        display: none;
+    }
+}
+
+body {
+    .dark-them {
+        .light-icon {
+            display: none;
+        }
+    }
+}

@@ -36,18 +36,6 @@
             .link-wrapper {
                 @include link-wrapper;
             }
-
-            .theme-button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                aspect-ratio: 1/1;
-                height: 36px;
-                width: 36px;
-                background-color: $button-background-color;
-                border: 2px solid $border-color;
-                border-radius: 999rem;
-            }
         }
     }
 }

@@ -1,15 +1,17 @@
-import React from 'react'
-import './header.scss'
-import { NavLink, redirect } from 'react-router-dom'
-import Loout from '../../../features/auth/components/logout/Logout'
-import { useDispatch, useSelector } from 'react-redux'
+// Default Imports.
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAuthState } from '../../../features/auth/authSelectors';
 
+// Named Imports.
+import './header.scss';
+import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
+import Loout from '../../../features/auth/components/logout/Logout';
 
 export default function Header() {
 
-    const dispatch = useDispatch()
-    const accessToken = useSelector((state) => state.auth.accessToken)
-
+    const { isAuthenticated } = useSelector(selectAuthState)
 
     return (
         <header className='header'>
@@ -18,21 +20,21 @@ export default function Header() {
                 <div className="center-container">Center</div>
                 <div className="right-container">
                     {
-                        accessToken
-                            ? (
-                                <div className='button-wrapper'>
-                                   <Loout />
-                                </div>
-                            )
-                            : (
-                                <div className='link-wrapper'>
-                                    <NavLink to='/login'>login</NavLink>
-                                </div>
-                            )
+                        isAuthenticated && (
+                            <div className='button-wrapper'>
+                                <Loout />
+                            </div>
+                        )
                     }
-                    <button className="theme-button">
-                        &
-                    </button>
+
+                    {
+                        !isAuthenticated && (
+                            <div className='link-wrapper'>
+                                <NavLink to='/login'>login</NavLink>
+                            </div>
+                        )
+                    }
+                    <ThemeButton />
                 </div>
             </div>
         </header>
