@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../app/store';
-import { refreshAccessTokenAPI } from '../features/auth/refreshTokenAPI';
+import { refreshAccessToken } from '../features/auth/authThunks';
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000/',
@@ -24,7 +24,7 @@ axiosInstance.interceptors.response.use(
         const originalRequest = error.config;
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
-            await store.dispatch(refreshAccessTokenAPI());
+            await store.dispatch(refreshAccessToken());
             const newToken = store.getState().auth.accessToken;
             axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
             return axiosInstance(originalRequest);

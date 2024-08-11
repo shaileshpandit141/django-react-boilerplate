@@ -1,26 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { userAPI } from './userAPI'
+import { fetchUser } from './userThunks'
+
+const initialState = {
+    userInfo: {},
+    status: 'idle',
+    error: null
+}
 
 const userSlice = createSlice({
     name: 'user',
-    initialState: {
-        userInfo: {},
-        status: 'idle',
-        error: null
-    },
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(userAPI.pending, (state) => {
+            .addCase(fetchUser.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(userAPI.fulfilled, (state, action) => {
-                state.status = 'successeded';
+            .addCase(fetchUser.fulfilled, (state, action) => {
+                state.status = 'succeeded';
                 state.userInfo = action.payload;
             })
-            .addCase(userAPI.rejected, (state, action) => {
+            .addCase(fetchUser.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.error.message
+                state.error = action.payload;
             })
     }
 })

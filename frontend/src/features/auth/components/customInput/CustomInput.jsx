@@ -1,12 +1,12 @@
 import React from 'react'
-import './input.scss'
+import './CustomInput.scss'
 
-export default function Input(props) {
+export default function CustomInput(props) {
 
     const { label, ...rest } = props
     return (
         <div className="input-wrapper">
-            <input {...rest} required />
+            <input {...rest} required autoComplete="on" />
             <label>{label || rest.name}</label>
         </div>
     )

@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import './login.scss'
+// Default Imports.
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginAPI } from '../../loginAPI';
-import Input from '../input/Input';
-import Loader from '../../../../components/common/Loader';
+import { selectAuthState } from '../../authSelectors';
+import { login } from '../../authThunks';
 
+// Named Imports.
+import './login.scss'
+import CustomInput from '../customInput/CustomInput';
+import Loader from '../../../../components/common/Loader';
 
 export default function Login() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
-    const status = useSelector((state) => state.auth.status)
-    const error = useSelector((state) => state.auth.error)
+    // Select the auth readux context.
+    const { isAuthenticated, status, error } = useSelector(selectAuthState)
 
+    // Define a initial form data for login.
     const initialFormData = {
         username: '',
         password: '',
     };
 
+    // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData);
 
+    // Handle form data changes.
     function handleFormDataChange(event) {
         const { name, type, chacked, value } = event.target
         setFormData((prevFormData) => {
@@ -31,10 +36,16 @@ export default function Login() {
         })
     }
 
+    // Handle the form submation.
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        dispatch(loginAPI(formData));
+        dispatch(login(formData));
     };
+
+    // Check if user is Authenticated then redirect to another Route.
+    if (isAuthenticated) {
+        return <Navigate to='/' />
+    }
 
     return (
         <form onSubmit={handleFormSubmit} className='grid-12 login-form'>
@@ -43,7 +54,7 @@ export default function Login() {
                     <h2 className='title'>get started now</h2>
                     <p className='description'>enter your credentials to access your account</p>
 
-                    <Input
+                    <CustomInput
                         type='text'
                         label='username'
                         name='username'
@@ -51,24 +62,34 @@ export default function Login() {
                         value={formData.username}
                     />
 
-                    <Input
+                    <CustomInput
                         type='text'
                         label='password'
                         name='password'
                         onChange={handleFormDataChange}
                         value={formData.password}
                     />
+                    {
+                        error?.detail && (
+                            <h5>{error.detail}</h5>
+                        )
+                    }
 
                     <Link to="#" className='forgot-password'>forgot password</Link>
 
-                    {status === 'loading'
-                        ? (
+                    {
+                        status === 'loading' && (
                             <button className='login-btn' type="submit">
                                 <Loader />
                                 <span>loading...</span>
                             </button>
                         )
-                        : <button className='login-btn' type="submit">login</button>
+                    }
+
+                    {
+                        status !== 'loading' && (
+                            <button className='login-btn' type="submit">login</button>
+                        )
                     }
 
                     <p className='register-text'>

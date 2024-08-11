@@ -1,17 +1,15 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { loginAPI } from './loginAPI';
-import { refreshAccessTokenAPI } from './refreshTokenAPI';
-import { signupAPI } from './signupAPI';
+import { createSlice } from '@reduxjs/toolkit';
+import { login, refreshAccessToken, signup } from './authThunks'
 
 // Initial State
 const initialState = {
     accessToken: localStorage.getItem('accessToken') || null,
     refreshToken: localStorage.getItem('refreshToken') || null,
     isAuthenticated: !!localStorage.getItem('refreshToken'),
+    successSignup: null,
     status: 'idle',
     error: null,
 };
-
 
 // Auth Slice
 const authSlice = createSlice({
@@ -28,11 +26,10 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginAPI.pending, (state) => {
+            .addCase(login.pending, (state) => {
                 state.status = 'loading';
-                state.error = null;
             })
-            .addCase(loginAPI.fulfilled, (state, action) => {
+            .addCase(login.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 const { access, refresh } = action.payload
                 state.accessToken = access;
@@ -41,23 +38,34 @@ const authSlice = createSlice({
                 localStorage.setItem('accessToken', access);
                 localStorage.setItem('refreshToken', refresh)
             })
-            .addCase(loginAPI.rejected, (state, action) => {
+            .addCase(login.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
             })
-            .addCase(refreshAccessTokenAPI.fulfilled, (state, action) => {
+            .addCase(refreshAccessToken.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 const { access } = action.payload
                 state.accessToken = access;
                 state.isAuthenticated = true;
                 localStorage.setItem('accessToken', access);
             })
-            .addCase(refreshAccessTokenAPI.rejected, (state) => {
+            .addCase(refreshAccessToken.rejected, (state) => {
                 state.accessToken = null;
                 state.refreshToken = null;
                 state.isAuthenticated = false;
                 localStorage.removeItem('accessToken');
                 localStorage.removeItem('refreshToken');
+            })
+            .addCase(signup.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(signup.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.successSignup = action.payload
+            })
+            .addCase(signup.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
             })
     },
 });
