@@ -1,0 +1,5 @@
+@import '../../../../sass';
+
+.button-as-link-wrapper {
+    @include button-as-link-wrapper;
+}

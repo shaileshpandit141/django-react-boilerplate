@@ -1,11 +1,11 @@
-// Default Imports.
+// Named Imports.
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthState } from '../../authSelectors';
 import { login } from '../../authThunks';
 
-// Named Imports.
+// Default Imports.
 import './login.scss'
 import CustomInput from '../customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
@@ -48,8 +48,8 @@ export default function Login() {
     }
 
     return (
-        <form onSubmit={handleFormSubmit} className='grid-12 login-form'>
-            <div className='grid-2-2 login-element'>
+        <form onSubmit={handleFormSubmit} className='login-form'>
+            <div className='login-element'>
                 <div className='action-elements'>
                     <h2 className='title'>get started now</h2>
                     <p className='description'>enter your credentials to access your account</p>

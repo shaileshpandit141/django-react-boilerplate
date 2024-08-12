@@ -1,12 +1,26 @@
-@import '../../../sass/index.scss';
+@import '../../../sass';
 
 .header {
     @include grid-12;
-    background-color: $header-background-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: 0;
+    width: 100%;
     padding-block: 8px;
     user-select: none;
-    z-index: 9999;
-    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: $header-background-color;
+    transition: transform 0.3s ease;
+
+    &.hidden {
+        transform: translateY(-100%);
+    }
+
+    &.visible {
+        transform: translateY(0);
+    }
 
     &-wrapper {
         @include grid-2-2;

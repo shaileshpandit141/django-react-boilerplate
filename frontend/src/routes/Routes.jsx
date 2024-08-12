@@ -1,8 +1,8 @@
-// Default Imports.
+// Named Imports.
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Named Imports (user define pages).
+// Default Imports (user define pages).
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import NotFound from '../pages/notfound/NotFound'

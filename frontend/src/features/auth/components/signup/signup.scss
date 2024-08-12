@@ -1,14 +1,12 @@
 @import '../../../../sass';
 
-.register-form {
+.signup-form {
     @include grid-12;
 
-    .register-element {
+    .signup-element {
         @include grid-2-2;
         @include flex-centre(column);
         width: 100%;
-        height: fit-content;
-        min-height: 100vh;
         user-select: none;
 
         .action-elements {
@@ -71,6 +69,8 @@
                 }
 
                 a {
+                    text-wrap: nowrap;
+                    white-space: nowrap;
                     text-decoration: none;
                     opacity: $opacity;
                     transition: opacity 0.3s ease-in-out;

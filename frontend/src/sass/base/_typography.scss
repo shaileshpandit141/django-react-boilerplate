@@ -48,6 +48,11 @@ button,
 button:visited,
 button:active {
     border: none;
+    font-size: rem(14);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    color: $text-color;
+    font-weight: 600;
 }
 
 button::first-letter {

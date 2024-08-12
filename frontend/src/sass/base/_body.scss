@@ -7,4 +7,11 @@ body {
     overflow-y: auto;
     background-color: $background-color;
     color: $text-color;
+    padding-top: em(64);
+}
+
+.login-form, 
+.signup-form {
+    height: fit-content;
+    min-height: calc(100vh - 64px);
 }
