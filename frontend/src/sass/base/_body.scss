@@ -5,8 +5,8 @@ body {
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
-    background-color: $background-color;
-    color: $text-color;
+    background-color: $background-light;
+    color: $text-primary;
     padding-top: em(64);
 }
 

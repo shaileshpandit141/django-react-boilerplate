@@ -1,0 +1,115 @@
+@import '../../../../sass';
+
+.toast-notification-grid {
+    @include grid-12;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: 0;
+    transform: translateY(-100%);
+    z-index: 1200;
+    transition: transform 0.3s ease-in-out;
+
+    .toast-notification-wrapper {
+        @include grid-2-2;
+        @include flex-centre;
+        height: fit-content;
+        padding-block: 16px;
+
+        .toast-notification {
+            height: fit-content;
+            width: 100%;
+            max-width: em(275);
+            background-color: $alert-success-background;
+            display: flex;
+            column-gap: 8px;
+            padding: 6px;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: $box-shadow-light;
+
+            .left {
+                user-select: none;
+
+                .icon-info {
+                    @include flex-centre;
+                    height: em(24);
+                    width: em(24);
+                    border-radius: 999rem;
+                    overflow: hidden;
+                    // background-color: $button-background-color;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+            }
+
+            .centre {
+                .title {
+                    min-height: em(24);
+                    display: flex;
+                    align-items: center;
+                    display: -webkit-box;
+                    line-clamp: 5;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    margin-bottom: em(2);
+                }
+
+                p {
+                    display: -webkit-box;
+                    line-clamp: 5;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    line-height: 1.2;
+                    font-size: em(12);
+                }
+            }
+
+            .right {
+                user-select: none;
+
+                .close-icon {
+                    @include flex-centre;
+                    // background-color: $button-background-color;
+                    height: em(24);
+                    width: em(24);
+                    border-radius: 999rem;
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+
+                    &:hover {
+                        background-color: $button-primary-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.toast-notification-on {
+    transform: translateY(0);
+
+    .toast-notification-wrapper {
+        .toast-notification {
+            transform: scale(1);
+        }
+    }
+}

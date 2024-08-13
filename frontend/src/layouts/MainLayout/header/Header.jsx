@@ -2,16 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectAuthState } from '../../../features/auth/authSelectors';
 
 // Default Imports.
 import './header.scss';
+import useAuthSelectors from '../../../features/auth/useAuthSelectors';
 import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
 import Loout from '../../../features/auth/components/logout/Logout';
 
 export default function Header() {
 
-    const { isAuthenticated } = useSelector(selectAuthState)
+    const { isAuthenticated } = useAuthSelectors();
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollTop, setLastScrollTop] = useState(0);
 
@@ -41,8 +41,12 @@ export default function Header() {
     return (
         <header className={`header ${isHeaderVisible ? 'visible' : 'hidden'}`}>
             <div className='header-wrapper'>
-                <div className="left-container">Left</div>
-                <div className="center-container">Center</div>
+                <div className="left-container">
+                    <a href="#">Left</a>
+                </div>
+                <div className="center-container">
+                    <a href="#">Center</a>
+                </div>
                 <div className="right-container">
                     {
                         isAuthenticated && (

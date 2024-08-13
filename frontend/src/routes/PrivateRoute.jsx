@@ -1,15 +1,17 @@
 // Named Imports.
 import React, {useEffect} from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { isTokenExpired } from '../utils/isTokenExpired';
 import { logout } from '../features/auth/authSlice';
-import { selectAuthState } from '../features/auth/authSelectors'
+
+// Default Import.
+import useAuthSelector from '../features/auth/useAuthSelectors';
 
 export default function PrivateRoute() {
     const dispatch = useDispatch();
 
-    const {refreshToken, isAuthenticated} = useSelector(selectAuthState)
+    const { refreshToken, isAuthenticated } = useAuthSelector()
 
     useEffect(() => {
         if (isTokenExpired(refreshToken)) {

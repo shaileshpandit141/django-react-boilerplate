@@ -14,17 +14,17 @@
     letter-spacing: 0.05em;
     padding: 8px 16px;
     border-radius: 8px;
-    border: 2px solid $border-color;
+    border: 2px solid $border-color-light;
     cursor: pointer;
-    background-color: $button-background-color;
-    color: $text-color;
+    background-color: $button-primary-background;
+    color: $text-primary;
     width: 100%;
     text-transform: capitalize;
     overflow: hidden;
     transition: background-color 0.5s ease-in-out;
 
     &:hover {
-        background-color: $button-hover-color;
+        background-color: $button-primary-hover;
     }
 }
 
@@ -38,7 +38,7 @@
     }
 
     &:hover a {
-        color: $active-color;
+        color: $link-hover-color;
     }
 }
 
@@ -56,7 +56,7 @@
     }
 
     &:hover button {
-        color: $active-color;
+        color: $button-primary-hover;
     }
 }
 
@@ -64,14 +64,14 @@
     font-size: rem(14);
     letter-spacing: 0.05em;
     background-color: transparent;
-    color: $text-color;
+    color: $text-primary;
 }
 
 @mixin input {
     width: 100%;
     padding: 8px 16px;
     outline: none;
-    border: 2px solid $border-color;
+    border: 2px solid $border-color-light;
     border-radius: 8px;
     z-index: 1;
     transition: all 0.3s ease-in-out;
@@ -95,9 +95,9 @@
 
 @mixin input-focus-and-valid-to-label {
     font-size: rem(14);
-    color: $active-color;
+    color: $button-primary-hover;
     top: -8px;
-    background-color: $background-color;
+    background-color: $background-light;
     opacity: 1;
     z-index: inherit;
 }

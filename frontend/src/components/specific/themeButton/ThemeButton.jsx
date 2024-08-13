@@ -1,5 +1,5 @@
 // Named Imports.
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 // Default Imports.

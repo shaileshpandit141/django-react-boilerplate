@@ -17,7 +17,7 @@
     }
 
     :is(input:focus, input:valid) {
-        border-color: $active-color;
+        border-color: $border-color-light;
     }
 
     :is(input:focus, input:valid)~label {

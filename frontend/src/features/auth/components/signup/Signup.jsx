@@ -1,12 +1,12 @@
 // Named Imports.
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthState } from '../../authSelectors';
+import { useDispatch } from 'react-redux';
 import { signup } from '../../authThunks';
 
 // Default Imports.
 import './signup.scss'
+import useAuthSelectors from '../../useAuthSelectors';
 import CustomInput from '../customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
@@ -14,7 +14,7 @@ export default function Signup() {
     const dispatch = useDispatch();
 
     // Select the auth readux context.
-    const { status, error, successSignup } = useSelector(selectAuthState)
+    const { successSignup, status, error } = useAuthSelectors()
 
     // Define a initial form data for signup.
     const initialFormData = {

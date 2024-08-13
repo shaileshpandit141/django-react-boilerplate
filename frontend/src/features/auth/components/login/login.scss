@@ -15,7 +15,7 @@
             @include flex-centre(column);
             padding: 16px;
             border-radius: 8px;
-            background-color: $background-color;
+            background-color: $background-light;
             z-index: 1;
             width: 100%;
             min-width: 0;
@@ -26,14 +26,12 @@
                 text-transform: capitalize;
                 text-align: center;
                 letter-spacing: 0.05em;
-                color: $text-color;
             }
 
             .description {
                 text-align: center;
                 letter-spacing: 0.05em;
                 opacity: $opacity;
-                color: $text-color;
 
                 &::first-letter {
                     text-transform: capitalize;
@@ -46,7 +44,6 @@
                 text-align: end;
                 width: 100%;
                 opacity: $opacity;
-                color: $text-color;
                 transition: opacity 0.3s ease-in-out;
 
                 &::first-letter {
@@ -54,7 +51,7 @@
                 }
 
                 &:hover {
-                    opacity: 1;
+                    opacity: $opacity;
                 }
             }
 
@@ -62,11 +59,10 @@
                 @include button
             }
 
-            .register-text {
+            .signup-text {
                 letter-spacing: 0.05em;
                 text-align: center;
                 opacity: $opacity;
-                color: $text-color;
 
                 &::first-letter {
                     text-transform: capitalize;

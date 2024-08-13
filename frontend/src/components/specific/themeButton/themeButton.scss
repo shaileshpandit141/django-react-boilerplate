@@ -2,7 +2,6 @@
 
 .theme-button-wrapper {
     @include flex-centre;
-    background-color: $text-color;
     overflow: hidden;
     border-radius: 999rem;
     aspect-ratio: 1/1;

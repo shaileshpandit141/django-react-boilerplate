@@ -8,7 +8,7 @@ h6 {
     line-height: 1.2;
     margin-block: 0;
     letter-spacing: 0.03em;
-    color: $text-color;
+    color: $text-primary;
 }
 
 h1 {
@@ -26,7 +26,7 @@ details {
     margin-block: 0;
     font-size: rem(14);
     letter-spacing: 0.03em;
-    color: $text-color;
+    color: $text-primary;
     line-height: 1.5
 }
 
@@ -36,7 +36,7 @@ a:active {
     font-size: rem(14);
     text-decoration: none;
     letter-spacing: 0.03em;
-    color: $text-color;
+    color: $link-color;
     font-weight: 600;
 }
 
@@ -51,7 +51,7 @@ button:active {
     font-size: rem(14);
     text-decoration: none;
     letter-spacing: 0.03em;
-    color: $text-color;
+    color: $link-color;
     font-weight: 600;
 }
 

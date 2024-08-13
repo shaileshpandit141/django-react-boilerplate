@@ -1,32 +1,50 @@
-// Define a css color variables.
-:root {
-    --active-color: #2c8a00e8;
-    --background-color: #fff;
-    --border-color: #dddddd90;
-    --hover-color: #dddddd;
-    --text-color: #0e141a;
-    --error-color: #bb0000;
-    --header-background-color: #ddddddf2;
-    --button-background-color: #dddddd90;
-    --button-hover-color: #dddddd80;
-}
+// Convert those css variables to sass variables.
+$primary-color: var(--primary-color);
+$primary-light: var(--primary-light);
+$primary-dark: var(--primary-dark);
 
-[data-theme='dark'] {
-    --background-color: #0e141a;
-    --text-color: #fff;
-    --header-background-color: #1a242ef2;
-}
+$secondary-color: var(--secondary-color);
+$secondary-light: var(--secondary-light);
+$secondary-dark: var(--secondary-dark);
 
-// Conver css color to sass variables for simple useing.
-$active-color: var(--active-color);
-$background-color: var(--background-color);
-$border-color: var(--border-color);
-$hover-color: var(--hover-color);
-$text-color: var(--text-color);
-$error-color: var(--error-color);
-$header-background-color: var(--header-background-color);
-$button-background-color: var(--button-background-color);
-$button-hover-color: var(--button-hover-color);
+$background-light: var(--background-light);
+$background-dark: var(--background-dark);
+$card-background: var(--card-background);
+$header-background: var(--header-background);
+$footer-background: var(--footer-background);
+
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-light: var(--text-light);
+$text-accent: var(--text-accent);
+
+$border-color-light: var(--border-color-light);
+$border-color-dark: var(--border-color-dark);
+
+$button-primary-background: var(--primary-color);
+$button-primary-hover: var(--primary-light);
+$button-secondary-background: var(--secondary-color);
+$button-secondary-hover: var(--secondary-light);
+$button-text-color: var(--text-light);
+
+$chart-positive: var(--chart-positive);
+$chart-negative: var(--chart-negative);
+$chart-neutral: var(--chart-neutral);
+
+$alert-success-background: var(--alert-success-background);
+$alert-error-background: var(--alert-error-background);
+$alert-warning-background: var(--alert-warning-background);
+$alert-info-background: var(--alert-info-background);
+$alert-text-color: var(--alert-text-color);
+
+$box-shadow-light: var(--box-shadow-light);
+$box-shadow-medium: var(--box-shadow-medium);
+$box-shadow-heavy: var(--box-shadow-medium);
+
+$scrollbar-thumb: var(--scrollbar-thumb);
+$scrollbar-track: var(--scrollbar-track);
+$link-color: var(--link-color);
+$link-hover-color: var(--link-hover-color);
 
 // Define the opacity.
 $opacity: 1;

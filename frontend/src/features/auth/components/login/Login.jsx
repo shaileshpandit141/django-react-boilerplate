@@ -1,12 +1,13 @@
 // Named Imports.
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthState } from '../../authSelectors';
+import { useDispatch } from 'react-redux';
 import { login } from '../../authThunks';
+import { notify } from '../../../toast/toastSlice';
 
 // Default Imports.
 import './login.scss'
+import useAuthSelector from '../../useAuthSelectors';
 import CustomInput from '../customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
@@ -14,7 +15,7 @@ export default function Login() {
     const dispatch = useDispatch();
 
     // Select the auth readux context.
-    const { isAuthenticated, status, error } = useSelector(selectAuthState)
+    const { isAuthenticated, status, error } = useAuthSelector()
 
     // Define a initial form data for login.
     const initialFormData = {
@@ -41,6 +42,16 @@ export default function Login() {
         event.preventDefault();
         dispatch(login(formData));
     };
+
+    React.useEffect(() => {
+        if (error) {
+            if (error?.detail) {
+                dispatch(notify({
+                    title: [error.detail]
+                }))
+            }
+        }
+    }, [error])
 
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {
@@ -92,7 +103,7 @@ export default function Login() {
                         )
                     }
 
-                    <p className='register-text'>
+                    <p className='signup-text'>
                         You don't have an account?, <Link to="/signup">create an account now</Link>
                     </p>
                 </div>

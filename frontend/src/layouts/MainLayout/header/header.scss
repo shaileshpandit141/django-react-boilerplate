@@ -10,8 +10,8 @@
     width: 100%;
     padding-block: 8px;
     user-select: none;
-    z-index: 1000;
-    background-color: $header-background-color;
+    z-index: 999;
+    background-color: $header-background;
     transition: transform 0.3s ease;
 
     &.hidden {
