@@ -1,18 +1,16 @@
 import React from 'react'
-import { RotatingLines } from 'react-loader-spinner'
+import { Circles } from 'react-loader-spinner'
 
 export default function Loader() {
     return (
-        <RotatingLines
-            visible={true}
+        <Circles
             height="24"
             width="24"
-            color="#2c3e50"
-            strokeWidth="5"
-            animationDuration="0.75"
-            ariaLabel="rotating-lines-loading"
+            color="var(--background-light)"
+            ariaLabel="circles-loading"
             wrapperStyle={{}}
             wrapperClass=""
+            visible={true}
         />
     )
 }

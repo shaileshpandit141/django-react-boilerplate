@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: em(4);
+    column-gap: em(8);
     font-size: rem(16);
     letter-spacing: 0.05em;
     padding: 8px 16px;
@@ -17,7 +17,7 @@
     border: 2px solid $border-color-light;
     cursor: pointer;
     background-color: $button-primary-background;
-    color: $text-primary;
+    color: $button-text-color;
     width: 100%;
     text-transform: capitalize;
     overflow: hidden;
@@ -90,6 +90,7 @@
     z-index: -1;
     border-radius: 999rem;
     cursor: text;
+    color: $text-primary;
     transition: all 0.3s ease;
 }
 

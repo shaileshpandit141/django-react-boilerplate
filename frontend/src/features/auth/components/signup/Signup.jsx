@@ -65,7 +65,7 @@ export default function Signup() {
                     }
 
                     <CustomInput
-                        type='text'
+                        type='email'
                         label='email'
                         name='email'
                         onChange={handleFormDataChange}
@@ -78,7 +78,7 @@ export default function Signup() {
                     }
 
                     <CustomInput
-                        type='text'
+                        type='password'
                         label='password'
                         name='password1'
                         onChange={handleFormDataChange}
@@ -91,7 +91,7 @@ export default function Signup() {
                     }
 
                     <CustomInput
-                        type='text'
+                        type='password'
                         label='confirm password'
                         name='password2'
                         onChange={handleFormDataChange}

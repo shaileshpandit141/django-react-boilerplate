@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../authThunks';
-import { notify } from '../../../toast/toastSlice';
 
 // Default Imports.
 import './login.scss'
@@ -43,16 +42,6 @@ export default function Login() {
         dispatch(login(formData));
     };
 
-    React.useEffect(() => {
-        if (error) {
-            if (error?.detail) {
-                dispatch(notify({
-                    title: [error.detail]
-                }))
-            }
-        }
-    }, [error])
-
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {
         return <Navigate to='/' />
@@ -64,7 +53,6 @@ export default function Login() {
                 <div className='action-elements'>
                     <h2 className='title'>get started now</h2>
                     <p className='description'>enter your credentials to access your account</p>
-
                     <CustomInput
                         type='text'
                         label='username'
@@ -74,7 +62,7 @@ export default function Login() {
                     />
 
                     <CustomInput
-                        type='text'
+                        type='password'
                         label='password'
                         name='password'
                         onChange={handleFormDataChange}

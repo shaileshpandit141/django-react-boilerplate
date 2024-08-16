@@ -1,7 +1,6 @@
 // Named Imports.
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 // Default Imports.
 import './header.scss';

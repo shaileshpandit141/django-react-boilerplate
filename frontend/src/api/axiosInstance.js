@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { store } from '../app/store';
+import { store } from '../config/store';
 import { refreshAccessToken } from '../features/auth/authThunks';
 
 const axiosInstance = axios.create({

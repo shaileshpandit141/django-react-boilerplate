@@ -16,15 +16,12 @@
         @include input-label;
     }
 
-    :is(input:focus, input:valid) {
-        border-color: $border-color-light;
+    :is(.input:focus, input:valid) {
+        border-color: $border-color-dark;
     }
 
-    :is(input:focus, input:valid)~label {
-        @include input-focus-and-valid-to-label;
-    }
-
-    :is(input:focus, input:valid)~label {
+    .input:focus~.label,
+    .input:not(:placeholder-shown).input:not(:focus)~.label {
         @include input-focus-and-valid-to-label;
     }
 
