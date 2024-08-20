@@ -241,4 +241,4 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 # Custom Account Adapters Configuration
-ACCOUNT_ADAPTER = "accounts.CustomAdapters.CustomAccountAdapter"
+ACCOUNT_ADAPTER = "accounts.custom_adapters.CustomAccountAdapter"

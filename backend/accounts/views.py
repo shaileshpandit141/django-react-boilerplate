@@ -29,13 +29,13 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
         if not user.is_active:
             return Response(
-                {"detail": _("Account is not active.")},
+                {"detail": _("Account is not verified")},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
         if not user.emailaddress_set.filter(verified=True).exists():
             return Response(
-                {"detail": _("Email is not verified.")},
+                {"detail": _("Account is not verified")},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
@@ -74,11 +74,11 @@ class ResendVerificationEmailView(APIView):
         if user.emailaddress_set.filter(email=user.email, verified=False).exists():
             send_email_confirmation(request, user)
             return Response(
-                {"detail": "Verification e-mail sent"}, status=status.HTTP_200_OK
+                {"detail": "Account Verification e-mail sent"}, status=status.HTTP_200_OK
             )
         else:
             return Response(
-                {"detail": "Email already verified"},
+                {"detail": "Account already verified"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
