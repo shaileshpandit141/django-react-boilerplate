@@ -1,12 +1,13 @@
 // Named Imports.
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuthSelectors } from '../../../features/auth';
+import { LogoutButton } from '../../../features/auth';
 
 // Default Imports.
 import './header.scss';
-import useAuthSelectors from '../../../features/auth/useAuthSelectors';
 import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
-import Loout from '../../../features/auth/components/logout/Logout';
+
 
 export default function Header() {
 
@@ -41,16 +42,22 @@ export default function Header() {
         <header className={`header ${isHeaderVisible ? 'visible' : 'hidden'}`}>
             <div className='header-wrapper'>
                 <div className="left-container">
-                    <a href="#">Left</a>
+                    {/* For Test */}
+                    <div className="button-as-link-wrapper">
+                        <button>left</button>
+                    </div>
                 </div>
                 <div className="center-container">
-                    <a href="#">Center</a>
+                    {/* For Test */}
+                    <div className="button-as-link-wrapper">
+                        <button>center</button>
+                    </div>
                 </div>
                 <div className="right-container">
                     {
                         isAuthenticated && (
                             <div className='button-wrapper'>
-                                <Loout />
+                                <LogoutButton />
                             </div>
                         )
                     }

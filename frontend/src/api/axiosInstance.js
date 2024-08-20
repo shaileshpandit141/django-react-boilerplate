@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../config/store';
-import { refreshAccessToken } from '../features/auth/authThunks';
+import { refreshAccessToken } from '../features/auth/thunks/authThunk';
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000/',

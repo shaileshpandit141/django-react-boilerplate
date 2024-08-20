@@ -1,17 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, refreshAccessToken, signup } from './authThunks'
+import { login, refreshAccessToken } from '../thunks/authThunk';
 
 // Initial State
 const initialState = {
     accessToken: localStorage.getItem('accessToken') || null,
     refreshToken: localStorage.getItem('refreshToken') || null,
     isAuthenticated: !!localStorage.getItem('refreshToken'),
-    successSignup: null,
     status: 'idle',
     error: null,
 };
 
-// Auth Slice
+// auth Slice
 const authSlice = createSlice({
     name: 'auth',
     initialState,
@@ -55,17 +54,6 @@ const authSlice = createSlice({
                 state.isAuthenticated = false;
                 localStorage.removeItem('accessToken');
                 localStorage.removeItem('refreshToken');
-            })
-            .addCase(signup.pending, (state) => {
-                state.status = 'loading';
-            })
-            .addCase(signup.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.successSignup = action.payload
-            })
-            .addCase(signup.rejected, (state, action) => {
-                state.status = 'failed';
-                state.error = action.payload;
             })
     },
 });
