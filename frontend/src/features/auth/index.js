@@ -1,6 +1,7 @@
 import authReducer, { logout } from './slices/authSlice';
-import signupReducer from './slices/signupSlice';
 import useAuthSelectors from './hooks/useAuthSelectors';
+import signupReducer from './slices/signupSlice';
+import verifyAccountReducer from './slices/verifyAccountSlice';
 import LoginFrom from './components/loginForm/LoginForm';
 import LogoutButton from './components/logoutButton/LogoutButton';
 import ResendVerificationKey from './components/resendVerificationKey/ResendVerificationKey';
@@ -11,6 +12,7 @@ export {
     authReducer,
     logout,
     signupReducer,
+    verifyAccountReducer,
     useAuthSelectors,
     LoginFrom,
     LogoutButton,

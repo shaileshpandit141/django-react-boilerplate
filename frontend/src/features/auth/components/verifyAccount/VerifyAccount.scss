@@ -1,0 +1,21 @@
+@import "../../../../sass";
+
+.grid {
+    @include grid-12;
+
+    .inner-grid {
+        @include grid-2-2;
+        @include flex-centre(column);
+        padding-block: em(64);
+        row-gap: rem(16);
+
+        p {
+            text-align: center
+        }
+
+        .button-wrapper {
+            @include button-wrapper;
+            max-width: fit-content;
+        }
+    }
+}

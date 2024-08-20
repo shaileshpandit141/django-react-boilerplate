@@ -6,8 +6,8 @@ export default function CustomInput(props) {
     const { label, ...rest } = props
     return (
         <div className="input-wrapper">
-            <input className='input' {...rest} required autoComplete="on" placeholder=''/>
-            <label className='label'>{label || rest.name}</label>
+            <input className='input' id={label} {...rest} required autoComplete="on" placeholder=''/>
+            <label className='label' htmlFor={label}>{label || rest.name}</label>
         </div>
     )
 }

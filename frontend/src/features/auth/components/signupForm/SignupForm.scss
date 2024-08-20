@@ -52,8 +52,8 @@
                 }
             }
 
-            .login-btn {
-                @include button()
+            .signup-btn {
+                @include button-wrapper;
             }
 
             .login-text {

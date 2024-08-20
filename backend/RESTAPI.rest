@@ -69,7 +69,7 @@ Content-Type: application/json
 
 
 ### Verify email
-POST http://localhost:8000/api/auth/registration/verify-email/
+POST http://localhost:8000/api/auth/signup/verify-email/
 Content-Type: application/json
 
 {
