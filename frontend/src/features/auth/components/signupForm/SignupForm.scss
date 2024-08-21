@@ -36,22 +36,6 @@
                 }
             }
 
-            .forgot-password {
-                &::first-letter {
-                    text-transform: capitalize;
-                }
-
-                letter-spacing: 0.05em;
-                text-decoration: none;
-                text-align: end;
-                width: 100%;
-                opacity: $opacity;
-
-                &:hover {
-                    opacity: 1;
-                }
-            }
-
             .signup-btn {
                 @include button-wrapper;
             }
