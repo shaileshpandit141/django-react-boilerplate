@@ -50,9 +50,7 @@ export default function SignupForm() {
                 {
                     status !== 'succeeded' && (
                         <div className='action-elements'>
-                            <h2 className='title'>get started now</h2>
-                            <p className='description'>enter your credentials to create your account</p>
-
+                            <h3 className="title">Create your account</h3>
                             <CustomInput
                                 type='text'
                                 label='username'

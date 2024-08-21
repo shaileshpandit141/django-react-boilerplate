@@ -51,8 +51,7 @@ export default function LoginForm() {
         <form onSubmit={handleFormSubmit} className='login-form'>
             <div className='login-element'>
                 <div className='action-elements'>
-                    <h2 className='title'>get started now</h2>
-                    <p className='description'>enter your credentials to access your account</p>
+                    <h3 className='title'>access your account</h3> 
                     <CustomInput
                         type='text'
                         label='username'
