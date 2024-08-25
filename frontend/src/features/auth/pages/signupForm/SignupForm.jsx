@@ -8,7 +8,7 @@ import { signup } from '../../thunks/signupThunk';
 // Default Imports.
 import './SignupForm.scss'
 import useSignupSelectors from '../../hooks/useSignupSelectors';
-import CustomInput from '../customInput/CustomInput';
+import CustomInput from '../../components/customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
 export default function SignupForm() {

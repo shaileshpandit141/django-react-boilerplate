@@ -8,7 +8,7 @@ import { login } from '../../thunks/authThunk';
 // Default Imports.
 import './LoginForm.scss'
 import useAuthSelector from '../../hooks/useAuthSelectors';
-import CustomInput from '../customInput/CustomInput';
+import CustomInput from '../../components/customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
 export default function LoginForm() {
