@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { login } from '../../thunks/authThunk';
 
 // Default Imports.
@@ -48,58 +49,65 @@ export default function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleFormSubmit} className='login-form'>
-            <div className='login-element'>
-                <div className='action-elements'>
-                    <h3 className='title'>access your account</h3> 
-                    <CustomInput
-                        type='text'
-                        label='username'
-                        name='username'
-                        onChange={handleFormDataChange}
-                        value={formData.username}
-                    />
+        <>
+            {/* Metadata settings */}
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
 
-                    <CustomInput
-                        type='password'
-                        label='password'
-                        name='password'
-                        onChange={handleFormDataChange}
-                        value={formData.password}
-                    />
-                    {
-                        error?.detail && (
-                            <h5>{error.detail}</h5>
-                        )
-                    }
+            {/* Component jsx */}
+            <form onSubmit={handleFormSubmit} className='login-form'>
+                <div className='login-element'>
+                    <div className='action-elements'>
+                        <h3 className='title'>access your account</h3>
+                        <CustomInput
+                            type='text'
+                            label='username'
+                            name='username'
+                            onChange={handleFormDataChange}
+                            value={formData.username}
+                        />
 
-                    <Link to="#" className='forgot-password'>forgot password</Link>
+                        <CustomInput
+                            type='password'
+                            label='password'
+                            name='password'
+                            onChange={handleFormDataChange}
+                            value={formData.password}
+                        />
+                        {
+                            error?.detail && (
+                                <h5>{error.detail}</h5>
+                            )
+                        }
 
-                    {
-                        status === 'loading' && (
-                            <div className="login-btn">
-                                <button type="submit">
-                                    <Loader />
-                                    <span>loading...</span>
-                                </button>
-                            </div>
-                        )
-                    }
+                        <Link to="#" className='forgot-password'>forgot password</Link>
 
-                    {
-                        status !== 'loading' && (
-                            <div className="login-btn">
-                                <button type="submit">login</button>
-                            </div>
-                        )
-                    }
+                        {
+                            status === 'loading' && (
+                                <div className="login-btn">
+                                    <button type="submit">
+                                        <Loader />
+                                        <span>loading...</span>
+                                    </button>
+                                </div>
+                            )
+                        }
 
-                    <p className='signup-text'>
-                        You don't have an account?, <Link to="/signup">create an account now</Link>
-                    </p>
+                        {
+                            status !== 'loading' && (
+                                <div className="login-btn">
+                                    <button type="submit">login</button>
+                                </div>
+                            )
+                        }
+
+                        <p className='signup-text'>
+                            You don't have an account?, <Link to="/signup">create an account now</Link>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </>
     );
-};
-
+}

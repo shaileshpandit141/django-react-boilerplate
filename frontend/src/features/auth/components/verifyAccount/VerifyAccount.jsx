@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { verifyAccount } from '../../thunks/verifyAccountThunk';
 import useVerifyAccountSelector from '../../hooks/useVerifyAccountSelector';
 import "./VerifyAccount.scss";
@@ -23,27 +24,35 @@ export default function VerifyAccount() {
     }
 
     return (
-        <div className='grid'>
-            <div className='inner-grid'>
-                {
-                    !error && (
-                        <>
-                            <h2>Verify your account.</h2>
-                            <div className="button-wrapper">
-                                <button onClick={handleVerifyButtonClick}>Verify</button>
-                            </div>
-                        </>
-                    )
-                }
-                {
-                    error && (
-                        <>
-                            <h2>{error.detail}</h2>
-                            <p>That means verification key is allready used.</p>
-                        </>
-                    )
-                }
+        <>
+            {/* Metadata settings */}
+            <Helmet>
+
+            </Helmet>
+            
+            {/* Component jsx */}
+            <div className='grid'>
+                <div className='inner-grid'>
+                    {
+                        !error && (
+                            <>
+                                <h2>Verify your account.</h2>
+                                <div className="button-wrapper">
+                                    <button onClick={handleVerifyButtonClick}>Verify</button>
+                                </div>
+                            </>
+                        )
+                    }
+                    {
+                        error && (
+                            <>
+                                <h2>{error.detail}</h2>
+                                <p>That means verification key is allready used.</p>
+                            </>
+                        )
+                    }
+                </div>
             </div>
-        </div>
+        </>
     )
 }
