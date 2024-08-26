@@ -1,9 +1,9 @@
 @import '../../../../sass';
 
-.login-form {
+.re-verification-key-form {
     @include grid-12;
 
-    .login-container {
+    .re-verification-key-container {
         @include grid-2-2;
         @include flex-centre(column);
         width: 100%;
@@ -39,7 +39,6 @@
 
                 a {
                     color: $text-accent;
-                    text-wrap: nowrap;
                 }
             }
 

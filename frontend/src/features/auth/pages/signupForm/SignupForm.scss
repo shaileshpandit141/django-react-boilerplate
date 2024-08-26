@@ -3,13 +3,13 @@
 .signup-form {
     @include grid-12;
 
-    .signup-element {
+    .signup-container {
         @include grid-2-2;
         @include flex-centre(column);
         width: 100%;
         user-select: none;
 
-        .action-elements {
+        .inputes-container {
             @include flex-centre(column);
             padding: 16px;
             border-radius: 8px;
@@ -24,6 +24,10 @@
                 text-transform: capitalize;
                 text-align: center;
                 letter-spacing: 0.05em;
+            }
+
+            .error-detail-text {
+                color: $error-text-primary;
             }
 
             .signup-btn {

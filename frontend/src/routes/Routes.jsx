@@ -32,6 +32,7 @@ const AppRoutes = () => {
                         <Route path="resend-verification-key" element={<ResendVerificationKey />} />
                         <Route path="signup" element={<SignupForm />} />
                         <Route path="verify-account/:key" element={<VerifyAccount />} />
+                        <Route path='resend-verification-key' element={<ResendVerificationKey />} />
                     </Route>
 
                     {/* Private Routes */}

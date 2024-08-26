@@ -5,20 +5,45 @@
     width: 100%;
 
     :is(input, label) {
-        @include input-and-label;
+        font-size: rem(14);
+        letter-spacing: 0.05em;
+        background-color: transparent;
+        color: $text-primary;
     }
 
     input {
-        @include input;
+        width: 100%;
+        padding: 12px 16px;
+        outline: none;
+        border: 2px solid $border-color-light;
+        border-radius: 8px;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
     }
 
     label {
-        @include input-label;
+        text-transform: capitalize;
+        padding-inline: 8px;
+        margin-left: 10px;
+        position: absolute;
+        top: calc(50% - rem(8));
+        right: auto;
+        bottom: unset;
+        left: 0;
+        opacity: $opacity;
+        z-index: -1;
+        border-radius: 999rem;
+        cursor: text;
+        color: $text-primary;
+        transition: all 0.3s ease-in-out;
     }
 
     .input:focus~.label,
     .input:not(:placeholder-shown).input:not(:focus)~.label {
-        @include input-active-label;
+        font-size: rem(14);
+        top: -8px;
+        background-color: $background-light;
+        color: $text-secondary;
+        z-index: 1;
     }
-
 }

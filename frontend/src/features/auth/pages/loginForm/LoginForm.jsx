@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { login } from '../../thunks/authThunk';
 
 // Default Imports.
@@ -57,8 +57,8 @@ export default function LoginForm() {
 
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='login-form'>
-                <div className='login-element'>
-                    <div className='action-elements'>
+                <div className='login-container'>
+                    <div className='inputes-container'>
                         <h3 className='title'>access your account</h3>
                         <CustomInput
                             type='text'
@@ -77,7 +77,10 @@ export default function LoginForm() {
                         />
                         {
                             error?.detail && (
-                                <h5>{error.detail}</h5>
+                                <div className="account-verify-cntainer">
+                                    <h5>{error.detail}</h5>
+                                    <Link to="/resend-verification-key">verify it</Link>
+                                </div>
                             )
                         }
 
@@ -88,7 +91,6 @@ export default function LoginForm() {
                                 <div className="login-btn">
                                     <button type="submit">
                                         <Loader />
-                                        <span>loading...</span>
                                     </button>
                                 </div>
                             )

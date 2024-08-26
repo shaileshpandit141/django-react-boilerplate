@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { signup } from '../../thunks/signupThunk';
 
 // Default Imports.
@@ -54,10 +54,10 @@ export default function SignupForm() {
 
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='signup-form'>
-                <div className='signup-element'>
+                <div className='signup-container'>
                     {
                         status !== 'succeeded' && (
-                            <div className='action-elements'>
+                            <div className='inputes-container'>
                                 <h3 className="title">Create your account</h3>
                                 <CustomInput
                                     type='text'
@@ -68,7 +68,7 @@ export default function SignupForm() {
                                 />
                                 {
                                     error?.username && (
-                                        <h5>{error.username}</h5>
+                                        <h5 className='error-detail-text'>{error.username}</h5>
                                     )
                                 }
 
@@ -81,7 +81,7 @@ export default function SignupForm() {
                                 />
                                 {
                                     error?.email && (
-                                        <h5>{error.email}</h5>
+                                        <h5 className='error-detail-text'>{error.email}</h5>
                                     )
                                 }
 
@@ -94,7 +94,7 @@ export default function SignupForm() {
                                 />
                                 {
                                     error?.password1 && (
-                                        <h5>{error.password1}</h5>
+                                        <h5 className='error-detail-text'>{error.password1}</h5>
                                     )
                                 }
 
@@ -107,7 +107,7 @@ export default function SignupForm() {
                                 />
                                 {
                                     error?.password2 && (
-                                        <h5>{error.password2}</h5>
+                                        <h5 className='error-detail-text'>{error.password2}</h5>
                                     )
                                 }
 
@@ -116,7 +116,6 @@ export default function SignupForm() {
                                         <div className="signup-btn">
                                             <button type="submit">
                                                 <Loader />
-                                                <span>loading...</span>
                                             </button>
                                         </div>
                                     )
