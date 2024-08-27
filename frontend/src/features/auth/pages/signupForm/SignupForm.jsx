@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
-import { signup } from '../../thunks/signupThunk';
+import { useSignupSelectors } from '../../hooks/useSignupSelectors';
+import { signupThunk } from '../../thunks/signupThunk';
 
 // Default Imports.
 import './SignupForm.scss'
-import useSignupSelectors from '../../hooks/useSignupSelectors';
 import CustomInput from '../../components/customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
@@ -42,7 +42,7 @@ export default function SignupForm() {
     // Handle the form submation.
     function handleFormSubmit(event) {
         event.preventDefault()
-        dispatch(signup(formData))
+        dispatch(signupThunk(formData))
     }
 
     return (

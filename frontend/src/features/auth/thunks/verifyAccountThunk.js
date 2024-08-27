@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../api/api';
+import { api } from '../api';
 
-export const verifyAccount = createAsyncThunk(
+export const verifyAccountThunk = createAsyncThunk(
     'verifyAccount/verifyAccount',
     async (credentials, thunkAPI) => {
         try {
-            const response = await api.verifyAccount(credentials);
+            const response = await api.verifyAccountApi(credentials);
             return response.data;
         } catch (error) {
             const errorResponse = error.response ? error.response.data : error.message

@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
-import { login } from '../../thunks/authThunk';
+import { useAuthSelectors } from '../../hooks/useAuthSelectors';
+import { loginThunk } from '../../thunks/authThunk';
 
 // Default Imports.
 import './LoginForm.scss'
-import useAuthSelector from '../../hooks/useAuthSelectors';
 import CustomInput from '../../components/customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';
 
@@ -15,7 +15,7 @@ export default function LoginForm() {
     const dispatch = useDispatch();
 
     // Select the auth readux context.
-    const { isAuthenticated, status, error } = useAuthSelector()
+    const { isAuthenticated, status, error } = useAuthSelectors()
 
     // Define a initial form data for login.
     const initialFormData = {
@@ -40,7 +40,7 @@ export default function LoginForm() {
     // Handle the form submation.
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        dispatch(login(formData));
+        dispatch(loginThunk(formData));
     };
 
     // Check if user is Authenticated then redirect to another Route.

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
-import useResendVerificationKeySelectors from '../../hooks/useResendVerificationKeySelectors';
+import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors';
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk';
 import CustomInput from '../../components/customInput/CustomInput';
 import Loader from '../../../../components/common/Loader';

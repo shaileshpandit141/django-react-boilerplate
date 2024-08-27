@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { login, refreshAccessToken } from '../thunks/authThunk';
+import { loginThunk, refreshAccessTokenThunk } from '../thunks/authThunk';
 
 // Initial State
 const initialState = {
@@ -25,10 +25,10 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(login.pending, (state) => {
+            .addCase(loginThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(login.fulfilled, (state, action) => {
+            .addCase(loginThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 const { access, refresh } = action.payload
                 state.accessToken = access;
@@ -37,18 +37,18 @@ const authSlice = createSlice({
                 localStorage.setItem('accessToken', access);
                 localStorage.setItem('refreshToken', refresh)
             })
-            .addCase(login.rejected, (state, action) => {
+            .addCase(loginThunk.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
             })
-            .addCase(refreshAccessToken.fulfilled, (state, action) => {
+            .addCase(refreshAccessTokenThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 const { access } = action.payload
                 state.accessToken = access;
                 state.isAuthenticated = true;
                 localStorage.setItem('accessToken', access);
             })
-            .addCase(refreshAccessToken.rejected, (state) => {
+            .addCase(refreshAccessTokenThunk.rejected, (state) => {
                 state.accessToken = null;
                 state.refreshToken = null;
                 state.isAuthenticated = false;

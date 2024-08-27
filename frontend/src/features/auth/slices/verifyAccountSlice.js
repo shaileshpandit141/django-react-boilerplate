@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { verifyAccount } from '../thunks/verifyAccountThunk';
+import { verifyAccountThunk } from '../thunks/verifyAccountThunk';
 
 // Initial State
 const initialState = {
@@ -14,13 +14,13 @@ const verifyAccountSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(verifyAccount.pending, (state) => {
+            .addCase(verifyAccountThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(verifyAccount.fulfilled, (state, action) => {
+            .addCase(verifyAccountThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
             })
-            .addCase(verifyAccount.rejected, (state, action) => {
+            .addCase(verifyAccountThunk.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
             })

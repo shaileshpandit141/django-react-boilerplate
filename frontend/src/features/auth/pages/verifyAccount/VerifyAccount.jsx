@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
-import { verifyAccount } from '../../thunks/verifyAccountThunk';
-import useVerifyAccountSelector from '../../hooks/useVerifyAccountSelector';
+import { useVerifyAccountSelector } from '../../hooks/useVerifyAccountSelector';
+import { verifyAccountThunk } from '../../thunks/verifyAccountThunk';
 import "./VerifyAccount.scss";
 
 export default function VerifyAccount() {
@@ -15,7 +15,7 @@ export default function VerifyAccount() {
     function handleVerifyButtonClick(event) {
         event.preventDefault()
         if (status === "idle") {
-            dispatch(verifyAccount({ key: key }))
+            dispatch(verifyAccountThunk({ key: key }))
         }
     }
 
@@ -29,7 +29,7 @@ export default function VerifyAccount() {
             <Helmet>
 
             </Helmet>
-            
+
             {/* Component jsx */}
             <div className='grid'>
                 <div className='inner-grid'>

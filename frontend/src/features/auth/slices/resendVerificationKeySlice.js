@@ -9,7 +9,7 @@ const initialState = {
 };
 
 // signup Slice
-const resendVerificationKey = createSlice({
+const resendVerificationKeySlice = createSlice({
     name: 'resendVerificationKey',
     initialState,
     reducers: {},
@@ -29,4 +29,4 @@ const resendVerificationKey = createSlice({
     },
 });
 
-export default resendVerificationKey.reducer;
+export default resendVerificationKeySlice.reducer;

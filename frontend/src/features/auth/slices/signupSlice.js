@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signup } from '../thunks/signupThunk';
+import { signupThunk } from '../thunks/signupThunk';
 
 // Initial State
 const initialState = {
@@ -15,14 +15,14 @@ const signupSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(signup.pending, (state) => {
+            .addCase(signupThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(signup.fulfilled, (state, action) => {
+            .addCase(signupThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.data = action.payload
             })
-            .addCase(signup.rejected, (state, action) => {
+            .addCase(signupThunk.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.payload;
             })
