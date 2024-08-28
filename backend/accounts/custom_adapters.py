@@ -12,5 +12,5 @@ class CustomAccountAdapter(DefaultAccountAdapter):
             "current_site": request.get_host(),
             "key": emailconfirmation.key,
         }
-        email_template = "account/email/email_confirmation"
+        email_template = "accounts/email/email_confirmation"
         self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
