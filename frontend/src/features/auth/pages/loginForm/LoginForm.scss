@@ -25,6 +25,7 @@
             .title {
                 text-transform: capitalize;
                 text-align: center;
+                margin-block: em(16);
             }
 
             .account-verify-cntainer {
@@ -58,10 +59,6 @@
                 &:hover {
                     opacity: $opacity;
                 }
-            }
-
-            .login-btn {
-                @include button-wrapper;
             }
 
             .signup-text {

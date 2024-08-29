@@ -23,15 +23,11 @@
             .title {
                 text-transform: capitalize;
                 text-align: center;
-                letter-spacing: 0.05em;
+                margin-block: em(16);
             }
 
             .error-detail-text {
                 color: $error-text-primary;
-            }
-
-            .signup-btn {
-                @include button-wrapper;
             }
 
             .login-text {

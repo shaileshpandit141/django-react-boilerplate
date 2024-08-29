@@ -6,31 +6,7 @@
 }
 
 @mixin button-wrapper {
-    @include flex-centre;
-    background-color: $button-primary-background;
-    border: 2px solid $border-color-light;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 100%;
-    transition: background-color 0.5s ease-in-out;
-
-    &:hover {
-        background-color: $button-primary-hover;
-    }
-
-    button {
-        @include flex-centre;
-        background-color: inherit;
-        color: inherit;
-        column-gap: em(8);
-        font-size: rem(16);
-        letter-spacing: 0.05em;
-        padding: em(12) em(16);
-        cursor: pointer;
-        color: $button-text-color;
-        text-transform: capitalize;
-        width: 100%;
-    }
+    @extend .button-wrapper;
 }
 
 @mixin button-as-link-wrapper {

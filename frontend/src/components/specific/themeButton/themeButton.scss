@@ -7,20 +7,12 @@
     aspect-ratio: 1/1;
     cursor: pointer;
 
-    .theme-button {
-        @include flex-centre;
-        background-color: inherit;
-        cursor: inherit;
-        height: em(32);
-        width: em(32);
-        border-radius: 999rem;
+    .button-wrapper {
         background-color: transparent;
+        width: 40px;
 
-        img {
-            width: em(24);
-            height: em(24);
-            object-fit: contain;
-            object-position: center;
+        &:hover {
+            background-color: transparent;
         }
     }
 }

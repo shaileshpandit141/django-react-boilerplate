@@ -1,16 +1,17 @@
 import React from 'react'
-import { Circles } from 'react-loader-spinner'
+import { ThreeDots, ThreeCircles } from 'react-loader-spinner'
 
 export default function Loader() {
-    return (
-        <Circles
-            height="24"
-            width="24"
-            color="var(--background-light)"
-            ariaLabel="circles-loading"
+    return(
+        <ThreeDots
+            visible={true}
+            height="32"
+            width="32"
+            color="var(--text-primary)"
+            radius="9"
+            ariaLabel="three-dots-loading"
             wrapperStyle={{}}
             wrapperClass=""
-            visible={true}
         />
     )
 }

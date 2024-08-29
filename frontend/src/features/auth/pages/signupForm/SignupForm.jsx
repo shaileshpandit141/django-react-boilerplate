@@ -113,9 +113,11 @@ export default function SignupForm() {
 
                                 {
                                     status === 'loading' && (
-                                        <div className="signup-btn">
-                                            <button type="submit">
-                                                <Loader />
+                                        <div className="button-wrapper">
+                                            <button disabled>
+                                                <span className='icon'>
+                                                    <Loader />
+                                                </span>
                                             </button>
                                         </div>
                                     )
@@ -123,8 +125,10 @@ export default function SignupForm() {
 
                                 {
                                     status !== 'loading' && (
-                                        <div className="signup-btn">
-                                            <button type="submit">signup</button>
+                                        <div className="button-wrapper">
+                                            <button type="submit">
+                                                <span className='label'>signup</span>
+                                            </button>
                                         </div>
                                     )
                                 }

@@ -3,6 +3,7 @@
 .input-wrapper {
     position: relative;
     width: 100%;
+    z-index: -1;
 
     :is(input, label) {
         font-size: rem(14);
@@ -15,8 +16,8 @@
         width: 100%;
         padding: 12px 16px;
         outline: none;
-        border: 2px solid $border-color-light;
-        border-radius: 8px;
+        border: 1px solid $border-color-light;
+        border-radius: 999rem;
         z-index: 1;
         transition: all 0.3s ease-in-out;
     }
@@ -26,7 +27,7 @@
         padding-inline: 8px;
         margin-left: 10px;
         position: absolute;
-        top: calc(50% - rem(8));
+        top: calc(50% - rem(10));
         right: auto;
         bottom: unset;
         left: 0;

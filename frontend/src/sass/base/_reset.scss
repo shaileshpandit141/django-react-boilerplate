@@ -1,33 +1,93 @@
-html {
-    overflow: hidden;
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    box-sizing: border-box;
-}
-
-/* Reset the some default styles */
+/* Remove all margins, paddings, and borders */
 *,
 *::before,
 *::after {
-    padding: 0;
     margin: 0;
-    box-sizing: inherit;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
 }
 
-/* 
-Desabled the some style during input is autofill, 
-For Chrome and other WebKit-based browsers 
-*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    -webkit-text-fill-color: $text-primary;
-    -webkit-box-shadow: 0 0 0px 1000px $background-light inset;
-    transition: background-color 5000s ease-in-out 0s;
+/* Set a base font size */
+html {
+    /* 16px by default */
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+/* Remove list styles */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Remove default fieldset styling */
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove table spacing */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reset form elements */
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Normalize link appearance */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Reset media elements */
+img,
+video,
+audio {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reset blockquote styling */
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Force smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset strong and b to have normal font weight */
+strong,
+b {
+    font-weight: normal;
 }

@@ -1,0 +1,129 @@
+.button-wrapper {
+    height: em(40);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $button-primary-background;
+    color: $text-primary;
+    cursor: pointer;
+    border-radius: 999rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $button-primary-hover;
+    }
+
+    button,
+    .button {
+        border: none;
+        outline: none;
+        border-radius: unset;
+        background-color: transparent;
+        color: inherit;
+        height: inherit;
+        width: inherit;
+        padding-block: em(16);
+        padding-inline: em(16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: em(4);
+
+        .icon {
+            aspect-ratio: 1/1;
+            height: em(24);
+            width: em(24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+
+            span {
+                height: inherit;
+                width: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .label {
+            font-size: em(16);
+            font-weight: 600;
+            height: em(24);
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+        }
+    }
+
+    a,
+    .a,
+    .link {
+        text-decoration: none;
+        background-color: transparent;
+        color: inherit;
+        height: inherit;
+        width: inherit;
+        padding-block: em(16);
+        padding-inline: em(16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: em(4);
+        cursor: default;
+
+        .icon {
+            aspect-ratio: 1/1;
+            height: em(24);
+            width: em(24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            overflow: hidden;
+
+            span {
+                height: inherit;
+                width: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .label {
+            font-size: em(16);
+            font-weight: 600;
+            height: em(24);
+            display: flex;
+            align-items: center;
+            color: inherit;
+            text-transform: capitalize;
+        }
+    }
+}
+
+
+@media (pointer: fine) {
+    .button-wrapper {
+
+        button,
+        .button {
+            cursor: pointer;
+        }
+
+        button:disabled,
+        .button:disabled {
+            cursor: not-allowed;
+        }
+
+        a,
+        .a,
+        link {
+            cursor: pointer;
+        }
+    }
+}

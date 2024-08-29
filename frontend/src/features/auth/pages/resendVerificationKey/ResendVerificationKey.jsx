@@ -64,9 +64,11 @@ export default function ResendVerificationKey(props) {
 
                                 {
                                     status === 'loading' && (
-                                        <div className="login-btn">
+                                        <div className="buttton-wrapper">
                                             <button type="submit">
-                                                <Loader />
+                                                <span className='icon'>
+                                                    <Loader />
+                                                </span>
                                             </button>
                                         </div>
                                     )
@@ -74,8 +76,10 @@ export default function ResendVerificationKey(props) {
 
                                 {
                                     status !== 'loading' && (
-                                        <div className="login-btn">
-                                            <button type="submit">send</button>
+                                        <div className="button-wrapper">
+                                            <button type="submit">
+                                                <span className='label'>send</span>
+                                            </button>
                                         </div>
                                     )
                                 }

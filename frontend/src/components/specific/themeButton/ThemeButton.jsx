@@ -24,18 +24,32 @@ export default function ThemeButton() {
 
     return (
         <div className="theme-button-wrapper">
-            <button onClick={toggleTheme} className='theme-button'>
+            <div className='button-wrapper'>
                 {
                     theme === 'light' && (
-                        <img className='dark-icon' src={darkModeIcon} alt="dark-icon" />
+                        // <img className='dark-icon' src={darkModeIcon} alt="dark-icon" />
+                        <button onClick={toggleTheme}>
+                            <span className="icon">
+                                <span className="material-symbols-outlined">
+                                    dark_mode
+                                </span>
+                            </span>
+                        </button>
                     )
                 }
                 {
                     theme !== 'light' && (
-                        <img className='light-icon' src={lightModeIcon} alt="light-icon" />
+                        // <img className='light-icon' src={lightModeIcon} alt="light-icon" />
+                        <button onClick={toggleTheme}>
+                            <span className="icon">
+                                <span className="material-symbols-outlined">
+                                    light_mode
+                                </span>
+                            </span>
+                        </button>
                     )
                 }
-            </button>
+            </div>
         </div>
     )
 }
