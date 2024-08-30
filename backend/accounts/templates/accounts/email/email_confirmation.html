@@ -1,9 +1,0 @@
-{% load i18n %}
-{% blocktrans %}Hello from {{ current_site }}!{% endblocktrans %}
-
-{% blocktrans %}You're receiving this e-mail because user {{ user.get_username }} has given your e-mail address to register an account on {{ current_site }}.{% endblocktrans %}
-{% blocktrans %}To activate your account, click the following link:{% endblocktrans %}
-
-<a href="{{ activate_url }}">{{ activate_url }}</a>
-
-{% blocktrans %}Thank you for using {{ current_site }}!{% endblocktrans %}

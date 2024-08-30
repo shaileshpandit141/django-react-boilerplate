@@ -87,7 +87,7 @@ POST http://localhost:8000/api/auth/resend-verification/
 Content-Type: application/json
 
 {
-  "username": "user2"
+  "username": "user1"
 }
 
 
