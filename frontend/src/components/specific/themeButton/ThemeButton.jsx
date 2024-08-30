@@ -4,6 +4,8 @@ import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 // Default Imports.
 import './themeButton.scss'
+import lightModeIcon from '../../../assets/icons/light_mode_icon.svg';
+import darkModeIcon from '../../../assets/icons/dark_mode_icon.svg';
 
 export default function ThemeButton() {
 
@@ -22,34 +24,32 @@ export default function ThemeButton() {
 
     return (
         <div className="theme-button-wrapper">
-            {
-                theme === 'light' && (
-                    <button
-                        className='button'
-                        onClick={toggleTheme}
-                    >
-                        <span className="icon">
-                            <span className="material-symbols-outlined">
-                                dark_mode
+            <div className='button-wrapper'>
+                {
+                    theme === 'light' && (
+                        // <img className='dark-icon' src={darkModeIcon} alt="dark-icon" />
+                        <button onClick={toggleTheme}>
+                            <span className="icon">
+                                <span className="material-symbols-outlined">
+                                    dark_mode
+                                </span>
                             </span>
-                        </span>
-                    </button>
-                )
-            }
-            {
-                theme !== 'light' && (
-                    <button
-                        className='button'
-                        onClick={toggleTheme}
-                    >
-                        <span className="icon">
-                            <span className="material-symbols-outlined">
-                                light_mode
+                        </button>
+                    )
+                }
+                {
+                    theme !== 'light' && (
+                        // <img className='light-icon' src={lightModeIcon} alt="light-icon" />
+                        <button onClick={toggleTheme}>
+                            <span className="icon">
+                                <span className="material-symbols-outlined">
+                                    light_mode
+                                </span>
                             </span>
-                        </span>
-                    </button>
-                )
-            }
+                        </button>
+                    )
+                }
+            </div>
         </div>
     )
 }

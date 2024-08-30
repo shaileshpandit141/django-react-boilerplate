@@ -1,9 +1,12 @@
 @import '../../../../sass';
 
 .input-wrapper {
+    @include flex-centre;
     position: relative;
     width: 100%;
     z-index: -1;
+    border: 1px solid $border-color-light;
+    border-radius: 999rem;
 
     :is(input, label) {
         font-size: rem(14);
@@ -14,9 +17,8 @@
 
     input {
         width: 100%;
-        padding: 12px 16px;
+        padding: em(14) em(8) em(14) em(22);
         outline: none;
-        border: 1px solid $border-color-light;
         border-radius: 999rem;
         z-index: 1;
         transition: all 0.3s ease-in-out;
@@ -24,8 +26,8 @@
 
     label {
         text-transform: capitalize;
-        padding-inline: 8px;
-        margin-left: 10px;
+        padding-inline: em(8);
+        margin-left: em(13);
         position: absolute;
         top: calc(50% - rem(10));
         right: auto;
@@ -46,5 +48,36 @@
         background-color: $background-light;
         color: $text-secondary;
         z-index: 1;
+    }
+
+    .viev-password {
+        @include flex-centre;
+        aspect-ratio: 1/1;
+        height: 100%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        background-color: $background-light;
+
+        @media (pointer: fine) { 
+            & {
+                cursor: pointer;
+            }
+        }
+
+        .icon {
+                aspect-ratio: 1/1;
+                height: em(24);
+                width: em(24);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: inherit;
+        
+                span {
+                    height: inherit;
+                    width: inherit;
+                    @include flex-centre;
+                }
+            }
     }
 }
