@@ -27,7 +27,7 @@ export default function SignupForm() {
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData);
-    const [signupButtonClickCount, setSignupButtonClickCount] = useState();
+    const [signupButtonClickCount, setSignupButtonClickCount] = useState(3);
 
     // Handle form data changes.
     function handleFormDataChange(event) {

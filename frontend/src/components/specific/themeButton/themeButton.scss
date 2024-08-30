@@ -7,12 +7,12 @@
     aspect-ratio: 1/1;
     cursor: pointer;
 
-    .button-wrapper {
-        background-color: transparent;
+    .button {
+        background-color: $scrollbar-track;
         width: 40px;
 
         &:hover {
-            background-color: transparent;
+            background-color: $scrollbar-track;
         }
     }
 }
