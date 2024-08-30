@@ -36,10 +36,9 @@ details {
 a,
 a:visited,
 a:active {
-    font-size: rem(14);
+    font-size: initial;
     text-decoration: none;
     letter-spacing: 0.03em;
-    color: $link-color;
     font-weight: 600;
 }
 
@@ -51,10 +50,9 @@ button,
 button:visited,
 button:active {
     border: none;
-    font-size: rem(14);
+    font-size: initial;
     text-decoration: none;
     letter-spacing: 0.03em;
-    color: $link-color;
     font-weight: 600;
 }
 

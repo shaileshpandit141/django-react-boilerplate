@@ -15,16 +15,17 @@ export default function LoginForm() {
     const dispatch = useDispatch();
 
     // Select the auth readux context.
-    const { isAuthenticated, status, error } = useAuthSelectors()
+    const { isAuthenticated, status, error } = useAuthSelectors();
 
     // Define a initial form data for login.
     const initialFormData = {
         username: '',
         password: '',
-    };
+    }
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData);
+    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3);
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -41,7 +42,11 @@ export default function LoginForm() {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         dispatch(loginThunk(formData));
-    };
+        if (loginButtonClickCount > 0) {
+            dispatch(loginThunk(formData));
+            setLoginButtonClickCount(prev => prev - 1);
+        }
+    }
 
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {
@@ -88,23 +93,23 @@ export default function LoginForm() {
 
                         {
                             status === 'loading' && (
-                                <div className="button-wrapper">
-                                    <button disabled>
-                                        <span className="icon">
-                                            <Loader />
-                                        </span>
-                                    </button>
-                                </div>
+                                <button className='button' disabled>
+                                    <span className="icon">
+                                        <Loader />
+                                    </span>
+                                </button>
                             )
                         }
 
                         {
                             status !== 'loading' && (
-                                <div className="button-wrapper">
-                                    <button type="submit">
-                                        <span className="label">login</span>
-                                    </button>
-                                </div>
+                                <button
+                                    type="submit"
+                                    className='button'
+                                    disabled={loginButtonClickCount <= 0 ? true : false}
+                                >
+                                    <span className="label">login</span>
+                                </button>
                             )
                         }
 

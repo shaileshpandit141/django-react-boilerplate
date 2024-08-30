@@ -2,8 +2,10 @@ import axios from 'axios';
 import { store } from '../config/store';
 import { refreshAccessTokenThunk } from '../features/auth';
 
+const BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
+
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000/',
+    baseURL: BASE_API_URL,
     timeout: 1000,
 });
 

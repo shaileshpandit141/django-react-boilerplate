@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThreeDots, ThreeCircles } from 'react-loader-spinner'
+import { ThreeDots } from 'react-loader-spinner'
 
 export default function Loader() {
     return(

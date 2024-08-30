@@ -26,7 +26,8 @@ export default function SignupForm() {
     }
 
     // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData)
+    const [formData, setFormData] = useState(initialFormData);
+    const [signupButtonClickCount, setSignupButtonClickCount] = useState();
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -42,7 +43,10 @@ export default function SignupForm() {
     // Handle the form submation.
     function handleFormSubmit(event) {
         event.preventDefault()
-        dispatch(signupThunk(formData))
+        if (signupButtonClickCount > 0) {
+            dispatch(signupThunk(formData));
+            setSignupButtonClickCount(prev => prev - 1)
+        }
     }
 
     return (
@@ -113,23 +117,23 @@ export default function SignupForm() {
 
                                 {
                                     status === 'loading' && (
-                                        <div className="button-wrapper">
-                                            <button disabled>
-                                                <span className='icon'>
-                                                    <Loader />
-                                                </span>
-                                            </button>
-                                        </div>
+                                        <button disabled className='button'>
+                                            <span className='icon'>
+                                                <Loader />
+                                            </span>
+                                        </button>
                                     )
                                 }
 
                                 {
                                     status !== 'loading' && (
-                                        <div className="button-wrapper">
-                                            <button type="submit">
-                                                <span className='label'>signup</span>
-                                            </button>
-                                        </div>
+                                        <button
+                                            type="submit"
+                                            className='button'
+                                            disabled={signupButtonClickCount <= 0 ? true : false}
+                                        >
+                                            <span className='label'>signup</span>
+                                        </button>
                                     )
                                 }
                                 <p className='login-text'>

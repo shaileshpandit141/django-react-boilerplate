@@ -6,3 +6,4 @@ backend/db.sqlite3
 # Ignore the frontend dependency
 frontend/node_modules
 frontend/package-lock.json
+frontend/.env

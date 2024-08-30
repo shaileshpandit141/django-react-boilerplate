@@ -19,8 +19,7 @@
             text-align: center
         }
 
-        .button-wrapper {
-            @include button-wrapper;
+        .button {
             max-width: fit-content;
         }
     }

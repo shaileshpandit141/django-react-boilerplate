@@ -4,8 +4,6 @@ import { useLocalStorage } from '../../../hooks/useLocalStorage';
 
 // Default Imports.
 import './themeButton.scss'
-import lightModeIcon from '../../../assets/icons/light_mode_icon.svg';
-import darkModeIcon from '../../../assets/icons/dark_mode_icon.svg';
 
 export default function ThemeButton() {
 
