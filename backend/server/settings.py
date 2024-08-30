@@ -185,7 +185,7 @@ REST_FRAMEWORK = {
 # Allowing Origins CORS Request
 
 # Allow all origins (not recommended for production)
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 
 # Alternatively, specify allowed origins (Take a list of Origins)
 CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=Csv())
