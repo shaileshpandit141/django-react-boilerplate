@@ -8,7 +8,6 @@ export default function CustomInput(props) {
 
     function handleIsPasswordVisiblity(event) {
         setIsPasswordVisible(prevState => !prevState)
-        console.log(type === "password" ? (isPasswordVisible ? type : "text") : type);
     }
 
     return (
