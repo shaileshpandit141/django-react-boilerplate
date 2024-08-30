@@ -3,7 +3,7 @@ import './CustomInput.scss'
 
 export default function CustomInput(props) {
 
-    const { name, type, label, ...rest } = props
+    const { name, type, label } = props
     const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
     function handleIsPasswordVisiblity(event) {
@@ -14,12 +14,11 @@ export default function CustomInput(props) {
         <div className="input-wrapper">
             <input
                 className='input'
-                id={label} 
+                id={label}
                 required
                 autoComplete="on"
                 placeholder=''
-                type={type === "password" ? (isPasswordVisible ? "password" : "text") : type}
-                {...rest}
+                type={type === "password" ? (isPasswordVisible ? type : "text") : type}
             />
             <label
                 htmlFor={label}
