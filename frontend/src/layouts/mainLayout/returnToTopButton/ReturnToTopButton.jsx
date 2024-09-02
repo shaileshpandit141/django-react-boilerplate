@@ -12,7 +12,7 @@ export default function ReturnToTopButton() {
 
     useEffect(() => {
 
-        // Handler to update the viewport height
+        // Update the viewport height
         const handleResize = () => {
             setViewportHeight(window.innerHeight) 
         } 
@@ -52,12 +52,17 @@ export default function ReturnToTopButton() {
         anchor.click()
     }
 
-    const unVisibleRoutes = !["/login"].includes(pathname)
+    const notDisplayRoutes = ![
+        "/login",
+        "/resend-verification-key",
+        "/signup",
+        "/resend-verification-key",
+    ].includes(pathname)
 
     return (
         <>
             {
-                isPageScrollable && unVisibleRoutes && (
+                isPageScrollable && notDisplayRoutes && (
                     <div
                         className={`
                             scroll-to-top-button-wrapper

@@ -18,7 +18,7 @@ export default function Home() {
     }, [dispatch, status])
 
     return (
-        <div className='grid-12'>
+        <main className='grid-12'>
             <section className='grid-2-2'>
                 <h2>Welcome to Django React Full Stack Web App</h2>
                 <br />
@@ -54,6 +54,6 @@ export default function Home() {
                     </p>
                 </section>
             </section>
-        </div>
+        </main>
     )
 }
