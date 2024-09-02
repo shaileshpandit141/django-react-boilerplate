@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet-async';
-import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors';
-import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk';
-import CustomInput from '../../components/customInput/CustomInput';
-import Loader from '../../../../components/common/Loader';
-import './ResendVerificationKey.scss';
+import React, { useState } from 'react' 
+import { useDispatch } from 'react-redux' 
+import { Helmet } from 'react-helmet-async' 
+import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors' 
+import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk' 
+import CustomInput from '../../components/customInput/CustomInput' 
+import Loader from '../../../../components/common/Loader' 
+import './ResendVerificationKey.scss' 
 
 export default function ResendVerificationKey(props) {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch() 
 
     const { error, data, status } = useResendVerificationKeySelectors()
 
     // Define a initial form data for login.
     const initialFormData = {
         username: '',
-    };
+    } 
 
     // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData);
+    const [formData, setFormData] = useState(initialFormData) 
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -34,11 +34,11 @@ export default function ResendVerificationKey(props) {
 
     // Handle the form submation.
     const handleFormSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault() 
         if (status === 'idle') {
-            dispatch(resendVerificationKeyThunk(formData));
+            dispatch(resendVerificationKeyThunk(formData)) 
         }
-    };
+    } 
 
     return (
         <>
@@ -97,5 +97,5 @@ export default function ResendVerificationKey(props) {
                 </div>
             </form>
         </>
-    );
+    ) 
 }

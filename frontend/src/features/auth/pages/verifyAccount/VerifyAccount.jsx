@@ -1,14 +1,14 @@
-import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet-async';
-import { useVerifyAccountSelector } from '../../hooks/useVerifyAccountSelector';
-import { verifyAccountThunk } from '../../thunks/verifyAccountThunk';
-import "./VerifyAccount.scss";
+import React from 'react' 
+import { useParams, Navigate } from 'react-router-dom' 
+import { useDispatch } from 'react-redux' 
+import { Helmet } from 'react-helmet-async' 
+import { useVerifyAccountSelector } from '../../hooks/useVerifyAccountSelector' 
+import { verifyAccountThunk } from '../../thunks/verifyAccountThunk' 
+import "./VerifyAccount.scss" 
 
 export default function VerifyAccount() {
 
-    const { key } = useParams();
+    const { key } = useParams() 
     const dispatch = useDispatch()
     const { error, status } = useVerifyAccountSelector()
 

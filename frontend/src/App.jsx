@@ -1,7 +1,7 @@
-import React from 'react';
-import Routes from './routes/Routes';
-import { Helmet } from 'react-helmet-async';
-import './sass/index.scss';
+import React from 'react' 
+import Routes from './routes/Routes' 
+import { Helmet } from 'react-helmet-async' 
+import './sass/index.scss' 
 
 // App entry point.
 export default function App() {
@@ -17,5 +17,5 @@ export default function App() {
             {/* Render the Routes component. */}
             <Routes />
         </>
-    );
+    ) 
 }

@@ -1,10 +1,10 @@
 // Named Imports.
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchUser } from '../../features/user/userThunks';
+import React, { useEffect } from 'react' 
+import { useDispatch } from 'react-redux' 
+import { fetchUser } from '../../features/user/userThunks' 
 
 // Default import.
-import useUserSelectors from '../../features/user/useUserSelectors';
+import useUserSelectors from '../../features/user/useUserSelectors' 
 
 export default function Home() {
 

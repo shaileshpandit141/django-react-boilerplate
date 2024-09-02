@@ -1,14 +1,14 @@
-import React from 'react';
-import './LogoutButton.scss';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../slices/authSlice';
+import React from 'react' 
+import './LogoutButton.scss' 
+import { useDispatch } from 'react-redux' 
+import { logout } from '../../slices/authSlice' 
 
 export default function LogoutButton() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch() 
 
     const handleLogout = () => {
-        dispatch(logout());
-    };
+        dispatch(logout()) 
+    } 
 
     return (
         <div className='button-as-link-wrapper'>
@@ -18,6 +18,6 @@ export default function LogoutButton() {
                 Logout
             </button>
         </div>
-    );
-};
+    ) 
+} 
 

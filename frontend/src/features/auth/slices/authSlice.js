@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { loginThunk, refreshAccessTokenThunk } from '../thunks/authThunk';
+import { createSlice } from '@reduxjs/toolkit' 
+import { loginThunk, refreshAccessTokenThunk } from '../thunks/authThunk' 
 
 // Initial State
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
     isAuthenticated: !!localStorage.getItem('refreshToken'),
     status: 'idle',
     error: null,
-};
+} 
 
 // auth Slice
 const authSlice = createSlice({
@@ -16,47 +16,47 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         logout: (state) => {
-            state.accessToken = null;
-            state.refreshToken = null;
-            state.isAuthenticated = false;
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('refreshToken');
+            state.accessToken = null 
+            state.refreshToken = null 
+            state.isAuthenticated = false 
+            localStorage.removeItem('accessToken') 
+            localStorage.removeItem('refreshToken') 
         },
     },
     extraReducers: (builder) => {
         builder
             .addCase(loginThunk.pending, (state) => {
-                state.status = 'loading';
+                state.status = 'loading' 
             })
             .addCase(loginThunk.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = 'succeeded' 
                 const { access, refresh } = action.payload
-                state.accessToken = access;
-                state.refreshToken = refresh;
-                state.isAuthenticated = true;
-                localStorage.setItem('accessToken', access);
+                state.accessToken = access 
+                state.refreshToken = refresh 
+                state.isAuthenticated = true 
+                localStorage.setItem('accessToken', access) 
                 localStorage.setItem('refreshToken', refresh)
             })
             .addCase(loginThunk.rejected, (state, action) => {
-                state.status = 'failed';
-                state.error = action.payload;
+                state.status = 'failed' 
+                state.error = action.payload 
             })
             .addCase(refreshAccessTokenThunk.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = 'succeeded' 
                 const { access } = action.payload
-                state.accessToken = access;
-                state.isAuthenticated = true;
-                localStorage.setItem('accessToken', access);
+                state.accessToken = access 
+                state.isAuthenticated = true 
+                localStorage.setItem('accessToken', access) 
             })
             .addCase(refreshAccessTokenThunk.rejected, (state) => {
-                state.accessToken = null;
-                state.refreshToken = null;
-                state.isAuthenticated = false;
-                localStorage.removeItem('accessToken');
-                localStorage.removeItem('refreshToken');
+                state.accessToken = null 
+                state.refreshToken = null 
+                state.isAuthenticated = false 
+                localStorage.removeItem('accessToken') 
+                localStorage.removeItem('refreshToken') 
             })
     },
-});
+}) 
 
-export const { logout } = authSlice.actions;
-export default authSlice.reducer;
+export const { logout } = authSlice.actions 
+export default authSlice.reducer 

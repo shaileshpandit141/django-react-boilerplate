@@ -1,18 +1,18 @@
 // Named Imports.
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet-async';
-import { useSignupSelectors } from '../../hooks/useSignupSelectors';
-import { signupThunk } from '../../thunks/signupThunk';
+import { useDispatch } from 'react-redux' 
+import { Helmet } from 'react-helmet-async' 
+import { useSignupSelectors } from '../../hooks/useSignupSelectors' 
+import { signupThunk } from '../../thunks/signupThunk' 
 
 // Default Imports.
 import './SignupForm.scss'
-import CustomInput from '../../components/customInput/CustomInput';
-import Loader from '../../../../components/common/Loader';
+import CustomInput from '../../components/customInput/CustomInput' 
+import Loader from '../../../../components/common/Loader' 
 
 export default function SignupForm() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch() 
 
     // Select the auth readux context.
     const { data, status, error } = useSignupSelectors()
@@ -26,8 +26,8 @@ export default function SignupForm() {
     }
 
     // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData);
-    const [signupButtonClickCount, setSignupButtonClickCount] = useState(3);
+    const [formData, setFormData] = useState(initialFormData) 
+    const [signupButtonClickCount, setSignupButtonClickCount] = useState(3) 
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -44,7 +44,7 @@ export default function SignupForm() {
     function handleFormSubmit(event) {
         event.preventDefault()
         if (signupButtonClickCount > 0) {
-            dispatch(signupThunk(formData));
+            dispatch(signupThunk(formData)) 
             setSignupButtonClickCount(prev => prev - 1)
         }
     }

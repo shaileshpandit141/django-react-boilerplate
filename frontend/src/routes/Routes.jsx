@@ -1,24 +1,24 @@
 // Named Imports.
-import React from 'react';
+import React from 'react' 
 import {
     BrowserRouter as Router,
     Routes,
     Route
-} from 'react-router-dom';
+} from 'react-router-dom' 
 import {
     LoginFrom,
     ResendVerificationKey,
     SignupForm,
     VerifyAccount
-} from '../features/auth';
+} from '../features/auth' 
 
 
 // Default Imports (user define pages).
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute' 
+import PublicRoute from './PublicRoute' 
 import NotFound from '../pages/notfound/NotFound'
-import MainLayout from '../layouts/MainLayout/MainLayout/MainLayout';
-import Home from '../pages/home/Home';
+import MainLayout from '../layouts/mainLayout/mainLayout/MainLayout' 
+import Home from '../pages/home/Home' 
 
 const AppRoutes = () => {
     return (
@@ -46,7 +46,7 @@ const AppRoutes = () => {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
-    );
-};
+    ) 
+} 
 
-export default AppRoutes;
+export default AppRoutes 

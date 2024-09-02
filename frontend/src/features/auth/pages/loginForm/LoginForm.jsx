@@ -1,21 +1,21 @@
 // Named Imports.
-import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet-async';
-import { useAuthSelectors } from '../../hooks/useAuthSelectors';
-import { loginThunk } from '../../thunks/authThunk';
+import React, { useState } from 'react' 
+import { Link, Navigate } from 'react-router-dom' 
+import { useDispatch } from 'react-redux' 
+import { Helmet } from 'react-helmet-async' 
+import { useAuthSelectors } from '../../hooks/useAuthSelectors' 
+import { loginThunk } from '../../thunks/authThunk' 
 
 // Default Imports.
 import './LoginForm.scss'
-import CustomInput from '../../components/customInput/CustomInput';
-import Loader from '../../../../components/common/Loader';
+import CustomInput from '../../components/customInput/CustomInput' 
+import Loader from '../../../../components/common/Loader' 
 
 export default function LoginForm() {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch() 
 
     // Select the auth readux context.
-    const { isAuthenticated, status, error } = useAuthSelectors();
+    const { isAuthenticated, status, error } = useAuthSelectors() 
 
     // Define a initial form data for login.
     const initialFormData = {
@@ -24,8 +24,8 @@ export default function LoginForm() {
     }
 
     // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData);
-    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3);
+    const [formData, setFormData] = useState(initialFormData) 
+    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3) 
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -40,11 +40,11 @@ export default function LoginForm() {
 
     // Handle the form submation.
     const handleFormSubmit = (event) => {
-        event.preventDefault();
-        dispatch(loginThunk(formData));
+        event.preventDefault() 
+        dispatch(loginThunk(formData)) 
         if (loginButtonClickCount > 0) {
-            dispatch(loginThunk(formData));
-            setLoginButtonClickCount(prev => prev - 1);
+            dispatch(loginThunk(formData)) 
+            setLoginButtonClickCount(prev => prev - 1) 
         }
     }
 
@@ -120,5 +120,5 @@ export default function LoginForm() {
                 </div>
             </form>
         </>
-    );
+    ) 
 }

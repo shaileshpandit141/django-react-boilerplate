@@ -3,8 +3,8 @@ import './CustomInput.scss'
 
 export default function CustomInput(props) {
 
-    const { name, type, label, ...rest} = props;
-    const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+    const { name, type, label, ...rest} = props 
+    const [isPasswordVisible, setIsPasswordVisible] = useState(true) 
 
     function handleIsPasswordVisiblity(event) {
         setIsPasswordVisible(prevState => !prevState)

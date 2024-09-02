@@ -1,0 +1,9 @@
+@import "../../../sass";
+
+.grid-12 {
+    background-color: $footer-background;
+    height: em(250);
+    .grid-2-2 {
+        background-color: inherit;
+    }
+}
