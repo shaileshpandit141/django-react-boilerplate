@@ -17,7 +17,7 @@ import {
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import NotFound from '../pages/notfound/NotFound'
-import MainLayout from '../layouts/MainLayout/MainLayout';
+import MainLayout from '../layouts/MainLayout/MainLayout/MainLayout';
 import Home from '../pages/home/Home';
 
 const AppRoutes = () => {

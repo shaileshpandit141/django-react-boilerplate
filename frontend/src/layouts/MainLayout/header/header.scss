@@ -12,7 +12,7 @@
     user-select: none;
     z-index: 999;
     background-color: $header-background;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 
     &.hidden {
         transform: translateY(-100%);

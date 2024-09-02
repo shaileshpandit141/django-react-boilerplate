@@ -3,9 +3,10 @@
     outline: none;
     border-radius: 999rem;
     background-color: $button-primary-background;
-    color: $text-primary;
+    color: $button-text-color;
     height: em(40);
     width: 100%;
+    min-width: em(40);
     padding-block: em(16);
     padding-inline: em(16);
     display: flex;
@@ -42,11 +43,17 @@
         height: em(24);
         display: flex;
         align-items: center;
+        white-space: nowrap;
+        text-wrap: nowrap;
         text-transform: capitalize;
     }
 }
 
-.a,
+.button-1-1 {
+    @extend .button;
+    width: em(40);
+}
+
 .link {
     text-decoration: none;
     border-radius: 999rem;
@@ -54,6 +61,7 @@
     color: $text-primary;
     height: em(40);
     width: 100%;
+    min-width: em(40);
     padding-block: em(16);
     padding-inline: em(16);
     display: flex;
@@ -93,25 +101,32 @@
         display: flex;
         align-items: center;
         color: inherit;
+        white-space: nowrap;
+        text-wrap: nowrap;
         text-transform: capitalize;
     }
 }
 
+.link-1-1 {
+    @extend .link;
+    width: em(40);
+    padding-inline: 0;
+}
+
 @media (pointer: fine) {
 
-    button,
-    .button {
+    .button,
+    .button-1-1 {
         cursor: pointer;
     }
 
-    button:disabled,
-    .button:disabled {
+    .button:disabled,
+    .button-1-1:disabled {
         cursor: not-allowed;
     }
 
-    a,
-    .a,
-    link {
+    link,
+    .link-1-1 {
         cursor: pointer;
     }
 }

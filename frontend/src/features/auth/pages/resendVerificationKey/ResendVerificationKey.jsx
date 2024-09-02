@@ -84,14 +84,14 @@ export default function ResendVerificationKey(props) {
                     }
 
                     {
-                        error && (
-                            <h3 className='title'>{error?.detail}</h3>
+                        error?.detail && (
+                            <h3 className='title'>{error.detail}</h3>
                         )
                     }
 
                     {
-                        data && (
-                            <h3 className='title'>{data?.detail}</h3>
+                        data?.detail && (
+                            <h3 className='title'>{data.detail}</h3>
                         )
                     }
                 </div>

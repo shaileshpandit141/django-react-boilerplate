@@ -1,0 +1,21 @@
+@import "../../../sass";
+
+.scroll-to-top-button-wrapper {
+    position: fixed;
+    top: auto;
+    right: rem(25);
+    bottom: rem(25);
+    left: auto;
+    height: fit-content;
+    width: fit-content;
+    z-index: 2000;
+    transition: transform 0.3s ease-in-out;
+
+    &.hidden {
+        transform: scale(0);
+    }
+
+    &.visible {
+        transform: scale(1);
+    }
+}
