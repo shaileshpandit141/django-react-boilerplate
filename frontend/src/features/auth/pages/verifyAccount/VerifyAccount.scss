@@ -1,26 +1,22 @@
 @import "../../../../sass";
 
-.grid {
-    @include grid-12;
+.inner-grid {
+    @include inner-grid-2-2;
+    @include flex-centre(column);
+    padding-block: em(64);
+    row-gap: rem(16);
 
-    .inner-grid {
-        @include grid-2-2;
-        @include flex-centre(column);
-        padding-block: em(64);
-        row-gap: rem(16);
+    .title {
+        text-transform: capitalize;
+        text-align: center;
+        margin-block: em(16);
+    }
 
-        .title {
-            text-transform: capitalize;
-            text-align: center;
-            margin-block: em(16);
-        }
+    p {
+        text-align: center
+    }
 
-        p {
-            text-align: center
-        }
-
-        .button {
-            max-width: fit-content;
-        }
+    .button {
+        max-width: fit-content;
     }
 }

@@ -2,9 +2,6 @@
 import React, { useEffect } from 'react'
 import { useLocalStorage } from '../../../hooks/useLocalStorage' 
 
-// Default Imports.
-import './themeButton.scss'
-
 export default function ThemeButton() {
 
     // Define a theme state.
@@ -21,28 +18,26 @@ export default function ThemeButton() {
     } 
 
     return (
-        <div className="theme-button-wrapper">
-            <button
-                className='button-1-1'
-                onClick={toggleTheme}
-            >
-                <span className='icon'>
-                    {
-                        theme === "light" && (
-                            <span className="material-symbols-outlined">
-                                dark_mode
-                            </span>
-                        )
-                    }
-                    {
-                        theme !== "light" && (
-                            <span className="material-symbols-outlined">
-                                light_mode
-                            </span>
-                        )
-                    }
-                </span>
-            </button>
-        </div>
+        <button
+            className='button-as-icon'
+            onClick={toggleTheme}
+        >
+            <span className='icon'>
+                {
+                    theme === "light" && (
+                        <span className="material-symbols-outlined">
+                            dark_mode
+                        </span>
+                    )
+                }
+                {
+                    theme !== "light" && (
+                        <span className="material-symbols-outlined">
+                            light_mode
+                        </span>
+                    )
+                }
+            </span>
+        </button>
     )
 }

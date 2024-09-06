@@ -57,6 +57,7 @@ export default function ReturnToTopButton() {
         "/resend-verification-key",
         "/signup",
         "/resend-verification-key",
+        "/forgot-password",
     ].includes(pathname)
 
     return (

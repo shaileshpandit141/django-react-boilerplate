@@ -1,0 +1,35 @@
+// Google Metrial icon settings
+.material-symbols-outlined {
+    cursor: default;
+    user-select: none;
+
+    @media (pointer: fine) {
+        & {
+            cursor: pointer;
+        }
+    }
+
+    font-variation-settings: 'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+// Google Metrial icon settings (for fill during some action)
+.fill-material-icon,
+.fill-icon,
+.fill {
+    cursor: default;
+    user-select: none;
+
+    @media (pointer: fine) {
+        & {
+            cursor: pointer;
+        }
+    }
+
+    font-variation-settings: 'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}

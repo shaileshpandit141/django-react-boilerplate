@@ -9,7 +9,8 @@ import {
     LoginFrom,
     ResendVerificationKey,
     SignupForm,
-    VerifyAccount
+    VerifyAccount,
+    ForgotPassword
 } from '../features/auth' 
 
 
@@ -33,6 +34,7 @@ const AppRoutes = () => {
                         <Route path="signup" element={<SignupForm />} />
                         <Route path="verify-account/:key" element={<VerifyAccount />} />
                         <Route path='resend-verification-key' element={<ResendVerificationKey />} />
+                        <Route path='forgot-password' element={<ForgotPassword />} />
                     </Route>
 
                     {/* Private Routes */}

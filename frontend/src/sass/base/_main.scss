@@ -1,0 +1,5 @@
+main {
+    @include grid-12;
+    height: fit-content;
+    min-height: calc(100vh - $header-height);
+}

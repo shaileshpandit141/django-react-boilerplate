@@ -49,7 +49,7 @@
     }
 }
 
-.button-1-1 {
+.button-as-icon {
     @extend .button;
     width: em(40);
 }
@@ -58,7 +58,7 @@
     text-decoration: none;
     border-radius: 999rem;
     background-color: $button-primary-background;
-    color: $text-primary;
+    color: $button-text-color;
     height: em(40);
     width: 100%;
     min-width: em(40);
@@ -107,7 +107,7 @@
     }
 }
 
-.link-1-1 {
+.link-as-icon {
     @extend .link;
     width: em(40);
     padding-inline: 0;
@@ -121,12 +121,12 @@
     }
 
     .button:disabled,
-    .button-1-1:disabled {
+    .button-as-icon:disabled {
         cursor: not-allowed;
     }
 
-    link,
-    .link-1-1 {
+    .link,
+    .link-as-icon {
         cursor: pointer;
     }
 }

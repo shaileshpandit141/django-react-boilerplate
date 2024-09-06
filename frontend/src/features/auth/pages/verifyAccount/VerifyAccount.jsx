@@ -27,12 +27,12 @@ export default function VerifyAccount() {
         <>
             {/* Metadata settings */}
             <Helmet>
-
+                <title>verify account</title>
             </Helmet>
 
             {/* Component jsx */}
-            <div className='grid'>
-                <div className='inner-grid'>
+            <main className='grid-12'>
+                <div className='inner-grid-2-2 inner-grid'>
                     {
                         !error && (
                             <>
@@ -55,7 +55,7 @@ export default function VerifyAccount() {
                         )
                     }
                 </div>
-            </div>
+            </main>
         </>
     )
 }

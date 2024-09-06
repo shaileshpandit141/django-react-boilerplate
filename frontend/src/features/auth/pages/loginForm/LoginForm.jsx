@@ -61,8 +61,8 @@ export default function LoginForm() {
             </Helmet>
 
             {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='login-form'>
-                <div className='login-container'>
+            <main className='grid-12'>
+                <form onSubmit={handleFormSubmit} className='inner-grid-2-2 login-form'>
                     <div className='inputes-container'>
                         <h3 className='title'>access your account</h3>
                         <CustomInput
@@ -89,7 +89,7 @@ export default function LoginForm() {
                             )
                         }
 
-                        <Link to="#" className='forgot-password'>forgot password</Link>
+                        <Link to="/forgot-password" className='forgot-password'>forgot password</Link>
 
                         {
                             status === 'loading' && (
@@ -117,8 +117,8 @@ export default function LoginForm() {
                             You don't have an account?, <Link to="/signup">create an account now</Link>
                         </p>
                     </div>
-                </div>
-            </form>
+                </form>
+            </main>
         </>
     ) 
 }

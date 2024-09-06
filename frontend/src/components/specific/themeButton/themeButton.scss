@@ -1,9 +1,0 @@
-@import '../../../sass';
-
-.theme-button-wrapper {
-    @include flex-centre;
-    overflow: hidden;
-    border-radius: 999rem;
-    aspect-ratio: 1/1;
-    cursor: pointer;
-}

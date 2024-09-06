@@ -1,85 +1,79 @@
 @import '../../../../sass';
 
 .login-form {
-    @include grid-12;
+    @include inner-grid-2-2;
+    @include flex-centre(column);
+    width: 100%;
 
-    .login-container {
-        @include grid-2-2;
+    .inputes-container {
         @include flex-centre(column);
+        padding: 16px;
+        border-radius: 8px;
+        background-color: $background-light;
+        z-index: 1;
         width: 100%;
-        // height: fit-content;
-        // min-height: 100vh;
-        user-select: none;
+        min-width: 0;
+        max-width: 300px;
+        row-gap: 16px;
 
-        .inputes-container {
-            @include flex-centre(column);
-            padding: 16px;
-            border-radius: 8px;
-            background-color: $background-light;
-            z-index: 1;
+        .title {
+            text-transform: capitalize;
+            text-align: center;
+            margin-block: em(16);
+        }
+
+        .account-verify-cntainer {
+            @include flex-centre;
+            column-gap: 8px;
+            justify-content: space-between;
             width: 100%;
-            min-width: 0;
-            max-width: 300px;
-            row-gap: 16px;
 
-            .title {
+            h5 {
+                color: $error-text-primary;
+            }
+
+            a {
+                color: $text-accent;
+                text-wrap: nowrap;
+            }
+        }
+
+        .forgot-password {
+            font-size: em(14);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-align: end;
+            width: 100%;
+            opacity: $opacity;
+            transition: opacity 0.3s ease-in-out;
+
+            &::first-letter {
                 text-transform: capitalize;
-                text-align: center;
-                margin-block: em(16);
             }
 
-            .account-verify-cntainer {
-                @include flex-centre;
-                column-gap: 8px;
-                justify-content: space-between;
-                width: 100%;
+            &:hover {
+                opacity: $opacity;
+            }
+        }
 
-                h5 {
-                    color: $error-text-primary;
-                }
+        .signup-text {
+            letter-spacing: 0.05em;
+            text-align: center;
+            opacity: $opacity;
 
-                a {
-                    color: $text-accent;
-                    text-wrap: nowrap;
-                }
+            &::first-letter {
+                text-transform: capitalize;
             }
 
-            .forgot-password {
-                letter-spacing: 0.05em;
+            a {
+                text-wrap: nowrap;
+                white-space: nowrap;
                 text-decoration: none;
-                text-align: end;
-                width: 100%;
                 opacity: $opacity;
                 transition: opacity 0.3s ease-in-out;
 
-                &::first-letter {
-                    text-transform: capitalize;
-                }
-
                 &:hover {
-                    opacity: $opacity;
-                }
-            }
-
-            .signup-text {
-                letter-spacing: 0.05em;
-                text-align: center;
-                opacity: $opacity;
-
-                &::first-letter {
-                    text-transform: capitalize;
-                }
-
-                a {
-                    text-wrap: nowrap;
-                    white-space: nowrap;
-                    text-decoration: none;
-                    opacity: $opacity;
-                    transition: opacity 0.3s ease-in-out;
-
-                    &:hover {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
         }

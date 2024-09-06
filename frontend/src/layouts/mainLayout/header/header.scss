@@ -1,5 +1,13 @@
 @import '../../../sass';
 
+.hidden {
+    transform: translateY(-100%);
+}
+
+.visible {
+    transform: translateY(0);
+}
+
 .header {
     @include grid-12;
     position: fixed;
@@ -7,6 +15,7 @@
     right: 0;
     bottom: unset;
     left: 0;
+    height: $header-height;
     width: 100%;
     padding-block: 8px;
     user-select: none;
@@ -14,16 +23,8 @@
     background-color: $header-background;
     transition: transform 0.3s ease-in-out;
 
-    &.hidden {
-        transform: translateY(-100%);
-    }
-
-    &.visible {
-        transform: translateY(0);
-    }
-
-    &-wrapper {
-        @include grid-2-2;
+    .header-wrapper {
+        @include inner-grid-2-2;
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
@@ -32,24 +33,20 @@
         .left-container {
             display: flex;
             align-items: center;
-            column-gap: 16px;
+            column-gap: 8px;
         }
 
         .center-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            column-gap: 16px;
+            column-gap: 8px;
         }
 
         .right-container {
             display: flex;
             align-items: center;
-            column-gap: 16px;
-
-            .link-wrapper {
-                @include link-wrapper;
-            }
+            column-gap: 8px;
         }
     }
 }

@@ -57,8 +57,8 @@ export default function SignupForm() {
             </Helmet>
 
             {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='signup-form'>
-                <div className='signup-container'>
+            <main className='grid-12'>
+                <form onSubmit={handleFormSubmit} className='grid-2-2 signup-form'>
                     {
                         status !== 'succeeded' && (
                             <div className='inputes-container'>
@@ -149,8 +149,8 @@ export default function SignupForm() {
                         )
                     }
 
-                </div>
-            </form>
+                </form>
+            </main>
         </>
     )
 }

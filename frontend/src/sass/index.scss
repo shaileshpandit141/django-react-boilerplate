@@ -1,10 +1,12 @@
+@import './base/_google_metrial_icon';
 @import './utils/functions';
-@import './variables';
+@import './utils/variables';
 @import './base/typography';
+@import './layout/grid';
+@import './base/main';
 @import './base/body';
 @import './base/reset';
 @import './utils/breakpoints';
-@import './layout/grid';
-@import './theme';
-@import './custom_classes';
-@import './mixins';
+@import './utils/theme';
+@import './utils/custom_classes';
+@import './utils/mixins';

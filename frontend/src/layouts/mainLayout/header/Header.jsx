@@ -56,17 +56,18 @@ export default function Header() {
                 <div className="right-container">
                     {
                         isAuthenticated && (
-                            <div className='button-wrapper'>
-                                <LogoutButton />
-                            </div>
+                            <LogoutButton />
                         )
                     }
 
                     {
                         !isAuthenticated && (
-                            <div className='link-wrapper'>
-                                <NavLink to='/login'>login</NavLink>
-                            </div>
+                            <NavLink
+                                className="link"
+                                to='/login'
+                            >
+                                <span className='label'>login</span>
+                            </NavLink>
                         )
                     }
                     <ThemeButton />

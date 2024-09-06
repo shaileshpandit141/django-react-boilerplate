@@ -48,8 +48,8 @@ export default function ResendVerificationKey(props) {
             </Helmet>
 
             {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='re-verification-key-form'>
-                <div className='re-verification-key-container'>
+            <main className='grid-12'>
+                <form onSubmit={handleFormSubmit} className='inner-grid-2-2 re-verification-from'>
                     {
                         status === "idle" && (
                             <div className='inputes-container'>
@@ -94,8 +94,8 @@ export default function ResendVerificationKey(props) {
                             <h3 className='title'>{data.detail}</h3>
                         )
                     }
-                </div>
-            </form>
+                </form>
+            </main>
         </>
     ) 
 }

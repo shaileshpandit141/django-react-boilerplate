@@ -54,8 +54,8 @@
         @include flex-centre;
         aspect-ratio: 1/1;
         height: 100%;
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-top-right-radius: em(20);
+        border-bottom-right-radius: em(20);
         background-color: $background-light;
         overflow: hidden;
 

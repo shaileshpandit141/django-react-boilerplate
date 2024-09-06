@@ -1,0 +1,20 @@
+@mixin flex-centre($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin link-wrapper {
+    @include flex-centre;
+    overflow: hidden;
+
+    a {
+        padding: em(8) 0;
+        transition: color 0.3s ease-in-out;
+    }
+
+    &:hover a {
+        color: $link-hover-color;
+    }
+}

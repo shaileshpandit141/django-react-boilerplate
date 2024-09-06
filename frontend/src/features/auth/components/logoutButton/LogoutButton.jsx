@@ -11,13 +11,14 @@ export default function LogoutButton() {
     } 
 
     return (
-        <div className='button-as-link-wrapper'>
-            <button
-                onClick={handleLogout}
-            >
+        <button
+            className='button'
+            onClick={handleLogout}
+        >
+            <span className='label'>
                 Logout
-            </button>
-        </div>
+            </span>
+        </button>
     ) 
 } 
 

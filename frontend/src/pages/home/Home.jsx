@@ -19,7 +19,7 @@ export default function Home() {
 
     return (
         <main className='grid-12'>
-            <section className='grid-2-2'>
+            <section className='inner-grid-2-2'>
                 <h2>Welcome to Django React Full Stack Web App</h2>
                 <br />
                 {status === 'loading' && <h3>Loading...</h3>}
