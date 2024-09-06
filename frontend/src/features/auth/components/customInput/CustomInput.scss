@@ -51,34 +51,6 @@
     }
 
     .viev-password {
-        @include flex-centre;
-        aspect-ratio: 1/1;
-        height: 100%;
-        border-top-right-radius: em(20);
-        border-bottom-right-radius: em(20);
-        background-color: $background-light;
-        overflow: hidden;
-
-        @media (pointer: fine) { 
-            & {
-                cursor: pointer;
-            }
-        }
-
-        .icon {
-                aspect-ratio: 1/1;
-                height: em(24);
-                width: em(24);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: inherit;
-        
-                span {
-                    height: inherit;
-                    width: inherit;
-                    @include flex-centre;
-                }
-            }
+        background-color: transparent;
     }
 }

@@ -30,8 +30,8 @@ export default function CustomInput(props) {
             </label>
             {
                 type === "password" && (
-                    <div
-                        className="viev-password"
+                    <button
+                        className="button-as-icon viev-password"
                         onClick={handleIsPasswordVisiblity}
                     >
                         <span className='icon'>
@@ -43,7 +43,7 @@ export default function CustomInput(props) {
                                 visibility
                             </span>
                         </span>
-                    </div>
+                    </button>
                 )
             }
         </div>
