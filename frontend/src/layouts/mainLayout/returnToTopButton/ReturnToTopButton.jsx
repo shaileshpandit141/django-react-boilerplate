@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react' 
 import { useLocation } from "react-router-dom" 
+import { isHideRoutes } from "../utils/isHideRoutes"
 import "./ReturnToTopButton.scss" 
 
 export default function ReturnToTopButton() {
@@ -52,18 +53,10 @@ export default function ReturnToTopButton() {
         anchor.click()
     }
 
-    const notDisplayRoutes = ![
-        "/login",
-        "/resend-verification-key",
-        "/signup",
-        "/resend-verification-key",
-        "/forgot-password",
-    ].includes(pathname)
-
     return (
         <>
             {
-                isPageScrollable && notDisplayRoutes && (
+                isPageScrollable && !isHideRoutes(pathname) && (
                     <div
                         className={`
                             scroll-to-top-button-wrapper
