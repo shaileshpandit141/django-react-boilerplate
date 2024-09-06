@@ -1,5 +1,6 @@
 main {
     @include grid-12;
-    height: fit-content;
+    padding-top: $header-height;
+    height: 100vh;
     min-height: calc(100vh - $header-height);
 }
