@@ -31,7 +31,8 @@ export default function ReturnToTopButton() {
 
             // For Mobile or negative scrolling
             setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop) 
-            setIsPageScrollable(() => document.body.scrollHeight > viewportHeight)
+
+            setIsPageScrollable(() => document.body.scrollHeight > viewportHeight / 2)
         } 
 
 
