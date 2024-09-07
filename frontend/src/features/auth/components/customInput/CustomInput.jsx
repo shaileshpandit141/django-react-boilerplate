@@ -31,6 +31,7 @@ export default function CustomInput(props) {
             {
                 type === "password" && (
                     <button
+                        type='button'
                         className="button-as-icon viev-password"
                         onClick={handleIsPasswordVisiblity}
                     >

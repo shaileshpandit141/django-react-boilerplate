@@ -10,7 +10,7 @@ def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server.settings")
 
     # Check for HOST and PORT using python-decouple
-    host = config("HOST", default="127.0.0.1")
+    host = config("HOST", default="localhost")
     port = config("PORT", default="8000")
 
     try:
