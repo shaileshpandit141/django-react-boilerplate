@@ -17,7 +17,7 @@ Content-Type: application/json
 {
   "username": "user1",
   "email": "user1@gmail.com",
-  "password": "User12345@1"
+  "password": "User@12345"
 }
 
 # Expected response:
