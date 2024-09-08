@@ -13,7 +13,7 @@ export default function Footer() {
             {
                 !isHideRoutes(pathname) && (
                     <footer className='grid-12 footer'>
-                        <div className="grid-2-2">
+                        <div className="inner-grid-2-2">
                             <h3>Footer</h3>
                         </div>
                     </footer>
