@@ -150,16 +150,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+# URL prefix for static files
+STATIC_URL = "/static/"
 
-STATIC_URL = "static/"
+# Directory where collectstatic will collect static files for deployment
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATIC_ROOT = "static/"
+# Additional locations to look for static files
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# Define path of Uploaded files
-MEDIA_ROOT = BASE_DIR / "uploads/"
+# Directory where uploaded files will be stored
+MEDIA_ROOT = BASE_DIR / "uploads"
 
-# URL used to access the media
-MEDIA_URL = "media/"
+# URL prefix for media files
+MEDIA_URL = "/media/"
 
 # Django Rest Framework Configuration
 REST_FRAMEWORK = {

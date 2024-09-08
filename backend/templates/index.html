@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django server</title>
+    {% load static %}
+    <link
+      rel="icon"
+      href="{% static 'media/images/django-favicon.png' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+  </head>
+  <body>
+    <main>
+      <figure class="logo-container">
+        <img src="{% static 'media/images/django-favicon.png' %}" />
+      </figure>
+      <h1>Welcome to building REST APIs</h1>
+      <p>
+        This boilerplate includes all the necessary setup for building REST APIs
+        using Django and Django Rest Framework.
+      </p>
+      <a class="admin-link" href="admin/">admin</a>
+    </main>
+  </body>
+</html>
