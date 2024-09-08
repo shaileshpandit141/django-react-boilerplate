@@ -67,7 +67,7 @@ export default function ReturnToTopButton() {
                             }
                             `}
                     >
-                        <button onClick={handleReturnToTopButtonClick} className='button-1-1'>
+                        <button onClick={handleReturnToTopButtonClick} className='button-as-icon'>
                             <span className='icon'>
                                 <span className="material-symbols-outlined">
                                     arrow_upward
