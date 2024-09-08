@@ -94,7 +94,7 @@ export default function LoginForm() {
                         {
                             status === 'loading' && (
                                 <button className='button' disabled>
-                                    <span className="icon">
+                                    <span className="label">
                                         <Loader />
                                     </span>
                                 </button>

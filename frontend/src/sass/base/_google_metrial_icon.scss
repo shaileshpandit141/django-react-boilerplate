@@ -3,12 +3,13 @@
     cursor: default;
     user-select: none;
     font-variation-settings: 'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
 
-@media (pointer: fine) {
+@include pointer(fine) {
+
     .material-symbols-outlined {
         cursor: pointer;
     }
@@ -26,7 +27,7 @@
         'opsz' 24
 }
 
-@media (pointer: fine) {
+@include pointer(fine) {
 
     .fill-material-icon,
     .fill-icon,

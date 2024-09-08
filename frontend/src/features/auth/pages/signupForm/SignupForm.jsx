@@ -118,7 +118,7 @@ export default function SignupForm() {
                                 {
                                     status === 'loading' && (
                                         <button disabled className='button'>
-                                            <span className='icon'>
+                                            <span className="label">
                                                 <Loader />
                                             </span>
                                         </button>

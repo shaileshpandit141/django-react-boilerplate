@@ -59,3 +59,10 @@ button:active {
 button::first-letter {
     text-transform: capitalize;
 }
+
+@include pointer(fine) {
+    a,
+    button {
+        cursor: pointer;
+    }
+}
