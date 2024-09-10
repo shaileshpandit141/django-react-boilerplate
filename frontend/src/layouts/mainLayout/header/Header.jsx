@@ -42,18 +42,16 @@ export default function Header() {
         <header className={`header ${isHeaderVisible ? 'visible' : 'hidden'}`}>
             <div className='header-wrapper'>
                 <div className="left-container">
-                    {/* For Test */}
-                    <div className="button-as-link-wrapper">
-                        <button>left</button>
-                    </div>
+                    {/* Left items goes here */}
+                    <button className="button-as-icon">
+                        <span className="icon">i</span>
+                    </button>
                 </div>
                 <div className="center-container">
-                    {/* For Test */}
-                    <div className="button-as-link-wrapper">
-                        <button>center</button>
-                    </div>
+                    {/* Center items goes here */}
                 </div>
                 <div className="right-container">
+                    {/* Right items goes here */}
                     {
                         isAuthenticated && (
                             <LogoutButton />
