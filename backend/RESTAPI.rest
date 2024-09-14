@@ -38,7 +38,8 @@ Authorization: Bearer jwt_access_token
 
 
 ### Request password reset
-POST http://localhost:8000/api/auth/password/reset/
+#http://192.168.0.132:8000/api/auth/password/reset/
+POST http://localhost:8000/api/auth/password/reset/ 
 Content-Type: application/json
 
 {
@@ -52,14 +53,14 @@ Content-Type: application/json
 
 
 ### Confirm password reset
-POST http://localhost:8000/api/auth/password/reset/confirm/
+POST http://192.168.0.132:8000/api/auth/password/reset/confirm/
 Content-Type: application/json
 
 {
-  "uid": "uid_from_email",
-  "token": "token_from_email",
-  "new_password1": "new_strong_password123",
-  "new_password2": "new_strong_password123"
+  "uid": "w",
+  "token": "cdcc7e-fbd06b003ae5cc950a506ed780ad9f66",
+  "new_password1": "NewUser@12345",
+  "new_password2": "NewUser@12345"
 }
 
 # Expected response:

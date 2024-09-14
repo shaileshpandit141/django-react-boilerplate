@@ -1,12 +1,9 @@
-Subject: Please Confirm Your Email Address
+{% load account %}
 
-Hi {{ user.email }},
+Hello {{ user.username }},
 
-Thank you for signing up at [Your Website Name]. Please click the link below to verify your email address and activate your account:
+Please activate your account by clicking the link below:
 
 {{ activate_url }}
 
-If you did not sign up for an account, please ignore this email.
-
-Best regards,
-[Your Website Name] Team
+Thank you for using our service!

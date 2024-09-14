@@ -246,5 +246,11 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
+# Use custom email templates
+ACCOUNT_EMAIL_CONFIRMATION_TEMPLATE = "account/email/email_confirmation_message.txt"
+
+# Use custom password reset templates
+PASSWORD_RESET_TEMPLATE = "account/email/password_reset_key_message.txt"
+
 # Custom Account Adapters Configuration
 ACCOUNT_ADAPTER = "accounts.custom_adapters.CustomAccountAdapter"
