@@ -1,7 +1,11 @@
-import React from 'react' 
-import { Outlet } from 'react-router-dom' 
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import ErrorBoundary from '../errors/ErrorBoundary/ErrorBoundary'
 
 export default function PublicRoute() {
-    return <Outlet /> 
-} 
-
+    return (
+        <ErrorBoundary>
+            <Outlet />
+        </ErrorBoundary>
+    )
+}

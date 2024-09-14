@@ -5,10 +5,10 @@ import CustomInput from '../../components/customInput/CustomInput'
 
 export default function ForgotPassword() {
 
-    function handleFormSubmit() {
-
+    function handleFormSubmit(event) {
+        event.preventDefault()
     }
-    
+
     return (
         <>
             {/* Metadata settings */}

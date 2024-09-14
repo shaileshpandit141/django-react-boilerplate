@@ -13,7 +13,6 @@ import {
     ForgotPassword
 } from '../features/auth' 
 
-
 // Default Imports (user define pages).
 import PrivateRoute from './PrivateRoute' 
 import PublicRoute from './PublicRoute' 
@@ -48,7 +47,7 @@ const AppRoutes = () => {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
-    ) 
-} 
+    )
+}
 
 export default AppRoutes 
