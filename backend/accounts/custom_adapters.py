@@ -2,26 +2,18 @@ from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from allauth.account.adapter import DefaultAccountAdapter
 from django.conf import settings
-from decouple import config, Csv
+from decouple import config
 
 
 class CustomAccountAdapter(DefaultAccountAdapter):
+
+    # Override send_confirmation_mail for email verification
     def send_confirmation_mail(self, request, emailconfirmation, signup):
         # Change the URL to point to your frontend
+        HOST = config("SEND_VERIFICATION_URL_HOST", cast=str, default="localhost")
+        PORT = config("SEND_VERIFICATION_URL_PORT", cast=str, default="3000")
 
-        CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=Csv())
-
-        list_of_activate_url = [""]
-
-        for domain_name_protocal in CORS_ALLOWED_ORIGINS:
-            domain_name = (domain_name_protocal.split("/")[2]).split(":")[0]
-            list_of_activate_url.append(
-                f"{domain_name}:    {domain_name_protocal}/verify-account/{emailconfirmation.key}/"
-            )
-
-        # f"http://localhost:3000/verify-account/{emailconfirmation.key}/"
-
-        activate_url = "\n\n".join(list_of_activate_url)
+        activate_url = f"http://{HOST}:{PORT}/verify-account/{emailconfirmation.key}/"
 
         # Prepare context for the email template
         ctx = {
@@ -33,16 +25,28 @@ class CustomAccountAdapter(DefaultAccountAdapter):
 
         # Render the email template
         email_template_name = "account/email/email_confirmation_message.txt"
-        # Update this as needed
-        subject = "Confirm your email address"  
+        subject = "Confirm your email address"
         message = render_to_string(email_template_name, ctx)
 
         # Send the email
         send_mail(
             subject,
             message,
-            # Or another email address from which you want to send
             settings.DEFAULT_FROM_EMAIL,
             [emailconfirmation.email_address.email],
             fail_silently=False,
         )
+
+    # Override send_mail for password reset customization
+    def send_mail(self, template_prefix, email, context):
+        if "uid" in context and "token" in context:
+            # Customize password reset URL to point to your frontend
+            HOST = config("SEND_VERIFICATION_URL_HOST", cast=str, default="localhost")
+            PORT = config("SEND_VERIFICATION_URL_PORT", cast=str, default="3000")
+
+            password_reset_url = f"http://{HOST}:{PORT}/password-reset-confirm/{context['uid']}/{context['token']}/"
+            
+            context["password_reset_url"] = password_reset_url
+
+        # Call the parent class method to handle the actual sending of the email
+        super().send_mail(template_prefix, email, context)
