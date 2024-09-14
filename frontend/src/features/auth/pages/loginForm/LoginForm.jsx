@@ -10,7 +10,6 @@ import { loginThunk } from '../../thunks/authThunk'
 import './LoginForm.scss'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/Loader'
-import ErrorBoundary from "../../../../errors/ErrorBoundary/ErrorBoundary"
 
 export default function LoginForm() {
     const dispatch = useDispatch()
@@ -84,7 +83,12 @@ export default function LoginForm() {
                         error?.detail && (
                             <div className="account-verify-cntainer">
                                 <h5>{error.detail}</h5>
-                                <Link to="/resend-verification-key">verify it</Link>
+                                {
+                                    error.detail === "Account is not verified" && (
+                                        <Link to="/resend-verification-key">verify it</Link>
+                                    )
+                                }
+
                             </div>
                         )
                     }
