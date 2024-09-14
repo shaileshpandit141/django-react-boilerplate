@@ -12,6 +12,7 @@ import ResendVerificationKey from './pages/resendVerificationKey/ResendVerificat
 import SignupForm from './pages/signupForm/SignupForm'
 import VerifyAccount from './pages/verifyAccount/VerifyAccount' 
 import ForgotPassword from './pages/forgotPassword/ForgotPassword'
+import PasswordResetConfirm from './pages/forgotPassword/PasswordResetConfirm'
 
 export {
     authReducer,
@@ -27,4 +28,5 @@ export {
     SignupForm,
     VerifyAccount,
     ForgotPassword,
+    PasswordResetConfirm,
 }

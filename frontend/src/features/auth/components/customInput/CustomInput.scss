@@ -7,6 +7,7 @@
     z-index: -1;
     border: 1px solid $border-color-light;
     border-radius: 999rem;
+    background-color: $card-background;
 
     :is(input, label) {
         font-size: rem(14);
@@ -18,9 +19,10 @@
     input {
         width: 100%;
         padding: em(14) em(8) em(14) em(22);
+        background-color: inherit;
         outline: none;
         border-radius: 999rem;
-        z-index: 1;
+        z-index: -1;
         transition: all 0.3s ease-in-out;
     }
 
@@ -44,9 +46,9 @@
     .input:focus~.label,
     .input:not(:placeholder-shown).input:not(:focus)~.label {
         font-size: rem(14);
-        top: -8px;
-        background-color: $background-light;
-        color: $text-secondary;
+        top: -11px;
+        background-color: inherit;
+        color: $text-accent;
         z-index: 1;
     }
 

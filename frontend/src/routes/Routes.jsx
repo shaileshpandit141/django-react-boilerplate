@@ -10,7 +10,8 @@ import {
     ResendVerificationKey,
     SignupForm,
     VerifyAccount,
-    ForgotPassword
+    ForgotPassword,
+    PasswordResetConfirm
 } from '../features/auth' 
 
 // Default Imports (user define pages).
@@ -34,6 +35,7 @@ const AppRoutes = () => {
                         <Route path="verify-account/:key" element={<VerifyAccount />} />
                         <Route path='resend-verification-key' element={<ResendVerificationKey />} />
                         <Route path='forgot-password' element={<ForgotPassword />} />
+                        <Route path='password-reset-confirm/:uid/:token' element={<PasswordResetConfirm />} />
                     </Route>
 
                     {/* Private Routes */}
