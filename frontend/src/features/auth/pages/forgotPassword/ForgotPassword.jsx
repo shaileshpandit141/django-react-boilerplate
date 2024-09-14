@@ -17,29 +17,27 @@ export default function ForgotPassword() {
             </Helmet>
 
             {/* Component jsx */}
-            <main className='grid-12'>
-                <form onSubmit={handleFormSubmit} className='inner-grid-2-2 login-form'>
-                    <div className='inputes-container'>
-                        <h3 className='title'>forgot your password</h3>
+            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 login-form'>
+                <div className='inputes-container'>
+                    <h3 className='title'>forgot your password</h3>
 
-                        <CustomInput
-                            type='text'
-                            label='username'
-                            name='username'
-                            // onChange={handleFormDataChange}
-                            // value={formData.username}
-                        />
+                    <CustomInput
+                        type='text'
+                        label='username'
+                        name='username'
+                    // onChange={handleFormDataChange}
+                    // value={formData.username}
+                    />
 
-                        <button
-                            type="submit"
-                            className='button'
-                            // disabled={loginButtonClickCount <= 0 ? true : false}
-                        >
-                            <span className="label">forgot</span>
-                        </button>
-                    </div>
-                </form>
-            </main>
+                    <button
+                        type="submit"
+                        className='button'
+                    // disabled={loginButtonClickCount <= 0 ? true : false}
+                    >
+                        <span className="label">forgot</span>
+                    </button>
+                </div>
+            </form>
         </>
     )
 }

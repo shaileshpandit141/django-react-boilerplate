@@ -1,32 +1,44 @@
 @import '../../sass';
 
-.errorboundary {
+.error-boundary {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    row-gap: em(8);
-    padding: em(16);
-    border-radius: em(16);
 
-    h4,
-    p {
-        color: $error-text-primary;
+    .inner-error-boundary {
+        width: 100%;
+        max-width: 450px;
+        padding: em(8);
+        border-radius: em(8);
+        box-shadow: $box-shadow;
+        background-color: $card-background;
 
-        span {
-            font-weight: 600;
+        h4,
+        p {
+            padding-inline: em(3);
+            color: $error-text-primary;
+
+            span {
+                font-weight: 600;
+            }
         }
-    }
 
-    button {
-        max-width: fit-content;
-        background-color: transparent;
-        padding: 0;
+        p {
+            margin-top: em(8);
+        }
 
-        &:hover {
+        button {
+            max-width: fit-content;
             background-color: transparent;
+            box-shadow: $box-shadow;
+            margin-top: em(8);
+
+            &:hover {
+                background-color: transparent;
+            }
         }
     }
 }

@@ -3,7 +3,6 @@
 .login-form {
     @include inner-grid-2-2;
     @include flex-centre(column);
-    width: 100%;
 
     .inputes-container {
         @include flex-centre(column);
