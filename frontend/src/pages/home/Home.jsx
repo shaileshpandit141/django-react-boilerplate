@@ -1,10 +1,8 @@
 // Named Imports.
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchUser } from '../../features/user/userThunks'
+import { userThunk, useUserSelectors } from '../../features/user'
 
-// Default import.
-import useUserSelectors from '../../features/user/useUserSelectors'
 
 export default function Home() {
 
@@ -13,7 +11,7 @@ export default function Home() {
 
     useEffect(() => {
         if (status === "idle") {
-            dispatch(fetchUser())
+            dispatch(userThunk())
         }
     }, [dispatch, status])
 
