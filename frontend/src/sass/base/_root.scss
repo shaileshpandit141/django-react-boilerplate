@@ -1,4 +1,4 @@
 #root {
-    height: fit-content;
-    min-height: 100vh;
+    @include inner-grid-1-1;
+    width: 100%;
 }

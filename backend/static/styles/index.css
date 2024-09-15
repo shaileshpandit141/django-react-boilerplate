@@ -74,14 +74,15 @@ p {
 
 .admin-link {
     text-decoration: none;
-    background-color: #5a7033;
+    background-color: #003120;
     color: #fff;
     font-size: 16px;
     letter-spacing: 0.04em;
     font-weight: 600;
     text-transform: capitalize;
     height: 40px;
-    width: fit-content;
+    width: 100%;
+    max-width: 250px;
     padding-inline: 16px;
     border-radius: 999rem;
     display: flex;
@@ -94,7 +95,7 @@ p {
 }
 
 .admin-link:hover {
-    background-color: #425325;
+    background-color: #002719;
 }
 
 @media (pointer: fine) {

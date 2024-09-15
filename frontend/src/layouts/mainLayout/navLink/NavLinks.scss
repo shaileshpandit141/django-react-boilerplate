@@ -1,0 +1,19 @@
+@import '../../../sass';
+
+.nav-links {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    .button,
+    .link {
+        background-color: $card-background;
+        justify-content: flex-start;
+        width: fit-content;
+
+        &:hover {
+            background-color: $card-background;
+        }
+    }
+}

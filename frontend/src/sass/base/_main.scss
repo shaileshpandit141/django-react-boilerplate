@@ -1,4 +1,5 @@
 main {
+    @include inner-grid-1-1;
     @include grid-12;
     padding-top: $header-height;
     height: fit-content;

@@ -10,6 +10,7 @@
 
 .header {
     @include grid-12;
+    align-items: center;
     position: fixed;
     top: 0;
     right: 0;
@@ -24,7 +25,7 @@
     transition: transform 0.3s ease-in-out;
 
     .header-wrapper {
-        @include inner-grid-2-2;
+        @include inner-fit-grid-2-2;
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
