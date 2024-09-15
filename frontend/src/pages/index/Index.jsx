@@ -1,8 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import './Index.scss'
+import { useAuthSelectors } from '../..//features/auth'
 
 export default function Index() {
+
+    // Select the auth readux context.
+    const { isAuthenticated } = useAuthSelectors()
+
+    // Check if user is Authenticated then redirect to another Route.
+    if (isAuthenticated) {
+        return <Navigate to='/home' />
+    }
+
     return (
         <div className="inner-grid-2-2 index-component">
             <figure className="logo-container">
