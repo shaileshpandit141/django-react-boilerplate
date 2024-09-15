@@ -29,6 +29,7 @@
         grid-template-columns: auto 1fr auto;
         align-items: center;
         column-gap: 16px;
+        position: relative;
 
         .left-container {
             display: flex;

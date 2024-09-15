@@ -1,10 +1,10 @@
 // Named Imports.
-import React from 'react' 
+import React from 'react'
 import {
     BrowserRouter as Router,
     Routes,
     Route
-} from 'react-router-dom' 
+} from 'react-router-dom'
 import {
     LoginFrom,
     ResendVerificationKey,
@@ -12,14 +12,15 @@ import {
     VerifyAccount,
     ForgotPassword,
     PasswordResetConfirm
-} from '../features/auth' 
+} from '../features/auth'
 
 // Default Imports (user define pages).
-import PrivateRoute from './PrivateRoute' 
-import PublicRoute from './PublicRoute' 
+import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
 import NotFound from '../errors/notfound/NotFound'
-import MainLayout from '../layouts/mainLayout/mainLayout/MainLayout' 
-import Home from '../pages/home/Home' 
+import MainLayout from '../layouts/mainLayout/mainLayout/MainLayout'
+import Home from '../pages/home/Home'
+import Index from '../pages/index/Index'
 
 const AppRoutes = () => {
     return (
@@ -27,8 +28,10 @@ const AppRoutes = () => {
             <Routes>
                 <Route element={<MainLayout />}>
 
+
                     {/* Public Routes */}
                     <Route element={<PublicRoute />}>
+                        <Route index element={<Index />} />
                         <Route path="login" element={<LoginFrom />} />
                         <Route path="resend-verification-key" element={<ResendVerificationKey />} />
                         <Route path="signup" element={<SignupForm />} />
@@ -40,7 +43,7 @@ const AppRoutes = () => {
 
                     {/* Private Routes */}
                     <Route element={<PrivateRoute />}>
-                        <Route path="/" element={<Home />} />
+                        <Route path="home" element={<Home />} />
                     </Route>
 
                 </Route>

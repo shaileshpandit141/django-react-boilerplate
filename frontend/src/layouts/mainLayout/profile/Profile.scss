@@ -1,0 +1,51 @@
+@import '../../../sass';
+
+.popover-wrapper {
+    background-color: $card-background;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    bottom: unset;
+    left: auto;
+    width: 100%;
+    max-width: 225px;
+    height: fit-content;
+    border-radius: em(10);
+    overflow: hidden;
+    box-shadow: $box-shadow;
+    animation: activePopOver 0.3s forwards;
+    display: none;
+    margin-top: em(8);
+
+    &.active {
+        display: block;
+    }
+
+    @keyframes activePopOver {
+        0% {
+            transform: translateY(-8px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .inner-wrapper {
+        @include flex-centre(column);
+        padding-block: em(10);
+
+        .link,
+        .button {
+            justify-content: flex-start;
+            border-radius: 0;
+            background-color: transparent;
+
+            &:hover {
+                background-color: $button-primary-hover;
+            }
+        }
+    }
+}

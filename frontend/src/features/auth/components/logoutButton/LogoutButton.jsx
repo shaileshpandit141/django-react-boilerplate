@@ -15,6 +15,11 @@ export default function LogoutButton() {
             className='button'
             onClick={handleLogout}
         >
+            <span className='icon'>
+                <span className="material-symbols-outlined">
+                    logout
+                </span>
+            </span>
             <span className='label'>
                 Logout
             </span>

@@ -7,7 +7,7 @@ export default function Footer() {
 
     // Get the current path.
     const { pathname } = useLocation()
-
+    
     return (
         <>
             {

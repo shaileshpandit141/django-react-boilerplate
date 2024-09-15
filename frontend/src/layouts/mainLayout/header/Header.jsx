@@ -1,8 +1,6 @@
 // Named Imports.
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useAuthSelectors } from '../../../features/auth';
-import { LogoutButton } from '../../../features/auth';
+import Profile from '../profile/Profile';
 
 // Default Imports.
 import './header.scss';
@@ -11,7 +9,6 @@ import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
 
 export default function Header() {
 
-    const { isAuthenticated } = useAuthSelectors();
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const [lastScrollTop, setLastScrollTop] = useState(0);
 
@@ -52,23 +49,8 @@ export default function Header() {
                 </div>
                 <div className="right-container">
                     {/* Right items goes here */}
-                    {
-                        isAuthenticated && (
-                            <LogoutButton />
-                        )
-                    }
-
-                    {
-                        !isAuthenticated && (
-                            <NavLink
-                                className="link"
-                                to='/login'
-                            >
-                                <span className='label'>login</span>
-                            </NavLink>
-                        )
-                    }
                     <ThemeButton />
+                    <Profile />
                 </div>
             </div>
         </header>

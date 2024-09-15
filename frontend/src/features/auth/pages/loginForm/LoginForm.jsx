@@ -50,7 +50,7 @@ export default function LoginForm() {
 
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {
-        return <Navigate to='/' />
+        return <Navigate to='/home' />
     }
 
     return (
