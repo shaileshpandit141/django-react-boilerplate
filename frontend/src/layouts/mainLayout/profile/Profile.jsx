@@ -1,10 +1,46 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Profile.scss";
-import { Link } from "react-router-dom";
-import { useAuthSelectors } from "../../../features/auth";
-import { LogoutButton } from "../../../features/auth";
+import React, { useState, useEffect, useRef } from "react"
+import "./Profile.scss"
+import { Link } from "react-router-dom"
+import { useAuthSelectors } from "../../../features/auth"
+import { useUserSelectors } from '../../../features/user'
+import { LogoutButton } from "../../../features/auth"
 
 export default function Profile() {
+
+    const { isAuthenticated } = useAuthSelectors()
+    const { userInfo } = useUserSelectors()
+
+    const [isPopoverVisible, setPopoverVisible] = useState(false)
+    const profileButtonRef = useRef(null)
+    const popoverRef = useRef(null)
+
+    const togglePopover = () => {
+        setPopoverVisible((prev) => !prev)
+    }
+
+    // Hnadle  Outside Click
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                popoverRef.current &&
+                !profileButtonRef.current.contains(event.target) &&
+                !popoverRef.current.contains(event.target)
+            ) {
+                setPopoverVisible(false)
+            }
+        }
+
+        if (isPopoverVisible) {
+            document.addEventListener("mousedown", handleClickOutside)
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [isPopoverVisible])
+
     const links = [
         {
             name: "profile",
@@ -16,40 +52,7 @@ export default function Profile() {
             link: "#",
             icon: "settings",
         },
-    ];
-
-    const { isAuthenticated } = useAuthSelectors();
-
-    const [isPopoverVisible, setPopoverVisible] = useState(false);
-    const profileButtonRef = useRef(null);
-    const popoverRef = useRef(null);
-
-    const togglePopover = () => {
-        setPopoverVisible((prev) => !prev);
-    };
-
-    // Hnadle  Outside Click
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (
-                popoverRef.current &&
-                !profileButtonRef.current.contains(event.target) &&
-                !popoverRef.current.contains(event.target)
-            ) {
-                setPopoverVisible(false);
-            }
-        };
-
-        if (isPopoverVisible) {
-            document.addEventListener("mousedown", handleClickOutside);
-        } else {
-            document.removeEventListener("mousedown", handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [isPopoverVisible]);
+    ]
 
     const popoverElements = links.map((link, index) => (
         <Link
@@ -63,7 +66,7 @@ export default function Profile() {
             </span>
             <span className="label">{link.name}</span>
         </Link>
-    ));
+    ))
 
     if (!isAuthenticated) {
         return null
@@ -85,10 +88,20 @@ export default function Profile() {
                 className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
             >
                 <div className="inner-wrapper">
+                    <button className="button">
+                        <span className="icon">
+                            <span className="material-symbols-outlined fill">
+                                person
+                            </span>
+                        </span>
+                        <span className="label">
+                            {userInfo.username}
+                        </span>
+                    </button>
                     {popoverElements}
                     <LogoutButton onClick={togglePopover} />
                 </div>
             </div>
         </>
-    );
+    )
 }
