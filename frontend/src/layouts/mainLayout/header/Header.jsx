@@ -46,6 +46,7 @@ export default function Header() {
                 </div>
                 <div className="center-container">
                     {/* Center items goes here */}
+                    <input type="search" placeholder='search...' className='search-input'/>
                 </div>
                 <div className="right-container">
                     {/* Right items goes here */}

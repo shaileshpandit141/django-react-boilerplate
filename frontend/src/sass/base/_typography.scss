@@ -7,7 +7,7 @@ h6 {
     font-weight: 700;
     line-height: 1.2;
     margin-block: 0;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     color: $text-primary;
 
     &::first-letter {
@@ -28,9 +28,24 @@ p,
 details {
     margin-block: 0;
     font-size: rem(14);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     color: $text-primary;
     line-height: 1.5;
+}
+
+input,
+button,
+textarea,
+select {
+    letter-spacing: 0.04em;
+    color: $text-primary;
+    font-size: em(16);
+
+    &::placeholder {
+        letter-spacing: 0.04em;
+        color: $text-primary;
+        font-size: em(16);
+    }
 }
 
 a,
@@ -38,7 +53,7 @@ a:visited,
 a:active {
     font-size: initial;
     text-decoration: none;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     font-weight: 600;
 }
 
@@ -52,7 +67,7 @@ button:active {
     border: none;
     font-size: initial;
     text-decoration: none;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     font-weight: 600;
 }
 

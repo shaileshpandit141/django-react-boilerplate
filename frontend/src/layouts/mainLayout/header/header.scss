@@ -27,7 +27,7 @@
     .header-wrapper {
         @include inner-fit-grid-2-2;
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
         column-gap: 16px;
         position: relative;
@@ -36,6 +36,7 @@
             display: flex;
             align-items: center;
             column-gap: 8px;
+            height: 100%;
         }
 
         .center-container {
@@ -43,12 +44,25 @@
             align-items: center;
             justify-content: center;
             column-gap: 8px;
+            height: 100%;
+
+            .search-input {
+                background-color: $card-background;
+                height: 100%;
+                width: 100%;
+                min-width: 0;
+                padding-inline: em(16);
+                border-radius: 999rem;
+                box-shadow: $box-shadow;
+            }
         }
 
         .right-container {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             column-gap: 8px;
+            height: 100%;
         }
     }
 }
