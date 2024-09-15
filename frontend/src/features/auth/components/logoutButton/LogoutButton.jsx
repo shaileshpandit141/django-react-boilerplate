@@ -3,7 +3,7 @@ import './LogoutButton.scss'
 import { useDispatch } from 'react-redux' 
 import { logout } from '../../slices/authSlice' 
 
-export default function LogoutButton() {
+export default function LogoutButton({onClick}) {
     const dispatch = useDispatch() 
 
     const handleLogout = () => {
@@ -13,7 +13,10 @@ export default function LogoutButton() {
     return (
         <button
             className='button'
-            onClick={handleLogout}
+            onClick={() => {
+                handleLogout()
+                onClick()
+            }}
         >
             <span className='icon'>
                 <span className="material-symbols-outlined">

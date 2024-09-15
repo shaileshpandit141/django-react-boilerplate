@@ -86,7 +86,7 @@ export default function Profile() {
             >
                 <div className="inner-wrapper">
                     {popoverElements}
-                    <LogoutButton />
+                    <LogoutButton onClick={togglePopover} />
                 </div>
             </div>
         </>
