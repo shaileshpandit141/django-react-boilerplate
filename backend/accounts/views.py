@@ -27,18 +27,22 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
         user = serializer.user
 
+        # Check if the user is active
         if not user.is_active:
             return Response(
                 {"detail": _("Account is not verified")},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
-        if not user.emailaddress_set.filter(verified=True).exists():
-            return Response(
-                {"detail": _("Account is not verified")},
-                status=status.HTTP_401_UNAUTHORIZED,
-            )
+        # If the user is not a superuser, check for email verification
+        if not user.is_superuser:
+            if not user.emailaddress_set.filter(verified=True).exists():
+                return Response(
+                    {"detail": _("Account is not verified")},
+                    status=status.HTTP_401_UNAUTHORIZED,
+                )
 
+        # If all checks pass, generate tokens
         refresh = RefreshToken.for_user(user)
 
         return Response(
