@@ -27,7 +27,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => (
     </div>
 );
 
-const ErrorBoundary = ({ children, page }) => (
+const ErrorBoundary = ({ children }) => (
     <ReactErrorBoundary FallbackComponent={ErrorFallback}>
         {children}
     </ReactErrorBoundary>
