@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { userThunk } from '../thunks/userThunk'
 
 const initialState = {
-    userInfo: {},
+    response: null,
     status: 'idle',
     error: null
 }
@@ -18,7 +18,7 @@ const userSlice = createSlice({
             })
             .addCase(userThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded'
-                state.userInfo = action.payload
+                state.response = action.payload
             })
             .addCase(userThunk.rejected, (state, action) => {
                 state.status = 'failed'

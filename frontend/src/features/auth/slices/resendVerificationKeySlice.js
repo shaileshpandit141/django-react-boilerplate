@@ -3,7 +3,7 @@ import { resendVerificationKeyThunk } from '../thunks/resendVerificationKeyThunk
 
 // Initial State
 const initialState = {
-    data: null,
+    response: null,
     status: 'idle',
     error: null,
 } 
@@ -20,7 +20,7 @@ const resendVerificationKeySlice = createSlice({
             })
             .addCase(resendVerificationKeyThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded' 
-                state.data = action.payload 
+                state.response = action.payload 
             })
             .addCase(resendVerificationKeyThunk.rejected, (state, action) => {
                 state.status = 'failed' 

@@ -15,7 +15,7 @@ export default function SignupForm() {
     const dispatch = useDispatch()
 
     // Select the auth readux context.
-    const { data, status, error } = useSignupSelectors()
+    const { response, status, error } = useSignupSelectors()
 
     // Define a initial form data for signup.
     const initialFormData = {
@@ -144,7 +144,7 @@ export default function SignupForm() {
 
                 {
                     status === 'succeeded' && (
-                        <h3>{data.detail}</h3>
+                        <h3>{response.detail}</h3>
                     )
                 }
 

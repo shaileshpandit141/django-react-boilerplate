@@ -1,9 +1,10 @@
 // Named Imports.
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
 import { useAuthSelectors } from '../../hooks/useAuthSelectors'
+import { clean } from '../../slices/authSlice'
 import { loginThunk } from '../../thunks/authThunk'
 
 // Default Imports.
@@ -47,6 +48,10 @@ export default function LoginForm() {
             setLoginButtonClickCount(prev => prev - 1)
         }
     }
+
+    useEffect(() => {
+        dispatch(clean())
+    }, [dispatch])
 
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {

@@ -7,7 +7,7 @@ const initialState = {
     accessToken: localStorage.getItem('accessToken') || null,
     refreshToken: localStorage.getItem('refreshToken') || null,
     isAuthenticated: !!localStorage.getItem('refreshToken'),
-    id: localStorage.getItem('accessToken') ? jwtDecode(localStorage.getItem('accessToken'))?.user_id : null,
+    pk: localStorage.getItem('accessToken') ? jwtDecode(localStorage.getItem('accessToken'))?.user_id : null,
     status: 'idle',
     error: null,
 }
@@ -21,9 +21,16 @@ const authSlice = createSlice({
             state.accessToken = null
             state.refreshToken = null
             state.isAuthenticated = false
+            state.pk = null
+            state.status = 'idle'
+            state.error = null
             localStorage.removeItem('accessToken')
             localStorage.removeItem('refreshToken')
         },
+        clean: (state) => {
+            state.status = 'idle'
+            state.error = null
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -54,11 +61,14 @@ const authSlice = createSlice({
                 state.accessToken = null
                 state.refreshToken = null
                 state.isAuthenticated = false
+                state.pk = null
+                state.status = 'idle'
+                state.error = null
                 localStorage.removeItem('accessToken')
                 localStorage.removeItem('refreshToken')
             })
     },
 })
 
-export const { logout } = authSlice.actions
+export const { logout, clean } = authSlice.actions
 export default authSlice.reducer 

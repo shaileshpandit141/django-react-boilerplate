@@ -11,7 +11,7 @@ export default function ResendVerificationKey(props) {
 
     const dispatch = useDispatch()
 
-    const { error, data, status } = useResendVerificationKeySelectors()
+    const { error, response, status } = useResendVerificationKeySelectors()
 
     // Define a initial form data for login.
     const initialFormData = {
@@ -89,8 +89,8 @@ export default function ResendVerificationKey(props) {
                 }
 
                 {
-                    data?.detail && (
-                        <h3 className='title'>{data.detail}</h3>
+                    response?.detail && (
+                        <h3 className='title'>{response.detail}</h3>
                     )
                 }
             </form>

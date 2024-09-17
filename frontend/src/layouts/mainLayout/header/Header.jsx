@@ -6,7 +6,6 @@ import Profile from '../profile/Profile';
 import './header.scss';
 import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
 
-
 export default function Header() {
 
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
