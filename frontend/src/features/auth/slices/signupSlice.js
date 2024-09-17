@@ -3,7 +3,7 @@ import { signupThunk } from '../thunks/signupThunk'
 
 // Initial State
 const initialState = {
-    response: null,
+    data: null,
     status: 'idle',
     error: null,
 } 
@@ -20,7 +20,7 @@ const signupSlice = createSlice({
             })
             .addCase(signupThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded' 
-                state.response = action.payload
+                state.data = action.payload
             })
             .addCase(signupThunk.rejected, (state, action) => {
                 state.status = 'failed' 

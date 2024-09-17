@@ -7,7 +7,7 @@ import { userThunk, useUserSelectors } from '../../features/user'
 export default function Home() {
 
     const dispatch = useDispatch()
-    const { response, status, error } = useUserSelectors()
+    const { status, data, error } = useUserSelectors()
 
     useEffect(() => {
         if (status === "idle") {
@@ -20,7 +20,7 @@ export default function Home() {
             <h2>Welcome to Django React Full Stack Web App</h2>
             <br />
             {status === 'loading' && <h3>Loading...</h3>}
-            {status === 'succeeded' && <h3>{response?.username} {response?.email}</h3>}
+            {status === 'succeeded' && <h3>{data?.username} {data?.email}</h3>}
             {error && <h3>{error}</h3>}
             <br />
             <section>

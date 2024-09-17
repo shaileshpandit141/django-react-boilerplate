@@ -3,7 +3,7 @@ import { verifyAccountThunk } from '../thunks/verifyAccountThunk'
 
 // Initial State
 const initialState = {
-    response: null,
+    data: null,
     status: 'idle',
     error: null,
 } 
@@ -20,7 +20,7 @@ const verifyAccountSlice = createSlice({
             })
             .addCase(verifyAccountThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded' 
-                state.response = action.payload
+                state.data = action.payload
             })
             .addCase(verifyAccountThunk.rejected, (state, action) => {
                 state.status = 'failed' 

@@ -8,7 +8,8 @@ import { LogoutButton } from "../../../features/auth"
 export default function Profile() {
 
     const { isAuthenticated } = useAuthSelectors()
-    const { response } = useUserSelectors()
+    const { data } = useUserSelectors()
+    console.log(data);
 
     const [isPopoverVisible, setPopoverVisible] = useState(false)
     const profileButtonRef = useRef(null)
@@ -95,7 +96,7 @@ export default function Profile() {
                             </span>
                         </span>
                         <span className="label">
-                            {response?.username}
+                            {data?.username}
                         </span>
                     </button>
                     {popoverElements}
