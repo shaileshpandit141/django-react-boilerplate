@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from "react-router-dom"
-import { isHideRoutes } from "../utils/isHideRoutes"
+import { isHideRoutes } from "../../../utils/isHideRoutes"
 import "./Footer.scss"
 
 export default function Footer() {

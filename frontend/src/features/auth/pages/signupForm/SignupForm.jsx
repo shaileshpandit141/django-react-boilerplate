@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
 import { useSignupSelectors } from '../../hooks/useSignupSelectors'
 import { signupThunk } from '../../thunks/signupThunk'
+import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 // Default Imports.
 import './SignupForm.scss'
@@ -131,6 +132,9 @@ export default function SignupForm() {
                                         className='button'
                                         disabled={signupButtonClickCount <= 0 ? true : false}
                                     >
+                                        <span className="icon">
+                                            <LazyMaterialIcon iconName={icons.Signup} />
+                                        </span>
                                         <span className='label'>signup</span>
                                     </button>
                                 )

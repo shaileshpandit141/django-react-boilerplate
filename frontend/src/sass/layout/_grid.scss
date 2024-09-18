@@ -6,14 +6,14 @@
 .inner-grid-1-1 {
     grid-column: 1/-1;
     width: 100%;
-    min-height: calc(100vh - #{$header-height} - 40px);
+    min-height: calc(100vh - #{$header-height});
 }
 
 .inner-grid-2-2 {
     grid-column: 2/-2;
     width: 100%;
     height: fit-content;
-    min-height: calc(100vh - #{$header-height} - 40px);
+    min-height: calc(100vh - #{$header-height});
 }
 
 .inner-fit-grid-1-1 {

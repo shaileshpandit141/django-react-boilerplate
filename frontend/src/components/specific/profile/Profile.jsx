@@ -4,12 +4,12 @@ import { Link } from "react-router-dom"
 import { useAuthSelectors } from "../../../features/auth"
 import { useUserSelectors } from '../../../features/user'
 import { LogoutButton } from "../../../features/auth"
+import { LazyMaterialIcon, icons } from "../../../assets/lazyMaterialIcon/LazyMaterialIcon"
 
 export default function Profile() {
 
     const { isAuthenticated } = useAuthSelectors()
     const { data } = useUserSelectors()
-    console.log(data);
 
     const [isPopoverVisible, setPopoverVisible] = useState(false)
     const profileButtonRef = useRef(null)
@@ -46,12 +46,12 @@ export default function Profile() {
         {
             name: "profile",
             link: "#",
-            icon: "account_circle",
+            icon: <LazyMaterialIcon iconName={icons.AccountCircle} />,
         },
         {
             name: "settings",
             link: "#",
-            icon: "settings",
+            icon: <LazyMaterialIcon iconName={icons.Settings} />,
         },
     ]
 
@@ -63,7 +63,7 @@ export default function Profile() {
             onClick={togglePopover}
         >
             <span className="icon">
-                <span className="material-symbols-outlined fill">{link.icon}</span>
+                {link.icon}
             </span>
             <span className="label">{link.name}</span>
         </Link>
@@ -81,7 +81,7 @@ export default function Profile() {
                 onClick={togglePopover}
             >
                 <span className="icon">
-                    <span className="material-symbols-outlined fill">account_circle</span>
+                    <LazyMaterialIcon iconName={icons.AccountCircle} />
                 </span>
             </button>
             <div
@@ -91,9 +91,7 @@ export default function Profile() {
                 <div className="inner-wrapper">
                     <button className="button">
                         <span className="icon">
-                            <span className="material-symbols-outlined fill">
-                                person
-                            </span>
+                            <LazyMaterialIcon iconName={icons.Person} />
                         </span>
                         <span className="label">
                             {data?.username}

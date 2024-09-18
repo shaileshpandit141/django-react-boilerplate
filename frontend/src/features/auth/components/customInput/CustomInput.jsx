@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './CustomInput.scss'
+import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function CustomInput(props) {
 
-    const { name, type, label, ...rest} = props 
-    const [isPasswordVisible, setIsPasswordVisible] = useState(true) 
+    const { name, type, label, ...rest } = props
+    const [isPasswordVisible, setIsPasswordVisible] = useState(true)
 
     function handleIsPasswordVisiblity(event) {
         setIsPasswordVisible(prevState => !prevState)
@@ -36,13 +37,13 @@ export default function CustomInput(props) {
                         onClick={handleIsPasswordVisiblity}
                     >
                         <span className='icon'>
-                            <span
-                                className={
-                                    `material-symbols-outlined ${isPasswordVisible ? "fill" : null}`
-                                }
-                            >
-                                visibility
-                            </span>
+                            {
+                                isPasswordVisible ? (
+                                    <LazyMaterialIcon iconName={icons.EyeClose} />
+                                ) : (
+                                    <LazyMaterialIcon iconName={icons.EyeOpen} />
+                                )
+                            }
                         </span>
                     </button>
                 )

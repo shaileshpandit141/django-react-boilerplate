@@ -2,6 +2,7 @@ import React from 'react'
 import './LogoutButton.scss' 
 import { useDispatch } from 'react-redux' 
 import { logout } from '../../slices/authSlice' 
+import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function LogoutButton({onClick}) {
     const dispatch = useDispatch() 
@@ -19,9 +20,7 @@ export default function LogoutButton({onClick}) {
             }}
         >
             <span className='icon'>
-                <span className="material-symbols-outlined">
-                    logout
-                </span>
+                <LazyMaterialIcon iconName={icons.Logout} />
             </span>
             <span className='label'>
                 Logout

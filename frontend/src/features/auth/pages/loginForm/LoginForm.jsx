@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async'
 import { useAuthSelectors } from '../../hooks/useAuthSelectors'
 import { clean } from '../../slices/authSlice'
 import { loginThunk } from '../../thunks/authThunk'
+import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 // Default Imports.
 import './LoginForm.scss'
@@ -117,6 +118,9 @@ export default function LoginForm() {
                                 className='button'
                                 disabled={loginButtonClickCount <= 0 ? true : false}
                             >
+                                <span className="icon">
+                                    <LazyMaterialIcon iconName={icons.Login} />
+                                </span>
                                 <span className="label">login</span>
                             </button>
                         )

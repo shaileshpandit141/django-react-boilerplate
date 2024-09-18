@@ -1,8 +1,6 @@
-// Named Imports.
 import React, { useState, useEffect } from 'react';
-import Profile from '../profile/Profile';
-
-// Default Imports.
+import Profile from '../../../components/specific/profile/Profile';
+import { LazyMaterialIcon, icons } from '../../../assets/lazyMaterialIcon/LazyMaterialIcon';
 import './header.scss';
 import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
 
@@ -40,12 +38,14 @@ export default function Header() {
                 <div className="left-container">
                     {/* Left items goes here */}
                     <button className="button-as-icon">
-                        <span className="icon">i</span>
+                        <span className="icon">
+                            <LazyMaterialIcon iconName={icons.CircleAppIcon} />
+                        </span>
                     </button>
                 </div>
                 <div className="center-container">
                     {/* Center items goes here */}
-                    <input type="search" placeholder='search...' className='search-input'/>
+                    <input type="search" placeholder='search...' className='search-input' />
                 </div>
                 <div className="right-container">
                     {/* Right items goes here */}

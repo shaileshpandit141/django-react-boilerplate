@@ -37,6 +37,14 @@
             align-items: center;
             column-gap: 8px;
             height: 100%;
+
+            button {
+                background-color: $card-background;
+
+                &:hover {
+                    background-color: $card-background;
+                }
+            }
         }
 
         .center-container {
