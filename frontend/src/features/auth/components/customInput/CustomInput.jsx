@@ -14,7 +14,7 @@ export default function CustomInput(props) {
     return (
         <div className="input-wrapper">
             <input
-                autoComplete="on"
+                autoComplete="off"
                 className='input'
                 type={type === "password" ? (isPasswordVisible ? type : "text") : type}
                 name={name}
