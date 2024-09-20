@@ -33,7 +33,7 @@ export default function Index() {
                         <LazyMaterialIcon iconName={icons.Signin} />
                     </span>
                     <span className='label'>
-                        Login
+                        sign in
                     </span>
                 </Link>
                 <Link
@@ -44,7 +44,7 @@ export default function Index() {
                         <LazyMaterialIcon iconName={icons.Signup} />
                     </span>
                     <span className='label'>
-                        signup
+                        sign up
                     </span>
                 </Link>
             </div>
