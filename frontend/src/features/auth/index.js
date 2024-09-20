@@ -1,4 +1,4 @@
-import authReducer, { logout } from './slices/authSlice' 
+import authReducer, { signout } from './slices/authSlice' 
 import signupReducer from './slices/signupSlice' 
 import verifyAccountReducer from './slices/verifyAccountSlice' 
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice' 
@@ -6,8 +6,8 @@ import { refreshAccessTokenThunk } from './thunks/authThunk'
 import { useAuthSelectors } from './hooks/useAuthSelectors' 
 
 // Pages
-import LogoutButton from './components/logoutButton/LogoutButton'
-import LoginForm from './pages/loginForm/LoginForm'
+import LogoutButton from './components/signoutButton/SignoutButton'
+import SigninForm from './pages/signinForm/SigninForm'
 import ResendVerificationKey from './pages/resendVerificationKey/ResendVerificationKey'
 import SignupForm from './pages/signupForm/SignupForm'
 import VerifyAccount from './pages/verifyAccount/VerifyAccount' 
@@ -20,9 +20,9 @@ export {
     verifyAccountReducer,
     resendVerificationKeyReducer,
     refreshAccessTokenThunk,
-    logout,
+    signout,
     useAuthSelectors,
-    LoginForm,
+    SigninForm,
     LogoutButton,
     ResendVerificationKey,
     SignupForm,

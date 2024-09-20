@@ -25,7 +25,7 @@
     transition: transform 0.3s ease-in-out;
 
     .header-wrapper {
-        @include inner-fit-grid-2-2;
+        @include inner-grid-2-2;
         display: grid;
         grid-template-columns: auto 1fr 1.2fr;
         align-items: center;

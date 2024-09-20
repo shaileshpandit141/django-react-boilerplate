@@ -34,14 +34,9 @@ $scrollbar-track: var(--scrollbar-track);
 $link-color: var(--link-color);
 $link-hover-color: var(--link-hover-color);
 
-// Define the opacity.
+// Other variables.
 $opacity: 1;
-
-// Box shadow
 $box-shadow: 0 0 2px #0000004d;
-
-// Define a border 
 $border: 1px solid $border-color-light;
-
-// Define a header height.
 $header-height: em(64);
+$screen-height: calc(100vh - #{$header-height});

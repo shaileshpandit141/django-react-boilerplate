@@ -52,7 +52,7 @@ export default function ResendVerificationKey(props) {
                 {
                     status === "idle" && (
                         <div className='inputes-container'>
-                            <h3 className='title'>Resend Verification Key</h3>
+                            <h1 className='title'>Resend Verification Key</h1>
                             <CustomInput
                                 type='text'
                                 label='username'

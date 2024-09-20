@@ -1,7 +1,8 @@
 @import '../../sass';
 
-.index-component {
+.index-page {
     @include flex-centre(column);
+    min-height: $screen-height;
 
     .logo-container {
         aspect-ratio: 1/1;

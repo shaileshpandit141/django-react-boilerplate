@@ -1,0 +1,7 @@
+@import '../../sass';
+
+.home-page {
+    @include inner-grid-2-2;
+    min-height: $screen-height;
+    padding-block: em(8);
+}

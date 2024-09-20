@@ -16,7 +16,7 @@ import PublicRoute from './PublicRoute'
 // Lazy Imports.
 const MainLayout = lazyImportWithRetry(() => import('../layouts/mainLayout/mainLayout/MainLayout'))
 const NotFound = lazyImportWithRetry(() => import('../errors/notfound/NotFound'))
-const LoginForm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.LoginForm })))
+const SigninForm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.SigninForm })))
 const ResendVerificationKey = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.ResendVerificationKey })))
 const SignupForm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.SignupForm })))
 const VerifyAccount = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.VerifyAccount })))
@@ -35,7 +35,7 @@ const AppRoutes = () => {
                     <Route element={<PublicRoute />}>
                         {/* <Route index element={<Index />} /> */}
                         <Route index element={<LazyLoader element={<Index />} />} />
-                        <Route path="login" element={<LazyLoader element={<LoginForm />} />} />
+                        <Route path="signin" element={<LazyLoader element={<SigninForm />} />} />
                         <Route path="resend-verification-key" element={<LazyLoader element={<ResendVerificationKey />} />} />
                         <Route path="signup" element={<LazyLoader element={<SignupForm />} />} />
                         <Route path="verify-account/:key" element={<LazyLoader element={<VerifyAccount />} />} />
@@ -49,10 +49,10 @@ const AppRoutes = () => {
                         <Route path="home" element={<LazyLoader element={<Home />} />} />
                     </Route>
 
-                </Route>
+                    {/* Catch-all route for 404 Not Found */}
+                    <Route path="*" element={<NotFound />} />
 
-                {/* Catch-all route for 404 Not Found */}
-                <Route path="*" element={<NotFound />} />
+                </Route>
             </Routes>
         </Router>
     )

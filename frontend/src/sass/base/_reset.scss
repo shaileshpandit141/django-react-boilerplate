@@ -14,6 +14,8 @@ html {
     /* 16px by default */
     font-size: 100%;
     line-height: 1.5;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 /* Remove list styles */

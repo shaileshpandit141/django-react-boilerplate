@@ -6,24 +6,13 @@
 .inner-grid-1-1 {
     grid-column: 1/-1;
     width: 100%;
-    min-height: calc(100vh - #{$header-height});
+    height: fit-content;
 }
 
 .inner-grid-2-2 {
     grid-column: 2/-2;
     width: 100%;
     height: fit-content;
-    min-height: calc(100vh - #{$header-height});
-}
-
-.inner-fit-grid-1-1 {
-    @extend .inner-grid-1-1;
-    min-height: unset;
-}
-
-.inner-fit-grid-2-2 {
-    @extend .inner-grid-2-2;
-    min-height: unset;
 }
 
 
@@ -37,14 +26,4 @@
 
 @mixin inner-grid-2-2 {
     @extend .inner-grid-2-2;
-}
-
-@mixin inner-fit-grid-1-1 {
-    @extend .inner-grid-1-1;
-    min-height: unset;
-}
-
-@mixin inner-fit-grid-2-2 {
-    @extend .inner-grid-2-2;
-    min-height: unset;
 }

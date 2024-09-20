@@ -9,11 +9,11 @@ import { loginThunk } from '../../thunks/authThunk'
 import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 // Default Imports.
-import './LoginForm.scss'
+import './SigninForm.scss'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
 
-export default function LoginForm() {
+export default function SigninForm() {
     const dispatch = useDispatch()
 
     // Select the auth readux context.
@@ -67,9 +67,9 @@ export default function LoginForm() {
             </Helmet>
 
             {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 login-form'>
+            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 signin-form'>
                 <div className='inputes-container'>
-                    <h3 className='title'>access your account</h3>
+                    <h1 className='title'>sign in</h1>
                     <CustomInput
                         type='text'
                         label='username'
@@ -119,9 +119,9 @@ export default function LoginForm() {
                                 disabled={loginButtonClickCount <= 0 ? true : false}
                             >
                                 <span className="icon">
-                                    <LazyMaterialIcon iconName={icons.Login} />
+                                    <LazyMaterialIcon iconName={icons.Signin} />
                                 </span>
-                                <span className="label">login</span>
+                                <span className="label">sign in</span>
                             </button>
                         )
                     }

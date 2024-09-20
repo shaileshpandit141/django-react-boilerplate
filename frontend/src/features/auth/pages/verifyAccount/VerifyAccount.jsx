@@ -35,7 +35,7 @@ export default function VerifyAccount() {
                 {
                     !error && (
                         <>
-                            <h3 className='title'>Verify your account.</h3>
+                            <h1 className='title'>Verify your account.</h1>
                             <button
                                 className='button'
                                 onClick={handleVerifyButtonClick}

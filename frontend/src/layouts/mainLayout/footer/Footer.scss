@@ -1,8 +1,8 @@
 @import "../../../sass";
 
 .footer {
+    @include grid-12;
     background-color: $footer-background;
-    margin-top: em(20);
     padding-block: em(20);
     height: em(250);
     

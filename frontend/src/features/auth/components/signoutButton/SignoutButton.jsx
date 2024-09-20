@@ -1,14 +1,14 @@
 import React from 'react' 
-import './LogoutButton.scss' 
+import './SignoutButton.scss' 
 import { useDispatch } from 'react-redux' 
-import { logout } from '../../slices/authSlice' 
+import { signout } from '../../slices/authSlice' 
 import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
-export default function LogoutButton({onClick}) {
+export default function SignoutButton({onClick}) {
     const dispatch = useDispatch() 
 
     const handleLogout = () => {
-        dispatch(logout()) 
+        dispatch(signout()) 
     } 
 
     return (
@@ -20,10 +20,10 @@ export default function LogoutButton({onClick}) {
             }}
         >
             <span className='icon'>
-                <LazyMaterialIcon iconName={icons.Logout} />
+                <LazyMaterialIcon iconName={icons.Signout} />
             </span>
             <span className='label'>
-                Logout
+                sign out
             </span>
         </button>
     ) 

@@ -1,0 +1,16 @@
+@import '../../sass';
+
+.not-found-page {
+    @include inner-grid-2-2;
+    @include flex-centre(column);
+    min-height: $screen-height;
+
+    .text-404 {
+        margin-block: em(16);
+        color: $error-text-primary;
+    }
+
+    .link {
+        max-width: em(250);
+    }
+}

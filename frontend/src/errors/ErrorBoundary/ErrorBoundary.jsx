@@ -1,6 +1,7 @@
 import React from 'react';
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 import './ErrorBoundary.scss'
+import { LazyMaterialIcon, icons } from '../../assets/lazyMaterialIcon/LazyMaterialIcon';
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => (
     <div className='inner-grid-2-2 error-boundary' role="alert">
@@ -15,9 +16,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => (
                 onClick={resetErrorBoundary}
             >
                 <span className='icon'>
-                    <span class="material-symbols-outlined">
-                        refresh
-                    </span>
+                    <LazyMaterialIcon iconName={icons.ReTry} />
                 </span>
                 <span className='label'>
                     Try again

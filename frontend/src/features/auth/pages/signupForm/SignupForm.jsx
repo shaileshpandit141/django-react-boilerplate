@@ -62,7 +62,7 @@ export default function SignupForm() {
                 {
                     status !== 'succeeded' && (
                         <div className='inputes-container'>
-                            <h3 className="title">Create your account</h3>
+                            <h1 className="title">sign up</h1>
                             <CustomInput
                                 type='text'
                                 label='username'
@@ -135,12 +135,12 @@ export default function SignupForm() {
                                         <span className="icon">
                                             <LazyMaterialIcon iconName={icons.Signup} />
                                         </span>
-                                        <span className='label'>signup</span>
+                                        <span className='label'>sign up</span>
                                     </button>
                                 )
                             }
                             <p className='login-text'>
-                                have an account?, <Link to="/login">login now</Link>
+                                have an account?, <Link to="/signin">sign in now</Link>
                             </p>
                         </div>
                     )

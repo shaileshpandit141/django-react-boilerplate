@@ -19,7 +19,7 @@ export default function ForgotPassword() {
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='inner-grid-2-2 forgot-form'>
                 <div className='inputes-container'>
-                    <h3 className='title'>forgot your password</h3>
+                    <h1 className='title'>forgot your password</h1>
 
                     <CustomInput
                         type='text'

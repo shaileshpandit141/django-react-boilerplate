@@ -10,7 +10,7 @@ export function isHideRoutes(route_name) {
 
     const routes = [
         "",
-        "login",
+        "signin",
         "resend-verification-key",
         "signup",
         "resend-verification-key",

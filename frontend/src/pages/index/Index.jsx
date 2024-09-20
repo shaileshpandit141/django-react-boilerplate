@@ -15,7 +15,7 @@ export default function Index() {
     }
 
     return (
-        <div className="inner-grid-2-2 index-component">
+        <div className="inner-grid-2-2 index-page">
             <figure className="logo-container">
                 <img src="logo512.png" alt="logo512.png" />
             </figure>
@@ -26,11 +26,11 @@ export default function Index() {
             </p>
             <div className="buttons-conatiner">
                 <Link
-                    to="/login"
+                    to="/signin"
                     className='link'
                 >
                     <span className='icon'>
-                        <LazyMaterialIcon iconName={icons.Login} />
+                        <LazyMaterialIcon iconName={icons.Signin} />
                     </span>
                     <span className='label'>
                         Login
