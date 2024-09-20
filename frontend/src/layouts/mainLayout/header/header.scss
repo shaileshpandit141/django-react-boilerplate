@@ -27,9 +27,9 @@
     .header-wrapper {
         @include inner-fit-grid-2-2;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: auto 1fr 1.2fr;
         align-items: center;
-        column-gap: 16px;
+        column-gap: 8px;
         position: relative;
 
         .left-container {
@@ -50,7 +50,7 @@
         .center-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             column-gap: 8px;
             height: 100%;
 
@@ -59,9 +59,10 @@
                 height: 100%;
                 width: 100%;
                 min-width: 0;
+                max-width: em(450);
                 padding-inline: em(16);
                 border-radius: 999rem;
-                box-shadow: $box-shadow;
+                border: $border;
             }
         }
 

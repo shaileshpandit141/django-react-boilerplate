@@ -5,7 +5,7 @@
     position: relative;
     width: 100%;
     z-index: -1;
-    border: 1px solid $border-color-light;
+    border: $border;
     border-radius: 999rem;
     background-color: $card-background;
 

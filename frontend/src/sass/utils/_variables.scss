@@ -38,8 +38,10 @@ $link-hover-color: var(--link-hover-color);
 $opacity: 1;
 
 // Box shadow
-$box-shadow : 0 0 2px #0000004d;
+$box-shadow: 0 0 2px #0000004d;
 
+// Define a border 
+$border: 1px solid $border-color-light;
 
 // Define a header height.
 $header-height: em(64);
