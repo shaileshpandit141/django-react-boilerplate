@@ -7,7 +7,7 @@ import { useAuthSelectors } from './hooks/useAuthSelectors'
 
 // Pages
 import LogoutButton from './components/logoutButton/LogoutButton'
-import LoginFrom from './pages/loginForm/LoginForm'
+import LoginForm from './pages/loginForm/LoginForm'
 import ResendVerificationKey from './pages/resendVerificationKey/ResendVerificationKey'
 import SignupForm from './pages/signupForm/SignupForm'
 import VerifyAccount from './pages/verifyAccount/VerifyAccount' 
@@ -22,7 +22,7 @@ export {
     refreshAccessTokenThunk,
     logout,
     useAuthSelectors,
-    LoginFrom,
+    LoginForm,
     LogoutButton,
     ResendVerificationKey,
     SignupForm,

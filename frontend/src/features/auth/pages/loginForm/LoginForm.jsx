@@ -11,7 +11,7 @@ import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/Laz
 // Default Imports.
 import './LoginForm.scss'
 import CustomInput from '../../components/customInput/CustomInput'
-import Loader from '../../../../components/common/Loader'
+import Loader from '../../../../components/common/loader/Loader'
 
 export default function LoginForm() {
     const dispatch = useDispatch()

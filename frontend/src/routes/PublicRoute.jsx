@@ -4,8 +4,9 @@ import ErrorBoundary from '../errors/ErrorBoundary/ErrorBoundary'
 
 export default function PublicRoute() {
     return (
-        <ErrorBoundary>
-            <Outlet />
-        </ErrorBoundary>
+        // <ErrorBoundary>
+        //     <Outlet />
+        // </ErrorBoundary>
+        <Outlet />
     )
 }

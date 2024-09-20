@@ -19,8 +19,9 @@ export default function PrivateRoute() {
     }, [dispatch, refreshToken])
 
     return isAuthenticated ? (
-        <ErrorBoundary>
-            <Outlet />
-        </ErrorBoundary>
+        // <ErrorBoundary>
+        //     <Outlet />
+        // </ErrorBoundary>
+        <Outlet />
     ) : <Navigate to="/login" />
 }
