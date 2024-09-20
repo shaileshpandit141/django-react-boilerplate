@@ -43,12 +43,19 @@
     .label {
         font-size: em(16);
         font-weight: 600;
-        height: em(24);
-        display: flex;
-        align-items: center;
+        line-height: em(24);
         white-space: nowrap;
         text-wrap: nowrap;
-        text-transform: capitalize;
+        text-transform: lowercase;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
+
+        span,
+        svg {
+            vertical-align: middle;
+        }
     }
 }
 
@@ -103,13 +110,20 @@
     .label {
         font-size: em(16);
         font-weight: 600;
-        height: em(24);
-        display: flex;
-        align-items: center;
+        line-height: em(24);
         color: inherit;
         white-space: nowrap;
         text-wrap: nowrap;
-        text-transform: capitalize;
+        text-transform: lowercase;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
+
+        span,
+        svg {
+            vertical-align: middle;
+        }
     }
 }
 

@@ -17,9 +17,13 @@
         row-gap: 16px;
 
         .title {
-            text-transform: capitalize;
             text-align: center;
             margin-block: em(8);
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: capitalize
+            }
         }
 
         .account-verify-cntainer {
