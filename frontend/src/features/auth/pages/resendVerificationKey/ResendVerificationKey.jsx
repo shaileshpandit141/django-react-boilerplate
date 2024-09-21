@@ -48,51 +48,40 @@ export default function ResendVerificationKey(props) {
             </Helmet>
 
             {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 re-verification-from'>
-                {
-                    status === "idle" && (
-                        <div className='inputes-container'>
-                            <h1 className='title'>Resend Verification Key</h1>
-                            <CustomInput
-                                type='text'
-                                label='username'
-                                name='username'
-                                onChange={handleFormDataChange}
-                                value={formData.username}
-                            />
+            <form onSubmit={handleFormSubmit} className="inner-grid-2-2 re-verification-form">
+                {status === "idle" && (
+                    <div className="inputs-container">
+                        <h1 className="title">Resend Verification Key</h1>
+                        <CustomInput
+                            type="text"
+                            label="Username"
+                            name="username"
+                            onChange={handleFormDataChange}
+                            value={formData.username}
+                        />
 
-                            {
-                                status === 'loading' && (
-                                    <button type="submit" className='button'>
-                                        <span className="label">
-                                            <Loader />
-                                        </span>
-                                    </button>
-                                )
-                            }
+                        {/* Submit button or loader */}
+                        {status === 'loading' ? (
+                            <button className="button" disabled>
+                                <span className="label">
+                                    <Loader />
+                                </span>
+                            </button>
+                        ) : (
+                            <button
+                                type="submit"
+                                className="button"
+                                // disabled={loginButtonClickCount <= 0}
+                            >
+                                <span className="label">Send</span>
+                            </button>
+                        )}
+                    </div>
+                )}
 
-                            {
-                                status !== 'loading' && (
-                                    <button type="submit" className='button'>
-                                        <span className='label'>send</span>
-                                    </button>
-                                )
-                            }
-                        </div>
-                    )
-                }
-
-                {
-                    error?.detail && (
-                        <h3 className='title'>{error.detail}</h3>
-                    )
-                }
-
-                {
-                    data?.detail && (
-                        <h3 className='title'>{data.detail}</h3>
-                    )
-                }
+                {/* Error and Success messages */}
+                {error?.detail && <h3 className="title">{error.detail}</h3>}
+                {data?.detail && <h3 className="title">{data.detail}</h3>}
             </form>
         </>
     )

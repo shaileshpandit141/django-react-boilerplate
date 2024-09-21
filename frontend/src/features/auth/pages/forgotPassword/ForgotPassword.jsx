@@ -19,7 +19,7 @@ export default function ForgotPassword() {
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData)
-    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3)
+    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -35,9 +35,9 @@ export default function ForgotPassword() {
     // Handle the form submation.
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        if (loginButtonClickCount > 0) {
+        if (submitButtonClickCount > 0) {
             dispatch(forgotPasswordThunk(formData))
-            setLoginButtonClickCount(prev => prev - 1)
+            setSubmitButtonClickCount(prev => prev - 1)
         }
     }
 
@@ -50,49 +50,39 @@ export default function ForgotPassword() {
 
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='inner-grid-2-2 forgot-form'>
-                <div className='inputes-container'>
-                    <h1 className='title'>forgot password</h1>
-
+                <div className='inputs-container'>
+                    <h1 className="title">Forgot Password</h1>
+                    
                     <CustomInput
-                        type='email'
-                        label='email'
-                        name='email'
+                        type="email"
+                        label="Email"
+                        name="email"
                         onChange={handleFormDataChange}
                         value={formData.email}
                     />
-                    {
-                        error?.error && (
-                            <h5>{error.error}</h5>
-                        )
-                    }
 
-                    {
-                        status === 'loading' && (
-                            <button className='button' disabled>
-                                <span className="label">
-                                    <Loader />
-                                </span>
-                            </button>
-                        )
-                    }
+                    {/* Error message */}
+                    {error?.error && <h5>{error.error}</h5>}
 
-                    {
-                        status !== 'loading' && !data && (
-                            <button
-                                type="submit"
-                                className='button'
-                                disabled={loginButtonClickCount <= 0 ? true : false}
-                            >
-                                <span className="label">forgot</span>
-                            </button>
-                        )
-                    }
+                    {/* Submit button or loader */}
+                    {status === 'loading' ? (
+                        <button className="button" disabled>
+                            <span className="label">
+                                <Loader />
+                            </span>
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="button"
+                            disabled={submitButtonClickCount <= 0}
+                        >
+                            <span className="label">Forgot</span>
+                        </button>
+                    )}
 
-                    {
-                        data?.detail && (
-                            <h5>{data.detail}</h5>
-                        )
-                    }
+                    {/* Success message */}
+                    {data?.detail && <h5>{data.detail}</h5>}
                 </div>
             </form>
         </>

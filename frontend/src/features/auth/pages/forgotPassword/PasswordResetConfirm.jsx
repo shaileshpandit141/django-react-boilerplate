@@ -26,7 +26,7 @@ export default function PasswordResetConfirm() {
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData)
-    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3)
+    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -42,9 +42,9 @@ export default function PasswordResetConfirm() {
     // Handle the form submation.
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        if (loginButtonClickCount > 0) {
+        if (submitButtonClickCount > 0) {
             dispatch(forgotPasswordConfirmThunk(formData))
-            setLoginButtonClickCount(prev => prev - 1)
+            setSubmitButtonClickCount(prev => prev - 1)
         }
     }
 
@@ -57,8 +57,8 @@ export default function PasswordResetConfirm() {
 
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='inner-grid-2-2 forgot-form'>
-                <div className='inputes-container'>
-                    <h3 className='title'>Enter new password</h3>
+                <div className='inputs-container'>
+                    <h1 className='title'>Enter new password</h1>
 
                     <CustomInput
                         type='password'
@@ -97,7 +97,7 @@ export default function PasswordResetConfirm() {
                             <button
                                 type="submit"
                                 className='button'
-                                disabled={loginButtonClickCount <= 0 ? true : false}
+                                disabled={submitButtonClickCount <= 0}
                             >
                                 <span className="label">Confirm</span>
                             </button>

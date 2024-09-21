@@ -5,7 +5,7 @@
     @include flex-centre(column);
     min-height: $screen-height;
 
-    .inputes-container {
+    .inputs-container {
         @include flex-centre(column);
         padding: 16px;
         border-radius: 8px;

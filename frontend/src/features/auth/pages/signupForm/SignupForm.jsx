@@ -16,7 +16,7 @@ export default function SignupForm() {
     const dispatch = useDispatch()
 
     // Select the auth readux context.
-    const { response, status, error } = useSignupSelectors()
+    const { status, data, error } = useSignupSelectors()
 
     // Define a initial form data for signup.
     const initialFormData = {
@@ -28,7 +28,7 @@ export default function SignupForm() {
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData)
-    const [signupButtonClickCount, setSignupButtonClickCount] = useState(3)
+    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -44,9 +44,9 @@ export default function SignupForm() {
     // Handle the form submation.
     function handleFormSubmit(event) {
         event.preventDefault()
-        if (signupButtonClickCount > 0) {
+        if (submitButtonClickCount > 0) {
             dispatch(signupThunk(formData))
-            setSignupButtonClickCount(prev => prev - 1)
+            setSubmitButtonClickCount(prev => prev - 1)
         }
     }
 
@@ -61,7 +61,7 @@ export default function SignupForm() {
             <form onSubmit={handleFormSubmit} className='grid-2-2 signup-form'>
                 {
                     status !== 'succeeded' && (
-                        <div className='inputes-container'>
+                        <div className='inputs-container'>
                             <h1 className="title">sign up</h1>
                             <CustomInput
                                 type='text'
@@ -130,7 +130,7 @@ export default function SignupForm() {
                                     <button
                                         type="submit"
                                         className='button'
-                                        disabled={signupButtonClickCount <= 0 ? true : false}
+                                        disabled={submitButtonClickCount <= 0}
                                     >
                                         <span className="icon">
                                             <LazyMaterialIcon iconName={icons.Signup} />
@@ -148,7 +148,10 @@ export default function SignupForm() {
 
                 {
                     status === 'succeeded' && (
-                        <h3>{response.detail}</h3>
+                        <>
+                            <h3>{data?.detail}</h3>
+                            <p>Check out your email inbox</p>
+                        </>
                     )
                 }
 

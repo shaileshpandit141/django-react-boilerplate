@@ -27,7 +27,7 @@ export default function SigninForm() {
 
     // Define a initial form data state.
     const [formData, setFormData] = useState(initialFormData)
-    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3)
+    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
 
     // Handle form data changes.
     function handleFormDataChange(event) {
@@ -43,10 +43,9 @@ export default function SigninForm() {
     // Handle the form submation.
     const handleFormSubmit = (event) => {
         event.preventDefault()
-        dispatch(loginThunk(formData))
-        if (loginButtonClickCount > 0) {
+        if (submitButtonClickCount > 0) {
             dispatch(loginThunk(formData))
-            setLoginButtonClickCount(prev => prev - 1)
+            setSubmitButtonClickCount(prev => prev - 1)
         }
     }
 
@@ -68,7 +67,7 @@ export default function SigninForm() {
 
             {/* Component jsx */}
             <form onSubmit={handleFormSubmit} className='inner-grid-2-2 signin-form'>
-                <div className='inputes-container'>
+                <div className='inputs-container'>
                     <h1 className='title'>sign in</h1>
                     <CustomInput
                         type='text'
@@ -116,7 +115,7 @@ export default function SigninForm() {
                             <button
                                 type="submit"
                                 className='button'
-                                disabled={loginButtonClickCount <= 0 ? true : false}
+                                disabled={submitButtonClickCount <= 0}
                             >
                                 <span className="icon">
                                     <LazyMaterialIcon iconName={icons.Signin} />
