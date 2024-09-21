@@ -1,18 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./ForgotPassword.scss"
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Helmet } from "react-helmet-async"
+import { useDispatch } from 'react-redux'
+import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import CustomInput from '../../components/customInput/CustomInput'
+import Loader from '../../../../components/common/loader/Loader'
+import { useForgotPassword } from '../../hooks/useForgotPassword'
+import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function PasswordResetConfirm() {
+    const dispatch = useDispatch()
 
     const { uid, token } = useParams()
 
-    console.log(uid);
-    console.log(token);
+    const { status, data, error } = useForgotPassword()
 
-    function handleFormSubmit(event) {
+    // Define a initial form data for login.
+    const initialFormData = {
+        uid: uid,
+        token: token,
+        new_password1: '',
+        new_password2: '',
+    }
+
+    // Define a initial form data state.
+    const [formData, setFormData] = useState(initialFormData)
+    const [loginButtonClickCount, setLoginButtonClickCount] = useState(3)
+
+    // Handle form data changes.
+    function handleFormDataChange(event) {
+        const { name, type, chacked, value } = event.target
+        setFormData((prevFormData) => {
+            return {
+                ...prevFormData,
+                [name]: type === 'checkbox' ? chacked : value
+            }
+        })
+    }
+
+    // Handle the form submation.
+    const handleFormSubmit = (event) => {
         event.preventDefault()
+        if (loginButtonClickCount > 0) {
+            dispatch(forgotPasswordConfirmThunk(formData))
+            setLoginButtonClickCount(prev => prev - 1)
+        }
     }
 
     return (
@@ -31,25 +64,59 @@ export default function PasswordResetConfirm() {
                         type='password'
                         label='password'
                         name='new_password1'
-                    // onChange={handleFormDataChange}
-                    // value={formData.username}
+                        onChange={handleFormDataChange}
+                        value={formData.new_password1}
                     />
 
                     <CustomInput
                         type='password'
                         label='confirm password'
                         name='new_password2'
-                    // onChange={handleFormDataChange}
-                    // value={formData.username}
+                        onChange={handleFormDataChange}
+                        value={formData.new_password2}
                     />
 
-                    <button
-                        type="submit"
-                        className='button'
-                    // disabled={loginButtonClickCount <= 0 ? true : false}
-                    >
-                        <span className="label">Confirm</span>
-                    </button>
+                    {
+                        error?.error && (
+                            <h5>{error.error}</h5>
+                        )
+                    }
+
+                    {
+                        status === 'loading' && (
+                            <button className='button' disabled>
+                                <span className="label">
+                                    <Loader />
+                                </span>
+                            </button>
+                        )
+                    }
+
+                    {
+                        status !== 'loading' && !data && (
+                            <button
+                                type="submit"
+                                className='button'
+                                disabled={loginButtonClickCount <= 0 ? true : false}
+                            >
+                                <span className="label">Confirm</span>
+                            </button>
+                        )
+                    }
+
+                    {
+                        data?.detail && (
+                            <>
+                                <h5>{data.detail}</h5>
+                                <Link to='/signin' className='link'>
+                                    <span className="icon">
+                                        <LazyMaterialIcon iconName={icons.Signin} />
+                                    </span>
+                                    <span className='label'>sign in</span>
+                                </Link>
+                            </>
+                        )
+                    }
                 </div>
             </form>
         </>

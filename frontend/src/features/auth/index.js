@@ -2,6 +2,7 @@ import authReducer, { signout } from './slices/authSlice'
 import signupReducer from './slices/signupSlice' 
 import verifyAccountReducer from './slices/verifyAccountSlice' 
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice' 
+import forgotPasswordReducer from './slices/forgotPasswordSlice'
 import { refreshAccessTokenThunk } from './thunks/authThunk' 
 import { useAuthSelectors } from './hooks/useAuthSelectors' 
 
@@ -19,6 +20,7 @@ export {
     signupReducer,
     verifyAccountReducer,
     resendVerificationKeyReducer,
+    forgotPasswordReducer,
     refreshAccessTokenThunk,
     signout,
     useAuthSelectors,

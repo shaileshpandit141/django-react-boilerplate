@@ -3,7 +3,9 @@ import {
     authReducer,
     signupReducer,
     verifyAccountReducer,
-    resendVerificationKeyReducer
+    resendVerificationKeyReducer,
+    forgotPasswordReducer,
+    
 } from '../features/auth'
 import { userReducer } from '../features/user'
 
@@ -12,6 +14,7 @@ const rootReducer = combineReducers({
     signup: signupReducer,
     verifyAccount: verifyAccountReducer,
     resendVerificationKey: resendVerificationKeyReducer,
+    forgotPassword: forgotPasswordReducer,
     user: userReducer,
 })
 
