@@ -4,20 +4,27 @@ URL configuration for accounts app.
 
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
-from django.contrib.auth import views as auth_views
+from dj_rest_auth.views import PasswordResetConfirmView
 from .views import (
     CustomTokenObtainPairView,
     ResendVerificationEmailView,
     UserInfoView,
     ProtectedView,
 )
+from .views import CustomPasswordResetView
 
 
 urlpatterns = [
-    path("", include("dj_rest_auth.urls")),
+    # path("", include("dj_rest_auth.urls")),
+    path("password/reset/", CustomPasswordResetView.as_view(), name="password_reset"),
     path(
-        "password-reset-confirm/<uidb64>/<token>/",
-        auth_views.PasswordResetConfirmView.as_view(),
+        "password/reset/confirm/",
+        PasswordResetConfirmView.as_view(),
+        name="password_reset_confirm",
+    ),
+    path(
+        "auth/password/reset/confirm/<uidb64>/<token>/",
+        PasswordResetConfirmView.as_view(),
         name="password_reset_confirm",
     ),
     path(

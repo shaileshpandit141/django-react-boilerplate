@@ -12,6 +12,7 @@ from django.contrib.auth import get_user_model
 from allauth.account.utils import send_email_confirmation
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 from .serializers import UserSerializer
+from dj_rest_auth.views import PasswordResetView
 
 User = get_user_model()
 
@@ -78,13 +79,29 @@ class ResendVerificationEmailView(APIView):
         if user.emailaddress_set.filter(email=user.email, verified=False).exists():
             send_email_confirmation(request, user)
             return Response(
-                {"detail": "Account Verification e-mail sent"}, status=status.HTTP_200_OK
+                {"detail": "Account Verification e-mail sent"},
+                status=status.HTTP_200_OK,
             )
         else:
             return Response(
                 {"detail": "Account already verified"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
+
+
+# Define a custom reset view
+class CustomPasswordResetView(PasswordResetView):
+    def post(self, request, *args, **kwargs):
+        email = request.data.get("email")
+        if not email:
+            return Response({"error": "Email is required."}, status=400)
+
+        # Check if the email exists in the User model
+        if not User.objects.filter(email=email).exists():
+            return Response({"error": "No user found with this email."}, status=404)
+
+        # Proceed with the default behavior if email exists
+        return super().post(request, *args, **kwargs)
 
 
 class UserInfoView(APIView):
