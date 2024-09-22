@@ -89,14 +89,16 @@ export default function Profile() {
                 className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
             >
                 <div className="inner-wrapper">
-                    <button className="button">
-                        <span className="icon">
-                            <LazyMaterialIcon iconName={icons.Person} />
-                        </span>
-                        <span className="label">
-                            {data?.username}
-                        </span>
-                    </button>
+                    <div className="user-info">
+                        <div className="figure-container">
+                            {/* Profile picture */}
+                        </div>
+                        <div className="info-label">
+                            <h3 className="username">{data?.username}</h3>
+                            <p className="email">{data?.email}</p>
+                        </div>
+                    </div>
+                    <div className="line"></div>
                     {popoverElements}
                     <LogoutButton onClick={togglePopover} />
                 </div>
