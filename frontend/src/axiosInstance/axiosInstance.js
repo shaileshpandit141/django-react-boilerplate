@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     (config) => {
-        const token = store.getState().auth.accessToken 
+        const token = store.getState().signin.accessToken 
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}` 
         }
@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(
         if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true 
             await store.dispatch(refreshAccessTokenThunk()) 
-            const newToken = store.getState().auth.accessToken 
+            const newToken = store.getState().signin.accessToken 
             axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}` 
             return axiosInstance(originalRequest) 
         }

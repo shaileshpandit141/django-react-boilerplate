@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import './Index.scss'
-import { useAuthSelectors } from '../..//features/auth'
+import { useSigninSelectors } from '../..//features/auth'
 import { LazyMaterialIcon, icons } from '../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function Index() {
 
     // Select the auth readux context.
-    const { isAuthenticated } = useAuthSelectors()
+    const { isAuthenticated } = useSigninSelectors()
 
     // Check if user is Authenticated then redirect to another Route.
     if (isAuthenticated) {

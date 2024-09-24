@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import {
-    authReducer,
+    signinReducer,
     signupReducer,
     verifyAccountReducer,
     resendVerificationKeyReducer,
@@ -10,7 +10,7 @@ import {
 import { userReducer } from '../features/user'
 
 const rootReducer = combineReducers({
-    auth: authReducer,
+    signin: signinReducer,
     signup: signupReducer,
     verifyAccount: verifyAccountReducer,
     resendVerificationKey: resendVerificationKeyReducer,

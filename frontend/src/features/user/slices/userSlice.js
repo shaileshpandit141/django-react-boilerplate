@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 import { userThunk } from '../thunks/userThunk'
 
 const initialState = {
-    data: null,
     status: 'idle',
+    data: null,
     error: null
 }
 

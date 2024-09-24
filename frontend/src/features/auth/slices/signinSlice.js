@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { jwtDecode } from 'jwt-decode';
-import { loginThunk, refreshAccessTokenThunk } from '../thunks/authThunk'
+import { signinSliceThunk, refreshAccessTokenThunk } from '../thunks/signinSliceThunk'
 
 // Initial State
 const initialState = {
@@ -13,8 +13,8 @@ const initialState = {
 }
 
 // auth Slice
-const authSlice = createSlice({
-    name: 'auth',
+const signinSlice = createSlice({
+    name: 'signin',
     initialState,
     reducers: {
         signout: (state) => {
@@ -27,17 +27,17 @@ const authSlice = createSlice({
             localStorage.removeItem('accessToken')
             localStorage.removeItem('refreshToken')
         },
-        clean: (state) => {
+        resetSigninState: (state) => {
             state.status = 'idle'
             state.error = null
         }
     },
     extraReducers: (builder) => {
         builder
-            .addCase(loginThunk.pending, (state) => {
+            .addCase(signinSliceThunk.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(loginThunk.fulfilled, (state, action) => {
+            .addCase(signinSliceThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 const { access, refresh } = action.payload
                 state.accessToken = access
@@ -46,7 +46,7 @@ const authSlice = createSlice({
                 localStorage.setItem('accessToken', access)
                 localStorage.setItem('refreshToken', refresh)
             })
-            .addCase(loginThunk.rejected, (state, action) => {
+            .addCase(signinSliceThunk.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.payload
             })
@@ -70,5 +70,5 @@ const authSlice = createSlice({
     },
 })
 
-export const { signout, clean } = authSlice.actions
-export default authSlice.reducer 
+export const { signout, resetSigninState } = signinSlice.actions
+export default signinSlice.reducer 

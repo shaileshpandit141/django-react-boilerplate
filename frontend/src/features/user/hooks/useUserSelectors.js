@@ -1,8 +1,10 @@
 // Named Import.
-import { useSelector } from "react-redux" 
+import { useSelector } from "react-redux"
 
 export default function useUserSelectors() {
 
+    const { status, data, error } = useSelector((state) => state.user)
+    
     // Return the user state object.
-    return useSelector((state) => state.user)
+    return { status, data, error }
 }

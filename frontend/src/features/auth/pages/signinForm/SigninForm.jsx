@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
-import { useAuthSelectors } from '../../hooks/useAuthSelectors'
-import { clean } from '../../slices/authSlice'
-import { loginThunk } from '../../thunks/authThunk'
+import { useSigninSelectors } from '../../hooks/useSigninSelectors'
+import { resetSigninState } from '../../slices/signinSlice'
+import { signinSliceThunk } from '../../thunks/signinSliceThunk'
 import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 // Default Imports.
@@ -17,7 +17,7 @@ export default function SigninForm() {
     const dispatch = useDispatch()
 
     // Select the auth readux context.
-    const { isAuthenticated, status, error } = useAuthSelectors()
+    const { isAuthenticated, status, error } = useSigninSelectors()
 
     // Define a initial form data for login.
     const initialFormData = {
@@ -44,13 +44,13 @@ export default function SigninForm() {
     const handleFormSubmit = (event) => {
         event.preventDefault()
         if (submitButtonClickCount > 0) {
-            dispatch(loginThunk(formData))
+            dispatch(signinSliceThunk(formData))
             setSubmitButtonClickCount(prev => prev - 1)
         }
     }
 
     useEffect(() => {
-        dispatch(clean())
+        dispatch(resetSigninState())
     }, [dispatch])
 
     // Check if user is Authenticated then redirect to another Route.

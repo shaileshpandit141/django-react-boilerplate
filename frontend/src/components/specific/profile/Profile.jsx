@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./Profile.scss"
 import { Link } from "react-router-dom"
-import { useAuthSelectors } from "../../../features/auth"
+import { useSigninSelectors } from "../../../features/auth"
 import { useUserSelectors } from '../../../features/user'
 import { LogoutButton } from "../../../features/auth"
 import { LazyMaterialIcon, icons } from "../../../assets/lazyMaterialIcon/LazyMaterialIcon"
 
 export default function Profile() {
 
-    const { isAuthenticated } = useAuthSelectors()
+    const { isAuthenticated } = useSigninSelectors()
     const { data } = useUserSelectors()
 
     const [isPopoverVisible, setPopoverVisible] = useState(false)

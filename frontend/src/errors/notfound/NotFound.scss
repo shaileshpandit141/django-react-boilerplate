@@ -2,15 +2,63 @@
 
 .not-found-page {
     @include inner-grid-2-2;
-    @include flex-centre(column);
+    // @include flex-centre(column);
     min-height: $screen-height;
 
-    .text-404 {
-        margin-block: em(16);
-        color: $error-text-primary;
-    }
+    .not-found-page-grid {
+        height: fit-content;
+        min-height: calc(100vh - #{$header-height});
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: em(16);
 
-    .link {
-        max-width: em(250);
+        @media (width <=768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        & .left-grid-container {
+            align-self: center;
+            justify-self: center;
+
+            .figure-404-container {
+                aspect-ratio: 1/1;
+                width: 100%;
+                // max-width: 350px;
+                overflow: hidden;
+
+                & img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+        }
+
+        & .right-grid-container {
+            align-self: center;
+            justify-self: center;
+            margin-bottom: em(16);
+            width: 100%;
+
+            .title-text {
+                margin-top: em(16);
+                color: $error-text-primary;
+                max-width: em(250);
+            }
+
+            .support-text {
+                margin-top: em(4);
+                margin-bottom: em(100);
+                font-size: em(12);
+                max-width: em(450);
+            }
+
+            .link {
+                max-width: em(250);
+            }
+
+            
+        }
     }
 }

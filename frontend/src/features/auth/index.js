@@ -1,10 +1,10 @@
-import authReducer, { signout } from './slices/authSlice' 
+import signinReducer, { signout } from './slices/signinSlice' 
 import signupReducer from './slices/signupSlice' 
 import verifyAccountReducer from './slices/verifyAccountSlice' 
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice' 
 import forgotPasswordReducer from './slices/forgotPasswordSlice'
-import { refreshAccessTokenThunk } from './thunks/authThunk' 
-import { useAuthSelectors } from './hooks/useAuthSelectors' 
+import { refreshAccessTokenThunk } from './thunks/signinSliceThunk' 
+import { useSigninSelectors } from './hooks/useSigninSelectors' 
 
 // Pages
 import LogoutButton from './components/signoutButton/SignoutButton'
@@ -16,14 +16,14 @@ import ForgotPassword from './pages/forgotPassword/ForgotPassword'
 import PasswordResetConfirm from './pages/forgotPassword/PasswordResetConfirm'
 
 export {
-    authReducer,
+    signinReducer,
     signupReducer,
     verifyAccountReducer,
     resendVerificationKeyReducer,
     forgotPasswordReducer,
     refreshAccessTokenThunk,
     signout,
-    useAuthSelectors,
+    useSigninSelectors,
     SigninForm,
     LogoutButton,
     ResendVerificationKey,

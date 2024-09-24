@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit' 
 import { api } from '../api' 
 
-export const loginThunk = createAsyncThunk(
-    'auth/login',
+export const signinSliceThunk = createAsyncThunk(
+    'auth/signinSliceThunk',
     async (credentials, thunkAPI) => {
         try {
-            const response = await api.loginApi(credentials) 
+            const response = await api.signinApi(credentials) 
             return response.data 
         } catch (error) {
             const errorResponse = error.response ? error.response.data : error.message
