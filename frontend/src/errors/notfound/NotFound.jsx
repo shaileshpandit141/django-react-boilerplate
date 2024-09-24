@@ -10,7 +10,7 @@ export default function NotFound() {
             {/* Setting the meta data for not found page */}
             <Helmet>
                 <title>Oops! Page Not Found - Let's Get You Back on Track</title>
-                <meta name="description" content="404 Error - The page you're looking for doesn't exist or has been moved. Don't worry, we’ll help you find your way back!" />
+                <meta name="description" content="404 Error - The page you're looking for doesn't exist or has been moved. Don't worry, we'll help you find your way back!" />
                 <meta name="robots" content="noindex, follow" />
                 <meta property="og:title" content="404: Oops, This Page Is Lost in Space!" />
                 <meta property="og:description" content="It seems like the page you're looking for has drifted off course. No worries, here are some links to get you back on track." />
