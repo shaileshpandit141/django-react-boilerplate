@@ -3,8 +3,8 @@ import { signupThunk } from '../thunks/signupThunk'
 
 // Initial State
 const initialState = {
-    data: null,
     status: 'idle',
+    data: null,
     error: null,
 } 
 

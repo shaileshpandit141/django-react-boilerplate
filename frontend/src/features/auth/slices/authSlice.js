@@ -4,11 +4,11 @@ import { loginThunk, refreshAccessTokenThunk } from '../thunks/authThunk'
 
 // Initial State
 const initialState = {
+    status: 'idle',
     accessToken: localStorage.getItem('accessToken') || null,
     refreshToken: localStorage.getItem('refreshToken') || null,
     isAuthenticated: !!localStorage.getItem('refreshToken'),
     pk: localStorage.getItem('accessToken') ? jwtDecode(localStorage.getItem('accessToken'))?.user_id : null,
-    status: 'idle',
     error: null,
 }
 

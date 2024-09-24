@@ -1,8 +1,10 @@
 // Named Import.
-import { useSelector } from "react-redux" 
+import { useSelector } from "react-redux"
 
 export function useAuthSelectors() {
 
+    const { accessToken, refreshToken, isAuthenticated, pk, status, error } = useSelector((state) => state.auth)
+
     // Return the auth state object.
-    return useSelector((state) => state.auth) 
+    return { accessToken, refreshToken, isAuthenticated, pk, status, error }
 }

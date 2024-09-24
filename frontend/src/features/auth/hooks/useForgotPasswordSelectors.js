@@ -1,7 +1,7 @@
 // Named Import.
 import { useSelector } from "react-redux"
 
-export function useForgotPassword() {
+export function useForgotPasswordSelectors() {
 
     const { status, data, error } = useSelector((state) => state.forgotPassword)
     

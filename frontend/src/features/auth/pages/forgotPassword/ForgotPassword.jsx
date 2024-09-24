@@ -5,12 +5,12 @@ import { useDispatch } from 'react-redux'
 import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
-import { useForgotPassword } from '../../hooks/useForgotPassword'
+import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
 
 export default function ForgotPassword() {
     const dispatch = useDispatch()
 
-    const { status, data, error } = useForgotPassword()
+    const { status, data, error } = useForgotPasswordSelectors()
 
     // Define a initial form data for login.
     const initialFormData = {

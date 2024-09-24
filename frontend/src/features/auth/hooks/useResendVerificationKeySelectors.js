@@ -1,8 +1,10 @@
 // Named Import.
-import { useSelector } from "react-redux" 
+import { useSelector } from "react-redux"
 
 export function useResendVerificationKeySelectors() {
 
+    const { status, data, error } = useSelector((state) => state.resendVerificationKey)
+
     // Return the auth state object.
-    return useSelector((state) => state.resendVerificationKey) 
+    return { status, data, error }
 }
