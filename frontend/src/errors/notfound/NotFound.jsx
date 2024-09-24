@@ -37,12 +37,3 @@ export default function NotFound() {
         </section>
     )
 }
-
-{/* <figure className="figure-404-container">
-                <img src={notFountImg} alt="" />
-            </figure>
-            <NavLink to='..' className="link">
-                <span className='label'>
-                    Return back to
-                </span>
-            </NavLink> */}
