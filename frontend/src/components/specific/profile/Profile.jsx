@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import "./Profile.scss"
 import { Link } from "react-router-dom"
 import { useSigninSelectors } from "../../../features/auth"
