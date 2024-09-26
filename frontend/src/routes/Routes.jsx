@@ -1,9 +1,9 @@
 // Named Imports (external libraries).
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route
+  BrowserRouter as Router,
+  Routes,
+  Route
 } from 'react-router-dom'
 
 // Named Imports (utility functions or higher-order components).
@@ -26,36 +26,36 @@ const Index = lazyImportWithRetry(() => import('../pages/index/Index'))
 const Home = lazyImportWithRetry(() => import('../pages/home/Home'))
 
 const AppRoutes = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route element={<LazyLoader element={<MainLayout />} />}>
+  return (
+    <Router>
+      <Routes>
+        <Route element={<LazyLoader element={<MainLayout />} />}>
 
-                    {/* Public Routes */}
-                    <Route element={<PublicRoute />}>
-                        {/* <Route index element={<Index />} /> */}
-                        <Route index element={<LazyLoader element={<Index />} />} />
-                        <Route path="signin" element={<LazyLoader element={<SigninForm />} />} />
-                        <Route path="resend-verification-key" element={<LazyLoader element={<ResendVerificationKey />} />} />
-                        <Route path="signup" element={<LazyLoader element={<SignupForm />} />} />
-                        <Route path="verify-account/:key" element={<LazyLoader element={<VerifyAccount />} />} />
-                        <Route path='resend-verification-key' element={<LazyLoader element={<ResendVerificationKey />} />} />
-                        <Route path='forgot-password' element={<LazyLoader element={<ForgotPassword />} />} />
-                        <Route path='password-reset-confirm/:uid/:token' element={<LazyLoader element={<PasswordResetConfirm />} />} />
-                    </Route>
+          {/* Public Routes */}
+          <Route element={<PublicRoute />}>
+            {/* <Route index element={<Index />} /> */}
+            <Route index element={<LazyLoader element={<Index />} />} />
+            <Route path="signin" element={<LazyLoader element={<SigninForm />} />} />
+            <Route path="resend-verification-key" element={<LazyLoader element={<ResendVerificationKey />} />} />
+            <Route path="signup" element={<LazyLoader element={<SignupForm />} />} />
+            <Route path="verify-account/:key" element={<LazyLoader element={<VerifyAccount />} />} />
+            <Route path='resend-verification-key' element={<LazyLoader element={<ResendVerificationKey />} />} />
+            <Route path='forgot-password' element={<LazyLoader element={<ForgotPassword />} />} />
+            <Route path='password-reset-confirm/:uid/:token' element={<LazyLoader element={<PasswordResetConfirm />} />} />
+          </Route>
 
-                    {/* Private Routes */}
-                    <Route element={<PrivateRoute />}>
-                        <Route path="home" element={<LazyLoader element={<Home />} />} />
-                    </Route>
+          {/* Private Routes */}
+          <Route element={<PrivateRoute />}>
+            <Route path="home" element={<LazyLoader element={<Home />} />} />
+          </Route>
 
-                    {/* Catch-all route for 404 Not Found */}
-                    <Route path="*" element={<NotFound />} />
+          {/* Catch-all route for 404 Not Found */}
+          <Route path="*" element={<NotFound />} />
 
-                </Route>
-            </Routes>
-        </Router>
-    )
+        </Route>
+      </Routes>
+    </Router>
+  )
 }
 
-export default AppRoutes 
+export default AppRoutes

@@ -8,52 +8,52 @@ import "./VerifyAccount.scss"
 
 export default function VerifyAccount() {
 
-    const { key } = useParams()
-    const dispatch = useDispatch()
-    const { error, status } = useVerifyAccountSelector()
+  const { key } = useParams()
+  const dispatch = useDispatch()
+  const { error, status } = useVerifyAccountSelector()
 
-    function handleVerifyButtonClick(event) {
-        event.preventDefault()
-        if (status === "idle") {
-            dispatch(verifyAccountThunk({ key: key }))
+  function handleVerifyButtonClick(event) {
+    event.preventDefault()
+    if (status === "idle") {
+      dispatch(verifyAccountThunk({ key: key }))
+    }
+  }
+
+  if (status === "succeeded") {
+    return <Navigate to="/signin" />
+  }
+
+  return (
+    <>
+      {/* Metadata settings */}
+      <Helmet>
+        <title>verify account</title>
+      </Helmet>
+
+      {/* Component jsx */}
+      <div className='inner-grid-2-2 inner-grid'>
+        {
+          !error && (
+            <>
+              <h1 className='title'>Verify your account.</h1>
+              <button
+                className='button'
+                onClick={handleVerifyButtonClick}
+              >
+                <span className='title'>verify</span>
+              </button>
+            </>
+          )
         }
-    }
-
-    if (status === "succeeded") {
-        return <Navigate to="/signin" />
-    }
-
-    return (
-        <>
-            {/* Metadata settings */}
-            <Helmet>
-                <title>verify account</title>
-            </Helmet>
-
-            {/* Component jsx */}
-            <div className='inner-grid-2-2 inner-grid'>
-                {
-                    !error && (
-                        <>
-                            <h1 className='title'>Verify your account.</h1>
-                            <button
-                                className='button'
-                                onClick={handleVerifyButtonClick}
-                            >
-                                <span className='title'>verify</span>
-                            </button>
-                        </>
-                    )
-                }
-                {
-                    error && (
-                        <>
-                            <h2>{error.detail}</h2>
-                            <p>That means verification key is allready used.</p>
-                        </>
-                    )
-                }
-            </div>
-        </>
-    )
+        {
+          error && (
+            <>
+              <h2>{error.detail}</h2>
+              <p>That means verification key is allready used.</p>
+            </>
+          )
+        }
+      </div>
+    </>
+  )
 }

@@ -5,36 +5,36 @@ import { LazyMaterialIcon, icons } from '../../../assets/lazyMaterialIcon/LazyMa
 
 export default function ThemeButton() {
 
-    // Define a theme state.
-    const [theme, setTheme] = useLocalStorage('theme', 'light')
+  // Define a theme state.
+  const [theme, setTheme] = useLocalStorage('theme', 'light')
 
-    // Update the theme during user is refresh page.
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme)
-    }, [theme])
+  // Update the theme during user is refresh page.
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
 
-    // update the theme state during user is cleck the theme switch button.
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
-    }
+  // update the theme state during user is cleck the theme switch button.
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+  }
 
-    return (
-        <button
-            className='button-as-icon'
-            onClick={toggleTheme}
-        >
-            <span className='icon'>
-                {
-                    theme === "light" && (
-                        <LazyMaterialIcon iconName={icons.DarkModeIcon} />
-                    )
-                }
-                {
-                    theme !== "light" && (
-                        <LazyMaterialIcon iconName={icons.LightModeIcon} />
-                    )
-                }
-            </span>
-        </button>
-    )
+  return (
+    <button
+      className='button-as-icon'
+      onClick={toggleTheme}
+    >
+      <span className='icon'>
+        {
+          theme === "light" && (
+            <LazyMaterialIcon iconName={icons.DarkModeIcon} />
+          )
+        }
+        {
+          theme !== "light" && (
+            <LazyMaterialIcon iconName={icons.LightModeIcon} />
+          )
+        }
+      </span>
+    </button>
+  )
 }

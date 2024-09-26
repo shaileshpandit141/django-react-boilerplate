@@ -6,14 +6,14 @@ import Footer from '../footer/Footer'
 
 export default function MainLayout() {
 
-    return (
-        <>
-            <Header />
-            <main>
-                <Outlet />
-            </main>
-            <ReturnToTopButton />
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <ReturnToTopButton />
+      <Footer />
+    </>
+  )
 }

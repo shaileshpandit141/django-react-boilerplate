@@ -14,121 +14,121 @@ import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
 
 export default function SigninForm() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    // Select the auth readux context.
-    const { isAuthenticated, status, error } = useSigninSelectors()
+  // Select the auth readux context.
+  const { isAuthenticated, status, error } = useSigninSelectors()
 
-    // Define a initial form data for login.
-    const initialFormData = {
-        username: '',
-        password: '',
+  // Define a initial form data for login.
+  const initialFormData = {
+    username: '',
+    password: '',
+  }
+
+  // Define a initial form data state.
+  const [formData, setFormData] = useState(initialFormData)
+  const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
+
+  // Handle form data changes.
+  function handleFormDataChange(event) {
+    const { name, type, chacked, value } = event.target
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: type === 'checkbox' ? chacked : value
+      }
+    })
+  }
+
+  // Handle the form submation.
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    if (submitButtonClickCount > 0) {
+      dispatch(signinSliceThunk(formData))
+      setSubmitButtonClickCount(prev => prev - 1)
     }
+  }
 
-    // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData)
-    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
+  useEffect(() => {
+    dispatch(resetSigninState())
+  }, [dispatch])
 
-    // Handle form data changes.
-    function handleFormDataChange(event) {
-        const { name, type, chacked, value } = event.target
-        setFormData((prevFormData) => {
-            return {
-                ...prevFormData,
-                [name]: type === 'checkbox' ? chacked : value
-            }
-        })
-    }
+  // Check if user is Authenticated then redirect to another Route.
+  if (isAuthenticated) {
+    return <Navigate to='/home' />
+  }
 
-    // Handle the form submation.
-    const handleFormSubmit = (event) => {
-        event.preventDefault()
-        if (submitButtonClickCount > 0) {
-            dispatch(signinSliceThunk(formData))
-            setSubmitButtonClickCount(prev => prev - 1)
-        }
-    }
+  return (
+    <>
+      {/* Metadata settings */}
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
 
-    useEffect(() => {
-        dispatch(resetSigninState())
-    }, [dispatch])
+      {/* Component jsx */}
+      <form onSubmit={handleFormSubmit} className='inner-grid-2-2 signin-form'>
+        <div className='inputs-container'>
+          <h1 className='title'>sign in</h1>
+          <CustomInput
+            type='text'
+            label='username'
+            name='username'
+            onChange={handleFormDataChange}
+            value={formData.username}
+          />
 
-    // Check if user is Authenticated then redirect to another Route.
-    if (isAuthenticated) {
-        return <Navigate to='/home' />
-    }
+          <CustomInput
+            type='password'
+            label='password'
+            name='password'
+            onChange={handleFormDataChange}
+            value={formData.password}
+          />
+          {
+            error?.detail && (
+              <div className="account-verify-cntainer">
+                <h5>{error.detail}</h5>
+                {
+                  error.detail === "Account is not verified" && (
+                    <Link to="/resend-verification-key">verify it</Link>
+                  )
+                }
 
-    return (
-        <>
-            {/* Metadata settings */}
-            <Helmet>
-                <title>Login</title>
-            </Helmet>
+              </div>
+            )
+          }
 
-            {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 signin-form'>
-                <div className='inputs-container'>
-                    <h1 className='title'>sign in</h1>
-                    <CustomInput
-                        type='text'
-                        label='username'
-                        name='username'
-                        onChange={handleFormDataChange}
-                        value={formData.username}
-                    />
+          <Link to="/forgot-password" className='forgot-password'>forgot password</Link>
 
-                    <CustomInput
-                        type='password'
-                        label='password'
-                        name='password'
-                        onChange={handleFormDataChange}
-                        value={formData.password}
-                    />
-                    {
-                        error?.detail && (
-                            <div className="account-verify-cntainer">
-                                <h5>{error.detail}</h5>
-                                {
-                                    error.detail === "Account is not verified" && (
-                                        <Link to="/resend-verification-key">verify it</Link>
-                                    )
-                                }
+          {
+            status === 'loading' && (
+              <button className='button' disabled>
+                <span className="label">
+                  <Loader />
+                </span>
+              </button>
+            )
+          }
 
-                            </div>
-                        )
-                    }
-
-                    <Link to="/forgot-password" className='forgot-password'>forgot password</Link>
-
-                    {
-                        status === 'loading' && (
-                            <button className='button' disabled>
-                                <span className="label">
-                                    <Loader />
-                                </span>
-                            </button>
-                        )
-                    }
-
-                    {
-                        status !== 'loading' && (
-                            <button
-                                type="submit"
-                                className='button'
-                                disabled={submitButtonClickCount <= 0}
-                            >
-                                <span className="icon">
-                                    <LazyMaterialIcon iconName={icons.Signin} />
-                                </span>
-                                <span className="label">sign in</span>
-                            </button>
-                        )
-                    }
-                    <p className='signup-text'>
-                        You don't have an account?, <Link to="/signup">create an account now</Link>
-                    </p>
-                </div>
-            </form>
-        </>
-    )
+          {
+            status !== 'loading' && (
+              <button
+                type="submit"
+                className='button'
+                disabled={submitButtonClickCount <= 0}
+              >
+                <span className="icon">
+                  <LazyMaterialIcon iconName={icons.Signin} />
+                </span>
+                <span className="label">sign in</span>
+              </button>
+            )
+          }
+          <p className='signup-text'>
+            You don't have an account?, <Link to="/signup">create an account now</Link>
+          </p>
+        </div>
+      </form>
+    </>
+  )
 }

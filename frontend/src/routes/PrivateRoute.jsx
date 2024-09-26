@@ -7,15 +7,15 @@ import { signout } from '../features/auth'
 import { useSigninSelectors } from '../features/auth'
 
 export default function PrivateRoute() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    const { refreshToken, isAuthenticated } = useSigninSelectors()
+  const { refreshToken, isAuthenticated } = useSigninSelectors()
 
-    useEffect(() => {
-        if (isTokenExpired(refreshToken)) {
-            dispatch(signout())
-        }
-    }, [dispatch, refreshToken])
+  useEffect(() => {
+    if (isTokenExpired(refreshToken)) {
+      dispatch(signout())
+    }
+  }, [dispatch, refreshToken])
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />
+  return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />
 }

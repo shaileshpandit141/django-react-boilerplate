@@ -4,50 +4,50 @@ import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/Laz
 
 export default function CustomInput(props) {
 
-    const { name, type, label, ...rest } = props
-    const [isPasswordVisible, setIsPasswordVisible] = useState(true)
+  const { name, type, label, ...rest } = props
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true)
 
-    function handleIsPasswordVisiblity(event) {
-        setIsPasswordVisible(prevState => !prevState)
-    }
+  function handleIsPasswordVisiblity(event) {
+    setIsPasswordVisible(prevState => !prevState)
+  }
 
-    return (
-        <div className="input-wrapper">
-            <input
-                autoComplete="off"
-                className='input'
-                type={type === "password" ? (isPasswordVisible ? type : "text") : type}
-                name={name}
-                required
-                placeholder=''
-                id={label}
-                {...rest}
-            />
-            <label
-                htmlFor={label}
-                className='label'
-            >
-                {label || name}
-            </label>
-            {
-                type === "password" && (
-                    <button
-                        type='button'
-                        className="button-as-icon viev-password"
-                        onClick={handleIsPasswordVisiblity}
-                    >
-                        <span className='icon'>
-                            {
-                                isPasswordVisible ? (
-                                    <LazyMaterialIcon iconName={icons.EyeClose} />
-                                ) : (
-                                    <LazyMaterialIcon iconName={icons.EyeOpen} />
-                                )
-                            }
-                        </span>
-                    </button>
+  return (
+    <div className="input-wrapper">
+      <input
+        autoComplete="off"
+        className='input'
+        type={type === "password" ? (isPasswordVisible ? type : "text") : type}
+        name={name}
+        required
+        placeholder=''
+        id={label}
+        {...rest}
+      />
+      <label
+        htmlFor={label}
+        className='label'
+      >
+        {label || name}
+      </label>
+      {
+        type === "password" && (
+          <button
+            type='button'
+            className="button-as-icon viev-password"
+            onClick={handleIsPasswordVisiblity}
+          >
+            <span className='icon'>
+              {
+                isPasswordVisible ? (
+                  <LazyMaterialIcon iconName={icons.EyeClose} />
+                ) : (
+                  <LazyMaterialIcon iconName={icons.EyeOpen} />
                 )
-            }
-        </div>
-    )
+              }
+            </span>
+          </button>
+        )
+      }
+    </div>
+  )
 }

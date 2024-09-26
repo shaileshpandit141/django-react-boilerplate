@@ -3,7 +3,7 @@ import { userThunk } from './thunks/userThunk'
 import useUserSelectors from './hooks/useUserSelectors'
 
 export {
-    userReducer,
-    userThunk,
-    useUserSelectors
+  userReducer,
+  userThunk,
+  useUserSelectors
 }

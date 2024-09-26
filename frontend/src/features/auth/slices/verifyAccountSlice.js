@@ -1,32 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit' 
-import { verifyAccountThunk } from '../thunks/verifyAccountThunk' 
+import { createSlice } from '@reduxjs/toolkit'
+import { verifyAccountThunk } from '../thunks/verifyAccountThunk'
 
 // Initial State
 const initialState = {
-    data: null,
-    status: 'idle',
-    error: null,
-} 
+  data: null,
+  status: 'idle',
+  error: null,
+}
 
 // signup Slice
 const verifyAccountSlice = createSlice({
-    name: 'verifyAccount',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(verifyAccountThunk.pending, (state) => {
-                state.status = 'loading' 
-            })
-            .addCase(verifyAccountThunk.fulfilled, (state, action) => {
-                state.status = 'succeeded' 
-                state.data = action.payload
-            })
-            .addCase(verifyAccountThunk.rejected, (state, action) => {
-                state.status = 'failed' 
-                state.error = action.payload 
-            })
-    },
-}) 
+  name: 'verifyAccount',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(verifyAccountThunk.pending, (state) => {
+        state.status = 'loading'
+      })
+      .addCase(verifyAccountThunk.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.data = action.payload
+      })
+      .addCase(verifyAccountThunk.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.payload
+      })
+  },
+})
 
-export default verifyAccountSlice.reducer 
+export default verifyAccountSlice.reducer

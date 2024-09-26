@@ -10,115 +10,115 @@ import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelecto
 import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function PasswordResetConfirm() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    const { uid, token } = useParams()
+  const { uid, token } = useParams()
 
-    const { status, data, error } = useForgotPasswordSelectors()
+  const { status, data, error } = useForgotPasswordSelectors()
 
-    // Define a initial form data for login.
-    const initialFormData = {
-        uid: uid,
-        token: token,
-        new_password1: '',
-        new_password2: '',
+  // Define a initial form data for login.
+  const initialFormData = {
+    uid: uid,
+    token: token,
+    new_password1: '',
+    new_password2: '',
+  }
+
+  // Define a initial form data state.
+  const [formData, setFormData] = useState(initialFormData)
+  const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
+
+  // Handle form data changes.
+  function handleFormDataChange(event) {
+    const { name, type, chacked, value } = event.target
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: type === 'checkbox' ? chacked : value
+      }
+    })
+  }
+
+  // Handle the form submation.
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    if (submitButtonClickCount > 0) {
+      dispatch(forgotPasswordConfirmThunk(formData))
+      setSubmitButtonClickCount(prev => prev - 1)
     }
+  }
 
-    // Define a initial form data state.
-    const [formData, setFormData] = useState(initialFormData)
-    const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
+  return (
+    <>
+      {/* Metadata settings */}
+      <Helmet>
+        <title>Enter new password</title>
+      </Helmet>
 
-    // Handle form data changes.
-    function handleFormDataChange(event) {
-        const { name, type, chacked, value } = event.target
-        setFormData((prevFormData) => {
-            return {
-                ...prevFormData,
-                [name]: type === 'checkbox' ? chacked : value
-            }
-        })
-    }
+      {/* Component jsx */}
+      <form onSubmit={handleFormSubmit} className='inner-grid-2-2 forgot-form'>
+        <div className='inputs-container'>
+          <h1 className='title'>Enter new password</h1>
 
-    // Handle the form submation.
-    const handleFormSubmit = (event) => {
-        event.preventDefault()
-        if (submitButtonClickCount > 0) {
-            dispatch(forgotPasswordConfirmThunk(formData))
-            setSubmitButtonClickCount(prev => prev - 1)
-        }
-    }
+          <CustomInput
+            type='password'
+            label='password'
+            name='new_password1'
+            onChange={handleFormDataChange}
+            value={formData.new_password1}
+          />
 
-    return (
-        <>
-            {/* Metadata settings */}
-            <Helmet>
-                <title>Enter new password</title>
-            </Helmet>
+          <CustomInput
+            type='password'
+            label='confirm password'
+            name='new_password2'
+            onChange={handleFormDataChange}
+            value={formData.new_password2}
+          />
 
-            {/* Component jsx */}
-            <form onSubmit={handleFormSubmit} className='inner-grid-2-2 forgot-form'>
-                <div className='inputs-container'>
-                    <h1 className='title'>Enter new password</h1>
+          {
+            error?.error && (
+              <h5>{error.error}</h5>
+            )
+          }
 
-                    <CustomInput
-                        type='password'
-                        label='password'
-                        name='new_password1'
-                        onChange={handleFormDataChange}
-                        value={formData.new_password1}
-                    />
+          {
+            status === 'loading' && (
+              <button className='button' disabled>
+                <span className="label">
+                  <Loader />
+                </span>
+              </button>
+            )
+          }
 
-                    <CustomInput
-                        type='password'
-                        label='confirm password'
-                        name='new_password2'
-                        onChange={handleFormDataChange}
-                        value={formData.new_password2}
-                    />
+          {
+            status !== 'loading' && !data && (
+              <button
+                type="submit"
+                className='button'
+                disabled={submitButtonClickCount <= 0}
+              >
+                <span className="label">Confirm</span>
+              </button>
+            )
+          }
 
-                    {
-                        error?.error && (
-                            <h5>{error.error}</h5>
-                        )
-                    }
-
-                    {
-                        status === 'loading' && (
-                            <button className='button' disabled>
-                                <span className="label">
-                                    <Loader />
-                                </span>
-                            </button>
-                        )
-                    }
-
-                    {
-                        status !== 'loading' && !data && (
-                            <button
-                                type="submit"
-                                className='button'
-                                disabled={submitButtonClickCount <= 0}
-                            >
-                                <span className="label">Confirm</span>
-                            </button>
-                        )
-                    }
-
-                    {
-                        data?.detail && (
-                            <>
-                                <h5>{data.detail}</h5>
-                                <Link to='/signin' className='link'>
-                                    <span className="icon">
-                                        <LazyMaterialIcon iconName={icons.Signin} />
-                                    </span>
-                                    <span className='label'>sign in</span>
-                                </Link>
-                            </>
-                        )
-                    }
-                </div>
-            </form>
-        </>
-    )
+          {
+            data?.detail && (
+              <>
+                <h5>{data.detail}</h5>
+                <Link to='/signin' className='link'>
+                  <span className="icon">
+                    <LazyMaterialIcon iconName={icons.Signin} />
+                  </span>
+                  <span className='label'>sign in</span>
+                </Link>
+              </>
+            )
+          }
+        </div>
+      </form>
+    </>
+  )
 }
