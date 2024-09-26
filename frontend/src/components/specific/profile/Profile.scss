@@ -12,28 +12,11 @@
     height: fit-content;
     border-radius: em(10);
     overflow: hidden;
-    box-shadow: $box-shadow;
-    animation: activePopOver 0.3s forwards;
-    display: none;
+    border: $border;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
     margin-top: em(8);
-
-    &.active {
-        display: block;
-    }
-
-    @keyframes activePopOver {
-        0% {
-            // transform: translateY(-8px);
-            transform: scale(.95);
-            opacity: 0.8;
-        }
-
-        100% {
-            // transform: translateY(0);
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
 
     .inner-wrapper {
         @include flex-centre(column);
@@ -78,7 +61,7 @@
 
         .line {
             width: 100%;
-            border: $border;
+            border-bottom: $border;
         }
 
         .link,

@@ -36,7 +36,7 @@ $link-hover-color: var(--link-hover-color);
 
 // Other variables.
 $opacity: 1;
-$box-shadow: 0 0 2px #0000004d;
+$box-shadow: 0 0 1.5px #0000004d;
 $border: 1px solid $border-color-light;
 $header-height: em(64);
 $screen-height: calc(100vh - #{$header-height});

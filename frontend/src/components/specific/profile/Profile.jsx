@@ -5,42 +5,18 @@ import { useSigninSelectors } from "../../../features/auth"
 import { useUserSelectors } from '../../../features/user'
 import { LogoutButton } from "../../../features/auth"
 import { LazyMaterialIcon, icons } from "../../../assets/lazyMaterialIcon/LazyMaterialIcon"
+import { usePopover } from '../../../hooks/usePopover'
 
 export default function Profile() {
 
   const { isAuthenticated } = useSigninSelectors()
   const { data } = useUserSelectors()
 
-  const [isPopoverVisible, setPopoverVisible] = useState(false)
   const profileButtonRef = useRef(null)
   const popoverRef = useRef(null)
 
-  const togglePopover = () => {
-    setPopoverVisible((prev) => !prev)
-  }
+  const { togglePopover } = usePopover(profileButtonRef, popoverRef)
 
-  // Hnadle  Outside Click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        popoverRef.current &&
-        !profileButtonRef.current.contains(event.target) &&
-        !popoverRef.current.contains(event.target)
-      ) {
-        setPopoverVisible(false)
-      }
-    }
-
-    if (isPopoverVisible) {
-      document.addEventListener("mousedown", handleClickOutside)
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [isPopoverVisible])
 
   const links = [
     {
@@ -86,7 +62,8 @@ export default function Profile() {
       </button>
       <div
         ref={popoverRef}
-        className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
+        className="popover-wrapper"
+        // className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
       >
         <div className="inner-wrapper">
           <div className="user-info">
