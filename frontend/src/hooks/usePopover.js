@@ -57,6 +57,8 @@ export function usePopover(popoverButtonRef, popoverRef) {
 
   useEffect(() => {
     if ((initialHiddenStyle || initialVisibleStyle) && popoverRef.current) {
+      popoverRef.current.style["position"] = "absolute"
+      popoverRef.current.style["visibility"] = "hidden"
       popoverRef.current.style["transition"] = "transform 0.3s ease-in-out, visibility 0.3s ease-in-out"
       Object.entries(popoverStyleWithState).forEach(([key, value]) => {
         popoverRef.current.style[key] = value
