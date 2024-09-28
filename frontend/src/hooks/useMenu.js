@@ -53,6 +53,7 @@ export function useMenu(menuButtonRef, menuRef) {
       let menuStyleWithState = isVisible ? visibleStyle : hiddenStyle;
 
       menuRef.current.style["position"] = "absolute";
+      menuRef.current.style["visibility"] = "hidden";
       menuRef.current.style["z-index"] = "999";
       Object.assign(menuRef.current.style, menuStyleWithState)
     }
