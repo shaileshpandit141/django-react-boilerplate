@@ -1,11 +1,11 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import "./Profile.scss"
 import { Link } from "react-router-dom"
 import { useSigninSelectors } from "../../../features/auth"
 import { useUserSelectors } from '../../../features/user'
 import { LogoutButton } from "../../../features/auth"
 import { LazyMaterialIcon, icons } from "../../../assets/lazyMaterialIcon/LazyMaterialIcon"
-import { usePopover } from '../../../hooks/usePopover'
+import { useMenu } from '../../../hooks/useMenu'
 
 export default function Profile() {
 
@@ -15,8 +15,22 @@ export default function Profile() {
   const profileButtonRef = useRef(null)
   const popoverRef = useRef(null)
 
-  const { togglePopover } = usePopover(profileButtonRef, popoverRef)
+  const { toggleMenu, setVisibleStyle, setHiddenStyle } = useMenu(profileButtonRef, popoverRef)
 
+  useEffect(() => {
+    setVisibleStyle((prevStyle) => {
+      return {
+        ...prevStyle,
+        transform: "scale(1)"
+      }
+    })
+    setHiddenStyle((prevStyle) => {
+      return {
+        ...prevStyle,
+        transform: "scale(0.95)"
+      }
+    })
+  }, [setHiddenStyle, setVisibleStyle])
 
   const links = [
     {
@@ -36,7 +50,7 @@ export default function Profile() {
       to={link.link}
       className="link"
       key={index}
-      onClick={togglePopover}
+      onClick={toggleMenu}
     >
       <span className="icon">
         {link.icon}
@@ -54,7 +68,7 @@ export default function Profile() {
       <button
         ref={profileButtonRef}
         className="button-as-icon"
-        onClick={togglePopover}
+        onClick={toggleMenu}
       >
         <span className="icon">
           <LazyMaterialIcon iconName={icons.AccountCircle} />
@@ -63,7 +77,7 @@ export default function Profile() {
       <div
         ref={popoverRef}
         className="popover-wrapper"
-        // className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
+      // className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
       >
         <div className="inner-wrapper">
           <div className="user-info">
@@ -77,7 +91,7 @@ export default function Profile() {
           </div>
           <div className="line"></div>
           {popoverElements}
-          <LogoutButton onClick={togglePopover} />
+          <LogoutButton onClick={toggleMenu} />
         </div>
       </div>
     </>
