@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { useSigninSelectors } from "../../../features/auth"
 import { useUserSelectors } from '../../../features/user'
 import { LogoutButton } from "../../../features/auth"
-import { LazyMaterialIcon, icons } from "../../../assets/lazyMaterialIcon/LazyMaterialIcon"
+import { LazyMaterialIcon, icons } from "../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon"
 import { useMenu } from '../../../hooks/useMenu'
 
 export default function Profile() {
@@ -36,12 +36,12 @@ export default function Profile() {
     {
       name: "profile",
       link: "#",
-      icon: <LazyMaterialIcon iconName={icons.AccountCircle} />,
+      icon: <LazyMaterialIcon iconName={icons.accountCircle} />,
     },
     {
       name: "settings",
       link: "#",
-      icon: <LazyMaterialIcon iconName={icons.Settings} />,
+      icon: <LazyMaterialIcon iconName={icons.settings} />,
     },
   ]
 
@@ -71,7 +71,7 @@ export default function Profile() {
         onClick={toggleMenu}
       >
         <span className="icon">
-          <LazyMaterialIcon iconName={icons.AccountCircle} />
+          <LazyMaterialIcon iconName={icons.accountCircle} />
         </span>
       </button>
       <div

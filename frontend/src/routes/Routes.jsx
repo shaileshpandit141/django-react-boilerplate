@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 // Named Imports (utility functions or higher-order components).
-import { lazyImportWithRetry, LazyLoader } from '../hocs/lazyImportWithRetry'
+import { lazyImportWithRetry, LazyLoader } from '../lazyUtils/lazyImportWithRetry'
 
 // Default Imports (user-defined components).
 import PrivateRoute from './PrivateRoute'

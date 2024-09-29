@@ -1,7 +1,7 @@
 import React from 'react';
 import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 import './ErrorBoundary.scss'
-import { LazyMaterialIcon, icons } from '../../assets/lazyMaterialIcon/LazyMaterialIcon';
+import { LazyMaterialIcon, icons } from '../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon';
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => (
   <div className='inner-grid-2-2 error-boundary' role="alert">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Profile from '../../../components/specific/profile/Profile';
-import { LazyMaterialIcon, icons } from '../../../assets/lazyMaterialIcon/LazyMaterialIcon';
+import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon';
 import './header.scss';
 import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
 
@@ -39,7 +39,7 @@ export default function Header() {
           {/* Left items goes here */}
           <button className="button-as-icon">
             <span className="icon">
-              <LazyMaterialIcon iconName={icons.CircleAppIcon} />
+              <LazyMaterialIcon iconName={icons.circleAppIcon} />
             </span>
           </button>
         </div>

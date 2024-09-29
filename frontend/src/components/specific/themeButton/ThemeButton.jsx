@@ -1,7 +1,7 @@
 // Named Imports.
 import React, { useEffect } from 'react'
 import { useLocalStorage } from '../../../hooks/useLocalStorage'
-import { LazyMaterialIcon, icons } from '../../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function ThemeButton() {
 
@@ -26,12 +26,12 @@ export default function ThemeButton() {
       <span className='icon'>
         {
           theme === "light" && (
-            <LazyMaterialIcon iconName={icons.DarkModeIcon} />
+            <LazyMaterialIcon iconName={icons.darkModeIcon} />
           )
         }
         {
           theme !== "light" && (
-            <LazyMaterialIcon iconName={icons.LightModeIcon} />
+            <LazyMaterialIcon iconName={icons.lightModeIcon} />
           )
         }
       </span>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import './Index.scss'
-import { useSigninSelectors } from '../..//features/auth'
-import { LazyMaterialIcon, icons } from '../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { useSigninSelectors } from '../../features/auth'
+import { LazyMaterialIcon, icons } from '../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function Index() {
 
@@ -30,7 +30,7 @@ export default function Index() {
                     className='link'
                 >
                     <span className='icon'>
-                        <LazyMaterialIcon iconName={icons.Signin} />
+                        <LazyMaterialIcon iconName={icons.signin} />
                     </span>
                     <span className='label'>
                         sign in
@@ -41,7 +41,7 @@ export default function Index() {
                     className='link'
                 >
                     <span className="icon">
-                        <LazyMaterialIcon iconName={icons.Signup} />
+                        <LazyMaterialIcon iconName={icons.signup} />
                     </span>
                     <span className='label'>
                         sign up

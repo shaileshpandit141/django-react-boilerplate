@@ -1,14 +1,11 @@
-// Named Imports.
 import React, { useState } from 'react'
+import './SignupForm.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
 import { useSignupSelectors } from '../../hooks/useSignupSelectors'
 import { signupThunk } from '../../thunks/signupThunk'
-import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
-
-// Default Imports.
-import './SignupForm.scss'
+import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
 
@@ -133,7 +130,7 @@ export default function SignupForm() {
                     disabled={submitButtonClickCount <= 0}
                   >
                     <span className="icon">
-                      <LazyMaterialIcon iconName={icons.Signup} />
+                      <LazyMaterialIcon iconName={icons.signup} />
                     </span>
                     <span className='label'>sign up</span>
                   </button>

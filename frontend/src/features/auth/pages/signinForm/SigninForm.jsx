@@ -1,15 +1,12 @@
-// Named Imports.
 import React, { useState, useEffect } from 'react'
+import './SigninForm.scss'
 import { Link, Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
 import { useSigninSelectors } from '../../hooks/useSigninSelectors'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinSliceThunk } from '../../thunks/signinSliceThunk'
-import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
-
-// Default Imports.
-import './SigninForm.scss'
+import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
 
@@ -118,7 +115,7 @@ export default function SigninForm() {
                 disabled={submitButtonClickCount <= 0}
               >
                 <span className="icon">
-                  <LazyMaterialIcon iconName={icons.Signin} />
+                  <LazyMaterialIcon iconName={icons.signin} />
                 </span>
                 <span className="label">sign in</span>
               </button>

@@ -3,7 +3,7 @@ import "./ForgotPassword.scss"
 import { Link } from "react-router-dom"
 import ForgotPasswordWrapper from './ForgotPasswordWrapper'
 import CustomInput from '../../components/customInput/CustomInput'
-import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 import Loader from '../../../../components/common/loader/Loader'
 import emailSendSvg from '../../../../assets/icons/mail_sent.svg'
 import { useDispatch } from 'react-redux'
@@ -75,7 +75,7 @@ export default function ForgotPassword() {
               className="link"
             >
               <span className='icon'>
-                <LazyMaterialIcon iconName={icons.Signin} />
+                <LazyMaterialIcon iconName={icons.signin} />
               </span>
               <span className="label">Sign in</span>
             </Link>
@@ -112,7 +112,7 @@ export default function ForgotPassword() {
               className="link"
             >
               <span className='icon'>
-                <LazyMaterialIcon iconName={icons.Signin} />
+                <LazyMaterialIcon iconName={icons.signin} />
               </span>
               <span className="label">Sign in</span>
             </Link>
@@ -156,7 +156,7 @@ export default function ForgotPassword() {
               className="link"
             >
               <span className='icon'>
-                <LazyMaterialIcon iconName={icons.Signin} />
+                <LazyMaterialIcon iconName={icons.signin} />
               </span>
               <span className="label">Sign in</span>
             </Link>
@@ -167,7 +167,7 @@ export default function ForgotPassword() {
               disabled={retryCount <= 0}
             >
               <span className="icon">
-                <LazyMaterialIcon iconName={icons.ReTry} />
+                <LazyMaterialIcon iconName={icons.reTry} />
               </span>
               <span className='label'>retry</span>
             </button>
@@ -199,7 +199,7 @@ export default function ForgotPassword() {
             className="link"
           >
             <span className='icon'>
-              <LazyMaterialIcon iconName={icons.Signin} />
+              <LazyMaterialIcon iconName={icons.signin} />
             </span>
             <span className="label">Sign in</span>
           </Link>

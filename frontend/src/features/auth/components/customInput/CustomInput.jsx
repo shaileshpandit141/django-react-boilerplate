@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CustomInput.scss'
-import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function CustomInput(props) {
 
@@ -39,9 +39,9 @@ export default function CustomInput(props) {
             <span className='icon'>
               {
                 isPasswordVisible ? (
-                  <LazyMaterialIcon iconName={icons.EyeClose} />
+                  <LazyMaterialIcon iconName={icons.eyeClose} />
                 ) : (
-                  <LazyMaterialIcon iconName={icons.EyeOpen} />
+                  <LazyMaterialIcon iconName={icons.eyeOpen} />
                 )
               }
             </span>

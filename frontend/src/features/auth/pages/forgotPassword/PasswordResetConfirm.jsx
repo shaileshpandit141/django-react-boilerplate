@@ -7,7 +7,7 @@ import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from '../../../../components/common/loader/Loader'
 import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
-import { LazyMaterialIcon, icons } from '../../../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()
@@ -110,7 +110,7 @@ export default function PasswordResetConfirm() {
                 <h5>{data.detail}</h5>
                 <Link to='/signin' className='link'>
                   <span className="icon">
-                    <LazyMaterialIcon iconName={icons.Signin} />
+                    <LazyMaterialIcon iconName={icons.signin} />
                   </span>
                   <span className='label'>sign in</span>
                 </Link>

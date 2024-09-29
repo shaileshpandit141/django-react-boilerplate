@@ -1,4 +1,3 @@
-// Named Imports.
 import React, { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useDispatch } from 'react-redux'

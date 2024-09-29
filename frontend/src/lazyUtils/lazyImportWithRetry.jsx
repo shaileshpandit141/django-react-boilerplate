@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import ErrorBoundary from '../errors/ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from '../errors/errorBoundary/ErrorBoundary';
 import LazyPageLoader from '../components/common/lazyPageLoader/LazyPageLoader';
 
 export function lazyImportWithRetry(importFunction, retries = 3, delay = 1000) {

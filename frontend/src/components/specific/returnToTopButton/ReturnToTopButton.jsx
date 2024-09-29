@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom"
 import { isHideRoutes } from "../../../utils/isHideRoutes"
 import "./ReturnToTopButton.scss"
-import { LazyMaterialIcon, icons } from '../../../assets/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
 
 export default function ReturnToTopButton() {
 
@@ -55,27 +55,25 @@ export default function ReturnToTopButton() {
     anchor.click()
   }
 
-  return (
-    <>
-      {
-        isPageScrollable && !isHideRoutes(pathname) && (
-          <div
-            className={`
-                            scroll-to-top-button-wrapper
-                            ${isScrollToTopButtonVisible && (lastScrollTop > viewportHeight)
-                ?
-                'visible' : 'hidden'
-              }
-                            `}
-          >
-            <button onClick={handleReturnToTopButtonClick} className='button-as-icon'>
-              <span className='icon'>
-                <LazyMaterialIcon iconName={icons.ArrowUp} />
-              </span>
-            </button>
-          </div>
-        )
-      }
-    </>
+  let scrollTopButtonActionsClass = (
+    isScrollToTopButtonVisible && (lastScrollTop > viewportHeight)
+      ? 'visible'
+      : 'hidden'
   )
+
+  if (isPageScrollable && !isHideRoutes(pathname)) {
+    return (
+      <div
+        className={`scroll-to-top-button-wrapper ${scrollTopButtonActionsClass}`}
+      >
+        <button onClick={handleReturnToTopButtonClick} className='button-as-icon'>
+          <span className='icon'>
+            <LazyMaterialIcon iconName={icons.arrowUp} />
+          </span>
+        </button>
+      </div>
+    )
+  } else {
+    return null
+  }
 }
