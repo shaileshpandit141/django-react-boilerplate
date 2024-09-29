@@ -150,3 +150,53 @@
         cursor: pointer;
     }
 }
+
+.succeeded-img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+
+    img {
+        width: inherit;
+        height: inherit;
+        background-size: contain;
+        background-position: center;
+        animation: rotateInfinitely 2s infinite;
+    }
+}
+
+.succeeded-info {
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+
+    .title {
+        text-align: center;
+        margin-block: em(8);
+        text-transform: lowercase;
+
+        &::first-letter {
+            text-transform: capitalize
+        }
+    }
+    
+    .message {
+        text-align: center;
+        margin-bottom: em(8);
+        
+        &:last-child {
+            margin-bottom: em(16);
+        }
+    }
+}
+
+.error-text {
+    text-align: stat;
+    color: $error-text-primary;
+    text-transform: lowercase;
+
+    &::first-letter {
+        text-transform: capitalize
+    }
+}

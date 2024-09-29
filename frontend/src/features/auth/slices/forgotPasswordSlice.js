@@ -12,7 +12,13 @@ const initialState = {
 const forgotPasswordSlice = createSlice({
   name: 'forgotPasswordSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    resetForgotPasswordState: (state) => {
+      state.status = 'idle'
+      state.data = null
+      state.error = null
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(forgotPasswordThunk.pending, (state) => {
@@ -41,3 +47,4 @@ const forgotPasswordSlice = createSlice({
 })
 
 export default forgotPasswordSlice.reducer
+export const { resetForgotPasswordState } = forgotPasswordSlice.actions
