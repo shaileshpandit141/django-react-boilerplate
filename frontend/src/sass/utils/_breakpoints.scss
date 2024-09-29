@@ -1,25 +1,33 @@
-// 700px, 900px, 1440px
 $breakpoints-up: (
-    'medium': em(700),
-    'large': em(900),
-    'xlarge': em(1440),
+    'medium': em(700),   // 700px and above
+    'large': em(900),    // 900px and above
+    'xlarge': em(1440),  // 1440px and above
 );
 
-// 699.98px, 899.98px, 1339.98px
 $breakpoints-down: (
-    'small': em(699.98),
-    'medium': em(899.98),
-    'large': em(1339.98),
+    'small': em(699.98),  // up to 699.98px
+    'medium': em(899.98), // up to 899.98px
+    'large': em(1339.98), // up to 1339.98px
 );
 
+// Mixin for 'up' breakpoints (min-width)
 @mixin breakpoint($size) {
-    @media (min-width: map-get($breakpoints-up, $size)) {
-        @content;
+    @if map-has-key($breakpoints-up, $size) {
+        @media (min-width: map-get($breakpoints-up, $size)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint `#{$size}` does not exist in \$breakpoints-up.";
     }
 }
 
+// Mixin for 'down' breakpoints (max-width)
 @mixin breakpoint-down($size) {
-    @media (max-width: map-get($breakpoints-down, $size)) {
-        @content;
+    @if map-has-key($breakpoints-down, $size) {
+        @media (max-width: map-get($breakpoints-down, $size)) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint `#{$size}` does not exist in \$breakpoints-down.";
     }
 }

@@ -187,7 +187,7 @@ export default function ForgotPassword() {
         </div>
         {/* succeeded information */}
         <div className='succeeded-info'>
-          <h1 className="title">Forgot Password request is successfull</h1>
+          <h1 className="title">Forgot Password request is successful</h1>
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
