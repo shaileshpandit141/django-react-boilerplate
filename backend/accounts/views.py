@@ -98,7 +98,7 @@ class CustomPasswordResetView(PasswordResetView):
 
         # Check if the email exists in the User model
         if not User.objects.filter(email=email).exists():
-            return Response({"error": "No user found with this email."}, status=404)
+            return Response({"email": ["This email address does not exist."]}, status=404)
 
         # Proceed with the default behavior if email exists
         return super().post(request, *args, **kwargs)
