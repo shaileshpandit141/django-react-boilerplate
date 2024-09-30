@@ -7,23 +7,23 @@ import {
 } from 'react-router-dom'
 
 // Named Imports (utility functions or higher-order components).
-import { lazyImportWithRetry, LazyLoader } from '../lazyUtils/lazyImportWithRetry'
+import { lazyImportWithRetry, LazyLoader } from 'lazyUtils/lazyImportWithRetry'
 
 // Default Imports (user-defined components).
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 
 // Lazy Imports.
-const MainLayout = lazyImportWithRetry(() => import('../layouts/mainLayout/mainLayout/MainLayout'))
-const NotFound = lazyImportWithRetry(() => import('../errors/notfound/NotFound'))
-const SigninForm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.SigninForm })))
-const ResendVerificationKey = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.ResendVerificationKey })))
-const SignupForm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.SignupForm })))
-const VerifyAccount = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.VerifyAccount })))
-const ForgotPassword = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.ForgotPassword })))
-const PasswordResetConfirm = lazyImportWithRetry(() => import('../features/auth').then(module => ({ default: module.PasswordResetConfirm })))
-const Index = lazyImportWithRetry(() => import('../pages/index/Index'))
-const Home = lazyImportWithRetry(() => import('../pages/home/Home'))
+const MainLayout = lazyImportWithRetry(() => import('layouts/mainLayout/mainLayout/MainLayout'))
+const NotFound = lazyImportWithRetry(() => import('errors/notfound/NotFound'))
+const SigninForm = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.SigninForm })))
+const ResendVerificationKey = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.ResendVerificationKey })))
+const SignupForm = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.SignupForm })))
+const VerifyAccount = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.VerifyAccount })))
+const ForgotPassword = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.ForgotPassword })))
+const PasswordResetConfirm = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.PasswordResetConfirm })))
+const Index = lazyImportWithRetry(() => import('pages/index/Index'))
+const Home = lazyImportWithRetry(() => import('pages/home/Home'))
 
 const AppRoutes = () => {
   return (

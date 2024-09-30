@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom"
-import { isHideRoutes } from "../../../utils/isHideRoutes"
+import { isHideRoutes } from "utils/isHideRoutes"
 import "./ReturnToTopButton.scss"
-import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 
 export default function ReturnToTopButton() {
 

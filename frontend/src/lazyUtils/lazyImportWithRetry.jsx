@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-import ErrorBoundary from '../errors/errorBoundary/ErrorBoundary';
-import LazyPageLoader from '../components/common/lazyPageLoader/LazyPageLoader';
+import ErrorBoundary from 'errors/errorBoundary/ErrorBoundary';
+import PageLoader from 'components/common/pageLoader/PageLoader';
 
 export function lazyImportWithRetry(importFunction, retries = 3, delay = 1000) {
   return React.lazy(() =>
@@ -22,7 +22,7 @@ export function lazyImportWithRetry(importFunction, retries = 3, delay = 1000) {
   );
 }
 
-export function LazyLoader({ element, fallback = <LazyPageLoader /> }) {
+export function LazyLoader({ element, fallback = <PageLoader /> }) {
   return (
     <ErrorBoundary>
       <Suspense fallback={fallback}>

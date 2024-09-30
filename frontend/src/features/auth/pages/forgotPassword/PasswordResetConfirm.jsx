@@ -5,9 +5,9 @@ import { Helmet } from "react-helmet-async"
 import { useDispatch } from 'react-redux'
 import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import CustomInput from '../../components/customInput/CustomInput'
-import Loader from '../../../../components/common/loader/Loader'
+import Loader from 'components/common/loader/Loader'
 import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
-import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()

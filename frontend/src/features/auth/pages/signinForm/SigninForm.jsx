@@ -6,9 +6,9 @@ import { Helmet } from 'react-helmet-async'
 import { useSigninSelectors } from '../../hooks/useSigninSelectors'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinSliceThunk } from '../../thunks/signinSliceThunk'
-import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import CustomInput from '../../components/customInput/CustomInput'
-import Loader from '../../../../components/common/loader/Loader'
+import Loader from 'components/common/loader/Loader'
 
 export default function SigninForm() {
   const dispatch = useDispatch()

@@ -3,9 +3,9 @@ import "./ForgotPassword.scss"
 import { Link } from "react-router-dom"
 import ForgotPasswordWrapper from './ForgotPasswordWrapper'
 import CustomInput from '../../components/customInput/CustomInput'
-import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
-import Loader from '../../../../components/common/loader/Loader'
-import emailSendSvg from '../../../../assets/icons/mail_sent.svg'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
+import Loader from 'components/common/loader/Loader'
+import emailSendSvg from 'assets/icons/mail_sent.svg'
 import { useDispatch } from 'react-redux'
 import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'

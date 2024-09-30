@@ -1,8 +1,8 @@
 import React from 'react'
-import './LazyPageLoader.scss'
+import './PageLoader.scss'
 import { SyncLoader } from 'react-spinners'
 
-export default function LazyPageLoader() {
+export default function PageLoader() {
   return (
     <div className="lazy-loader">
       <span>

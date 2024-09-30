@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors'
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk'
 import CustomInput from '../../components/customInput/CustomInput'
-import Loader from '../../../../components/common/loader/Loader'
+import Loader from 'components/common/loader/Loader'
 import './ResendVerificationKey.scss'
 
 export default function ResendVerificationKey(props) {

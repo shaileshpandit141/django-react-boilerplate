@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet-async'
 import { useSignupSelectors } from '../../hooks/useSignupSelectors'
 import { signupThunk } from '../../thunks/signupThunk'
-import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import CustomInput from '../../components/customInput/CustomInput'
-import Loader from '../../../../components/common/loader/Loader'
+import Loader from 'components/common/loader/Loader'
 
 export default function SignupForm() {
   const dispatch = useDispatch()

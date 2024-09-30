@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CustomInput.scss'
-import { LazyMaterialIcon, icons } from '../../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 
 export default function CustomInput(props) {
 

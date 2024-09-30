@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Profile from '../../../components/specific/profile/Profile';
-import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon';
+import Profile from 'components/specific/profile/Profile';
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon';
 import './header.scss';
-import ThemeButton from '../../../components/specific/themeButton/ThemeButton';
+import ThemeButton from 'components/specific/themeButton/ThemeButton';
 
 export default function Header() {
 

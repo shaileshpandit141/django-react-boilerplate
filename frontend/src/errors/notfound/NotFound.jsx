@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import './NotFound.scss'
-import notFountImg from '../../assets/icons/not_found.svg'
+import notFountImg from 'assets/icons/not_found.svg'
 
 export default function NotFound() {
   return (

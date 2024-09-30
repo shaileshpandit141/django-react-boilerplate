@@ -1,7 +1,7 @@
 // Named Imports.
 import React, { useEffect } from 'react'
-import { useLocalStorage } from '../../../hooks/useLocalStorage'
-import { LazyMaterialIcon, icons } from '../../../lazyUtils/lazyMaterialIcon/LazyMaterialIcon'
+import { useLocalStorage } from 'hooks/useLocalStorage'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 
 export default function ThemeButton() {
 

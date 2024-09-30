@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import './Home.scss'
 import { useDispatch } from 'react-redux'
-import { userThunk, useUserSelectors } from '../../features/user'
+import { userThunk, useUserSelectors } from 'features/user'
 
 
 export default function Home() {
