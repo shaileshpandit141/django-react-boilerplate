@@ -8,12 +8,11 @@ import Loader from 'components/common/loader/Loader'
 import emailSendSvg from 'assets/icons/mail_sent.svg'
 import { useDispatch } from 'react-redux'
 import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
-import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
+import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 
 export default function ForgotPassword() {
   const dispatch = useDispatch()
-
   const { status, data, error } = useForgotPasswordSelectors()
 
   // Define a initial form data for login.
@@ -68,7 +67,7 @@ export default function ForgotPassword() {
             onChange={handleFormDataChange}
             value={formData.email}
           />
-          {/* Buttons */}
+          {/* Sign in and Forgot Buttons. */}
           <div className='buttons'>
             <Link
               to="/signin"
@@ -97,15 +96,16 @@ export default function ForgotPassword() {
       <ForgotPasswordWrapper>
         <form onSubmit={handleFormSubmit} className='form'>
           <h1 className="title">Forgot Password</h1>
-          {/* Custom input component for email input */}
+          {/* Custom input component for email input. */}
           <CustomInput
             type="email"
             label="Email"
             name="email"
             onChange={handleFormDataChange}
             value={formData.email}
+            disabled
           />
-          {/* Loader with disabled button */}
+          {/* Loader with disabled button. */}
           <div className='buttons'>
             <Link
               to="/signin"
@@ -133,15 +133,16 @@ export default function ForgotPassword() {
       <ForgotPasswordWrapper>
         <form onSubmit={handleFormSubmit} className='form'>
           <h1 className="title">Forgot Password</h1>
-          {/* Custom input component for email input */}
+          {/* Custom input component for email input. */}
           <CustomInput
             type="email"
             label="Email"
             name="email"
             onChange={handleFormDataChange}
             value={formData.email}
+            disabled
           />
-          {/* Error message */}
+          {/* Error message for email is not exit. */}
           {
             error?.email && (
               error.email.map((detail, index) => (
@@ -149,7 +150,7 @@ export default function ForgotPassword() {
               ))
             )
           }
-          {/* Buttons */}
+          {/* Buttons. */}
           <div className='buttons'>
             <Link
               to="/signin"
@@ -181,18 +182,18 @@ export default function ForgotPassword() {
   if (status === 'succeeded' && data) {
     return (
       <ForgotPasswordWrapper>
-        {/* succeeded images */}
+        {/* succeeded images. */}
         <div className='succeeded-img'>
           <img src={emailSendSvg} alt='email-send-svg' />
         </div>
-        {/* succeeded information */}
+        {/* succeeded information. */}
         <div className='succeeded-info'>
           <h1 className="title">Forgot Password request is successful</h1>
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
         </div>
-        {/* succeeded Response message */}
+        {/* succeeded Response message. */}
         <div className='buttons'>
           <Link
             to="/signin"
