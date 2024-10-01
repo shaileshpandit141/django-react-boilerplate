@@ -1,3 +1,7 @@
+from django.utils import timezone
+from django.contrib.auth.models import update_last_login
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,8 +11,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
-from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
 from allauth.account.utils import send_email_confirmation
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 from .serializers import UserSerializer
@@ -43,6 +45,10 @@ class CustomTokenObtainPairView(TokenObtainPairView):
                     status=status.HTTP_401_UNAUTHORIZED,
                 )
 
+        # Update the last_login field manually
+        user.last_login = timezone.now()
+        user.save(update_fields=["last_login"])
+
         # If all checks pass, generate tokens
         refresh = RefreshToken.for_user(user)
 
@@ -63,7 +69,7 @@ class ResendVerificationEmailView(APIView):
 
         if not username:
             return Response(
-                {"detail": "Username is required"},
+                {"username": ["This field may not be blank."]},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -71,7 +77,7 @@ class ResendVerificationEmailView(APIView):
             user = User.objects.get(username=username)
         except User.DoesNotExist:
             return Response(
-                {"detail": "User with this username does not exist"},
+                {"username": ["User with this username does not exist."]},
                 status=status.HTTP_404_NOT_FOUND,
             )
 
@@ -79,12 +85,12 @@ class ResendVerificationEmailView(APIView):
         if user.emailaddress_set.filter(email=user.email, verified=False).exists():
             send_email_confirmation(request, user)
             return Response(
-                {"detail": "Account Verification e-mail sent"},
+                {"detail": "Account verification e-mail has been sent."},
                 status=status.HTTP_200_OK,
             )
         else:
             return Response(
-                {"detail": "Account already verified"},
+                {"detail": "This account is already verified."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -98,7 +104,9 @@ class CustomPasswordResetView(PasswordResetView):
 
         # Check if the email exists in the User model
         if not User.objects.filter(email=email).exists():
-            return Response({"email": ["This email address does not exist."]}, status=404)
+            return Response(
+                {"email": ["This email address does not exist."]}, status=404
+            )
 
         # Proceed with the default behavior if email exists
         return super().post(request, *args, **kwargs)

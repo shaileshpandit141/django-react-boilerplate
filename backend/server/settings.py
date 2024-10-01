@@ -61,6 +61,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",  # If Globely Disable CSRF Protection to comment it
     "accounts.middleware.DisableCSRFMiddleware",  # Disable CSRF Protection for API Requests
+    "accounts.middleware.TimezoneMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -240,7 +241,9 @@ EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool, default=True)
 EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", cast=str)
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", cast=str)
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", cast=str, default=config("EMAIL_HOST_USER"))
+DEFAULT_FROM_EMAIL = config(
+    "DEFAULT_FROM_EMAIL", cast=str, default=config("EMAIL_HOST_USER")
+)
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
