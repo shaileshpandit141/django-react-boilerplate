@@ -1,20 +1,20 @@
 @import '../../../../sass';
 
-.re-verification-from {
+.resend-verifucation-key-page {
     @include inner-grid-2-2;
     @include flex-centre(column);
     min-height: $screen-height;
 
-    .inputes-container {
+    .form {
         @include flex-centre(column);
-        padding: 16px;
-        border-radius: 8px;
+        padding: em(16);
+        border-radius: em(16);
         background-color: $background-light;
         z-index: 1;
         width: 100%;
         min-width: 0;
-        max-width: 300px;
-        row-gap: 16px;
+        max-width: em(400);
+        row-gap: em(16);
 
         .title {
             text-align: center;
@@ -25,58 +25,34 @@
                 text-transform: capitalize
             }
         }
+    }
 
-        .account-verify-cntainer {
-            @include flex-centre;
-            column-gap: 8px;
-            justify-content: space-between;
-            width: 100%;
+    .buttons {
+        width: 100%;
+        max-width: em(400);
+        display: flex;
+        align-items: center;
+        column-gap: em(8);
+    }
 
-            h5 {
-                color: $error-text-primary;
-            }
+    .signup-text {
+        letter-spacing: 0.05em;
+        text-align: center;
+        opacity: $opacity;
 
-            a {
-                color: $text-accent;
-            }
+        &::first-letter {
+            text-transform: capitalize;
         }
 
-        .forgot-password {
-            letter-spacing: 0.05em;
+        a {
+            text-wrap: nowrap;
+            white-space: nowrap;
             text-decoration: none;
-            text-align: end;
-            width: 100%;
             opacity: $opacity;
             transition: opacity 0.3s ease-in-out;
 
-            &::first-letter {
-                text-transform: capitalize;
-            }
-
             &:hover {
-                opacity: $opacity;
-            }
-        }
-
-        .signup-text {
-            letter-spacing: 0.05em;
-            text-align: center;
-            opacity: $opacity;
-
-            &::first-letter {
-                text-transform: capitalize;
-            }
-
-            a {
-                text-wrap: nowrap;
-                white-space: nowrap;
-                text-decoration: none;
-                opacity: $opacity;
-                transition: opacity 0.3s ease-in-out;
-
-                &:hover {
-                    opacity: 1;
-                }
+                opacity: 1;
             }
         }
     }

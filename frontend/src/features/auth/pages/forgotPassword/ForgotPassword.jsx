@@ -18,7 +18,7 @@ export default function ForgotPassword() {
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({
     email: '',
-  }), []);
+  }), [])
 
   // Define a initial form data state.
   const [formData, setFormData] = useState(initialFormData)
@@ -37,18 +37,18 @@ export default function ForgotPassword() {
 
   // Handle submission handler.
   const handleFormSubmit = useCallback((event) => {
-    event.preventDefault();
-    dispatch(forgotPasswordThunk(formData));
-  }, [dispatch, formData]);
+    event.preventDefault()
+    dispatch(forgotPasswordThunk(formData))
+  }, [dispatch, formData])
 
   // Retry button click handler.
   const handleRetryButtonClick = useCallback((event) => {
-    event.preventDefault();
-    dispatch(resetForgotPasswordState());
-    setRetryCount(prev => prev - 1);
-  }, [dispatch]);
+    event.preventDefault()
+    dispatch(resetForgotPasswordState())
+    setRetryCount(prev => prev - 1)
+  }, [dispatch])
 
-  // Rest the Forgot Password State if user is visit page without any action.
+  // Rest the State if user is visit page without any action.
   useEffect(() => {
     dispatch(resetForgotPasswordState())
   }, [dispatch])
@@ -150,7 +150,7 @@ export default function ForgotPassword() {
               ))
             )
           }
-          {/* Buttons. */}
+          {/* Sign in and retry Buttons. */}
           <div className='buttons'>
             <Link
               to="/signin"

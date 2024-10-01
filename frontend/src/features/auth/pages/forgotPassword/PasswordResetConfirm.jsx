@@ -51,7 +51,7 @@ export default function PasswordResetConfirm() {
     setRetryCount(prev => prev - 1);
   }, [dispatch]);
 
-  // Rest the Forgot Password State if user is visit page without any action.
+  // Rest the State if user is visit page without any action.
   useEffect(() => {
     dispatch(resetForgotPasswordState())
   }, [dispatch])

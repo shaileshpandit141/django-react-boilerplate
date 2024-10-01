@@ -12,7 +12,13 @@ const initialState = {
 const resendVerificationKeySlice = createSlice({
   name: 'resendVerificationKey',
   initialState,
-  reducers: {},
+  reducers: {
+    resetResendVerificationKeyState: (state) => {
+      state.status = 'idle'
+      state.data = null
+      state.error = null
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(resendVerificationKeyThunk.pending, (state) => {
@@ -29,4 +35,5 @@ const resendVerificationKeySlice = createSlice({
   },
 })
 
+export const { resetResendVerificationKeyState } = resendVerificationKeySlice.actions
 export default resendVerificationKeySlice.reducer
