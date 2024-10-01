@@ -208,4 +208,33 @@ export default function ForgotPassword() {
       </ForgotPasswordWrapper>
     )
   }
+
+  // Handle succeeded status and if response data state is empty.
+  if (status === 'succeeded') {
+    return (
+      <ForgotPasswordWrapper>
+        {/* succeeded images. */}
+        <div className='succeeded-img'>
+          <img src={emailSendSvg} alt='email-send-svg' />
+        </div>
+        {/* succeeded information. */}
+        <div className='succeeded-info'>
+          <h1 className="title">Forgot Password request is successful</h1>
+          <p className='message'>Forgot password e-mail has been send.</p>
+        </div>
+        {/* succeeded Response message. */}
+        <div className='buttons'>
+          <Link
+            to="/signin"
+            className="link"
+          >
+            <span className='icon'>
+              <LazyMaterialIcon iconName={icons.signin} />
+            </span>
+            <span className="label">Sign in</span>
+          </Link>
+        </div>
+      </ForgotPasswordWrapper>
+    )
+  }
 }

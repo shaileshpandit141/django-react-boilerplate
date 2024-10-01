@@ -199,7 +199,7 @@ export default function PasswordResetConfirm() {
       <PasswordResetConfirmWrapper>
         {/* succeeded images. */}
         {/* <div className='succeeded-img'>
-          <img src={emailSendSvg} alt='email-send-svg' />
+          <img src={imgURL} alt='email-send-svg' />
         </div> */}
         {/* succeeded information */}
         <div className='succeeded-info'>
@@ -207,6 +207,35 @@ export default function PasswordResetConfirm() {
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
+        </div>
+        {/* succeeded Response message. */}
+        <div className='buttons'>
+          <Link
+            to="/signin"
+            className="link"
+          >
+            <span className='icon'>
+              <LazyMaterialIcon iconName={icons.signin} />
+            </span>
+            <span className="label">Sign in</span>
+          </Link>
+        </div>
+      </PasswordResetConfirmWrapper>
+    )
+  }
+
+  // Handle succeeded status and if response data state is empty.
+  if (status === 'succeeded') {
+    return (
+      <PasswordResetConfirmWrapper>
+        {/* succeeded images. */}
+        {/* <div className='succeeded-img'>
+          <img src={imgURL} alt='email-send-svg' />
+        </div> */}
+        {/* succeeded information */}
+        <div className='succeeded-info'>
+          <h1 className="title">Forgot Password is successful</h1>
+          <p className='message'>Your password has been changed.</p>
         </div>
         {/* succeeded Response message. */}
         <div className='buttons'>

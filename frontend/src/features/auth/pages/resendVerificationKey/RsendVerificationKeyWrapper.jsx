@@ -7,7 +7,7 @@ export default function ResendVerificationKeyWrapper({ children }) {
     <div className='inner-grid-2-2 resend-verifucation-key-page'>
       {/* Metadata settings */}
       <Helmet>
-        <title>Resend Verification Key</title>
+        <title>verification your account if not verified</title>
       </Helmet>
       {children}
     </div>

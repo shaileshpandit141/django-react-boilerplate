@@ -57,7 +57,7 @@ export default function ResendVerificationKey(props) {
     return (
       <ResendVerificationKeyWrapper>
         <form onSubmit={handleFormSubmit} className='form'>
-          <h1 className="title">send verification request</h1>
+          <h1 className="title">send account verification request</h1>
           {/* Custom input component for username input */}
           <CustomInput
             type="text"
@@ -94,7 +94,7 @@ export default function ResendVerificationKey(props) {
     return (
       <ResendVerificationKeyWrapper>
         <form onSubmit={handleFormSubmit} className='form'>
-          <h1 className="title">send verification request</h1>
+          <h1 className="title">send account verification request</h1>
           {/* Custom input component for email input */}
           <CustomInput
             type="text"
@@ -131,7 +131,7 @@ export default function ResendVerificationKey(props) {
     return (
       <ResendVerificationKeyWrapper>
         <form onSubmit={handleFormSubmit} className='form'>
-          <h1 className="title">send verification request</h1>
+          <h1 className="title">send account verification request</h1>
           {/* Custom input component for email input */}
           <CustomInput
             type="text"
@@ -187,10 +187,39 @@ export default function ResendVerificationKey(props) {
         </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">verification request is successful</h1>
+          <h1 className="title">account verification request is successful</h1>
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
+        </div>
+        {/* succeeded Response message. */}
+        <div className='buttons'>
+          <Link
+            to="/signin"
+            className="link"
+          >
+            <span className='icon'>
+              <LazyMaterialIcon iconName={icons.signin} />
+            </span>
+            <span className="label">Sign in</span>
+          </Link>
+        </div>
+      </ResendVerificationKeyWrapper>
+    )
+  }
+  
+  // Handle succeeded status and if response data state is empty.
+  if (status === 'succeeded') {
+    return (
+      <ResendVerificationKeyWrapper>
+        {/* succeeded images. */}
+        {/* <div className='succeeded-img'>
+          <img src={imgURL} alt='email-send-svg' />
+        </div> */}
+        {/* succeeded information. */}
+        <div className='succeeded-info'>
+          <h1 className="title">account verification request is successful</h1>
+          <p className='message'>account verification e-mail has been send.</p>
         </div>
         {/* succeeded Response message. */}
         <div className='buttons'>
