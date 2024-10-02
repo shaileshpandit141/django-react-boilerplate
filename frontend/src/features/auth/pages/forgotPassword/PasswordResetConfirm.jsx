@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import "./ForgotPassword.scss"
 import { useParams, Link } from 'react-router-dom'
 import PasswordResetConfirmWrapper from './PasswordResetConfirmWrapper'
 import CustomInput from '../../components/customInput/CustomInput'

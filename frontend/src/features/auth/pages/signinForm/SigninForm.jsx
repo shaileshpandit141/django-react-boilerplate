@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import './SigninForm.scss'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
+import SigninFormWrapper from './SigninFormWrapper'
+import CustomInput from '../../components/customInput/CustomInput'
+import Loader from 'components/common/loader/Loader'
 import { useDispatch } from 'react-redux'
-import { Helmet } from 'react-helmet-async'
 import { useSigninSelectors } from '../../hooks/useSigninSelectors'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinSliceThunk } from '../../thunks/signinSliceThunk'
-import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
-import CustomInput from '../../components/customInput/CustomInput'
-import Loader from 'components/common/loader/Loader'
 
 export default function SigninForm() {
   const dispatch = useDispatch()
@@ -17,14 +16,14 @@ export default function SigninForm() {
   const { isAuthenticated, status, error } = useSigninSelectors()
 
   // Define a initial form data for login.
-  const initialFormData = {
+  const initialFormData = useMemo(() => ({
     username: '',
     password: '',
-  }
+  }), [])
 
   // Define a initial form data state.
   const [formData, setFormData] = useState(initialFormData)
-  const [submitButtonClickCount, setSubmitButtonClickCount] = useState(3)
+  const [retryCount, setRetryCount] = useState(1)
 
   // Handle form data changes.
   function handleFormDataChange(event) {
@@ -37,14 +36,18 @@ export default function SigninForm() {
     })
   }
 
-  // Handle the form submation.
-  const handleFormSubmit = (event) => {
+  // Handle submission of form.
+  const handleFormSubmit = useCallback((event) => {
     event.preventDefault()
-    if (submitButtonClickCount > 0) {
-      dispatch(signinSliceThunk(formData))
-      setSubmitButtonClickCount(prev => prev - 1)
-    }
-  }
+    dispatch(signinSliceThunk(formData))
+  }, [dispatch, formData])
+
+  // Retry button click handler.
+  const handleRetryButtonClick = useCallback((event) => {
+    event.preventDefault()
+    dispatch(resetSigninState())
+    setRetryCount(prev => prev - 1)
+  }, [dispatch])
 
   useEffect(() => {
     dispatch(resetSigninState())
@@ -55,17 +58,13 @@ export default function SigninForm() {
     return <Navigate to='/home' />
   }
 
-  return (
-    <>
-      {/* Metadata settings */}
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
-
-      {/* Component jsx */}
-      <form onSubmit={handleFormSubmit} className='inner-grid-2-2 signin-form'>
-        <div className='inputs-container'>
-          <h1 className='title'>sign in</h1>
+  // Handle the idle status.
+  if (status === 'idle') {
+    return (
+      <SigninFormWrapper>
+        <form onSubmit={handleFormSubmit} className='form'>
+          <h1 className="title">sign in</h1>
+          {/* Custom input component for email input */}
           <CustomInput
             type='text'
             label='username'
@@ -73,7 +72,7 @@ export default function SigninForm() {
             onChange={handleFormDataChange}
             value={formData.username}
           />
-
+          {/* Custom input component for password input */}
           <CustomInput
             type='password'
             label='password'
@@ -81,51 +80,181 @@ export default function SigninForm() {
             onChange={handleFormDataChange}
             value={formData.password}
           />
-          {
-            error?.detail && (
-              <div className="account-verify-cntainer">
-                <h5>{error.detail}</h5>
-                {
-                  error.detail === "Account is not verified" && (
-                    <Link to="/resend-verification-key">verify it</Link>
-                  )
-                }
-
-              </div>
-            )
-          }
-
-          <Link to="/forgot-password" className='forgot-password'>forgot password</Link>
-
-          {
-            status === 'loading' && (
-              <button className='button' disabled>
-                <span className="label">
-                  <Loader />
-                </span>
-              </button>
-            )
-          }
-
-          {
-            status !== 'loading' && (
-              <button
-                type="submit"
-                className='button'
-                disabled={submitButtonClickCount <= 0}
-              >
-                <span className="icon">
-                  <LazyMaterialIcon iconName={icons.signin} />
-                </span>
-                <span className="label">sign in</span>
-              </button>
-            )
-          }
+          {/* Sign in Button. */}
+          <div className='buttons'>
+            <button
+              type="submit"
+              className='button'
+            >
+              <span className="icon">
+                <LazyMaterialIcon iconName={icons.signin} />
+              </span>
+              <span className="label">sign in</span>
+            </button>
+          </div>
           <p className='signup-text'>
             You don't have an account?, <Link to="/signup">create an account now</Link>
           </p>
+        </form>
+      </SigninFormWrapper>
+    )
+  }
+
+  // Handle the loading status.
+  if (status === 'loading') {
+    return (
+      <SigninFormWrapper>
+        <form onSubmit={handleFormSubmit} className='form'>
+          <h1 className="title">sign in</h1>
+          {/* Custom input component for email input */}
+          <CustomInput
+            type='text'
+            label='username'
+            name='username'
+            onChange={handleFormDataChange}
+            value={formData.username}
+            disabled
+          />
+          {/* Custom input component for password input */}
+          <CustomInput
+            type='password'
+            label='password'
+            name='password'
+            onChange={handleFormDataChange}
+            value={formData.password}
+            disabled
+          />
+
+          {/* Sign in Button. */}
+          <div className='buttons'>
+            <button className="button" disabled>
+              <span className="label">
+                <Loader />
+              </span>
+            </button>
+          </div>
+          <p className='signup-text'>
+            You don't have an account?, <Link to="/signup">create an account now</Link>
+          </p>
+        </form>
+      </SigninFormWrapper>
+    )
+  }
+
+  // Handle the failed status.
+  if (status === 'failed') {
+    return (
+      <SigninFormWrapper>
+        <form onSubmit={handleFormSubmit} className='form'>
+          <h1 className="title">sign in</h1>
+          {/* Custom input component for email input */}
+          <CustomInput
+            type='text'
+            label='username'
+            name='username'
+            onChange={handleFormDataChange}
+            value={formData.username}
+            disabled
+          />
+          {/* Error message for Missing Required Field username. */}
+          {
+            error?.username && (
+              error.username.map((detail, index) => (
+                <p className='error-text' key={index}>{detail}</p>
+              ))
+            )
+          }
+          {/* Custom input component for password input. */}
+          <CustomInput
+            type='password'
+            label='password'
+            name='password'
+            onChange={handleFormDataChange}
+            value={formData.password}
+            disabled
+          />
+          {/* Error message for Missing Required Field password. */}
+          {
+            error?.password && (
+              error.password.map((detail, index) => (
+                <p className='error-text' key={index}>{detail}</p>
+              ))
+            )
+          }
+          {/* Error message for Invalid Credentials (wrong username or password). */}
+          {
+            error?.non_field_errors && (
+              error.non_field_errors.map((detail, index) => (
+                <p className='error-text' key={index}>{detail}</p>
+              ))
+            )
+          }
+          {/* Error message for user account is active or not. */}
+          {
+            error?.account_status && (
+              error.account_status.map((detail, index) => (
+                <p className='error-text' key={index}>{detail}</p>
+              ))
+            )
+          }
+          {/* Error message for user is not verified. */}
+          {
+            error?.verification_error && (
+              <div className="account-verify-cntainer">
+                <div className='error-text-container'>
+                  {
+                    error.verification_error.map((detail, index) => (
+                      <p className='error-text' key={index}>{detail}</p>
+                    ))
+                  }
+                </div>
+                <Link
+                  to="/resend-verification-key"
+                  className='link'
+                >
+                  <span className='table'>verify it</span>
+                </Link>
+              </div>
+            )
+          }
+          {/* Sign in Button. */}
+          <div className='buttons'>
+            <button
+              className="button"
+              type='button'
+              onClick={handleRetryButtonClick}
+              disabled={retryCount <= 0}
+            >
+              <span className="icon">
+                <LazyMaterialIcon iconName={icons.reTry} />
+              </span>
+              <span className='label'>retry</span>
+            </button>
+          </div>
+          <p className='signup-text'>
+            You don't have an account?, <Link to="/signup">create an account now</Link>
+          </p>
+        </form>
+      </SigninFormWrapper>
+    )
+  }
+
+  // Handle succeeded status.
+  if (status === 'succeeded') {
+    return (
+      <SigninFormWrapper>
+        {/* succeeded images. */}
+        {/* <div className='succeeded-img'>
+        </div> */}
+        {/* succeeded information. */}
+        <div className='succeeded-info'>
+          <h1 className="title">sign in is successful.</h1>
+          <p className='message'>if you want to display response data, handle here.</p>
         </div>
-      </form>
-    </>
-  )
+        {/* buttons */}
+        {/* <div className='buttons'>
+        </div> */}
+      </SigninFormWrapper>
+    )
+  }
 }

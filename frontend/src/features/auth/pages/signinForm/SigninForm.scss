@@ -1,20 +1,20 @@
 @import '../../../../sass';
 
-.signin-form {
+.signin-from-page {
     @include inner-grid-2-2;
     @include flex-centre(column);
     min-height: $screen-height;
 
-    .inputs-container {
+    .form {
         @include flex-centre(column);
-        padding: 16px;
-        border-radius: 8px;
+        padding: em(16);
+        border-radius: em(16);
         background-color: $background-light;
         z-index: 1;
         width: 100%;
         min-width: 0;
-        max-width: 300px;
-        row-gap: 16px;
+        max-width: em(400);
+        row-gap: em(16);
 
         .title {
             text-align: center;
@@ -25,39 +25,20 @@
                 text-transform: capitalize
             }
         }
-
+        
         .account-verify-cntainer {
-            @include flex-centre;
-            column-gap: 8px;
-            justify-content: space-between;
             width: 100%;
-
-            h5 {
-                color: $error-text-primary;
+            display: flex;
+            column-gap: em(8);
+            align-items: center;
+            
+            .error-text-container {
+                flex: 2;
             }
-
-            a {
-                color: $text-accent;
-                text-wrap: nowrap;
+            .link {
+                flex: 1;
             }
-        }
-
-        .forgot-password {
-            font-size: em(14);
-            letter-spacing: 0.05em;
-            text-decoration: none;
-            text-align: end;
-            width: 100%;
-            opacity: $opacity;
-            transition: opacity 0.3s ease-in-out;
-
-            &::first-letter {
-                text-transform: capitalize;
-            }
-
-            &:hover {
-                opacity: $opacity;
-            }
+            
         }
 
         .signup-text {
@@ -81,5 +62,13 @@
                 }
             }
         }
+    }
+
+    .buttons {
+        width: 100%;
+        max-width: em(400);
+        display: flex;
+        align-items: center;
+        column-gap: em(8);
     }
 }

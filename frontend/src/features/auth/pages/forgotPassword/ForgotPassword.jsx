@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react'
-import "./ForgotPassword.scss"
 import { Link } from "react-router-dom"
 import ForgotPasswordWrapper from './ForgotPasswordWrapper'
 import CustomInput from '../../components/customInput/CustomInput'
@@ -35,7 +34,7 @@ export default function ForgotPassword() {
     })
   }
 
-  // Handle submission handler.
+  // Handle submission of form.
   const handleFormSubmit = useCallback((event) => {
     event.preventDefault()
     dispatch(forgotPasswordThunk(formData))
@@ -193,7 +192,7 @@ export default function ForgotPassword() {
             data?.detail && <p className='message'>{data.detail}</p>
           }
         </div>
-        {/* succeeded Response message. */}
+        {/* sign in page link. */}
         <div className='buttons'>
           <Link
             to="/signin"
@@ -222,7 +221,7 @@ export default function ForgotPassword() {
           <h1 className="title">Forgot Password request is successful</h1>
           <p className='message'>Forgot password e-mail has been send.</p>
         </div>
-        {/* succeeded Response message. */}
+        {/* sign in page link. */}
         <div className='buttons'>
           <Link
             to="/signin"
