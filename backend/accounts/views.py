@@ -26,14 +26,16 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         try:
             serializer.is_valid(raise_exception=True)
         except Exception as e:
-            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"non_field_errors": [str(e)]}, status=status.HTTP_400_BAD_REQUEST
+            )
 
         user = serializer.user
 
         # Check if the user is active
         if not user.is_active:
             return Response(
-                {"detail": _("Account is not verified")},
+                {"account_status": [_("This account is not active.")]},
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
@@ -41,7 +43,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         if not user.is_superuser:
             if not user.emailaddress_set.filter(verified=True).exists():
                 return Response(
-                    {"detail": _("Account is not verified")},
+                    {"verification_error": [_("This account is not verified.")]},
                     status=status.HTTP_401_UNAUTHORIZED,
                 )
 
@@ -100,7 +102,7 @@ class CustomPasswordResetView(PasswordResetView):
     def post(self, request, *args, **kwargs):
         email = request.data.get("email")
         if not email:
-            return Response({"error": "Email is required."}, status=400)
+            return Response({"error": ["Email is required."]}, status=400)
 
         # Check if the email exists in the User model
         if not User.objects.filter(email=email).exists():
