@@ -1,27 +1,74 @@
-@import "../../../../sass";
+@import '../../../../sass';
 
-.inner-grid {
+.verify-account-from-page {
     @include inner-grid-2-2;
     @include flex-centre(column);
-    padding-block: em(64);
-    row-gap: rem(16);
     min-height: $screen-height;
 
-    .title {
-        text-align: center;
-        margin-block: em(8);
-        text-transform: lowercase;
+    .form {
+        @include flex-centre(column);
+        padding: em(16);
+        border-radius: em(16);
+        background-color: $background-light;
+        z-index: 1;
+        width: 100%;
+        min-width: 0;
+        max-width: em(400);
+        row-gap: em(16);
 
-        &::first-letter {
-            text-transform: capitalize
+        .title {
+            text-align: center;
+            margin-block: em(8);
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: capitalize
+            }
+        }
+        
+        .account-verify-cntainer {
+            width: 100%;
+            display: flex;
+            column-gap: em(8);
+            align-items: center;
+            
+            .error-text-container {
+                flex: 2;
+            }
+            .link {
+                flex: 1;
+            }
+            
+        }
+
+        .signin-text {
+            letter-spacing: 0.05em;
+            text-align: center;
+            opacity: $opacity;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+
+            a {
+                text-wrap: nowrap;
+                white-space: nowrap;
+                text-decoration: none;
+                opacity: $opacity;
+                transition: opacity 0.3s ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
 
-    p {
-        text-align: center
-    }
-
-    .button {
-        max-width: fit-content;
+    .buttons {
+        width: 100%;
+        max-width: em(400);
+        display: flex;
+        align-items: center;
+        column-gap: em(8);
     }
 }

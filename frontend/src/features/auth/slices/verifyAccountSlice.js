@@ -3,8 +3,8 @@ import { verifyAccountThunk } from '../thunks/verifyAccountThunk'
 
 // Initial State
 const initialState = {
-  data: null,
   status: 'idle',
+  data: null,
   error: null,
 }
 
@@ -12,7 +12,13 @@ const initialState = {
 const verifyAccountSlice = createSlice({
   name: 'verifyAccount',
   initialState,
-  reducers: {},
+  reducers: {
+    resetVerifyAccountState: (state) => {
+      state.status = 'idle'
+      state.data = null
+      state.error = null
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(verifyAccountThunk.pending, (state) => {
@@ -29,4 +35,5 @@ const verifyAccountSlice = createSlice({
   },
 })
 
+export const { resetVerifyAccountState } = verifyAccountSlice.actions
 export default verifyAccountSlice.reducer
