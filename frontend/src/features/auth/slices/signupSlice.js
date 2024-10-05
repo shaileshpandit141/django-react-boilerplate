@@ -12,7 +12,13 @@ const initialState = {
 const signupSlice = createSlice({
   name: 'signup',
   initialState,
-  reducers: {},
+  reducers: {
+    resetSignupState: (state) => {
+      state.status = 'idle'
+      state.data = null
+      state.error = null
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signupThunk.pending, (state) => {
@@ -29,4 +35,5 @@ const signupSlice = createSlice({
   },
 })
 
+export const { resetSignupState } = signupSlice.actions
 export default signupSlice.reducer

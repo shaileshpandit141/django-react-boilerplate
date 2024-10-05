@@ -1,20 +1,20 @@
 @import '../../../../sass';
 
-.signup-form {
+.signup-from-page {
     @include inner-grid-2-2;
     @include flex-centre(column);
     min-height: $screen-height;
 
-    .inputs-container {
+    .form {
         @include flex-centre(column);
-        padding: 16px;
-        border-radius: 8px;
+        padding: em(16);
+        border-radius: em(16);
         background-color: $background-light;
         z-index: 1;
         width: 100%;
-        min-width: 0px;
-        max-width: 300px;
-        row-gap: 16px;
+        min-width: 0;
+        max-width: em(400);
+        row-gap: em(16);
 
         .title {
             text-align: center;
@@ -25,12 +25,23 @@
                 text-transform: capitalize
             }
         }
-
-        .error-detail-text {
-            color: $error-text-primary;
+        
+        .account-verify-cntainer {
+            width: 100%;
+            display: flex;
+            column-gap: em(8);
+            align-items: center;
+            
+            .error-text-container {
+                flex: 2;
+            }
+            .link {
+                flex: 1;
+            }
+            
         }
 
-        .login-text {
+        .signin-text {
             letter-spacing: 0.05em;
             text-align: center;
             opacity: $opacity;
@@ -51,6 +62,13 @@
                 }
             }
         }
+    }
 
+    .buttons {
+        width: 100%;
+        max-width: em(400);
+        display: flex;
+        align-items: center;
+        column-gap: em(8);
     }
 }

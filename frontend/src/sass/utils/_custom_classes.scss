@@ -191,7 +191,9 @@
 }
 
 .error-text {
-    text-align: stat;
+    width: 100%;
+    padding: 0 em(20);
+    text-align: start;
     color: $error-text-primary;
     text-transform: lowercase;
 
