@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import './NotFound.scss'
 import notFountImg from 'assets/icons/not_found.svg'
+import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 
 export default function NotFound() {
   return (
@@ -28,6 +29,9 @@ export default function NotFound() {
             It seems like the page you’re looking for has drifted off course. No worries, here are some links to get you back on track or explore new horizons.
           </p>
           <NavLink to='..' className="link">
+            <span className='icon'>
+              <LazyMaterialIcon iconName={icons.arrowBack} />
+            </span>
             <span className='label'>
               Return back to
             </span>
