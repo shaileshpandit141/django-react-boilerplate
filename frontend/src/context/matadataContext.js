@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 
 const initialState = {
   domain:"djangoreact.com",
-  title:"Django React"
+  title:"React Django UI Boilerplate"
 }
 
 const matadtaContext = createContext(initialState)
