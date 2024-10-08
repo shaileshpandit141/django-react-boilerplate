@@ -80,6 +80,7 @@ export default function SigninForm() {
             onChange={handleFormDataChange}
             value={formData.password}
           />
+          {/* Forgot password page link */}
           <div className='forgot-container'>
             <Link to='/forgot-password' className='forgot-link'>
               <span className='label'>forgot password</span>
@@ -129,7 +130,12 @@ export default function SigninForm() {
             value={formData.password}
             disabled
           />
-
+          {/* Forgot password page link */}
+          <div className='forgot-container'>
+            <Link to='/forgot-password' className='forgot-link'>
+              <span className='label'>forgot password</span>
+            </Link>
+          </div>
           {/* Sign in Button. */}
           <div className='buttons'>
             <button className="button" disabled>
@@ -222,7 +228,7 @@ export default function SigninForm() {
               </div>
             )
           }
-          {/* Sign in Button. */}
+          {/* retry Button. */}
           <div className='buttons'>
             <button
               className="button"
