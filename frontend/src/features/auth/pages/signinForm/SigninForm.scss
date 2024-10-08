@@ -26,6 +26,18 @@
             }
         }
         
+        .forgot-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-items: center;
+            
+            .forgot-link {
+                max-width: fit-content;
+            }
+        }
+        
         .account-verify-cntainer {
             width: 100%;
             display: flex;

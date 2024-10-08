@@ -111,7 +111,7 @@ export default function VerifyAccount() {
         </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">account activation request is successful</h1>
+          <h1 className="title">The request was successful</h1>
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
@@ -141,7 +141,7 @@ export default function VerifyAccount() {
           </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">account activation request is successful</h1>
+          <h1 className="title">The request was successful</h1>
           <p className='message'>your account is activated</p>
         </div>
         {/* sign in page link. */}

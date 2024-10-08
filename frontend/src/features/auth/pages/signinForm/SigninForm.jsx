@@ -80,6 +80,11 @@ export default function SigninForm() {
             onChange={handleFormDataChange}
             value={formData.password}
           />
+          <div className='forgot-container'>
+            <Link to='/forgot-password' className='forgot-link'>
+              <span className='label'>forgot password</span>
+            </Link>
+          </div>
           {/* Sign in Button. */}
           <div className='buttons'>
             <button
@@ -248,7 +253,7 @@ export default function SigninForm() {
         </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">sign in is successful.</h1>
+          <h1 className="title">The request was successful</h1>
           <p className='message'>if you want to display response data, handle here.</p>
         </div>
         {/* buttons */}

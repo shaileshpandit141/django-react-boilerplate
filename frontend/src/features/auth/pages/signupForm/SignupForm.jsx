@@ -286,7 +286,7 @@ export default function SignupForm() {
         </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">registation request is successful</h1>
+          <h1 className="title">The request was successful</h1>
           {
             data?.detail && <p className='message'>{data.detail}</p>
           }
@@ -317,7 +317,7 @@ export default function SignupForm() {
         </div> */}
         {/* succeeded information. */}
         <div className='succeeded-info'>
-          <h1 className="title">registation request is successful</h1>
+          <h1 className="title">The request was successful</h1>
           <p className='message'>verification e-mail has been send.</p>
         </div>
         {/* sign in page link. */}
