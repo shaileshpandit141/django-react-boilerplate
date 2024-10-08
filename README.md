@@ -254,7 +254,7 @@ Expected response:
 {
   "detail": "ok"
 }
-  ```
+```
 
 **Resend Verification Email:**
 ```
@@ -266,7 +266,7 @@ Expected response:
 {
   "detail": "Verification e-mail sent"
 }
-  ```
+```
 
 **Refresh JWT tokens:**
 ```
@@ -282,6 +282,7 @@ Expected response:
 {
   "access": "new_jwt_access_token"
 }
+```
 
 **Access the current user:**
 ```
