@@ -24,8 +24,8 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         }
 
         # Render the plain text and HTML email templates
-        email_template_txt = "account/email/email_confirmation_message.txt"
-        email_template_html = "account/email/email_confirmation_message.html"
+        email_template_txt = "user_account/email/email_confirmation_message.txt"
+        email_template_html = "user_account/email/email_confirmation_message.html"
 
         subject = "Confirm your email address"
         message_txt = render_to_string(email_template_txt, context)
@@ -56,8 +56,8 @@ class CustomAccountAdapter(DefaultAccountAdapter):
             context["password_reset_url"] = password_reset_url
 
         # Prepare context for the email template
-        email_template_txt = f"{template_prefix}_message.txt"
-        email_template_html = f"{template_prefix}_message.html"
+        email_template_txt = "user_account/email/password_reset_key_message.txt"
+        email_template_html = "user_account/email/password_reset_key_message.html"
 
         # Render the plain text and HTML email templates
         message_txt = render_to_string(email_template_txt, context)
