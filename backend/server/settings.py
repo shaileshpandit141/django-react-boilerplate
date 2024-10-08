@@ -51,7 +51,7 @@ INSTALLED_APPS += [
 
 # Your Apps Configuration.
 INSTALLED_APPS += [
-    "accounts.apps.AccountsConfig",
+    "user_account.apps.UserAccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -60,8 +60,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",  # If Globely Disable CSRF Protection to comment it
-    "accounts.middleware.DisableCSRFMiddleware",  # Disable CSRF Protection for API Requests
-    "accounts.middleware.TimezoneMiddleware",
+    "user_account.middleware.DisableCSRFMiddleware",  # Disable CSRF Protection for API Requests
+    "user_account.middleware.TimezoneMiddleware", # Add Custom time zone middleware
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -250,10 +250,10 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 # Use custom email templates
-ACCOUNT_EMAIL_CONFIRMATION_TEMPLATE = "account/email/email_confirmation_message.txt"
+ACCOUNT_EMAIL_CONFIRMATION_TEMPLATE = "user_account/email/email_confirmation_message.txt"
 
 # Use custom password reset templates
-PASSWORD_RESET_TEMPLATE = "account/email/password_reset_key_message.txt"
+PASSWORD_RESET_TEMPLATE = "user_account/email/password_reset_key_message.txt"
 
 # Custom Account Adapters Configuration
-ACCOUNT_ADAPTER = "accounts.custom_adapters.CustomAccountAdapter"
+ACCOUNT_ADAPTER = "user_account.custom_adapters.CustomAccountAdapter"
