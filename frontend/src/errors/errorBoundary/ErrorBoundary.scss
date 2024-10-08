@@ -7,12 +7,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: gray;
 
     .inner-error-boundary {
+        height: 100%;
         width: 100%;
-        max-width: 450px;
         padding: em(8);
-        border-radius: em(8);
         box-shadow: $box-shadow;
         background-color: $card-background;
         overflow: hidden;
@@ -33,7 +33,7 @@
         }
 
         button {
-            max-width: em(250);
+            max-width: fit-content;
             background-color: transparent;
             box-shadow: $box-shadow;
             margin-top: em(8);
