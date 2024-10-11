@@ -48,27 +48,6 @@
         max-width: 450px;
     }
 
-    .admin-link {
-        text-decoration: none;
-        background-color: #5a7033;
-        color: #fff;
-        font-size: 16px;
-        letter-spacing: 0.04em;
-        font-weight: 600;
-        text-transform: capitalize;
-        height: 40px;
-        width: fit-content;
-        padding-inline: 16px;
-        border-radius: 999rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        cursor: default;
-        margin-block: 16px;
-        transition: background-color 0.3s ease-in-out;
-    }
-
     .buttons-conatiner {
         @include flex-centre;
         column-gap: 8px;
