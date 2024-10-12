@@ -22,7 +22,7 @@ export default function Home() {
       <br />
       {status === 'loading' && <h3>Loading...</h3>}
       {status === 'succeeded' && <h3>{data?.username} {data?.email}</h3>}
-      {error && <h3>{error}</h3>}
+      {error && <h3>{JSON.stringify(error)}</h3>}
       <br />
       <p>
         This boilerplate includes all the necessary setup for building robust UI's
