@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { useSignupSelectors } from '../../hooks/useSignupSelectors'
 import { signupThunk } from '../../thunks/signupThunk'
 import { resetSignupState } from 'features/auth/slices/signupSlice'
+import { toast } from 'react-toastify'
 
 export default function SignupForm() {
   const dispatch = useDispatch()
@@ -55,6 +56,30 @@ export default function SignupForm() {
   useEffect(() => {
     dispatch(resetSignupState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.username) {
+        toast.error('Invalid username')
+      }
+      if (error?.email) {
+        toast.error('Invalid email')
+      }
+      if (error?.password1) {
+        toast.error('Invalid password')
+      }
+      if (error?.password2) {
+        toast.error('Invalid confirm password')
+      }
+      if (error?.non_field_errors) {
+        toast.error('Invalid credentials. Please try again')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('The signup request was successful!')
+    }
+  }, [status, error])
 
   // Handle the idle state.
   if (status === 'idle') {

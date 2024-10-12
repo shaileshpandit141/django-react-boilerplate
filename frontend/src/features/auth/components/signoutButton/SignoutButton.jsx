@@ -3,11 +3,13 @@ import './SignoutButton.scss'
 import { useDispatch } from 'react-redux'
 import { signout } from '../../slices/signinSlice'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
+import { toast } from 'react-toastify'
 
 export default function SignoutButton({ onClick }) {
   const dispatch = useDispatch()
 
-  const handleLogout = () => {
+  const handleSignout = () => {
+    toast.success('The sign out request was successful!')
     dispatch(signout())
   }
 
@@ -15,7 +17,7 @@ export default function SignoutButton({ onClick }) {
     <button
       className='button'
       onClick={() => {
-        handleLogout()
+        handleSignout()
         onClick()
       }}
     >

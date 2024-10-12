@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
 import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
+import { toast } from 'react-toastify'
 
 export default function ForgotPassword() {
   const dispatch = useDispatch()
@@ -51,6 +52,18 @@ export default function ForgotPassword() {
   useEffect(() => {
     dispatch(resetForgotPasswordState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.email) {
+        toast.error('Invalid email. Please try again')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('Password change request successful! Email sent')
+    }
+  }, [status, error])
 
   // Handle the idle status.
   if (status === 'idle') {
@@ -219,7 +232,7 @@ export default function ForgotPassword() {
         {/* succeeded information. */}
         <div className='succeeded-info'>
           <h1 className="title">The request was successful</h1>
-          <p className='message'>Forgot password e-mail has been send.</p>
+          <p className='message'>Password change e-mail has been send.</p>
         </div>
         {/* sign in page link. */}
         <div className='buttons'>

@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { useVerifyAccountSelector } from '../../hooks/useVerifyAccountSelector'
 import { verifyAccountThunk } from '../../thunks/verifyAccountThunk'
 import { resetVerifyAccountState } from '../../slices/verifyAccountSlice'
-
+import { toast } from 'react-toastify'
 
 export default function VerifyAccount() {
   const dispatch = useDispatch()
@@ -24,6 +24,18 @@ export default function VerifyAccount() {
   useEffect(() => {
     dispatch(resetVerifyAccountState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.key) {
+        toast.error('The link has expired')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('The activation request was successful!')
+    }
+  }, [status, error])
 
   // Handle the idle status.
   if (status === 'idle') {

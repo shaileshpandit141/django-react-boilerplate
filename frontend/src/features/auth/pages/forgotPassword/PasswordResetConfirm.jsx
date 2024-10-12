@@ -8,6 +8,7 @@ import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import { useDispatch } from 'react-redux'
 import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
+import { toast } from 'react-toastify'
 
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()
@@ -45,15 +46,30 @@ export default function PasswordResetConfirm() {
 
   // Retry button click handler.
   const handleRetryButtonClick = useCallback((event) => {
-    event.preventDefault();
-    dispatch(resetForgotPasswordState());
-    setRetryCount(prev => prev - 1);
-  }, [dispatch]);
+    event.preventDefault()
+    dispatch(resetForgotPasswordState())
+    setRetryCount(prev => prev - 1)
+  }, [dispatch])
 
   // Rest the State if user is visit page without any action.
   useEffect(() => {
     dispatch(resetForgotPasswordState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.token || error?.uid) {
+        toast.error('The link has expired')
+      }
+      if (error?.new_password2) {
+        toast.error('Invalid confirm password')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('Password change successful! Email sent')
+    }
+  }, [status, error])
 
   // Handle the idle status.
   if (status === 'idle') {

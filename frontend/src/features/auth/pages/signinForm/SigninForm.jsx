@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { useSigninSelectors } from '../../hooks/useSigninSelectors'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinSliceThunk } from '../../thunks/signinSliceThunk'
+import { toast } from 'react-toastify'
 
 export default function SigninForm() {
   const dispatch = useDispatch()
@@ -52,6 +53,24 @@ export default function SigninForm() {
   useEffect(() => {
     dispatch(resetSigninState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.non_field_errors) {
+        toast.error('Invalid credentials. Please try again')
+      }
+      if (error?.account_status) {
+        toast.error('This account is not active')
+      }
+      if (error?.verification_error) {
+        toast.warn('Account not verified. Please verify')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('Sign-in successful! Redirecting...')
+    }
+  }, [status, error])
 
   // Check if user is Authenticated then redirect to another Route.
   if (isAuthenticated) {

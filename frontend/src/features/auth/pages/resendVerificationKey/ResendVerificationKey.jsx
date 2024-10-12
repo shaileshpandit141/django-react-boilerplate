@@ -9,11 +9,12 @@ import { useDispatch } from 'react-redux'
 import { resetResendVerificationKeyState } from 'features/auth/slices/resendVerificationKeySlice'
 import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors'
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk'
+import { toast } from 'react-toastify'
 
 export default function ResendVerificationKey(props) {
   const dispatch = useDispatch()
   const { status, data, error } = useResendVerificationKeySelectors()
-  
+
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({
     username: '',
@@ -51,6 +52,18 @@ export default function ResendVerificationKey(props) {
   useEffect(() => {
     dispatch(resetResendVerificationKeyState())
   }, [dispatch])
+
+  // Trigger toast notifications based on the status or error
+  useEffect(() => {
+    if (status === 'failed') {
+      if (error?.username) {
+        toast.error('Invalid username')
+      }
+    }
+    if (status === 'succeeded') {
+      toast.success('Account verification is successful!')
+    }
+  }, [status, error])
 
   // Handle the idle status.
   if (status === 'idle') {
@@ -207,7 +220,7 @@ export default function ResendVerificationKey(props) {
       </ResendVerificationKeyWrapper>
     )
   }
-  
+
   // Handle succeeded status and if response data state is empty.
   if (status === 'succeeded') {
     return (
