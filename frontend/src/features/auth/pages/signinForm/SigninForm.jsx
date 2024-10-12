@@ -68,7 +68,7 @@ export default function SigninForm() {
       }
     }
     if (status === 'succeeded') {
-      toast.success('Sign-in successful! Redirecting...')
+      toast.success('Sign-in successful!')
     }
   }, [status, error])
 
