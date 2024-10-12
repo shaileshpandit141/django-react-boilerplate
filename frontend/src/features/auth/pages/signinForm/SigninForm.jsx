@@ -271,20 +271,6 @@ export default function SigninForm() {
 
   // Handle succeeded status.
   if (status === 'succeeded') {
-    return (
-      <SigninFormWrapper>
-        {/* succeeded images. */}
-        {/* <div className='succeeded-img'>
-        </div> */}
-        {/* succeeded information. */}
-        <div className='succeeded-info'>
-          <h1 className="title">The request was successful</h1>
-          <p className='message'>if you want to display response data, handle here.</p>
-        </div>
-        {/* buttons */}
-        {/* <div className='buttons'>
-        </div> */}
-      </SigninFormWrapper>
-    )
+    return <Navigate to='/home' />
   }
 }
