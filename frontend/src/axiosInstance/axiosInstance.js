@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { store } from '../config/store'
-import { refreshAccessTokenThunk } from '../features/auth'
+import { refreshAccessTokenThunk } from 'features/auth'
 
 const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
 

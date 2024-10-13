@@ -1,20 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { isTokenExpired } from 'utils/isTokenExpired'
-import { signout } from 'features/auth'
 import { useSigninSelectors } from 'features/auth'
 
 export default function PrivateRoute() {
-  const dispatch = useDispatch()
-
-  const { refreshToken, isAuthenticated } = useSigninSelectors()
-
-  useEffect(() => {
-    if (isTokenExpired(refreshToken)) {
-      dispatch(signout())
-    }
-  }, [dispatch, refreshToken])
+  const { isAuthenticated } = useSigninSelectors()
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />
 }
