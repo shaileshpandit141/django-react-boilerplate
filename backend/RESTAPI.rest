@@ -93,7 +93,7 @@ Content-Type: application/json
 
 
 ### Refresh JWT tokens
-POST http://localhost:8000/api/token/refresh/
+POST http://localhost:8000/api/auth/token/refresh/
 Content-Type: application/json
 
 {

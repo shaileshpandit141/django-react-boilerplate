@@ -128,4 +128,4 @@ class ProtectedView(APIView):
     throttle_classes = [UserRateThrottle, AnonRateThrottle]
 
     def get(self, request):
-        return Response({"message": "This is a protected view"})
+        return Response({"message": "This is a protected route."})
