@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 }
 
-// signup Slice
+// forgotPassword Slice
 const forgotPasswordSlice = createSlice({
   name: 'forgotPasswordSlice',
   initialState,

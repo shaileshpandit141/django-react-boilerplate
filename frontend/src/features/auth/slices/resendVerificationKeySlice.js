@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 }
 
-// signup Slice
+// resendVerificationKey Slice
 const resendVerificationKeySlice = createSlice({
   name: 'resendVerificationKey',
   initialState,

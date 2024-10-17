@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { jwtDecode } from 'jwt-decode';
 import { signinSliceThunk, refreshAccessTokenThunk } from '../thunks/signinSliceThunk'
 
 // Initial State
@@ -8,11 +7,10 @@ const initialState = {
   accessToken: localStorage.getItem('accessToken') || null,
   refreshToken: localStorage.getItem('refreshToken') || null,
   isAuthenticated: !!localStorage.getItem('refreshToken'),
-  pk: localStorage.getItem('accessToken') ? jwtDecode(localStorage.getItem('accessToken'))?.user_id : null,
   error: null,
 }
 
-// auth Slice
+// signin Slice
 const signinSlice = createSlice({
   name: 'signin',
   initialState,

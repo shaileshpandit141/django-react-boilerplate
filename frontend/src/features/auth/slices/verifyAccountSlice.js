@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 }
 
-// signup Slice
+// verifyAccount Slice
 const verifyAccountSlice = createSlice({
   name: 'verifyAccount',
   initialState,
