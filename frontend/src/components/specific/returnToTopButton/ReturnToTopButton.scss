@@ -9,7 +9,7 @@
     height: fit-content;
     width: fit-content;
     z-index: 2000;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
 
     &.hidden {
         transform: scale(0);

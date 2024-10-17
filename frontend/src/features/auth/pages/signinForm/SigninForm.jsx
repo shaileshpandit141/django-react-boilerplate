@@ -7,7 +7,7 @@ import Loader from 'components/common/loader/Loader'
 import { useDispatch } from 'react-redux'
 import { useSigninSelectors } from '../../hooks/useSigninSelectors'
 import { resetSigninState } from '../../slices/signinSlice'
-import { signinSliceThunk } from '../../thunks/signinSliceThunk'
+import { signinThunk } from '../../thunks/signinThunk'
 import { toast } from 'react-toastify'
 
 export default function SigninForm() {
@@ -40,7 +40,7 @@ export default function SigninForm() {
   // Handle submission of form.
   const handleFormSubmit = useCallback((event) => {
     event.preventDefault()
-    dispatch(signinSliceThunk(formData))
+    dispatch(signinThunk(formData))
   }, [dispatch, formData])
 
   // Retry button click handler.

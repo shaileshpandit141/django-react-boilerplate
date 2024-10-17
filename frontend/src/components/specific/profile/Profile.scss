@@ -16,7 +16,7 @@
     opacity: 0;
     visibility: hidden;
     transform: scale(0.95);
-    transition: visibility 300ms ease-in-out, transform 300ms ease-in-out;
+    transition: all 0.3s ease;
     margin-top: em(8);
 
     .inner-wrapper {

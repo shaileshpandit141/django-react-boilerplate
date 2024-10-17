@@ -22,7 +22,7 @@
         outline: none;
         border-radius: 999rem;
         z-index: -1;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease;
     }
 
     label {
@@ -39,7 +39,7 @@
         border-radius: 999rem;
         cursor: text;
         color: $text-primary;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease;
     }
 
     .input:focus~.label,

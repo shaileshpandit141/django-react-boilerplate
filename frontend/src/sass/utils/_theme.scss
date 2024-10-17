@@ -42,6 +42,9 @@
     --scrollbar-track: #E0E0E0;
     --link-color: #3392e6;
     --link-hover-color: #2c70be;
+
+    /* Add transition for smooth theme change */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Dark Mode */
@@ -88,4 +91,14 @@
     --scrollbar-track: #424242;
     --link-color: #90CAF9;
     --link-hover-color: #64B5F6;
+}
+
+/* Apply transition to elements */
+body,
+header,
+footer,
+input,
+button,
+.card {
+    transition: all 0.3s ease;
 }

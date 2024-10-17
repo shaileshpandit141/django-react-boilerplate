@@ -3,7 +3,7 @@ import signupReducer from './slices/signupSlice'
 import verifyAccountReducer from './slices/verifyAccountSlice'
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice'
 import forgotPasswordReducer from './slices/forgotPasswordSlice'
-import { refreshAccessTokenThunk } from './thunks/signinSliceThunk'
+import { refreshAccessTokenThunk } from './thunks/signinThunk'
 import { useSigninSelectors } from './hooks/useSigninSelectors'
 
 // Pages

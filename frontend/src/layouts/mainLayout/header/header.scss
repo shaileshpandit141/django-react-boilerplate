@@ -22,7 +22,6 @@
     user-select: none;
     z-index: 999;
     background-color: $header-background;
-    transition: transform 0.3s ease-in-out;
 
     .header-wrapper {
         @include inner-grid-2-2;

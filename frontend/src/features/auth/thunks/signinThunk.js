@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from '../api'
 
-export const signinSliceThunk = createAsyncThunk(
-  'auth/signinSliceThunk',
+export const signinThunk = createAsyncThunk(
+  'auth/signinThunk',
   async (credentials, thunkAPI) => {
     try {
       const response = await api.signinApi(credentials)
@@ -17,7 +17,7 @@ export const signinSliceThunk = createAsyncThunk(
 export const refreshAccessTokenThunk = createAsyncThunk(
   'auth/refreshAccessToken',
   async (credentials, thunkAPI) => {
-    const refreshToken = thunkAPI.getState().auth.refreshToken
+    const refreshToken = thunkAPI.getState().signin.refreshToken
     try {
       const response = await api.refreshAccessTokenApi({ refresh: refreshToken })
       return response.data

@@ -9,7 +9,6 @@
         @include flex-centre(column);
         padding: em(16);
         border-radius: em(16);
-        background-color: $background-light;
         z-index: 1;
         width: 100%;
         min-width: 0;
@@ -49,7 +48,7 @@
             white-space: nowrap;
             text-decoration: none;
             opacity: $opacity;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease;
 
             &:hover {
                 opacity: 1;

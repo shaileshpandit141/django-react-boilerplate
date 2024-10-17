@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { signinSliceThunk, refreshAccessTokenThunk } from '../thunks/signinSliceThunk'
+import { signinThunk, refreshAccessTokenThunk } from '../thunks/signinThunk'
 
 // Initial State
 const initialState = {
@@ -32,10 +32,10 @@ const signinSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(signinSliceThunk.pending, (state) => {
+      .addCase(signinThunk.pending, (state) => {
         state.status = 'loading'
       })
-      .addCase(signinSliceThunk.fulfilled, (state, action) => {
+      .addCase(signinThunk.fulfilled, (state, action) => {
         state.status = 'succeeded'
         const { access, refresh } = action.payload
         state.accessToken = access
@@ -44,7 +44,7 @@ const signinSlice = createSlice({
         localStorage.setItem('accessToken', access)
         localStorage.setItem('refreshToken', refresh)
       })
-      .addCase(signinSliceThunk.rejected, (state, action) => {
+      .addCase(signinThunk.rejected, (state, action) => {
         state.status = 'failed'
         state.error = action.payload
       })
