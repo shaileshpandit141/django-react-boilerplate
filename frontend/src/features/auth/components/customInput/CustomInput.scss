@@ -8,6 +8,7 @@
     border: $border;
     border-radius: 999rem;
     background-color: $card-background;
+    transition: all 0.3s ease;
 
     :is(input, label) {
         font-size: rem(14);
