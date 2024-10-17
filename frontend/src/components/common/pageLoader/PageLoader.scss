@@ -9,6 +9,7 @@
     left: 0;
     background-color: $background-light;
     color: $text-primary;
+    transition: all 0.3s ease;
 
     span {
         color: $text-primary;
