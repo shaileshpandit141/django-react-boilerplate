@@ -50,12 +50,16 @@
                 }
             }
 
-            .username,
-            .email {
-                text-transform: lowercase;
-
-                &::first-letter {
+            .info-label {
+                width: 100%;
+                
+                .username,
+                .email {
                     text-transform: lowercase;
+
+                    &::first-letter {
+                        text-transform: lowercase;
+                    }
                 }
             }
         }
