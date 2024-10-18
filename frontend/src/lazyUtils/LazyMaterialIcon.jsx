@@ -15,30 +15,32 @@ const iconsMap = {
   eyeOpen: lazy(() => import('@mui/icons-material/RemoveRedEyeOutlined')),
   circleAppIcon: lazy(() => import('@mui/icons-material/Brightness1Rounded')),
   reTry: lazy(() => import('@mui/icons-material/ReplayRounded')),
+  search: lazy(() => import('@mui/icons-material/SearchRounded')),
 }
 
 const icons = {
-  signin: "signin",
-  signout: "signout",
-  signup: "signup",
-  settings: "settings",
-  person: "person",
-  accountCircle: "accountCircle",
-  arrowBack: "arrowBack",
-  arrowUp: "arrowUp",
-  lightModeIcon: "lightModeIcon",
-  darkModeIcon: "darkModeIcon",
-  eyeClose: "eyeClose",
-  eyeOpen: "eyeOpen",
-  circleAppIcon: "circleAppIcon",
-  reTry: "reTry",
+  signin: 'signin',
+  signout: 'signout',
+  signup: 'signup',
+  settings: 'settings',
+  person: 'person',
+  accountCircle: 'accountCircle',
+  arrowBack: 'arrowBack',
+  arrowUp: 'arrowUp',
+  lightModeIcon: 'lightModeIcon',
+  darkModeIcon: 'darkModeIcon',
+  eyeClose: 'eyeClose',
+  eyeOpen: 'eyeOpen',
+  circleAppIcon: 'circleAppIcon',
+  reTry: 'reTry',
+  search: 'search'
 }
 
 const LazyMaterialIcon = ({ iconName, fallback = <span></span>, ...props }) => {
   const IconComponent = iconsMap[iconName]
 
   if (!IconComponent) {
-    throw new Error("Icon not found")
+    throw new Error('Icon not found')
     // return <div>Icon not found</div>
   }
 

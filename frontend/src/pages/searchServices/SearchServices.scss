@@ -1,0 +1,17 @@
+@import '../../sass';
+
+.search-services-page {
+    min-height: $screen-height;
+
+    .search-bar-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .link {
+            background-color: transparent;
+            max-width: fit-content;
+            padding-left: 0;
+        }
+    }
+}

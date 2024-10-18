@@ -52,17 +52,6 @@
             justify-content: flex-start;
             column-gap: 8px;
             height: 100%;
-
-            .search-input {
-                background-color: $card-background;
-                height: 100%;
-                width: 100%;
-                min-width: 0;
-                max-width: em(450);
-                padding-inline: em(16);
-                border-radius: 999rem;
-                border: $border;
-            }
         }
 
         .right-container {
