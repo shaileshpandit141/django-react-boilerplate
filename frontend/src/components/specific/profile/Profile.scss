@@ -63,6 +63,7 @@
         .line {
             width: 100%;
             border-bottom: $border;
+            transition: all 0.3s ease;
         }
 
         .link,

@@ -77,7 +77,6 @@ export default function Profile() {
       <div
         ref={popoverRef}
         className="popover-wrapper"
-      // className={`popover-wrapper ${isPopoverVisible ? "active" : ""}`}
       >
         <div className="inner-wrapper">
           <div className="user-info">
