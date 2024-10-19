@@ -1,24 +1,23 @@
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
 from django.utils import timezone
 from django.contrib.auth.models import update_last_login
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from allauth.account.utils import send_email_confirmation
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
 from .serializers import UserSerializer
-from dj_rest_auth.views import PasswordResetView
+from dj_rest_auth.views import PasswordResetView, LogoutView
+
 
 User = get_user_model()
 
 
+# Define a view for custom token obtain pair.
 class CustomTokenObtainPairView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -63,15 +62,49 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         )
 
 
+# Define a view for custom signout.
+class CustomSignoutView(LogoutView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs):
+        # Extract refresh token from the request data
+        refresh_token = request.data.get("refresh_token", None)
+
+        if refresh_token is None:
+            # If no refresh token is provided, return an error response
+            return Response(
+                {"refresh_token": ["This field cannot be blank."]},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            # Try to invalidate the refresh token by blacklisting it
+            token = RefreshToken(refresh_token)
+            # Blacklist the refresh token in the database
+            token.blacklist()
+        except Exception as e:
+            # If something goes wrong (e.g., token invalid), return a failure response
+            return Response({"token_invalid": [str(e)]}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Proceed with session-based logout (if necessary, like django-allauth session logout)
+        response = super().post(request, *args, **kwargs)
+
+        # Return a custom response indicating successful logout and refresh token invalidation
+        return Response({"detail": "Successfully sign out and refresh token blacklisted."}, status=status.HTTP_200_OK)
+
+
+# Define a view for resend verification email.
 class ResendVerificationEmailView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
+        # Extract username from the request data
         username = request.data.get("username", None)
-
+        
+        # Validate the username.
         if not username:
             return Response(
-                {"username": ["This field may not be blank."]},
+                {"username": ["This field cannot be blank."]},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
@@ -97,12 +130,12 @@ class ResendVerificationEmailView(APIView):
             )
 
 
-# Define a custom reset view
+# Define a custom reset view.
 class CustomPasswordResetView(PasswordResetView):
     def post(self, request, *args, **kwargs):
         email = request.data.get("email")
         if not email:
-            return Response({"error": ["Email is required."]}, status=400)
+            return Response({"email": ["This field cannot be blank."]}, status=400)
 
         # Check if the email exists in the User model
         if not User.objects.filter(email=email).exists():
@@ -114,6 +147,7 @@ class CustomPasswordResetView(PasswordResetView):
         return super().post(request, *args, **kwargs)
 
 
+# Define a view for user info.
 class UserInfoView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -123,6 +157,7 @@ class UserInfoView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+# Define a views for test proctected end point.
 class ProtectedView(APIView):
     permission_classes = [IsAuthenticated]
     throttle_classes = [UserRateThrottle, AnonRateThrottle]
