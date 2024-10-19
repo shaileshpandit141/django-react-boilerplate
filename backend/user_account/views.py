@@ -83,8 +83,8 @@ class CustomSignoutView(LogoutView):
             # Blacklist the refresh token in the database
             token.blacklist()
         except Exception as e:
-            # If something goes wrong (e.g., token invalid), return a failure response
-            return Response({"token_invalid": [str(e)]}, status=status.HTTP_400_BAD_REQUEST)
+            # If something goes wrong (e.g., Invalid Token), return a failure response
+            return Response({"invalid_token": [str(e)]}, status=status.HTTP_400_BAD_REQUEST)
 
         # Proceed with session-based logout (if necessary, like django-allauth session logout)
         response = super().post(request, *args, **kwargs)
