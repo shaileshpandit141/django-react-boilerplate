@@ -10,8 +10,8 @@ def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server.settings")
 
     # Check for HOST and PORT using python-decouple
-    host = config("HOST", default="localhost")
-    port = config("PORT", default="8000")
+    HOST = config("HOST", cast=str, default="localhost")
+    PORT = config("PORT", cast=int, default=8000)
 
     try:
         from django.core.management import execute_from_command_line
@@ -24,7 +24,7 @@ def main():
 
     # Add the runserver command with the specified HOST and PORT
     if len(sys.argv) == 1 or sys.argv[1] == "runserver":
-        sys.argv = sys.argv[:2] + [f"{host}:{port}"]
+        sys.argv = sys.argv[:2] + [f"{HOST}:{PORT}"]
 
     execute_from_command_line(sys.argv)
 
