@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import PasswordResetConfirmWrapper from './PasswordResetConfirmWrapper'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from 'components/common/loader/Loader'
-import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
+import { useForgotPasswordSelector } from '../../hooks/useForgotPasswordSelector'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import { useDispatch } from 'react-redux'
 import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
@@ -13,7 +13,7 @@ import { toast } from 'react-toastify'
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()
   const { uid, token } = useParams()
-  const { status, data, error } = useForgotPasswordSelectors()
+  const { status, data, error } = useForgotPasswordSelector()
 
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({

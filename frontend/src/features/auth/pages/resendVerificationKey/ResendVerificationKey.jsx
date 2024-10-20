@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import { useDispatch } from 'react-redux'
 import { resetResendVerificationKeyState } from 'features/auth/slices/resendVerificationKeySlice'
-import { useResendVerificationKeySelectors } from '../../hooks/useResendVerificationKeySelectors'
+import { useResendVerificationKeySelector } from '../../hooks/useResendVerificationKeySelector'
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk'
 import { toast } from 'react-toastify'
 
 export default function ResendVerificationKey(props) {
   const dispatch = useDispatch()
-  const { status, data, error } = useResendVerificationKeySelectors()
+  const { status, data, error } = useResendVerificationKeySelector()
 
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({

@@ -5,7 +5,7 @@ import CustomInput from '../../components/customInput/CustomInput'
 import Loader from 'components/common/loader/Loader'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import { useDispatch } from 'react-redux'
-import { useSignupSelectors } from '../../hooks/useSignupSelectors'
+import { useSignupSelector } from '../../hooks/useSignupSelector'
 import { signupThunk } from '../../thunks/signupThunk'
 import { resetSignupState } from 'features/auth/slices/signupSlice'
 import { toast } from 'react-toastify'
@@ -14,7 +14,7 @@ export default function SignupForm() {
   const dispatch = useDispatch()
 
   // Select the auth readux context.
-  const { status, data, error } = useSignupSelectors()
+  const { status, data, error } = useSignupSelector()
 
   // Define a initial form data for signup.
   const initialFormData = useMemo(() => ({

@@ -1,7 +1,7 @@
 // Named Import.
 import { useSelector } from "react-redux"
 
-export function useSigninSelectors() {
+export function useSigninSelector() {
 
   const { accessToken, refreshToken, isAuthenticated, status, error } = useSelector((state) => state.signin)
 

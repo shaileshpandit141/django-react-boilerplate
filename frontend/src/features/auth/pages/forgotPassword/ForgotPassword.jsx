@@ -7,13 +7,13 @@ import Loader from 'components/common/loader/Loader'
 import emailSendSvg from 'assets/icons/mail_sent.svg'
 import { useDispatch } from 'react-redux'
 import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
-import { useForgotPasswordSelectors } from '../../hooks/useForgotPasswordSelectors'
+import { useForgotPasswordSelector } from '../../hooks/useForgotPasswordSelector'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { toast } from 'react-toastify'
 
 export default function ForgotPassword() {
   const dispatch = useDispatch()
-  const { status, data, error } = useForgotPasswordSelectors()
+  const { status, data, error } = useForgotPasswordSelector()
 
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({

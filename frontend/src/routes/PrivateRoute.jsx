@@ -1,9 +1,9 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-import { useSigninSelectors } from 'features/auth'
+import { useSigninSelector } from 'features/auth'
 
 export default function PrivateRoute() {
-  const { isAuthenticated } = useSigninSelectors()
+  const { isAuthenticated } = useSigninSelector()
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/signin" />
 }

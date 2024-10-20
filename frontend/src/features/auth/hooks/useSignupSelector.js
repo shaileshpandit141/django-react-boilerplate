@@ -1,7 +1,7 @@
 // Named Import.
 import { useSelector } from "react-redux"
 
-export function useSignupSelectors() {
+export function useSignupSelector() {
 
   const { status, data, error } = useSelector((state) => state.signup)
 

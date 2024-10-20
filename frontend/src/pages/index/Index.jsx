@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import './Index.scss'
-import { useSigninSelectors } from 'features/auth'
+import { useSigninSelector } from 'features/auth'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import { useMatadataContext } from 'context/matadataContext'
 import { Helmet } from 'react-helmet-async'
@@ -11,7 +11,7 @@ export default function Index() {
   const { domain, title } = useMatadataContext()
 
   // Select the auth readux context.
-  const { isAuthenticated } = useSigninSelectors()
+  const { isAuthenticated } = useSigninSelector()
 
   // Check if user is Authenticated then redirect to another Route.
   if (isAuthenticated) {

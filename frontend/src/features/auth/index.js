@@ -5,7 +5,7 @@ import verifyAccountReducer from './slices/verifyAccountSlice'
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice'
 import forgotPasswordReducer from './slices/forgotPasswordSlice'
 import { refreshAccessTokenThunk } from './thunks/signinThunk'
-import { useSigninSelectors } from './hooks/useSigninSelectors'
+import { useSigninSelector } from './hooks/useSigninSelector'
 
 // Pages
 import LogoutButton from './components/signoutButton/SignoutButton'
@@ -24,7 +24,7 @@ export {
   resendVerificationKeyReducer,
   forgotPasswordReducer,
   refreshAccessTokenThunk,
-  useSigninSelectors,
+  useSigninSelector,
   SigninForm,
   LogoutButton,
   ResendVerificationKey,

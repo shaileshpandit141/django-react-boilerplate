@@ -5,7 +5,7 @@ import SigninFormWrapper from './SigninFormWrapper'
 import CustomInput from '../../components/customInput/CustomInput'
 import Loader from 'components/common/loader/Loader'
 import { useDispatch } from 'react-redux'
-import { useSigninSelectors } from '../../hooks/useSigninSelectors'
+import { useSigninSelector } from '../../hooks/useSigninSelector'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinThunk } from '../../thunks/signinThunk'
 import { toast } from 'react-toastify'
@@ -14,7 +14,7 @@ export default function SigninForm() {
   const dispatch = useDispatch()
 
   // Select the auth readux context.
-  const { isAuthenticated, status, error } = useSigninSelectors()
+  const { isAuthenticated, status, error } = useSigninSelector()
 
   // Define a initial form data for login.
   const initialFormData = useMemo(() => ({
