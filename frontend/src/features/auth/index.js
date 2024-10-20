@@ -1,4 +1,5 @@
 import signinReducer, { signout } from './slices/signinSlice'
+import signoutReducer from './slices/signoutSlice'
 import signupReducer from './slices/signupSlice'
 import verifyAccountReducer from './slices/verifyAccountSlice'
 import resendVerificationKeyReducer from './slices/resendVerificationKeySlice'
@@ -17,6 +18,7 @@ import PasswordResetConfirm from './pages/forgotPassword/PasswordResetConfirm'
 
 export {
   signinReducer,
+  signoutReducer,
   signupReducer,
   verifyAccountReducer,
   resendVerificationKeyReducer,

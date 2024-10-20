@@ -50,10 +50,6 @@ export default function SigninForm() {
     setRetryCount(prev => prev - 1)
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(resetSigninState())
-  }, [dispatch])
-
   // Trigger toast notifications based on the status or error
   useEffect(() => {
     if (status === 'failed') {
@@ -71,8 +67,7 @@ export default function SigninForm() {
       toast.success('Sign-in successful!')
     }
   }, [status, error])
-
-  // Check if user is Authenticated then redirect to another Route.
+  
   if (isAuthenticated) {
     return <Navigate to='/home' />
   }

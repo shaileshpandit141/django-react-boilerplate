@@ -19,15 +19,19 @@ const signinSlice = createSlice({
       state.accessToken = null
       state.refreshToken = null
       state.isAuthenticated = false
-      state.pk = null
       state.status = 'idle'
       state.error = null
       localStorage.removeItem('accessToken')
       localStorage.removeItem('refreshToken')
     },
     resetSigninState: (state) => {
+      state.accessToken = null
+      state.refreshToken = null
+      state.isAuthenticated = false
       state.status = 'idle'
       state.error = null
+      localStorage.removeItem('accessToken')
+      localStorage.removeItem('refreshToken')
     }
   },
   extraReducers: (builder) => {
@@ -59,7 +63,6 @@ const signinSlice = createSlice({
         state.accessToken = null
         state.refreshToken = null
         state.isAuthenticated = false
-        state.pk = null
         state.status = 'idle'
         state.error = null
         localStorage.removeItem('accessToken')
