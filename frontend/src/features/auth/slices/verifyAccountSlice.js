@@ -35,5 +35,8 @@ const verifyAccountSlice = createSlice({
   },
 })
 
-export const { resetVerifyAccountState } = verifyAccountSlice.actions
-export default verifyAccountSlice.reducer
+const verifyAccountReducer = verifyAccountSlice.reducer
+const { resetVerifyAccountState } = verifyAccountSlice.actions
+
+export default verifyAccountReducer
+export { resetVerifyAccountState }

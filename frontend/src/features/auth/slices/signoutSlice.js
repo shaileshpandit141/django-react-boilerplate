@@ -35,5 +35,8 @@ const signoutSlice = createSlice({
   },
 })
 
-export const { resetSignoutState } = signoutSlice.actions
-export default signoutSlice.reducer
+const signoutReducer = signoutSlice.reducer
+const { resetSignoutState } = signoutSlice.actions
+
+export default signoutReducer
+export { resetSignoutState }

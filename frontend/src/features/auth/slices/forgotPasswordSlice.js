@@ -10,7 +10,7 @@ const initialState = {
 
 // forgotPassword Slice
 const forgotPasswordSlice = createSlice({
-  name: 'forgotPasswordSlice',
+  name: 'forgotPassword',
   initialState,
   reducers: {
     resetForgotPasswordState: (state) => {
@@ -46,5 +46,8 @@ const forgotPasswordSlice = createSlice({
   },
 })
 
-export default forgotPasswordSlice.reducer
-export const { resetForgotPasswordState } = forgotPasswordSlice.actions
+const forgotPasswordReducer = forgotPasswordSlice.reducer
+const { resetForgotPasswordState } = forgotPasswordSlice.actions
+
+export default forgotPasswordReducer
+export { resetForgotPasswordState }

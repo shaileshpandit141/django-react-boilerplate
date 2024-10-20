@@ -35,5 +35,8 @@ const resendVerificationKeySlice = createSlice({
   },
 })
 
-export const { resetResendVerificationKeyState } = resendVerificationKeySlice.actions
-export default resendVerificationKeySlice.reducer
+const resendVerificationKeyReducer = resendVerificationKeySlice.reducer
+const { resetResendVerificationKeyState } = resendVerificationKeySlice.actions
+
+export default resendVerificationKeyReducer
+export { resetResendVerificationKeyState }
