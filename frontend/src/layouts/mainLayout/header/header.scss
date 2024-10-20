@@ -60,6 +60,10 @@
             justify-content: flex-end;
             column-gap: 8px;
             height: 100%;
+            
+            .search-services-link {
+                max-width: fit-content;
+            }
         }
     }
 }

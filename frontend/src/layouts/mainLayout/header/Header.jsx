@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './header.scss'
-import { useLocation } from 'react-router-dom'
 import Profile from 'components/specific/profile/Profile'
 import { LazyMaterialIcon, icons } from 'lazyUtils/LazyMaterialIcon'
 import ThemeButton from 'components/specific/themeButton/ThemeButton'
 import { Link } from 'react-router-dom'
+import { useSigninSelector } from 'features/auth'
 
 export default function Header() {
 
-  const { pathname } = useLocation()
+  const { isAuthenticated } = useSigninSelector()
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollTop, setLastScrollTop] = useState(0)
 
@@ -51,13 +51,13 @@ export default function Header() {
         </div>
         <div className="right-container">
           {/* Right items goes here */}
-
           {
-            pathname !== '/search-services' && (
-              <Link to='search-services' className='link-as-icon'>
+            isAuthenticated && (
+              <Link to='search-services' className='link search-services-link'>
                 <span className="icon">
                   <LazyMaterialIcon iconName={icons.search} />
                 </span>
+                <span className='label'>search</span>
               </Link>
             )
           }
