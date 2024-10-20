@@ -1,4 +1,4 @@
-import signinReducer, { signout } from './slices/signinSlice'
+import signinReducer from './slices/signinSlice'
 import signoutReducer from './slices/signoutSlice'
 import signupReducer from './slices/signupSlice'
 import verifyAccountReducer from './slices/verifyAccountSlice'
@@ -24,7 +24,6 @@ export {
   resendVerificationKeyReducer,
   forgotPasswordReducer,
   refreshAccessTokenThunk,
-  signout,
   useSigninSelectors,
   SigninForm,
   LogoutButton,

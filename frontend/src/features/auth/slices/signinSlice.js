@@ -15,15 +15,6 @@ const signinSlice = createSlice({
   name: 'signin',
   initialState,
   reducers: {
-    signout: (state) => {
-      state.accessToken = null
-      state.refreshToken = null
-      state.isAuthenticated = false
-      state.status = 'idle'
-      state.error = null
-      localStorage.removeItem('accessToken')
-      localStorage.removeItem('refreshToken')
-    },
     resetSigninState: (state) => {
       state.accessToken = null
       state.refreshToken = null
@@ -72,4 +63,4 @@ const signinSlice = createSlice({
 })
 
 export default signinSlice.reducer
-export const { signout, resetSigninState } = signinSlice.actions
+export const { resetSigninState } = signinSlice.actions
