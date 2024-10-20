@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { api } from '../api'
+import APIs from 'APIs'
 
 export const signinThunk = createAsyncThunk(
   'auth/signinThunk',
   async (credentials, thunkAPI) => {
     try {
-      const response = await api.signinApi(credentials)
+      const response = await APIs.signinApi(credentials)
       return response.data
     } catch (error) {
       const errorResponse = error.response ? error.response.data : error.message
@@ -19,7 +19,7 @@ export const refreshAccessTokenThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     const refreshToken = thunkAPI.getState().signin.refreshToken
     try {
-      const response = await api.refreshAccessTokenApi({ refresh: refreshToken })
+      const response = await APIs.refreshAccessTokenApi({ refresh: refreshToken })
       return response.data
     } catch (error) {
       const errorResponse = error.response ? error.response.data : error.message

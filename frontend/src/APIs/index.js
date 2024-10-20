@@ -3,7 +3,7 @@ import axiosInstance from "axiosInstance/axiosInstance"
 
 const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
 
-export const api = {
+const APIs = {
   signinApi: (credentials) => axios.post(BASE_API_URL + 'api/auth/token/', credentials),
   signoutApi: (credentials) => axiosInstance.post(BASE_API_URL + 'api/auth/signout/', credentials),
   signupApi: (credentials) => axios.post(BASE_API_URL + 'api/auth/signup/', credentials),
@@ -13,3 +13,5 @@ export const api = {
   forgotPasswordApi: (credentials) => axios.post(BASE_API_URL + 'api/auth/password/reset/ ', credentials),
   forgotPasswordConfirmApi: (credentials) => axios.post(BASE_API_URL + 'api/auth/password/reset/confirm/', credentials),
 }
+
+export default APIs
