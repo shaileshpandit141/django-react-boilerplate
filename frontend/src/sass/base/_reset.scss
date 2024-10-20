@@ -16,6 +16,8 @@ html {
     line-height: 1.5;
     scrollbar-width: thin;
     scroll-behavior: smooth;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 /* Remove list styles */
@@ -84,11 +86,6 @@ blockquote {
     content: "";
     display: table;
     clear: both;
-}
-
-/* Force smooth scrolling */
-html {
-    scroll-behavior: smooth;
 }
 
 /* Reset strong and b to have normal font weight */

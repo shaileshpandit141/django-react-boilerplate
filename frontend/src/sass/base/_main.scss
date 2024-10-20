@@ -2,4 +2,6 @@ main {
     @include grid-12;
     padding-top: $header-height;
     height: fit-content;
+    overflow: hidden;
+    overflow-y: auto;
 }
