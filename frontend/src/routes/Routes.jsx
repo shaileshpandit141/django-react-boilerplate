@@ -24,7 +24,7 @@ const ForgotPassword = lazyImportWithRetry(() => import('features/auth').then(mo
 const PasswordResetConfirm = lazyImportWithRetry(() => import('features/auth').then(module => ({ default: module.PasswordResetConfirm })))
 const Index = lazyImportWithRetry(() => import('pages/index/Index'))
 const Home = lazyImportWithRetry(() => import('pages/home/Home'))
-const SearchServices = lazyImportWithRetry(() => import('pages/searchServices/SearchServices'))
+const SearchService = lazyImportWithRetry(() => import('pages/searchService/SearchService'))
 
 const AppRoutes = () => {
   return (
@@ -48,7 +48,7 @@ const AppRoutes = () => {
           {/* Private Routes */}
           <Route element={<PrivateRoute />}>
             <Route path="home" element={<LazyLoader element={<Home />} />} />
-            <Route path="search-services" element={<LazyLoader element={<SearchServices />} />} />
+            <Route path="search-service" element={<LazyLoader element={<SearchService />} />} />
           </Route>
 
           {/* Catch-all route for 404 Not Found */}

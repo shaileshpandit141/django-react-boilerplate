@@ -53,7 +53,7 @@ export default function Header() {
           {/* Right items goes here */}
           {
             isAuthenticated && (
-              <Link to='search-services' className='link search-services-link'>
+              <Link to='search-service' className='link search-service-link'>
                 <span className="icon">
                   <LazyMaterialIcon iconName={icons.search} />
                 </span>

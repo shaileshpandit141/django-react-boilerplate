@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import SearchBarForm from "components/specific/searchBarForm/SearchBarForm"
 import { LazyMaterialIcon, icons } from "lazyUtils/LazyMaterialIcon"
 
-export default function SearchServices() {
+export default function SearchService() {
   return (
     <div className="inner-grid-2-2 search-services-page">
       <section className="search-bar-section">
