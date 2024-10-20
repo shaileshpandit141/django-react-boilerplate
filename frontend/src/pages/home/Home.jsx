@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react'
 import './Home.scss'
 import { useDispatch } from 'react-redux'
-import { userThunk, useUserSelectors } from 'features/user'
+import { userThunk, useUserSelector } from 'features/user'
 
 
 export default function Home() {
 
   const dispatch = useDispatch()
-  const { status, data, error } = useUserSelectors()
+  const { status, data, error } = useUserSelector()
 
   useEffect(() => {
     if (status === "idle") {

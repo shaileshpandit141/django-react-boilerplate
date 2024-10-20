@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react"
 import "./Profile.scss"
 import { Link } from "react-router-dom"
 import { useSigninSelector } from "features/auth"
-import { useUserSelectors } from 'features/user'
+import { useUserSelector } from 'features/user'
 import { LogoutButton } from "features/auth"
 import { LazyMaterialIcon, icons } from "lazyUtils/LazyMaterialIcon"
 import { useMenu } from 'hooks/useMenu'
@@ -10,7 +10,7 @@ import { useMenu } from 'hooks/useMenu'
 export default function Profile() {
 
   const { isAuthenticated } = useSigninSelector()
-  const { data } = useUserSelectors()
+  const { data } = useUserSelector()
 
   const profileButtonRef = useRef(null)
   const popoverRef = useRef(null)

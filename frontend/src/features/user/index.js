@@ -1,9 +1,9 @@
 import userReducer from './slices/userSlice'
 import { userThunk } from './thunks/userThunk'
-import useUserSelectors from './hooks/useUserSelectors'
+import useUserSelector from './hooks/useUserSelector'
 
 export {
   userReducer,
   userThunk,
-  useUserSelectors
+  useUserSelector
 }
