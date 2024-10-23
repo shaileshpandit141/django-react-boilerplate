@@ -1,28 +1,28 @@
 @import '../../../sass';
 
 .search-bar {
-    background-color: $card-background;
-    height: 100%;
+    background-color: transparent;
+    height: em(40);
     width: 100%;
     max-width: em(550);
     display: flex;
     align-items: center;
     column-gap: em(8);
-    padding-inline: em(16) 0;
-    border-radius: 999rem;
-    border: $border;
     transition: all 0.3s ease;
 
     .search-input {
-        height: 100%;
+        background-color: $card-background;
+        height: 100% ;
         width: 100%;
         min-width: 0;
         min-height: 100%;
-        background-color: transparent;
+        padding: em(8) em(16);
+        border-radius: 999rem;
+        border: $border;
     }
 
     .button-as-icon {
-        background-color: transparent;
+        background-color: $card-background;
 
         &:hover {
             background-color: $border-color-light;

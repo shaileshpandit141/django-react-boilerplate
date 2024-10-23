@@ -9,10 +9,12 @@
         justify-content: center;
         column-gap: em(8);
 
-        .link {
-            background-color: transparent;
-            max-width: fit-content;
-            padding-left: 0;
+        .link-as-icon {
+            background-color: $card-background;
+
+            &:hover {
+                background-color: $border-color-light;
+            }
         }
     }
 }

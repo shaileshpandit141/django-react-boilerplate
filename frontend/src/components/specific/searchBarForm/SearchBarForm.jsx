@@ -6,7 +6,7 @@ export default function SearchBarForm(props) {
   return (
     <form className='search-bar'>
       <input
-        type="text"
+        type="search"
         className='search-input'
         placeholder='search...'
       />
