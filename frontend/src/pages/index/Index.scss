@@ -3,6 +3,7 @@
 .index-page {
     @include flex-centre(column);
     min-height: $screen-height;
+    padding-bottom: em(16);
 
     .logo-container {
         aspect-ratio: 1/1;
