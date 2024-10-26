@@ -10,27 +10,27 @@
         width: 100%;
         max-width: 350px;
         overflow: hidden;
-    }
 
-    .logo-container img {
-        width: inherit;
-        height: inherit;
-        background-size: contain;
-        background-position: center;
-        animation: rotateInfinitely 2s infinite;
-    }
-
-    @keyframes rotateInfinitely {
-        0% {
-            transform: rotate(22.5deg);
+        img {
+            width: inherit;
+            height: inherit;
+            background-size: contain;
+            background-position: center;
+            animation: rotateInfinitely 2s infinite;
         }
 
-        50% {
-            transform: rotate(-22.5deg);
-        }
+        @keyframes rotateInfinitely {
+            0% {
+                transform: rotate(22.5deg);
+            }
 
-        100% {
-            transform: rotate(22.5deg);
+            50% {
+                transform: rotate(-22.5deg);
+            }
+
+            100% {
+                transform: rotate(22.5deg);
+            }
         }
     }
 
