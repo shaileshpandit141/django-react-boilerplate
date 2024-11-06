@@ -62,7 +62,6 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",  # If Globely Disable CSRF Protection to comment it
     "user_account.middleware.DisableCSRFMiddleware",  # Disable CSRF Protection for API Requests
-    "user_account.middleware.TimezoneMiddleware", # Add Custom time zone middleware
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

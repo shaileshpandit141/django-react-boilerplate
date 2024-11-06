@@ -1,5 +1,5 @@
 # Ignore the backend dependency
-backend/env
+backend/venv
 backend/.env
 backend/db.sqlite3
 
