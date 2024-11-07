@@ -179,11 +179,11 @@
             text-transform: capitalize
         }
     }
-    
+
     .message {
         text-align: center;
         margin-bottom: em(8);
-        
+
         &:last-child {
             margin-bottom: em(16);
         }
@@ -201,3 +201,25 @@
         text-transform: capitalize
     }
 }
+
+.skeleton {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

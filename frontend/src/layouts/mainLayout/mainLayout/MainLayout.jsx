@@ -16,7 +16,7 @@ export default function MainLayout() {
         theme={localStorage.getItem('theme') && 'light'}
       />
       <Header />
-      <main>
+      <main className='main'>
         <Outlet />
       </main>
       <ReturnToTopButton />

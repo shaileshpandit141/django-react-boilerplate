@@ -9,13 +9,13 @@ import './sass/index.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <Provider store={store}>
-    <MetadataContextProvider>
-      <HelmetProvider>
-        <React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <MetadataContextProvider>
+        <HelmetProvider>
           <App />
-        </React.StrictMode>
-      </HelmetProvider>
-    </MetadataContextProvider>
-  </Provider>
+        </HelmetProvider>
+      </MetadataContextProvider>
+    </Provider>
+  </React.StrictMode>
 )
