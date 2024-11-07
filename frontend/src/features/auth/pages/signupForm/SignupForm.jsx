@@ -9,6 +9,7 @@ import { useSignupSelector } from '../../hooks/useSignupSelector'
 import { signupThunk } from '../../thunks/signupThunk'
 import { resetSignupState } from 'features/auth/slices/signupSlice'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function SignupForm() {
   const dispatch = useDispatch()
@@ -215,9 +216,7 @@ export default function SignupForm() {
           {/* error message for username */}
           {
             error?.username && (
-              error.username.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.username} />
             )
           }
           {/* Custom input component for email input */}
@@ -232,9 +231,7 @@ export default function SignupForm() {
           {/* error message for email */}
           {
             error?.email && (
-              error.email.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.email} />
             )
           }
           {/* Custom input component for password input */}
@@ -249,9 +246,7 @@ export default function SignupForm() {
           {/* error message for password1 */}
           {
             error?.password1 && (
-              error.password1.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.password1} />
             )
           }
           {/* Custom input component for confirm password input */}
@@ -266,17 +261,13 @@ export default function SignupForm() {
           {/* error message for password2 */}
           {
             error?.password2 && (
-              error.password2.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.password2} />
             )
           }
           {/* error message for non field errors */}
           {
             error?.non_field_errors && (
-              error.non_field_errors.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.non_field_errors} />
             )
           }
           {/* retry Button. */}

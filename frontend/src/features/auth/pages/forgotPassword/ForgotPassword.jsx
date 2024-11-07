@@ -10,6 +10,7 @@ import { forgotPasswordThunk } from '../../thunks/forgotPasswordThunk'
 import { useForgotPasswordSelector } from '../../hooks/useForgotPasswordSelector'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function ForgotPassword() {
   const dispatch = useDispatch()
@@ -157,9 +158,7 @@ export default function ForgotPassword() {
           {/* Error message for email is not exit. */}
           {
             error?.email && (
-              error.email.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.email} />
             )
           }
           {/* Sign in and retry Buttons. */}

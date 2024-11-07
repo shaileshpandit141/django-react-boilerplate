@@ -9,6 +9,7 @@ import { useSigninSelector } from '../../hooks/useSigninSelector'
 import { resetSigninState } from '../../slices/signinSlice'
 import { signinThunk } from '../../thunks/signinThunk'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function SigninForm() {
   const dispatch = useDispatch()
@@ -67,7 +68,7 @@ export default function SigninForm() {
       toast.success('Sign-in successful!')
     }
   }, [status, error])
-  
+
   if (isAuthenticated) {
     return <Navigate to='/home' />
   }
@@ -184,9 +185,7 @@ export default function SigninForm() {
           {/* Error message for Missing Required Field username. */}
           {
             error?.username && (
-              error.username.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.username} />
             )
           }
           {/* Custom input component for password input. */}
@@ -201,25 +200,19 @@ export default function SigninForm() {
           {/* Error message for Missing Required Field password. */}
           {
             error?.password && (
-              error.password.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.password} />
             )
           }
           {/* Error message for Invalid Credentials (wrong username or password). */}
           {
             error?.non_field_errors && (
-              error.non_field_errors.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.non_field_errors} />
             )
           }
           {/* Error message for user account is active or not. */}
           {
             error?.account_status && (
-              error.account_status.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.account_status} />
             )
           }
           {/* Error message for user is not verified. */}
@@ -228,9 +221,7 @@ export default function SigninForm() {
               <div className="account-verify-cntainer">
                 <div className='error-text-container'>
                   {
-                    error.verification_error.map((detail, index) => (
-                      <p className='error-text' key={index}>{detail}</p>
-                    ))
+                    <DisplayError message={error.verification_error} />
                   }
                 </div>
                 <Link

@@ -8,6 +8,7 @@ import { useVerifyAccountSelector } from '../../hooks/useVerifyAccountSelector'
 import { verifyAccountThunk } from '../../thunks/verifyAccountThunk'
 import { resetVerifyAccountState } from '../../slices/verifyAccountSlice'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function VerifyAccount() {
   const dispatch = useDispatch()
@@ -89,9 +90,7 @@ export default function VerifyAccount() {
           {/* Error message for key. */}
           {
             error?.key && (
-              error.key.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.key} />
             )
           }
           {/* Error message for other. */}

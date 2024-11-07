@@ -10,6 +10,7 @@ import { resetResendVerificationKeyState } from 'features/auth/slices/resendVeri
 import { useResendVerificationKeySelector } from '../../hooks/useResendVerificationKeySelector'
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function ResendVerificationKey(props) {
   const dispatch = useDispatch()
@@ -157,9 +158,7 @@ export default function ResendVerificationKey(props) {
           {/* Error message for username is not exit. */}
           {
             error?.username && (
-              error.username.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.username} />
             )
           }
           {/* Sign in and retry Buttons. */}

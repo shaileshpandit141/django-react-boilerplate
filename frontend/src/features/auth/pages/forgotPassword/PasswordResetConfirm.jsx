@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { toast } from 'react-toastify'
+import DisplayError from '../../components/displayError/DisplayError'
 
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()
@@ -168,25 +169,19 @@ export default function PasswordResetConfirm() {
           {/* Error message for token is expire. */}
           {
             error?.token && (
-              error.token.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.token} />
             )
           }
           {/* Error message for uid is expire. */}
           {
             error?.uid && (
-              error.uid.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.uid} />
             )
           }
           {/* Error message for new_password2 is did not match to new_password1. */}
           {
             error?.new_password2 && (
-              error.new_password2.map((detail, index) => (
-                <p className='error-text' key={index}>{detail}</p>
-              ))
+              <DisplayError message={error.new_password2} />
             )
           }
           {/* Buttons */}
