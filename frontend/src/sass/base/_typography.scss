@@ -1,3 +1,4 @@
+// Universal heading styles for h1 through h6
 h1,
 h2,
 h3,
@@ -6,7 +7,7 @@ h5,
 h6 {
     font-weight: 700;
     line-height: 1.2;
-    margin-block: 0;
+    margin-block: 0.5em;
     letter-spacing: 0.04em;
     color: $text-primary;
 
@@ -15,13 +16,37 @@ h6 {
     }
 }
 
+// Individual heading sizes
 h1 {
     font-size: clamp(rem(28), rem(16) + 2vw, rem(40));
+    // Customize as needed
+    line-height: 1.2;
 }
 
 h2 {
     font-size: clamp(rem(22), rem(14) + 1.5vw, rem(36));
+    // Slightly taller for readability
     line-height: 1.3;
+}
+
+h3 {
+    font-size: clamp(rem(18), rem(14) + 1vw, rem(28));
+    line-height: 1.35;
+}
+
+h4 {
+    font-size: clamp(rem(16), rem(12) + 0.8vw, rem(24));
+    line-height: 1.4;
+}
+
+h5 {
+    font-size: clamp(rem(14), rem(10) + 0.5vw, rem(20));
+    line-height: 1.45;
+}
+
+h6 {
+    font-size: clamp(rem(12), rem(8) + 0.4vw, rem(18));
+    line-height: 1.5;
 }
 
 p,

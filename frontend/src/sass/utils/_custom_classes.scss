@@ -202,6 +202,8 @@
     }
 }
 
+
+/* Define Some Custom classes for styles the skeleton loader. */
 .skeleton {
     width: 100%;
     background-color: #e0e0e0;
@@ -210,16 +212,52 @@
     align-items: center;
     justify-content: center;
     animation: pulse 1.5s ease-in-out infinite;
-  }
 
-  @keyframes pulse {
-    0% {
-      opacity: 1;
+    @keyframes pulse {
+        0% {
+        opacity: 1;
+        }
+        50% {
+        opacity: 0.4;
+        }
+        100% {
+        opacity: 1;
+        }
     }
-    50% {
-      opacity: 0.4;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+}
+
+.h1-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(28), rem(16) + 2vw, rem(40));
+    margin-block: 0.5em;
+}
+
+.h2-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(22), rem(14) + 1.5vw, rem(36));
+    margin-block: 0.5em;
+}
+
+.h3-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(18), rem(14) + 1vw, rem(28));
+    margin-block: 0.5em;
+}
+
+.h4-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(16), rem(12) + 0.8vw, rem(24));
+    margin-block: 0.5em;
+}
+
+.h5-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(14), rem(10) + 0.5vw, rem(20));
+    margin-block: 0.5em;
+}
+
+.h6-skeleton {
+    @extend .skeleton;
+    height: clamp(rem(12), rem(8) + 0.4vw, rem(18));
+    margin-block: 0.5em;
+}
