@@ -14,7 +14,7 @@ This project is a boilerplate for setting up a web application using Django for 
 - Python 3.8+
 - Node.js 14+
 - npm (or yarn)
-- PostgreSQL (or another preferred database)
+- PostgreSQL (default: db.sqlite3)
 
 ## Setup Instructions
 
