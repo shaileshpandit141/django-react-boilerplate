@@ -10,6 +10,7 @@ import { resetSigninState } from '../../slices/signinSlice'
 import { signinThunk } from '../../thunks/signinThunk'
 import { toast } from 'react-toastify'
 import DisplayError from '../../components/displayError/DisplayError'
+import SigninFormSkeleton from './SigninFormSkeleton'
 
 export default function SigninForm() {
   const dispatch = useDispatch()
@@ -77,6 +78,7 @@ export default function SigninForm() {
   if (status === 'idle') {
     return (
       <SigninFormWrapper>
+        {/* <SigninFormSkeleton /> */}
         <form onSubmit={handleFormSubmit} className='form'>
           <h1 className="title">sign in</h1>
           {/* Custom input component for email input */}

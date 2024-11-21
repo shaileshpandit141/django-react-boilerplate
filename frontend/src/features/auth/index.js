@@ -10,6 +10,7 @@ import { useSigninSelector } from './hooks/useSigninSelector'
 // Pages
 import LogoutButton from './components/signoutButton/SignoutButton'
 import SigninForm from './pages/signinForm/SigninForm'
+import SigninFormSkeleton from './pages/signinForm/SigninFormSkeleton'
 import ResendVerificationKey from './pages/resendVerificationKey/ResendVerificationKey'
 import SignupForm from './pages/signupForm/SignupForm'
 import VerifyAccount from './pages/verifyAccount/VerifyAccount'
@@ -26,6 +27,7 @@ export {
   refreshAccessTokenThunk,
   useSigninSelector,
   SigninForm,
+  SigninFormSkeleton,
   LogoutButton,
   ResendVerificationKey,
   SignupForm,
