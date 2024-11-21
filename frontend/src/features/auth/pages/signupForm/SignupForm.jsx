@@ -10,6 +10,7 @@ import { signupThunk } from '../../thunks/signupThunk'
 import { resetSignupState } from 'features/auth/slices/signupSlice'
 import { toast } from 'react-toastify'
 import DisplayError from '../../components/displayError/DisplayError'
+import useFormDataChange from 'hooks/useFormDataChange'
 
 export default function SignupForm() {
   const dispatch = useDispatch()
@@ -25,20 +26,11 @@ export default function SignupForm() {
     password2: '',
   }), [])
 
-  // Define a initial form data state.
-  const [formData, setFormData] = useState(initialFormData)
-  const [retryCount, setRetryCount] = useState(1)
-
   // Handle form data changes.
-  function handleFormDataChange(event) {
-    const { name, type, checked, value } = event.target
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: type === 'checkbox' ? checked : value
-      }
-    })
-  }
+  const [formData, handleFormDataChange] = useFormDataChange(initialFormData)
+
+  // Define a initial form data state.
+  const [retryCount, setRetryCount] = useState(1)
 
   // Handle submission of form.
   const handleFormSubmit = useCallback((event) => {

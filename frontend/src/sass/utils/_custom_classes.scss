@@ -261,3 +261,9 @@
     height: clamp(rem(12), rem(8) + 0.4vw, rem(18));
     margin-block: 0.5em;
 }
+
+.p-skeleton {
+    @extend .skeleton;
+    height: em(16);
+    margin-block: 0.5em;;
+}

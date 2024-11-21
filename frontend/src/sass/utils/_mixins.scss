@@ -5,6 +5,13 @@
     justify-content: center;
 }
 
+@mixin flex($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
 @mixin pointer($pointer: fine) {
     @media (pointer: $pointer) {
         @content;

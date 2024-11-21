@@ -6,7 +6,7 @@ export default function SigninFormSkeleton(props) {
   return (
     <SigninFormWrapper>
       <form className='form'>
-        <span className="title h1-skeleton"></span>
+        <span className="h1-skeleton"></span>
         {/* Custom input component for email input */}
         <span className='input-skeleton skeleton'></span>
         {/* Custom input component for password input */}

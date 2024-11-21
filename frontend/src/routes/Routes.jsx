@@ -17,6 +17,7 @@ import MainLayout from 'layouts/mainLayout/mainLayout/MainLayout'
 // Skeleton Imports
 import PageLoader from 'components/common/pageLoader/PageLoader'
 import IndexSkeleton from 'pages/index/IndexSkeleton'
+import { SigninFormSkeleton } from 'features/auth'
 
 // Lazy Imports.
 const NotFound = lazyImportWithRetry(() => import('errors/notfound/NotFound'))
@@ -43,7 +44,7 @@ const AppRoutes = () => {
               <LazyLoader element={<Index />} fallback={<IndexSkeleton />} />}
             />
             <Route path="signin" element={
-              <LazyLoader element={<SigninForm />} fallback={<PageLoader />} />}
+              <LazyLoader element={<SigninForm />} fallback={<SigninFormSkeleton />} />}
             />
             <Route path="resend-verification-key" element={
               <LazyLoader element={<ResendVerificationKey />} fallback={<PageLoader />} />}

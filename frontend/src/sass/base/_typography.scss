@@ -7,7 +7,6 @@ h5,
 h6 {
     font-weight: 700;
     line-height: 1.2;
-    margin-block: 0.5em;
     letter-spacing: 0.04em;
     color: $text-primary;
 
@@ -19,13 +18,11 @@ h6 {
 // Individual heading sizes
 h1 {
     font-size: clamp(rem(28), rem(16) + 2vw, rem(40));
-    // Customize as needed
     line-height: 1.2;
 }
 
 h2 {
     font-size: clamp(rem(22), rem(14) + 1.5vw, rem(36));
-    // Slightly taller for readability
     line-height: 1.3;
 }
 

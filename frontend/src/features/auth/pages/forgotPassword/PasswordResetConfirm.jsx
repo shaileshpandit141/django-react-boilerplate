@@ -10,6 +10,7 @@ import { forgotPasswordConfirmThunk } from '../../thunks/forgotPasswordThunk'
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { toast } from 'react-toastify'
 import DisplayError from '../../components/displayError/DisplayError'
+import useFormDataChange from 'hooks/useFormDataChange'
 
 export default function PasswordResetConfirm() {
   const dispatch = useDispatch()
@@ -24,20 +25,11 @@ export default function PasswordResetConfirm() {
     new_password2: '',
   }), [token, uid])
 
-  // Define a initial form data state.
-  const [formData, setFormData] = useState(initialFormData)
-  const [retryCount, setRetryCount] = useState(1)
-
   // Handle form data changes.
-  function handleFormDataChange(event) {
-    const { name, type, chacked, value } = event.target
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: type === 'checkbox' ? chacked : value
-      }
-    })
-  }
+  const [formData, handleFormDataChange] = useFormDataChange(initialFormData)
+
+  // Define a initial form data state.
+  const [retryCount, setRetryCount] = useState(1)
 
   // Handle the form submation.
   const handleFormSubmit = useCallback((event) => {

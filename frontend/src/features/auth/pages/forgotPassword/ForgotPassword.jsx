@@ -11,6 +11,7 @@ import { useForgotPasswordSelector } from '../../hooks/useForgotPasswordSelector
 import { resetForgotPasswordState } from '../../slices/forgotPasswordSlice'
 import { toast } from 'react-toastify'
 import DisplayError from '../../components/displayError/DisplayError'
+import useFormDataChange from 'hooks/useFormDataChange'
 
 export default function ForgotPassword() {
   const dispatch = useDispatch()
@@ -21,20 +22,11 @@ export default function ForgotPassword() {
     email: '',
   }), [])
 
-  // Define a initial form data state.
-  const [formData, setFormData] = useState(initialFormData)
-  const [retryCount, setRetryCount] = useState(1)
-
   // Handle form data changes.
-  function handleFormDataChange(event) {
-    const { name, type, chacked, value } = event.target
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: type === 'checkbox' ? chacked : value
-      }
-    })
-  }
+  const [formData, handleFormDataChange] = useFormDataChange(initialFormData)
+
+  // Define a initial form data state.
+  const [retryCount, setRetryCount] = useState(1)
 
   // Handle submission of form.
   const handleFormSubmit = useCallback((event) => {

@@ -11,6 +11,7 @@ import { useResendVerificationKeySelector } from '../../hooks/useResendVerificat
 import { resendVerificationKeyThunk } from '../../thunks/resendVerificationKeyThunk'
 import { toast } from 'react-toastify'
 import DisplayError from '../../components/displayError/DisplayError'
+import useFormDataChange from 'hooks/useFormDataChange'
 
 export default function ResendVerificationKey(props) {
   const dispatch = useDispatch()
@@ -21,20 +22,11 @@ export default function ResendVerificationKey(props) {
     username: '',
   }), [])
 
-  // Define a initial form data state.
-  const [formData, setFormData] = useState(initialFormData)
-  const [retryCount, setRetryCount] = useState(1)
-
   // Handle form data changes.
-  function handleFormDataChange(event) {
-    const { name, type, chacked, value } = event.target
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: type === 'checkbox' ? chacked : value
-      }
-    })
-  }
+  const [formData, handleFormDataChange] = useFormDataChange(initialFormData)
+
+  // Define a initial form data state.
+  const [retryCount, setRetryCount] = useState(1)
 
   // Handle the form submation.
   const handleFormSubmit = useCallback((event) => {
